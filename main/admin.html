@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel Admin — Ruang Pameran TillRea</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #0b0c10; color: #e2e8f0; font-family: "Plus Jakarta Sans", system-ui, sans-serif; font-weight: 300; }
+      .wrap { max-width: 860px; margin: 0 auto; padding: 40px 20px 80px; }
+      .kicker { font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: #d4af37; }
+      h1 { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 34px; margin: 8px 0 6px; color: #fff; }
+      h2 { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 22px; margin: 36px 0 14px; color: #fff; }
+      p.sub { color: #94a3b8; font-size: 14px; line-height: 1.6; margin: 0 0 8px; }
+      .card { background: #0f1117; border: 1px solid rgba(255,255,255,.09); border-radius: 16px; padding: 22px; margin-top: 18px; }
+      label { display: block; font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: #94a3b8; margin: 14px 0 6px; }
+      label:first-child { margin-top: 0; }
+      input, textarea { width: 100%; background: #0b0c10; border: 1px solid rgba(255,255,255,.14); border-radius: 10px; color: #e2e8f0; padding: 11px 13px; font-size: 14px; font-family: inherit; }
+      input:focus, textarea:focus { outline: none; border-color: #d4af37; }
+      textarea { resize: vertical; min-height: 74px; }
+      button { cursor: pointer; border: none; border-radius: 10px; padding: 11px 20px; font-size: 13px; font-weight: 600; letter-spacing: .04em; }
+      .btn-gold { background: linear-gradient(90deg, #fbbf24, #facc15); color: #000; margin-top: 18px; }
+      .btn-gold:hover { filter: brightness(1.08); }
+      .btn-ghost { background: rgba(255,255,255,.06); color: #cbd5e1; border: 1px solid rgba(255,255,255,.12); }
+      .btn-danger { background: rgba(239,68,68,.12); color: #fca5a5; border: 1px solid rgba(239,68,68,.35); padding: 7px 13px; font-size: 12px; }
+      .msg { margin-top: 14px; font-size: 13px; min-height: 18px; }
+      .msg.ok { color: #6ee7b7; }
+      .msg.err { color: #fca5a5; }
+      .item { display: flex; gap: 14px; justify-content: space-between; align-items: flex-start; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+      .item:last-child { border-bottom: none; }
+      .item .lbl { font-family: "Space Mono", monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #d4af37; }
+      .item .ttl { font-family: "Fraunces", Georgia, serif; font-size: 18px; color: #fff; margin: 3px 0; }
+      .item .url { font-family: "Space Mono", monospace; font-size: 12px; color: #7dd3fc; word-break: break-all; }
+      .item .dsc { font-size: 13px; color: #94a3b8; line-height: 1.55; margin-top: 4px; }
+      .topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+      a { color: #d4af37; }
+      .hidden { display: none; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <div>
+          <div class="kicker">TillRea Virtual Exhibition</div>
+          <h1>Panel Admin Ruang Pameran</h1>
+          <p class="sub">Tambah atau hapus alamat web yang tampil sebagai kartu karya di Ruang Pameran lobi utama. Perubahan langsung tampil di <a href="/">tillrea.my.id</a>.</p>
+        </div>
+        <button class="btn-ghost hidden" id="btnKeluar" type="button">Keluar</button>
+      </div>
+
+      <div class="card" id="kotakToken">
+        <label for="token">Token Admin</label>
+        <input type="password" id="token" placeholder="Tempel token admin di sini" autocomplete="off" />
+        <button class="btn-gold" id="btnMasuk" type="button">Masuk Panel</button>
+        <div class="msg" id="msgToken"></div>
+      </div>
+
+      <div id="panelUtama" class="hidden">
+        <h2>Tambah Karya / Alamat Web Baru</h2>
+        <div class="card">
+          <label for="fJudul">Judul Karya</label>
+          <input type="text" id="fJudul" placeholder="cth: Portal Demo Interaktif" maxlength="120" />
+          <label for="fUrl">Alamat Web (URL)</label>
+          <input type="text" id="fUrl" placeholder="cth: demo.tillrea.my.id atau https://contoh.com" maxlength="500" />
+          <label for="fLabel">Label Ruangan (opsional)</label>
+          <input type="text" id="fLabel" placeholder="cth: ROOM IV • Ruang Eksperimen" maxlength="80" />
+          <label for="fDeskripsi">Deskripsi Singkat (opsional)</label>
+          <textarea id="fDeskripsi" placeholder="Satu-dua kalimat tentang karya ini…" maxlength="600"></textarea>
+          <button class="btn-gold" id="btnTambah" type="button">+ Tambahkan ke Ruang Pameran</button>
+          <div class="msg" id="msgForm"></div>
+        </div>
+
+        <h2>Sedang Dipamerkan</h2>
+        <div class="card" id="daftar"><p class="sub">Memuat…</p></div>
+      </div>
+    </div>
+
+    <script>
+      var KEY = 'pameranAdminToken';
+      function token() { return sessionStorage.getItem(KEY) || ''; }
+      function el(id) { return document.getElementById(id); }
+      function esc(s) {
+        return String(s || '').replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+      function api(path, method, body) {
+        var opts = { method: method || 'GET', headers: { 'Content-Type': 'application/json', 'X-Admin-Token': token() } };
+        if (body) opts.body = JSON.stringify(body);
+        return fetch(path, opts).then(function (r) {
+          return r.json().then(function (d) { return { status: r.status, data: d }; });
+        });
+      }
+      function render(items) {
+        var box = el('daftar');
+        if (!items || !items.length) {
+          box.innerHTML = '<p class="sub">Belum ada karya yang dipamerkan. Tambahkan lewat formulir di atas.</p>';
+          return;
+        }
+        box.innerHTML = items.map(function (it) {
+          return '<div class="item"><div>' +
+            (it.label ? '<div class="lbl">' + esc(it.label) + '</div>' : '') +
+            '<div class="ttl">' + esc(it.title) + '</div>' +
+            '<a class="url" href="' + esc(it.url) + '" target="_blank" rel="noopener noreferrer">' + esc(it.url) + '</a>' +
+            (it.description ? '<div class="dsc">' + esc(it.description) + '</div>' : '') +
+            '</div><button class="btn-danger" type="button" data-hapus="' + esc(it.id) + '">Hapus</button></div>';
+        }).join('');
+        Array.prototype.forEach.call(box.querySelectorAll('[data-hapus]'), function (b) {
+          b.addEventListener('click', function () { hapus(b.getAttribute('data-hapus')); });
+        });
+      }
+      function muatDaftar() {
+        fetch('/api/pameran').then(function (r) { return r.json(); }).then(function (d) { render(d.items); });
+      }
+      function hapus(id) {
+        if (!confirm('Hapus karya ini dari Ruang Pameran?')) return;
+        api('/api/pameran/delete', 'POST', { id: id }).then(function (res) {
+          if (res.status === 200) { render(res.data.items); pesan('msgForm', 'Karya dihapus.', true); }
+          else pesan('msgForm', 'Gagal menghapus: ' + (res.data.error || res.status), false);
+        });
+      }
+      function pesan(id, teks, ok) {
+        var m = el(id); m.textContent = teks; m.className = 'msg ' + (ok ? 'ok' : 'err');
+      }
+      function masuk() {
+        el('kotakToken').classList.add('hidden');
+        el('panelUtama').classList.remove('hidden');
+        el('btnKeluar').classList.remove('hidden');
+        muatDaftar();
+      }
+      el('btnMasuk').addEventListener('click', function () {
+        var t = el('token').value.trim();
+        if (!t) { pesan('msgToken', 'Isi token dulu ya.', false); return; }
+        sessionStorage.setItem(KEY, t);
+        // Verifikasi token: hapus id yang tidak ada (tidak mengubah data bila token benar).
+        api('/api/pameran/delete', 'POST', { id: '__cek_token__' }).then(function (res) {
+          if (res.status === 200) { pesan('msgToken', '', true); masuk(); }
+          else { sessionStorage.removeItem(KEY); pesan('msgToken', 'Token salah. Cek lagi ya.', false); }
+        }).catch(function () { pesan('msgToken', 'Tidak bisa menghubungi server.', false); });
+      });
+      el('btnKeluar').addEventListener('click', function () {
+        sessionStorage.removeItem(KEY); location.reload();
+      });
+      el('btnTambah').addEventListener('click', function () {
+        var body = {
+          title: el('fJudul').value.trim(),
+          url: el('fUrl').value.trim(),
+          label: el('fLabel').value.trim(),
+          description: el('fDeskripsi').value.trim()
+        };
+        if (!body.title || !body.url) { pesan('msgForm', 'Judul dan alamat web wajib diisi.', false); return; }
+        api('/api/pameran', 'POST', body).then(function (res) {
+          if (res.status === 201) {
+            render(res.data.items);
+            el('fJudul').value = ''; el('fUrl').value = ''; el('fLabel').value = ''; el('fDeskripsi').value = '';
+            pesan('msgForm', 'Berhasil ditambahkan. Cek di lobi utama ya.', true);
+          } else {
+            pesan('msgForm', 'Gagal: ' + (res.data.error || res.status), false);
+          }
+        }).catch(function () { pesan('msgForm', 'Tidak bisa menghubungi server.', false); });
+      });
+      if (token()) masuk();
+    </script>
+  </body>
+</html>
