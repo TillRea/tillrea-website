@@ -9,11 +9,72 @@
     <!-- Google Fonts for Editorial Luxury Museum Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script type="module" crossorigin src="./assets/index-DTCDkgSa.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-pidKlyO1.css">
+    <style>
+      /* Override font oleh Muse: Cinzel -> Fraunces (serif editorial yang lebih enak dibaca) */
+      :root {
+        --font-cinzel: "Fraunces", Georgia, serif;
+        --font-serif: "Fraunces", Georgia, serif;
+      }
+    </style>
   </head>
   <body class="bg-[#0b0c10] text-[#e2e8f0] antialiased selection:bg-[#d4af37]/30 selection:text-amber-200 overflow-x-hidden">
     <div id="root"></div>
+    <script>
+      // Override oleh Muse: kosongkan section kartu ruangan pameran (ROOM I/II/III).
+      // Target utama: <section id="ruang-pameran">, diverifikasi memuat ketiga judul ruangan.
+      // Cadangan: panjat DOM dari judul pertama; blok harus memuat ketiga judul + tepat 3
+      // tombol "Kunjungi Paviliun" dan tidak memuat footer. Teks dibandingkan tanpa
+      // memedulikan huruf besar/kecil dan whitespace (tombol tampil uppercase via CSS).
+      (function () {
+        var TITLES = ['sistem pendukung keputusan', 'scraft product web refactor', 'pesona kaliwungu'];
+        function norm(s) { return (s || '').toLowerCase().replace(/\s+/g, ''); }
+        function hasAll(el) {
+          var txt = norm(el.textContent);
+          return TITLES.every(function (t) { return txt.indexOf(norm(t)) !== -1; });
+        }
+        function isRoomsBlock(el) {
+          if (!hasAll(el)) return false;
+          var btns = norm(el.textContent).split('kunjungipaviliun').length - 1;
+          return btns === 3 && !el.querySelector('footer');
+        }
+        function findAnchor() {
+          var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+          var n;
+          while ((n = w.nextNode())) {
+            if (n.nodeValue && norm(n.nodeValue).indexOf(norm(TITLES[0])) !== -1) return n.parentElement;
+          }
+          return null;
+        }
+        function findBlock() {
+          var byId = document.getElementById('ruang-pameran');
+          if (byId && hasAll(byId)) return byId;
+          var anchor = findAnchor();
+          if (!anchor) return null;
+          var sec = anchor.closest('section');
+          if (sec && isRoomsBlock(sec)) return sec;
+          var el = anchor;
+          while (el && el !== document.body) {
+            if (isRoomsBlock(el)) return el;
+            el = el.parentElement;
+          }
+          return null;
+        }
+        function hide() {
+          var b = findBlock();
+          if (b) b.style.setProperty('display', 'none', 'important');
+        }
+        var obs = new MutationObserver(hide);
+        function start() {
+          hide();
+          if (document.body) obs.observe(document.body, { childList: true, subtree: true });
+          setTimeout(function () { obs.disconnect(); }, 15000);
+        }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+        else start();
+      })();
+    </script>
   </body>
 </html>
