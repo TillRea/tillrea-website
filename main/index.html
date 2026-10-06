@@ -87,6 +87,13 @@
     <script>
       // Override oleh Muse (2): navigasi tanpa mengubah URL + Ruang Pameran dinamis.
       (function () {
+        // --- 0. Alamat harus selalu bersih: buang hash apa pun yang terlanjur ada di URL.
+        function bersihkanUrl() {
+          if (window.location.hash) {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+          }
+        }
+        bersihkanUrl();
         // --- 1. Klik menu/anchor: scroll halus TANPA mengubah alamat (hash) di URL.
         document.addEventListener('click', function (e) {
           var a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
@@ -99,8 +106,9 @@
           for (var i = 0; i < cands.length; i++) {
             if (cands[i].getClientRects().length) { target = cands[i]; break; }
           }
-          if (!target) return;
+          if (!target) { bersihkanUrl(); return; }
           e.preventDefault();
+          bersihkanUrl();
           var y = target.getBoundingClientRect().top + window.scrollY - 84;
           window.scrollTo({ top: y < 0 ? 0 : y, behavior: 'smooth' });
         }, true);

@@ -51,11 +51,11 @@
         <button class="btn-ghost hidden" id="btnKeluar" type="button">Keluar</button>
       </div>
 
-      <div class="card" id="kotakToken">
-        <label for="token">Token Admin</label>
-        <input type="password" id="token" placeholder="Tempel token admin di sini" autocomplete="off" />
+      <div class="card" id="kotakPin">
+        <label for="pin">PIN Admin</label>
+        <input type="password" id="pin" placeholder="Masukkan PIN admin" inputmode="numeric" autocomplete="off" />
         <button class="btn-gold" id="btnMasuk" type="button">Masuk Panel</button>
-        <div class="msg" id="msgToken"></div>
+        <div class="msg" id="msgPin"></div>
       </div>
 
       <div id="panelUtama" class="hidden">
@@ -79,7 +79,7 @@
     </div>
 
     <script>
-      var KEY = 'pameranAdminToken';
+      var KEY = 'pameranAdminPin';
       function token() { return sessionStorage.getItem(KEY) || ''; }
       function el(id) { return document.getElementById(id); }
       function esc(s) {
@@ -88,7 +88,7 @@
         });
       }
       function api(path, method, body) {
-        var opts = { method: method || 'GET', headers: { 'Content-Type': 'application/json', 'X-Admin-Token': token() } };
+        var opts = { method: method || 'GET', headers: { 'Content-Type': 'application/json', 'X-Admin-Pin': token() } };
         if (body) opts.body = JSON.stringify(body);
         return fetch(path, opts).then(function (r) {
           return r.json().then(function (d) { return { status: r.status, data: d }; });
@@ -126,20 +126,21 @@
         var m = el(id); m.textContent = teks; m.className = 'msg ' + (ok ? 'ok' : 'err');
       }
       function masuk() {
-        el('kotakToken').classList.add('hidden');
+        el('kotakPin').classList.add('hidden');
         el('panelUtama').classList.remove('hidden');
         el('btnKeluar').classList.remove('hidden');
         muatDaftar();
       }
       el('btnMasuk').addEventListener('click', function () {
-        var t = el('token').value.trim();
-        if (!t) { pesan('msgToken', 'Isi token dulu ya.', false); return; }
+        var t = el('pin').value.trim();
+        if (!t) { pesan('msgPin', 'Isi PIN dulu ya.', false); return; }
         sessionStorage.setItem(KEY, t);
-        // Verifikasi token: hapus id yang tidak ada (tidak mengubah data bila token benar).
-        api('/api/pameran/delete', 'POST', { id: '__cek_token__' }).then(function (res) {
-          if (res.status === 200) { pesan('msgToken', '', true); masuk(); }
-          else { sessionStorage.removeItem(KEY); pesan('msgToken', 'Token salah. Cek lagi ya.', false); }
-        }).catch(function () { pesan('msgToken', 'Tidak bisa menghubungi server.', false); });
+        // Verifikasi PIN: hapus id yang tidak ada (tidak mengubah data bila PIN benar).
+        api('/api/pameran/delete', 'POST', { id: '__cek_pin__' }).then(function (res) {
+          if (res.status === 200) { pesan('msgPin', '', true); masuk(); }
+          else if (res.status === 429) { sessionStorage.removeItem(KEY); pesan('msgPin', 'Terlalu banyak percobaan salah. Tunggu beberapa menit ya.', false); }
+          else { sessionStorage.removeItem(KEY); pesan('msgPin', 'PIN salah. Cek lagi ya.', false); }
+        }).catch(function () { pesan('msgPin', 'Tidak bisa menghubungi server.', false); });
       });
       el('btnKeluar').addEventListener('click', function () {
         sessionStorage.removeItem(KEY); location.reload();
