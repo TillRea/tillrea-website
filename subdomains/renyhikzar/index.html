@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#08070d">
+<meta name="theme-color" content="#fffaf1">
 <title>Reny HikZar Collection — Jahitan Rapi, Pas di Badan | Penjahit di Sinanggul, Mlonggo, Jepara</title>
 <meta name="description" content="Reny HikZar Collection — toko penjahit di Sinanggul, Mlonggo, Jepara. Jahit pria, wanita, seragam, vermak, custom order, dan jahit kilat. Buka setiap hari 07.00–17.00 WIB.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,114 +11,115 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --black:#f5f5f7; --ink:#f5f5f7; --grey:rgba(235,235,245,.62); --line:rgba(255,255,255,.14);
-    --soft:rgba(255,255,255,.04); --white:#ffffff;
-    --glass:linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.04));
-    --glass-border:rgba(255,255,255,.18);
-    --shadow:0 18px 50px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.14);
+    --black:#1c1917; --ink:#292524; --grey:#78716c; --line:rgba(120,96,60,.16);
+    --soft:rgba(255,255,255,.38); --white:#ffffff;
+    --glass-btn:linear-gradient(135deg, rgba(255,255,255,.75), rgba(255,255,255,.28) 55%, rgba(255,255,255,.5));
+    --glass-card:linear-gradient(145deg, rgba(255,255,255,.68), rgba(255,255,255,.34));
+    --glass-border:rgba(255,255,255,.85);
+    --shadow:0 14px 36px rgba(120,84,40,.13), inset 0 1px 0 rgba(255,255,255,.95), inset 0 -1px 0 rgba(255,255,255,.35);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;color:var(--ink);line-height:1.6;position:relative;min-height:100vh;
     background:
-      radial-gradient(900px 620px at 12% -6%, rgba(147,51,234,.50), transparent 62%),
-      radial-gradient(860px 600px at 88% 8%, rgba(249,115,22,.38), transparent 60%),
-      radial-gradient(1000px 760px at 50% 58%, rgba(37,99,235,.30), transparent 65%),
-      radial-gradient(820px 620px at 88% 96%, rgba(236,72,153,.26), transparent 62%),
-      linear-gradient(180deg,#08070d 0%, #0b0a14 45%, #060609 100%);
+      radial-gradient(880px 560px at 8% -4%, rgba(255,205,150,.55), transparent 62%),
+      radial-gradient(760px 520px at 94% 10%, rgba(255,225,190,.65), transparent 60%),
+      radial-gradient(900px 700px at 50% 55%, rgba(255,255,255,.75), transparent 65%),
+      radial-gradient(760px 560px at 92% 96%, rgba(240,205,160,.45), transparent 62%),
+      linear-gradient(180deg,#fffaf1 0%, #fdf6ea 46%, #fbf3e4 100%);
     background-attachment:fixed;}
   a{text-decoration:none;color:inherit}
   .wrap{max-width:1140px;margin:0 auto;padding:0 24px;position:relative}
-  /* Header — frosted glass ala Apple */
-  header{position:sticky;top:0;z-index:50;background:rgba(10,10,16,.55);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.10)}
+  /* Header — kaca cream transparan */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,250,240,.55);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid rgba(255,255,255,.7);box-shadow:0 8px 30px rgba(120,84,40,.07)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .logo{font-weight:800;font-size:1.25rem;letter-spacing:-.02em;color:#fff}
-  .logo span{color:rgba(255,255,255,.45);font-weight:600}
-  .menu{display:flex;gap:28px;font-size:.95rem;font-weight:500;color:rgba(255,255,255,.82)}
-  .menu a:hover{color:#fff;text-decoration:underline;text-underline-offset:5px}
-  .btn{display:inline-block;background:rgba(255,255,255,.96);color:#0a0a10;padding:12px 22px;border-radius:999px;font-weight:700;font-size:.95rem;border:1px solid rgba(255,255,255,.9);transition:.25s;box-shadow:0 10px 30px rgba(0,0,0,.28)}
-  .btn:hover{transform:translateY(-1px) scale(1.01);box-shadow:0 16px 38px rgba(0,0,0,.36)}
-  .btn-outline{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.16)}
-  .btn-outline:hover{background:rgba(255,255,255,.16)}
-  .btn-sm{padding:9px 18px;font-size:.9rem}
-  .burger{display:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:4px 10px;font-size:1.3rem;cursor:pointer;color:#fff}
+  .logo{font-weight:800;font-size:1.25rem;letter-spacing:-.02em;color:var(--black)}
+  .logo span{color:#b08954;font-weight:600}
+  .menu{display:flex;gap:28px;font-size:.95rem;font-weight:500;color:#57534e}
+  .menu a:hover{color:#000;text-decoration:underline;text-underline-offset:5px}
+  /* TOMBOL GLASS — transparan, blur, kayak bubble / kaca */
+  .btn{display:inline-block;background:var(--glass-btn);color:#1c1917;padding:13px 24px;border-radius:999px;font-weight:700;font-size:.95rem;border:1px solid var(--glass-border);transition:.25s;backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);box-shadow:0 12px 30px rgba(120,84,40,.16), inset 0 1px 0 rgba(255,255,255,1), inset 0 -6px 14px rgba(255,255,255,.35), inset 1px 0 0 rgba(255,255,255,.6)}
+  .btn:hover{transform:translateY(-2px);background:linear-gradient(135deg, rgba(255,255,255,.9), rgba(255,255,255,.42) 55%, rgba(255,255,255,.62));box-shadow:0 18px 38px rgba(120,84,40,.20), inset 0 1px 0 #fff, inset 0 -6px 14px rgba(255,255,255,.45)}
+  .btn-outline{background:linear-gradient(135deg, rgba(255,255,255,.45), rgba(255,255,255,.16));color:#1c1917;border:1px solid rgba(255,255,255,.75)}
+  .btn-sm{padding:10px 19px;font-size:.9rem}
+  .burger{display:none;background:var(--glass-btn);border:1px solid var(--glass-border);border-radius:999px;padding:5px 13px;font-size:1.25rem;cursor:pointer;color:var(--black);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:var(--shadow)}
   /* Hero */
-  .hero{padding:84px 0 72px}
+  .hero{padding:80px 0 68px}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
-  .badge{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.14em;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 14px;color:rgba(255,255,255,.85);background:rgba(255,255,255,.07);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin-bottom:22px}
-  h1{font-size:clamp(2.6rem,6vw,4.2rem);line-height:1.04;letter-spacing:-.035em;font-weight:800;color:#fff;text-shadow:0 6px 40px rgba(0,0,0,.35)}
-  .hero p.lead{margin:22px 0 30px;font-size:1.12rem;color:var(--grey);max-width:34rem}
+  .badge{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.14em;border:1px solid rgba(255,255,255,.85);border-radius:999px;padding:8px 15px;color:#78716c;background:rgba(255,255,255,.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:inset 0 1px 0 #fff, 0 8px 22px rgba(120,84,40,.09);margin-bottom:22px}
+  h1{font-size:clamp(2.5rem,5.6vw,3.9rem);line-height:1.06;letter-spacing:-.03em;font-weight:800;color:var(--black)}
+  .hero p.lead{margin:22px 0 30px;font-size:1.1rem;color:var(--grey);max-width:34rem}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-  .hero-facts{display:flex;gap:0;margin-top:42px;border:1px solid var(--glass-border);border-radius:20px;overflow:hidden;background:var(--glass);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);box-shadow:var(--shadow)}
+  .hero-facts{display:flex;gap:0;margin-top:42px;border:1px solid rgba(255,255,255,.85);border-radius:22px;overflow:hidden;background:var(--glass-card);backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);box-shadow:var(--shadow)}
   .hero-facts div{flex:1;padding:16px 18px}
-  .hero-facts div + div{border-left:1px solid rgba(255,255,255,.12)}
-  .hero-facts strong{display:block;font-size:.95rem;color:#fff}
+  .hero-facts div + div{border-left:1px solid rgba(120,96,60,.12)}
+  .hero-facts strong{display:block;font-size:.95rem;color:var(--black)}
   .hero-facts small{color:var(--grey);font-size:.82rem}
-  /* Motif tenun dalam bingkai glass */
-  .tenun{border-radius:28px;min-height:420px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.25);
-    box-shadow:0 30px 80px rgba(0,0,0,.5), 0 0 90px rgba(249,115,22,.22), inset 0 1px 0 rgba(255,255,255,.35);
+  /* Motif tenun */
+  .tenun{border-radius:28px;min-height:420px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.8);
+    box-shadow:0 28px 64px rgba(120,84,40,.22), inset 0 1px 0 rgba(255,255,255,.5);
     background:
       repeating-linear-gradient(45deg, rgba(255,255,255,.07) 0 10px, transparent 10px 20px),
       repeating-linear-gradient(-45deg, rgba(0,0,0,.18) 0 14px, transparent 14px 28px),
       linear-gradient(135deg,#2b2118 0%, #3a2a1a 34%, #d18a24 34.2%, #9c6216 52%, #241a10 52.2%, #171208 100%);}
-  .tenun::after{content:"KOLEKSI TENUN — RENY HIKZAR COLLECTION";position:absolute;left:20px;bottom:18px;color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.14em;background:rgba(10,10,14,.48);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.22);padding:8px 12px;border-radius:999px}
+  .tenun::after{content:"KOLEKSI TENUN — RENY HIKZAR COLLECTION";position:absolute;left:20px;bottom:18px;color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.14em;background:rgba(28,20,10,.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.35);padding:8px 12px;border-radius:999px}
   /* Sections */
-  section{padding:76px 0}
-  .alt{background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,0));border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
-  .kicker{font-size:.75rem;font-weight:700;letter-spacing:.16em;color:rgba(255,255,255,.55);text-transform:uppercase;margin-bottom:10px}
-  h2{font-size:clamp(1.9rem,3.8vw,2.7rem);letter-spacing:-.025em;line-height:1.12;color:#fff;margin-bottom:14px}
+  section{padding:74px 0}
+  .alt{background:linear-gradient(180deg, rgba(255,255,255,.42), rgba(255,255,255,.10));border-top:1px solid rgba(255,255,255,.65);border-bottom:1px solid rgba(255,255,255,.65)}
+  .kicker{font-size:.75rem;font-weight:700;letter-spacing:.16em;color:#a08c6a;text-transform:uppercase;margin-bottom:10px}
+  h2{font-size:clamp(1.85rem,3.6vw,2.55rem);letter-spacing:-.025em;line-height:1.13;color:var(--black);margin-bottom:14px}
   .sub{color:var(--grey);max-width:40rem;margin-bottom:40px;font-size:1.02rem}
-  /* Cards — glass */
+  /* Cards — kaca cream lembut */
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-  .card{background:var(--glass);border:1px solid var(--glass-border);border-radius:24px;padding:28px;backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);box-shadow:var(--shadow);transition:.25s}
-  .card:hover{transform:translateY(-3px);background:linear-gradient(145deg, rgba(255,255,255,.17), rgba(255,255,255,.06));border-color:rgba(255,255,255,.28)}
-  .card .num{font-size:.8rem;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.12em}
-  .card h3{margin:10px 0 8px;font-size:1.14rem;color:#fff;letter-spacing:-.01em}
+  .card{background:var(--glass-card);border:1px solid rgba(255,255,255,.85);border-radius:24px;padding:28px;backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%);box-shadow:var(--shadow);transition:.25s}
+  .card:hover{transform:translateY(-3px);background:linear-gradient(145deg, rgba(255,255,255,.82), rgba(255,255,255,.45))}
+  .card .num{font-size:.8rem;font-weight:700;color:#b08954;letter-spacing:.12em}
+  .card h3{margin:10px 0 8px;font-size:1.14rem;color:var(--black);letter-spacing:-.01em}
   .card p{color:var(--grey);font-size:.95rem;margin-bottom:16px}
-  .card a.wa{font-weight:700;font-size:.92rem;color:#fff}
-  .card a.wa:hover{text-decoration:underline;text-underline-offset:4px}
+  .card a.wa{font-weight:700;font-size:.92rem;color:var(--black);display:inline-block;background:var(--glass-btn);border:1px solid rgba(255,255,255,.85);border-radius:999px;padding:8px 16px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 8px 20px rgba(120,84,40,.12), inset 0 1px 0 #fff}
+  .card a.wa:hover{transform:translateY(-1px)}
   /* Steps */
   .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-  .step{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:20px;backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%);box-shadow:var(--shadow)}
-  .step strong{display:block;font-size:1.55rem;letter-spacing:-.02em;color:#fff}
-  .step h3{font-size:1rem;margin:6px 0 6px;color:#fff}
+  .step{background:var(--glass-card);border:1px solid rgba(255,255,255,.85);border-radius:22px;padding:20px;backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);box-shadow:var(--shadow)}
+  .step strong{display:block;font-size:1.55rem;letter-spacing:-.02em;color:#b08954}
+  .step h3{font-size:1rem;margin:6px 0 6px;color:var(--black)}
   .step p{font-size:.9rem;color:var(--grey)}
-  /* Harga / CTA banner — glass berwarna */
-  .price-banner{border-radius:28px;padding:46px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;color:#fff;border:1px solid rgba(255,255,255,.26);box-shadow:0 30px 80px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.25);backdrop-filter:blur(24px) saturate(170%);-webkit-backdrop-filter:blur(24px) saturate(170%);
-    background:linear-gradient(120deg, rgba(147,51,234,.42), rgba(37,99,235,.34) 46%, rgba(249,115,22,.40));}
-  .price-banner h2{color:#fff;margin-bottom:8px}
-  .price-banner p{color:rgba(255,255,255,.82);max-width:32rem}
-  .price-banner .btn{background:#fff;color:#0a0a10;border-color:#fff}
+  /* Harga / CTA banner — glass cream hangat, bukan gelap */
+  .price-banner{border-radius:28px;padding:46px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;color:var(--ink);border:1px solid rgba(255,255,255,.9);box-shadow:0 26px 60px rgba(120,84,40,.18), inset 0 1px 0 #fff;backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);
+    background:linear-gradient(120deg, rgba(255,226,178,.75), rgba(255,255,255,.5) 50%, rgba(255,214,165,.68));}
+  .price-banner h2{color:var(--black);margin-bottom:8px}
+  .price-banner p{color:#6d5c44;max-width:32rem}
+  .price-banner .btn{background:var(--glass-btn);color:#1c1917;border-color:rgba(255,255,255,.9)}
   /* Kontak */
   .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:28px;align-items:start}
-  .info-row{padding:18px 20px;border:1px solid var(--glass-border);border-radius:18px;background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);margin-bottom:14px;box-shadow:var(--shadow)}
-  .info-row small{display:block;color:rgba(255,255,255,.55);font-weight:700;letter-spacing:.12em;font-size:.72rem;text-transform:uppercase;margin-bottom:5px}
-  .info-row strong{font-size:1.05rem;color:#fff}
+  .info-row{padding:18px 20px;border:1px solid rgba(255,255,255,.85);border-radius:20px;background:var(--glass-card);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);margin-bottom:14px;box-shadow:var(--shadow)}
+  .info-row small{display:block;color:#a08c6a;font-weight:700;letter-spacing:.12em;font-size:.72rem;text-transform:uppercase;margin-bottom:5px}
+  .info-row strong{font-size:1.05rem;color:var(--black)}
   .info-row strong a:hover{text-decoration:underline}
-  .map{border:1px solid rgba(255,255,255,.25);border-radius:24px;overflow:hidden;min-height:340px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+  .map{border:1px solid rgba(255,255,255,.9);border-radius:24px;overflow:hidden;min-height:340px;box-shadow:0 26px 60px rgba(120,84,40,.18)}
   .map iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
-  /* Footer — dark glass */
-  footer{background:rgba(5,5,9,.72);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);color:#e4e4e7;padding:56px 0 28px;border-top:1px solid rgba(255,255,255,.10)}
+  /* Footer — cream gelap lembut / coklat hangat transparan */
+  footer{background:rgba(46,36,24,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);color:#f5ead9;padding:56px 0 28px;border-top:1px solid rgba(255,255,255,.25)}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:36px}
   footer .logo{color:#fff}
   footer h4{color:#fff;font-size:.95rem;margin-bottom:14px}
-  footer li{list-style:none;margin-bottom:9px;font-size:.93rem;color:rgba(235,235,245,.55)}
+  footer li{list-style:none;margin-bottom:9px;font-size:.93rem;color:rgba(245,234,217,.62)}
   footer li a:hover{color:#fff}
-  .copy{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;font-size:.85rem;color:rgba(235,235,245,.5);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  /* Floating WA — glass pill */
-  .wa-float{position:fixed;right:20px;bottom:20px;z-index:60;background:rgba(20,20,26,.55);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:14px 20px;font-weight:700;box-shadow:0 16px 44px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.2);backdrop-filter:blur(20px) saturate(170%);-webkit-backdrop-filter:blur(20px) saturate(170%);font-size:.95rem}
-  .wa-float:hover{background:rgba(40,40,52,.65)}
+  .copy{border-top:1px solid rgba(255,255,255,.16);padding-top:22px;font-size:.85rem;color:rgba(245,234,217,.55);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  /* Floating WA — bubble kaca */
+  .wa-float{position:fixed;right:20px;bottom:20px;z-index:60;background:var(--glass-btn);color:#1c1917;border:1px solid rgba(255,255,255,.9);border-radius:999px;padding:14px 21px;font-weight:700;box-shadow:0 16px 40px rgba(120,84,40,.25), inset 0 1px 0 #fff, inset 0 -6px 14px rgba(255,255,255,.4);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);font-size:.95rem}
+  .wa-float:hover{transform:translateY(-2px)}
   @media (max-width:900px){
     .hero-grid,.contact-grid{grid-template-columns:1fr}
     .grid3,.grid2,.foot-grid{grid-template-columns:1fr}
     .steps{grid-template-columns:1fr 1fr}
     .tenun{min-height:300px}
     .hero-facts{flex-direction:column}
-    .hero-facts div + div{border-left:0;border-top:1px solid rgba(255,255,255,.12)}
+    .hero-facts div + div{border-left:0;border-top:1px solid rgba(120,96,60,.12)}
   }
   @media (max-width:760px){
-    .menu{display:none;position:absolute;top:68px;left:16px;right:16px;background:rgba(12,12,20,.82);backdrop-filter:blur(24px) saturate(170%);-webkit-backdrop-filter:blur(24px) saturate(170%);border:1px solid rgba(255,255,255,.16);border-radius:20px;flex-direction:column;padding:18px 22px;gap:16px;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+    .menu{display:none;position:absolute;top:68px;left:16px;right:16px;background:rgba(255,250,240,.78);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);border:1px solid rgba(255,255,255,.85);border-radius:22px;flex-direction:column;padding:18px 22px;gap:16px;box-shadow:0 26px 54px rgba(120,84,40,.20)}
     .menu.open{display:flex}
     .burger{display:block}
     .nav .btn{display:none}
