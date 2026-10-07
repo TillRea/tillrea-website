@@ -3,114 +3,391 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Panel Admin — Ruang Pameran TillRea</title>
+    <title>Panel Admin — TillRea</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+      :root {
+        --bg: #f7f7f8; --panel: #ffffff; --border: #e6e6ea; --border-strong: #d4d4da;
+        --text: #17171c; --muted: #6b7280; --faint: #9ca3af;
+        --accent: #6d28d9; --accent-hover: #5b21b6; --accent-soft: #f3efff;
+        --danger: #dc2626; --danger-soft: #fef2f2; --ok: #059669; --ok-soft: #ecfdf5;
+        --amber: #d97706; --amber-soft: #fffbeb;
+        --radius: 14px; --shadow: 0 1px 2px rgba(16,16,20,.05), 0 8px 24px -12px rgba(16,16,20,.12);
+      }
       * { box-sizing: border-box; }
-      body { margin: 0; background: #0b0c10; color: #e2e8f0; font-family: "Plus Jakarta Sans", system-ui, sans-serif; font-weight: 300; }
-      .wrap { max-width: 860px; margin: 0 auto; padding: 40px 20px 80px; }
-      .kicker { font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: #d4af37; }
-      h1 { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 34px; margin: 8px 0 6px; color: #fff; }
-      h2 { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 22px; margin: 36px 0 14px; color: #fff; }
-      p.sub { color: #94a3b8; font-size: 14px; line-height: 1.6; margin: 0 0 8px; }
-      .card { background: #0f1117; border: 1px solid rgba(255,255,255,.09); border-radius: 16px; padding: 22px; margin-top: 18px; }
-      label { display: block; font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: #94a3b8; margin: 14px 0 6px; }
-      label:first-child { margin-top: 0; }
-      input, textarea, select { width: 100%; background: #0b0c10; border: 1px solid rgba(255,255,255,.14); border-radius: 10px; color: #e2e8f0; padding: 11px 13px; font-size: 14px; font-family: inherit; }
-      input:focus, textarea:focus, select:focus { outline: none; border-color: #d4af37; }
-      input[type="file"] { padding: 9px 13px; }
-      input[type="checkbox"] { width: auto; accent-color: #d4af37; }
-      .cek { display: flex; align-items: center; gap: 9px; margin-top: 16px; font-size: 14px; color: #e2e8f0; text-transform: none; letter-spacing: 0; font-family: inherit; }
-      .badge { display: inline-block; font-family: "Space Mono", monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #6ee7b7; border: 1px solid rgba(110,231,183,.4); border-radius: 999px; padding: 2px 9px; margin-left: 8px; vertical-align: middle; }
-      .btn-mini { background: rgba(255,255,255,.06); color: #cbd5e1; border: 1px solid rgba(255,255,255,.12); padding: 7px 13px; font-size: 12px; margin-right: 8px; }
-      .rowbtn { display: flex; flex-shrink: 0; }
-      textarea { resize: vertical; min-height: 74px; }
-      button { cursor: pointer; border: none; border-radius: 10px; padding: 11px 20px; font-size: 13px; font-weight: 600; letter-spacing: .04em; }
-      .btn-gold { background: linear-gradient(90deg, #fbbf24, #facc15); color: #000; margin-top: 18px; }
-      .btn-gold:hover { filter: brightness(1.08); }
-      .btn-ghost { background: rgba(255,255,255,.06); color: #cbd5e1; border: 1px solid rgba(255,255,255,.12); }
-      .btn-danger { background: rgba(239,68,68,.12); color: #fca5a5; border: 1px solid rgba(239,68,68,.35); padding: 7px 13px; font-size: 12px; }
-      .msg { margin-top: 14px; font-size: 13px; min-height: 18px; }
-      .msg.ok { color: #6ee7b7; }
-      .msg.err { color: #fca5a5; }
-      .item { display: flex; gap: 14px; justify-content: space-between; align-items: flex-start; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
-      .item:last-child { border-bottom: none; }
-      .item .lbl { font-family: "Space Mono", monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #d4af37; }
-      .item .ttl { font-family: "Fraunces", Georgia, serif; font-size: 18px; color: #fff; margin: 3px 0; }
-      .item .url { font-family: "Space Mono", monospace; font-size: 12px; color: #7dd3fc; word-break: break-all; }
-      .item .dsc { font-size: 13px; color: #94a3b8; line-height: 1.55; margin-top: 4px; }
-      .topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
-      a { color: #d4af37; }
-      .hidden { display: none; }
+      html, body { margin: 0; padding: 0; }
+      body { background: var(--bg); color: var(--text); font-family: "Inter", system-ui, -apple-system, sans-serif; font-size: 14px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      button { font-family: inherit; cursor: pointer; }
+      .hidden { display: none !important; }
+
+      /* ---------- Tombol & form ---------- */
+      .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 10px; border: 1px solid transparent; padding: 9px 16px; font-size: 13.5px; font-weight: 600; transition: background .15s, border-color .15s, box-shadow .15s; white-space: nowrap; }
+      .btn:disabled { opacity: .55; cursor: not-allowed; }
+      .btn-primary { background: var(--accent); color: #fff; }
+      .btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
+      .btn-ghost { background: var(--panel); border-color: var(--border); color: var(--text); }
+      .btn-ghost:hover { border-color: var(--border-strong); background: #fafafa; }
+      .btn-danger { background: var(--danger); color: #fff; }
+      .btn-danger:hover { background: #b91c1c; }
+      .btn-danger-soft { background: var(--danger-soft); color: var(--danger); border-color: #fecaca; }
+      .btn-danger-soft:hover { background: #fee2e2; }
+      .btn-sm { padding: 6px 12px; font-size: 12.5px; border-radius: 8px; }
+      .btn-lg { padding: 12px 20px; font-size: 14.5px; border-radius: 11px; width: 100%; }
+      label.lbl { display: block; font-size: 12.5px; font-weight: 600; color: var(--text); margin: 16px 0 6px; }
+      label.lbl:first-child { margin-top: 0; }
+      .hint { font-size: 12px; color: var(--muted); margin-top: 5px; }
+      input[type="text"], input[type="password"], textarea, select {
+        width: 100%; background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+        color: var(--text); padding: 10px 12px; font-size: 14px; font-family: inherit; transition: border-color .15s, box-shadow .15s;
+      }
+      input:focus, textarea:focus, select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+      textarea { resize: vertical; min-height: 72px; }
+      .suffix-wrap { position: relative; }
+      .suffix-wrap input { padding-right: 108px; }
+      .suffix-wrap .suffix { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--faint); font-size: 13px; pointer-events: none; }
+      .switch-row { display: flex; align-items: flex-start; gap: 10px; margin-top: 18px; padding: 13px 14px; background: #fafafa; border: 1px solid var(--border); border-radius: 11px; }
+      .switch-row input[type="checkbox"] { width: 17px; height: 17px; margin-top: 2px; accent-color: var(--accent); flex-shrink: 0; }
+      .switch-row .t { font-weight: 600; font-size: 13.5px; }
+      .switch-row .d { font-size: 12.5px; color: var(--muted); }
+      .detail-off { opacity: .45; pointer-events: none; }
+
+      /* ---------- Login ---------- */
+      .login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; background: radial-gradient(720px 380px at 50% -80px, #ede9fe 0%, var(--bg) 62%); }
+      .login-card { width: 100%; max-width: 392px; background: var(--panel); border: 1px solid var(--border); border-radius: 18px; box-shadow: var(--shadow); padding: 34px 32px 28px; }
+      .logo-mark { width: 44px; height: 44px; border-radius: 12px; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 21px; box-shadow: 0 8px 18px -8px rgba(109,40,217,.55); }
+      .login-card h1 { font-size: 21px; font-weight: 700; margin: 18px 0 4px; letter-spacing: -.01em; }
+      .login-card p { color: var(--muted); font-size: 13.5px; margin: 0 0 8px; }
+      .msg { font-size: 13px; min-height: 19px; margin-top: 12px; }
+      .msg.ok { color: var(--ok); }
+      .msg.err { color: var(--danger); }
+
+      /* ---------- Shell aplikasi ---------- */
+      .app { display: grid; grid-template-columns: 250px minmax(0, 1fr); min-height: 100vh; }
+      .sidebar { background: var(--panel); border-right: 1px solid var(--border); padding: 20px 14px; display: flex; flex-direction: column; gap: 4px; position: sticky; top: 0; height: 100vh; }
+      .brand { display: flex; align-items: center; gap: 11px; padding: 2px 8px 18px; }
+      .brand .logo-mark { width: 36px; height: 36px; font-size: 17px; border-radius: 10px; }
+      .brand .name { font-weight: 700; font-size: 15px; line-height: 1.2; }
+      .brand .sub { font-size: 11.5px; color: var(--muted); }
+      .nav-label { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); padding: 12px 10px 6px; }
+      .nav-item { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; background: transparent; border: none; border-radius: 9px; padding: 9px 10px; font-size: 13.5px; font-weight: 500; color: #3f3f46; transition: background .12s, color .12s; }
+      .nav-item svg { width: 17px; height: 17px; flex-shrink: 0; }
+      .nav-item:hover { background: #f4f4f5; }
+      .nav-item.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+      .sidebar .spacer { flex: 1; }
+      .side-link { display: flex; align-items: center; gap: 10px; padding: 8px 10px; font-size: 13px; color: var(--muted); border-radius: 9px; }
+      .side-link:hover { background: #f4f4f5; text-decoration: none; color: var(--text); }
+      .side-link svg { width: 16px; height: 16px; }
+      button.side-link { background: none; border: none; width: 100%; text-align: left; font-family: inherit; }
+
+      .main { padding: 30px 34px 60px; min-width: 0; }
+      .main-inner { max-width: 1160px; margin: 0 auto; }
+      .view-head { margin-bottom: 22px; }
+      .view-head h2 { font-size: 23px; font-weight: 700; letter-spacing: -.015em; margin: 0 0 4px; }
+      .view-head p { color: var(--muted); margin: 0; font-size: 13.5px; max-width: 640px; }
+      .view-head .row { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+      .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; }
+      .stat { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 17px 19px; }
+      .stat .k { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+      .stat .v { font-size: 27px; font-weight: 700; letter-spacing: -.02em; margin-top: 3px; }
+      .stat .d { font-size: 12px; color: var(--faint); margin-top: 1px; }
+
+      .card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 1px 2px rgba(16,16,20,.04); }
+      .card-pad { padding: 22px; }
+      .card-head { padding: 16px 22px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+      .card-head .t { font-weight: 600; font-size: 14.5px; }
+      .grid-2 { display: grid; grid-template-columns: 400px minmax(0, 1fr); gap: 18px; align-items: start; }
+      .grid-publish { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 18px; align-items: start; }
+
+      /* ---------- Daftar ---------- */
+      .row-item { display: flex; gap: 14px; align-items: flex-start; padding: 15px 22px; border-bottom: 1px solid #f1f1f4; }
+      .row-item:last-child { border-bottom: none; }
+      .row-item .grow { flex: 1; min-width: 0; }
+      .row-item .ttl { font-weight: 600; font-size: 14.5px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+      .row-item .url { font-size: 12.5px; color: var(--accent); word-break: break-all; }
+      .row-item .dsc { font-size: 13px; color: var(--muted); margin-top: 2px; }
+      .meta { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 7px; }
+      .chip { font-size: 11.5px; color: var(--muted); background: #f4f4f5; border-radius: 999px; padding: 2.5px 9px; }
+      .badge { font-size: 11px; font-weight: 600; border-radius: 999px; padding: 2.5px 9px; }
+      .badge-ok { background: var(--ok-soft); color: var(--ok); }
+      .badge-violet { background: var(--accent-soft); color: var(--accent); }
+      .badge-amber { background: var(--amber-soft); color: var(--amber); }
+      .dot { width: 9px; height: 9px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+      .dot-ok { background: #10b981; box-shadow: 0 0 0 3px var(--ok-soft); }
+      .dot-warn { background: #f59e0b; box-shadow: 0 0 0 3px var(--amber-soft); }
+      .empty { padding: 38px 22px; text-align: center; color: var(--muted); font-size: 13.5px; }
+      .search-wrap { position: relative; }
+      .search-wrap input { padding-left: 34px; }
+      .search-wrap svg { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); width: 15px; height: 15px; color: var(--faint); }
+
+      /* ---------- Dropzone ---------- */
+      .dropzone { border: 1.5px dashed var(--border-strong); border-radius: 12px; padding: 26px 18px; text-align: center; cursor: pointer; transition: border-color .15s, background .15s; background: #fcfcfd; }
+      .dropzone:hover, .dropzone.drag { border-color: var(--accent); background: var(--accent-soft); }
+      .dropzone .ic { width: 42px; height: 42px; margin: 0 auto 10px; border-radius: 11px; background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center; }
+      .dropzone .ic svg { width: 20px; height: 20px; }
+      .dropzone .t { font-weight: 600; font-size: 13.5px; }
+      .dropzone .d { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+      .file-chosen { display: none; align-items: center; gap: 11px; border: 1px solid var(--border); background: #fafafa; border-radius: 11px; padding: 11px 14px; margin-top: 12px; text-align: left; }
+      .file-chosen.show { display: flex; }
+      .file-chosen .nm { font-weight: 600; font-size: 13px; word-break: break-all; }
+      .file-chosen .sz { font-size: 12px; color: var(--muted); }
+      .file-chosen button { margin-left: auto; flex-shrink: 0; }
+
+      .tips { font-size: 13px; color: var(--muted); }
+      .tips h4 { color: var(--text); font-size: 13.5px; margin: 0 0 8px; }
+      .tips ul { margin: 0 0 18px; padding-left: 18px; }
+      .tips li { margin-bottom: 6px; }
+      .tips code { background: #f4f4f5; border-radius: 5px; padding: 1px 5px; font-size: 12px; color: var(--text); }
+      .success-banner { display: none; margin-top: 16px; background: var(--ok-soft); border: 1px solid #a7f3d0; color: #065f46; border-radius: 11px; padding: 13px 16px; font-size: 13.5px; }
+      .success-banner.show { display: block; }
+
+      /* ---------- Modal & toast ---------- */
+      .overlay { position: fixed; inset: 0; background: rgba(15,15,20,.48); backdrop-filter: blur(3px); display: none; align-items: center; justify-content: center; padding: 20px; z-index: 60; }
+      .overlay.show { display: flex; }
+      .modal { background: var(--panel); border-radius: 16px; width: 100%; max-width: 440px; padding: 24px; box-shadow: 0 24px 60px -12px rgba(0,0,0,.35); }
+      .modal h3 { margin: 0 0 6px; font-size: 16.5px; font-weight: 700; }
+      .modal p { margin: 0; color: var(--muted); font-size: 13.5px; }
+      .modal .acts { display: flex; justify-content: flex-end; gap: 9px; margin-top: 22px; }
+      #toasts { position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 9px; z-index: 80; max-width: min(360px, calc(100vw - 40px)); }
+      .toast { background: #18181b; color: #fafafa; border-radius: 11px; padding: 12px 16px; font-size: 13.5px; box-shadow: 0 12px 32px -8px rgba(0,0,0,.4); display: flex; gap: 9px; align-items: flex-start; animation: toast-in .22s ease-out; }
+      .toast.err { background: #7f1d1d; }
+      @keyframes toast-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+      .spin { width: 15px; height: 15px; border: 2px solid rgba(255,255,255,.35); border-top-color: #fff; border-radius: 50%; animation: sp 0.7s linear infinite; flex-shrink: 0; }
+      @keyframes sp { to { transform: rotate(360deg); } }
+
+      @media (max-width: 1080px) {
+        .grid-2, .grid-publish { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 900px) {
+        .app { grid-template-columns: 1fr; }
+        .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 14px; }
+        .sidebar .spacer, .sidebar .nav-label { display: none; }
+        .sidebar nav { display: flex; gap: 6px; overflow-x: auto; }
+        .nav-item { width: auto; white-space: nowrap; }
+        .sidebar .side-link { display: none; }
+        .sidebar .side-link.logout { display: flex; }
+        .main { padding: 22px 16px 50px; }
+        .stats { grid-template-columns: 1fr 1fr; }
+      }
     </style>
   </head>
   <body>
-    <div class="wrap">
-      <div class="topbar">
-        <div>
-          <div class="kicker">TillRea Virtual Exhibition</div>
-          <h1>Panel Admin Ruang Pameran</h1>
-          <p class="sub">Kelola Ruang Pameran dan publish situs baru langsung dari sini (cPanel mini): upload ZIP, situs langsung live di subdomain-nya. Perubahan langsung tampil di <a href="/">tillrea.my.id</a>.</p>
-        </div>
-        <button class="btn-ghost hidden" id="btnKeluar" type="button">Keluar</button>
-      </div>
-
-      <div class="card" id="kotakPin">
-        <label for="pin">PIN Admin</label>
+    <!-- ================= LOGIN ================= -->
+    <div class="login-wrap" id="loginView">
+      <div class="login-card">
+        <div class="logo-mark">T</div>
+        <h1>Panel Admin TillRea</h1>
+        <p>Kelola Ruang Pameran dan publish situs ke subdomain kamu — semua dari satu tempat.</p>
+        <label class="lbl" for="pin">PIN Admin</label>
         <input type="password" id="pin" placeholder="Masukkan PIN admin" inputmode="numeric" autocomplete="off" />
-        <button class="btn-gold" id="btnMasuk" type="button">Masuk Panel</button>
+        <div style="height:14px"></div>
+        <button class="btn btn-primary btn-lg" id="btnMasuk" type="button">Masuk Panel</button>
         <div class="msg" id="msgPin"></div>
-      </div>
-
-      <div id="panelUtama" class="hidden">
-        <h2>Tambah Karya / Alamat Web Baru</h2>
-        <div class="card">
-          <label for="fJudul">Judul Karya</label>
-          <input type="text" id="fJudul" placeholder="cth: Portal Demo Interaktif" maxlength="120" />
-          <label for="fUrl">Alamat Web (URL)</label>
-          <input type="text" id="fUrl" placeholder="cth: demo.tillrea.my.id atau https://contoh.com" maxlength="500" />
-          <label for="fLabel">Label Ruangan (opsional)</label>
-          <input type="text" id="fLabel" placeholder="cth: ROOM IV • Ruang Eksperimen" maxlength="80" />
-          <label for="fDeskripsi">Deskripsi Singkat (opsional)</label>
-          <textarea id="fDeskripsi" placeholder="Satu-dua kalimat tentang karya ini…" maxlength="600"></textarea>
-          <button class="btn-gold" id="btnTambah" type="button">+ Tambahkan ke Ruang Pameran</button>
-          <div class="msg" id="msgForm"></div>
-        </div>
-
-        <h2>Sedang Dipamerkan</h2>
-        <div class="card" id="daftar"><p class="sub">Memuat…</p></div>
-
-        <h2>Kelola Situs — cPanel Mini</h2>
-        <div class="card">
-          <label for="sNama">Nama Subdomain</label>
-          <input type="text" id="sNama" placeholder="cth: portofolio-baru (nanti jadi portofolio-baru.tillrea.my.id)" maxlength="63" />
-          <label for="sFile">File ZIP Situs (maks 50 MB, wajib ada index.html di dalam)</label>
-          <input type="file" id="sFile" accept=".zip,application/zip" />
-          <label class="cek"><input type="checkbox" id="sTambah" checked /> Sekalian masukkan ke Ruang Pameran</label>
-          <div id="sDetailPameran">
-            <label for="sJudul">Judul di Ruang Pameran (opsional)</label>
-            <input type="text" id="sJudul" placeholder="Kosongkan untuk judul otomatis dari nama subdomain" maxlength="120" />
-            <label for="sSection">Ruangan</label>
-            <select id="sSection">
-              <option value="pribadi">Koleksi Pribadi</option>
-              <option value="tamu">Pameran Tamu</option>
-            </select>
-            <label for="sLabel">Label Ruangan (opsional)</label>
-            <input type="text" id="sLabel" placeholder="cth: PAMERAN • Koleksi Pribadi" maxlength="80" />
-            <label for="sDeskripsi">Deskripsi Singkat (opsional)</label>
-            <textarea id="sDeskripsi" placeholder="Satu-dua kalimat tentang situs ini…" maxlength="600"></textarea>
-          </div>
-          <button class="btn-gold" id="btnDeploy" type="button">🚀 Publish / Update Situs</button>
-          <div class="msg" id="msgDeploy"></div>
-          <p class="sub" style="margin-top:10px">Kalau nama subdomain sudah dipakai, isi situs lama akan diganti total dengan isi ZIP baru (update). Nama cadangan sistem (n8n, www, api, admin, mail, ftp) tidak bisa dipakai.</p>
-        </div>
-
-        <h2>Situs yang Live</h2>
-        <div class="card" id="daftarSitus"><p class="sub">Memuat…</p></div>
+        <p style="text-align:center; margin-top:14px"><a href="/">← Kembali ke lobi</a></p>
       </div>
     </div>
+
+    <!-- ================= APLIKASI ================= -->
+    <div class="app hidden" id="appView">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo-mark">T</div>
+          <div>
+            <div class="name">TillRea Admin</div>
+            <div class="sub">tillrea.my.id</div>
+          </div>
+        </div>
+        <div class="nav-label">Panel</div>
+        <nav id="mainNav">
+          <button class="nav-item active" data-view="pameran" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            Ruang Pameran
+          </button>
+          <button class="nav-item" data-view="publish" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>
+            Publish Situs
+          </button>
+          <button class="nav-item" data-view="situs" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg>
+            Situs Live
+          </button>
+        </nav>
+        <div class="spacer"></div>
+        <a class="side-link" href="/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+          Lihat Lobi
+        </a>
+        <a class="side-link" href="/berkas" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          Berkas
+        </a>
+        <button class="side-link logout" id="btnKeluar" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+          Keluar
+        </button>
+      </aside>
+
+      <main class="main">
+        <div class="main-inner">
+          <div class="stats">
+            <div class="stat"><div class="k">Situs Live</div><div class="v" id="statSitus">–</div><div class="d">subdomain aktif</div></div>
+            <div class="stat"><div class="k">Sedang Dipamerkan</div><div class="v" id="statPameran">–</div><div class="d">entri di Ruang Pameran</div></div>
+            <div class="stat"><div class="k">Total Ukuran Situs</div><div class="v" id="statUkuran">–</div><div class="d">semua file subdomain</div></div>
+          </div>
+
+          <!-- ======= VIEW: RUANG PAMERAN ======= -->
+          <section id="view-pameran">
+            <div class="view-head">
+              <h2>Ruang Pameran</h2>
+              <p>Alamat web yang tampil sebagai karya di lobi utama. Perubahan langsung terlihat oleh pengunjung.</p>
+            </div>
+            <div class="grid-2">
+              <div class="card card-pad">
+                <label class="lbl" for="fJudul">Judul Karya</label>
+                <input type="text" id="fJudul" placeholder="cth: Portal Demo Interaktif" maxlength="120" />
+                <label class="lbl" for="fUrl">Alamat Web (URL)</label>
+                <input type="text" id="fUrl" placeholder="cth: demo.tillrea.my.id" maxlength="500" />
+                <label class="lbl" for="fSection">Ruangan</label>
+                <select id="fSection">
+                  <option value="pribadi">Koleksi Pribadi</option>
+                  <option value="tamu">Pameran Tamu</option>
+                </select>
+                <label class="lbl" for="fLabel">Label Ruangan (opsional)</label>
+                <input type="text" id="fLabel" placeholder="cth: PAMERAN • Koleksi Pribadi" maxlength="80" />
+                <label class="lbl" for="fDeskripsi">Deskripsi Singkat (opsional)</label>
+                <textarea id="fDeskripsi" placeholder="Satu-dua kalimat tentang karya ini…" maxlength="600"></textarea>
+                <div style="height:18px"></div>
+                <button class="btn btn-primary btn-lg" id="btnTambah" type="button">+ Tambahkan ke Ruang Pameran</button>
+              </div>
+              <div class="card">
+                <div class="card-head"><span class="t">Sedang Dipamerkan</span><span class="chip" id="countPameran">0 karya</span></div>
+                <div id="daftar"><div class="empty">Memuat…</div></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ======= VIEW: PUBLISH ======= -->
+          <section id="view-publish" class="hidden">
+            <div class="view-head">
+              <h2>Publish Situs</h2>
+              <p>Upload ZIP berisi situs statis, dan situsmu langsung live di subdomain sendiri. Nama yang sudah ada akan diperbarui isinya.</p>
+            </div>
+            <div class="grid-publish">
+              <div class="card card-pad">
+                <label class="lbl" for="sNama">Nama Subdomain</label>
+                <div class="suffix-wrap">
+                  <input type="text" id="sNama" placeholder="cth: portofolio-baru" maxlength="63" />
+                  <span class="suffix">.tillrea.my.id</span>
+                </div>
+                <label class="lbl">File ZIP Situs</label>
+                <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Pilih file ZIP">
+                  <div class="ic">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>
+                  </div>
+                  <div class="t">Tarik & letakkan file ZIP di sini, atau klik untuk memilih</div>
+                  <div class="d">Maksimal 50 MB • wajib ada index.html di dalam ZIP</div>
+                </div>
+                <input type="file" id="sFile" accept=".zip,application/zip" class="hidden" />
+                <div class="file-chosen" id="fileChosen">
+                  <div>
+                    <div class="nm" id="fileName">–</div>
+                    <div class="sz" id="fileSize">–</div>
+                  </div>
+                  <button class="btn btn-ghost btn-sm" id="btnGantiFile" type="button">Ganti</button>
+                </div>
+
+                <div class="switch-row">
+                  <input type="checkbox" id="sTambah" checked />
+                  <div>
+                    <div class="t">Masukkan ke Ruang Pameran</div>
+                    <div class="d">Situs langsung tampil di lobi utama setelah publish.</div>
+                  </div>
+                </div>
+                <div id="sDetailPameran">
+                  <label class="lbl" for="sJudul">Judul di Ruang Pameran (opsional)</label>
+                  <input type="text" id="sJudul" placeholder="Kosongkan untuk judul otomatis dari nama subdomain" maxlength="120" />
+                  <label class="lbl" for="sSection">Ruangan</label>
+                  <select id="sSection">
+                    <option value="pribadi">Koleksi Pribadi</option>
+                    <option value="tamu">Pameran Tamu</option>
+                  </select>
+                  <label class="lbl" for="sLabel">Label Ruangan (opsional)</label>
+                  <input type="text" id="sLabel" placeholder="cth: PAMERAN • Koleksi Pribadi" maxlength="80" />
+                  <label class="lbl" for="sDeskripsi">Deskripsi Singkat (opsional)</label>
+                  <textarea id="sDeskripsi" placeholder="Satu-dua kalimat tentang situs ini…" maxlength="600"></textarea>
+                </div>
+                <div style="height:20px"></div>
+                <button class="btn btn-primary btn-lg" id="btnDeploy" type="button">🚀 Publish Situs</button>
+                <div class="success-banner" id="deploySukses"></div>
+              </div>
+
+              <div class="card card-pad tips">
+                <h4>Syarat ZIP</h4>
+                <ul>
+                  <li>Berisi situs statis (HTML/CSS/JS/gambar).</li>
+                  <li><code>index.html</code> di root ZIP, atau di dalam satu folder pembungkus.</li>
+                  <li>Ukuran maksimal 50 MB.</li>
+                </ul>
+                <h4>Aturan Nama</h4>
+                <ul>
+                  <li>Huruf kecil, angka, dan tanda hubung saja.</li>
+                  <li>Nama cadangan tidak bisa dipakai: <code>n8n</code>, <code>www</code>, <code>api</code>, <code>admin</code>, <code>mail</code>, <code>ftp</code>.</li>
+                </ul>
+                <h4>Update Situs</h4>
+                <ul>
+                  <li>Publish dengan nama yang sama = isi lama diganti total dengan ZIP baru.</li>
+                  <li>Bisa juga dari tab <b>Situs Live</b>, klik tombol Update pada situsnya.</li>
+                  <li>Semua publish tercatat otomatis di riwayat git server.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- ======= VIEW: SITUS LIVE ======= -->
+          <section id="view-situs" class="hidden">
+            <div class="view-head">
+              <div class="row">
+                <div>
+                  <h2>Situs Live</h2>
+                  <p>Semua situs yang sedang tayang di subdomain tillrea.my.id.</p>
+                </div>
+                <div style="display:flex; gap:9px; align-items:center">
+                  <div class="search-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+                    <input type="text" id="cariSitus" placeholder="Cari situs…" />
+                  </div>
+                  <button class="btn btn-ghost" id="btnSegarkan" type="button">↻ Segarkan</button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div id="daftarSitus"><div class="empty">Memuat…</div></div>
+            </div>
+          </section>
+
+          <p style="color:var(--faint); font-size:12px; margin-top:26px">Panel Admin TillRea • Perubahan tersimpan otomatis & tercatat di git server.</p>
+        </div>
+      </main>
+    </div>
+
+    <!-- ================= MODAL ================= -->
+    <div class="overlay" id="overlay">
+      <div class="modal">
+        <h3 id="modalTitle">Konfirmasi</h3>
+        <p id="modalBody"></p>
+        <div id="modalExtra"></div>
+        <div class="acts">
+          <button class="btn btn-ghost" id="modalCancel" type="button">Batal</button>
+          <button class="btn btn-danger" id="modalOk" type="button">Hapus</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toasts"></div>
 
     <script>
       var KEY = 'pameranAdminPin';
@@ -128,33 +405,12 @@
           return r.json().then(function (d) { return { status: r.status, data: d }; });
         });
       }
-      function render(items) {
-        var box = el('daftar');
-        if (!items || !items.length) {
-          box.innerHTML = '<p class="sub">Belum ada karya yang dipamerkan. Tambahkan lewat formulir di atas.</p>';
-          return;
-        }
-        box.innerHTML = items.map(function (it) {
-          return '<div class="item"><div>' +
-            (it.label ? '<div class="lbl">' + esc(it.label) + '</div>' : '') +
-            '<div class="ttl">' + esc(it.title) + '</div>' +
-            '<a class="url" href="' + esc(it.url) + '" target="_blank" rel="noopener noreferrer">' + esc(it.url) + '</a>' +
-            (it.description ? '<div class="dsc">' + esc(it.description) + '</div>' : '') +
-            '</div><button class="btn-danger" type="button" data-hapus="' + esc(it.id) + '">Hapus</button></div>';
-        }).join('');
-        Array.prototype.forEach.call(box.querySelectorAll('[data-hapus]'), function (b) {
-          b.addEventListener('click', function () { hapus(b.getAttribute('data-hapus')); });
-        });
-      }
-      function muatDaftar() {
-        fetch('/api/pameran').then(function (r) { return r.json(); }).then(function (d) { render(d.items); });
-      }
-      function hapus(id) {
-        if (!confirm('Hapus karya ini dari Ruang Pameran?')) return;
-        api('/api/pameran/delete', 'POST', { id: id }).then(function (res) {
-          if (res.status === 200) { render(res.data.items); pesan('msgForm', 'Karya dihapus.', true); }
-          else pesan('msgForm', 'Gagal menghapus: ' + (res.data.error || res.status), false);
-        });
+      function toast(teks, isErr) {
+        var t = document.createElement('div');
+        t.className = 'toast' + (isErr ? ' err' : '');
+        t.textContent = teks;
+        el('toasts').appendChild(t);
+        setTimeout(function () { t.style.opacity = '0'; t.style.transition = 'opacity .3s'; setTimeout(function () { t.remove(); }, 320); }, 4200);
       }
       function fmtSize(n) {
         if (n < 1024) return n + ' B';
@@ -163,104 +419,208 @@
       }
       function fmtTgl(ts) {
         if (!ts) return '-';
-        return new Date(ts * 1000).toLocaleString('id-ID');
+        return new Date(ts * 1000).toLocaleString('id-ID', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
       }
-      function renderSitus(sites) {
-        var box = el('daftarSitus');
-        if (!sites || !sites.length) {
-          box.innerHTML = '<p class="sub">Belum ada situs subdomain yang live.</p>';
-          return;
-        }
-        box.innerHTML = sites.map(function (s) {
-          return '<div class="item"><div>' +
-            '<div class="ttl">' + esc(s.name) + (s.in_pameran ? '<span class="badge">Di Ruang Pameran</span>' : '') + '</div>' +
-            '<a class="url" href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + esc(s.url) + '</a>' +
-            '<div class="dsc">' + s.files + ' file • ' + fmtSize(s.size) + ' • terakhir diubah ' + fmtTgl(s.updated) + (s.has_index ? '' : ' • ⚠️ tidak ada index.html') + '</div>' +
-            '</div><div class="rowbtn">' +
-            '<button class="btn-mini" type="button" data-update="' + esc(s.name) + '">Update</button>' +
-            '<button class="btn-danger" type="button" data-hapussitus="' + esc(s.name) + '">Hapus</button>' +
-            '</div></div>';
-        }).join('');
-        Array.prototype.forEach.call(box.querySelectorAll('[data-update]'), function (b) {
-          b.addEventListener('click', function () {
-            el('sNama').value = b.getAttribute('data-update');
-            el('sNama').scrollIntoView({ behavior: 'smooth', block: 'center' });
-            pesan('msgDeploy', 'Nama subdomain terisi. Sekarang pilih file ZIP barunya, lalu klik Publish / Update Situs.', true);
+
+      /* ---------- Modal konfirmasi ---------- */
+      var modalCb = null;
+      function openModal(title, bodyHtml, okLabel, cb, extraHtml) {
+        el('modalTitle').textContent = title;
+        el('modalBody').innerHTML = bodyHtml;
+        el('modalExtra').innerHTML = extraHtml || '';
+        el('modalOk').textContent = okLabel;
+        modalCb = cb;
+        el('overlay').classList.add('show');
+      }
+      function closeModal() { el('overlay').classList.remove('show'); modalCb = null; }
+      el('modalCancel').addEventListener('click', closeModal);
+      el('overlay').addEventListener('click', function (e) { if (e.target === el('overlay')) closeModal(); });
+      el('modalOk').addEventListener('click', function () { var cb = modalCb; closeModal(); if (cb) cb(); });
+
+      /* ---------- Navigasi tampilan ---------- */
+      function switchView(name) {
+        ['pameran', 'publish', 'situs'].forEach(function (v) {
+          el('view-' + v).classList.toggle('hidden', v !== name);
+        });
+        Array.prototype.forEach.call(document.querySelectorAll('#mainNav .nav-item'), function (b) {
+          b.classList.toggle('active', b.getAttribute('data-view') === name);
+        });
+        window.scrollTo({ top: 0 });
+      }
+      Array.prototype.forEach.call(document.querySelectorAll('#mainNav .nav-item'), function (b) {
+        b.addEventListener('click', function () { switchView(b.getAttribute('data-view')); });
+      });
+
+      /* ---------- Statistik ---------- */
+      var itemsCache = [], sitesCache = [];
+      function updateStats() {
+        el('statPameran').textContent = itemsCache.length;
+        el('countPameran').textContent = itemsCache.length + ' karya';
+        el('statSitus').textContent = sitesCache.length;
+        var total = sitesCache.reduce(function (a, s) { return a + (s.size || 0); }, 0);
+        el('statUkuran').textContent = sitesCache.length ? fmtSize(total) : '0 B';
+      }
+
+      /* ---------- Ruang Pameran ---------- */
+      function renderPameran(items) {
+        itemsCache = items || [];
+        var box = el('daftar');
+        if (!itemsCache.length) {
+          box.innerHTML = '<div class="empty">Belum ada karya yang dipamerkan.<br>Tambahkan lewat formulir di samping.</div>';
+        } else {
+          box.innerHTML = itemsCache.map(function (it) {
+            var ruangan = it.section === 'tamu' ? 'Pameran Tamu' : 'Koleksi Pribadi';
+            return '<div class="row-item"><div class="grow">' +
+              '<div class="ttl">' + esc(it.title) + '<span class="badge ' + (it.section === 'tamu' ? 'badge-amber' : 'badge-violet') + '">' + ruangan + '</span></div>' +
+              '<a class="url" href="' + esc(it.url) + '" target="_blank" rel="noopener noreferrer">' + esc(it.url) + '</a>' +
+              (it.description ? '<div class="dsc">' + esc(it.description) + '</div>' : '') +
+              (it.label ? '<div class="meta"><span class="chip">' + esc(it.label) + '</span></div>' : '') +
+              '</div><button class="btn btn-danger-soft btn-sm" type="button" data-hapus="' + esc(it.id) + '">Hapus</button></div>';
+          }).join('');
+          Array.prototype.forEach.call(box.querySelectorAll('[data-hapus]'), function (b) {
+            b.addEventListener('click', function () {
+              var it = itemsCache.find(function (x) { return x.id === b.getAttribute('data-hapus'); });
+              openModal('Hapus dari Ruang Pameran?',
+                'Karya <b>' + esc(it ? it.title : '') + '</b> akan dihapus dari daftar pameran lobi. Situsnya sendiri tidak ikut terhapus.',
+                'Hapus', function () { hapusPameran(b.getAttribute('data-hapus')); });
+            });
           });
-        });
-        Array.prototype.forEach.call(box.querySelectorAll('[data-hapussitus]'), function (b) {
-          b.addEventListener('click', function () { hapusSitus(b.getAttribute('data-hapussitus')); });
-        });
+        }
+        updateStats();
       }
-      function muatSitus() {
-        api('/api/situs').then(function (res) {
-          if (res.status === 200) renderSitus(res.data.sites);
-          else el('daftarSitus').innerHTML = '<p class="sub">Gagal memuat daftar situs: ' + esc(res.data.error || res.status) + '</p>';
-        }).catch(function () { el('daftarSitus').innerHTML = '<p class="sub">Tidak bisa menghubungi server.</p>'; });
+      function muatDaftar() {
+        fetch('/api/pameran').then(function (r) { return r.json(); })
+          .then(function (d) { renderPameran(d.items); })
+          .catch(function () { el('daftar').innerHTML = '<div class="empty">Gagal memuat daftar.</div>'; });
       }
-      function hapusSitus(nama) {
-        if (!confirm('Hapus situs ' + nama + '.tillrea.my.id secara permanen? Semua file-nya akan dihapus dari server.')) return;
-        if (!confirm('Yakin 100%? Tindakan ini tidak bisa dibatalkan.')) return;
-        api('/api/situs/hapus', 'POST', { subdomain: nama, hapus_pameran: true }).then(function (res) {
-          if (res.status === 200) {
-            renderSitus(res.data.sites);
-            if (res.data.items) render(res.data.items);
-            pesan('msgDeploy', 'Situs ' + nama + ' sudah dihapus.', true);
-          } else {
-            pesan('msgDeploy', 'Gagal menghapus: ' + (res.data.error || res.status), false);
-          }
-        }).catch(function () { pesan('msgDeploy', 'Tidak bisa menghubungi server.', false); });
+      function hapusPameran(id) {
+        api('/api/pameran/delete', 'POST', { id: id }).then(function (res) {
+          if (res.status === 200) { renderPameran(res.data.items); toast('Karya dihapus dari Ruang Pameran.'); }
+          else toast('Gagal menghapus: ' + (res.data.error || res.status), true);
+        }).catch(function () { toast('Tidak bisa menghubungi server.', true); });
       }
-      function pesan(id, teks, ok) {
-        var m = el(id); m.textContent = teks; m.className = 'msg ' + (ok ? 'ok' : 'err');
-      }
-      function masuk() {
-        el('kotakPin').classList.add('hidden');
-        el('panelUtama').classList.remove('hidden');
-        el('btnKeluar').classList.remove('hidden');
-        muatDaftar();
-        muatSitus();
-      }
-      el('btnMasuk').addEventListener('click', function () {
-        var t = el('pin').value.trim();
-        if (!t) { pesan('msgPin', 'Isi PIN dulu ya.', false); return; }
-        sessionStorage.setItem(KEY, t);
-        // Verifikasi PIN: hapus id yang tidak ada (tidak mengubah data bila PIN benar).
-        api('/api/pameran/delete', 'POST', { id: '__cek_pin__' }).then(function (res) {
-          if (res.status === 200) { pesan('msgPin', '', true); masuk(); }
-          else if (res.status === 429) { sessionStorage.removeItem(KEY); pesan('msgPin', 'Terlalu banyak percobaan salah. Tunggu beberapa menit ya.', false); }
-          else { sessionStorage.removeItem(KEY); pesan('msgPin', 'PIN salah. Cek lagi ya.', false); }
-        }).catch(function () { pesan('msgPin', 'Tidak bisa menghubungi server.', false); });
-      });
-      el('btnKeluar').addEventListener('click', function () {
-        sessionStorage.removeItem(KEY); location.reload();
-      });
       el('btnTambah').addEventListener('click', function () {
         var body = {
           title: el('fJudul').value.trim(),
           url: el('fUrl').value.trim(),
           label: el('fLabel').value.trim(),
-          description: el('fDeskripsi').value.trim()
+          description: el('fDeskripsi').value.trim(),
+          section: el('fSection').value
         };
-        if (!body.title || !body.url) { pesan('msgForm', 'Judul dan alamat web wajib diisi.', false); return; }
+        if (!body.title || !body.url) { toast('Judul dan alamat web wajib diisi.', true); return; }
+        var btn = el('btnTambah'); btn.disabled = true;
         api('/api/pameran', 'POST', body).then(function (res) {
+          btn.disabled = false;
           if (res.status === 201) {
-            render(res.data.items);
-            el('fJudul').value = ''; el('fUrl').value = ''; el('fLabel').value = ''; el('fDeskripsi').value = '';
-            pesan('msgForm', 'Berhasil ditambahkan. Cek di lobi utama ya.', true);
-          } else {
-            pesan('msgForm', 'Gagal: ' + (res.data.error || res.status), false);
-          }
-        }).catch(function () { pesan('msgForm', 'Tidak bisa menghubungi server.', false); });
+            renderPameran(res.data.items);
+            ['fJudul', 'fUrl', 'fLabel', 'fDeskripsi'].forEach(function (i) { el(i).value = ''; });
+            toast('Berhasil ditambahkan ke Ruang Pameran.');
+          } else toast('Gagal: ' + (res.data.error || res.status), true);
+        }).catch(function () { btn.disabled = false; toast('Tidak bisa menghubungi server.', true); });
+      });
+
+      /* ---------- Situs Live ---------- */
+      function renderSitus(sites) {
+        sitesCache = sites || [];
+        var q = el('cariSitus').value.trim().toLowerCase();
+        var list = sitesCache.filter(function (s) { return !q || s.name.toLowerCase().indexOf(q) !== -1; });
+        var box = el('daftarSitus');
+        if (!sitesCache.length) {
+          box.innerHTML = '<div class="empty">Belum ada situs subdomain yang live.<br>Publish situs pertamamu dari tab Publish Situs.</div>';
+        } else if (!list.length) {
+          box.innerHTML = '<div class="empty">Tidak ada situs yang cocok dengan pencarian.</div>';
+        } else {
+          box.innerHTML = list.map(function (s) {
+            return '<div class="row-item">' +
+              '<span class="dot ' + (s.has_index ? 'dot-ok' : 'dot-warn') + '"></span>' +
+              '<div class="grow">' +
+              '<div class="ttl">' + esc(s.name) + (s.in_pameran ? '<span class="badge badge-ok">Di Ruang Pameran</span>' : '') + (!s.has_index ? '<span class="badge badge-amber">Tanpa index.html</span>' : '') + '</div>' +
+              '<a class="url" href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + esc(s.url) + '</a>' +
+              '<div class="meta"><span class="chip">' + s.files + ' file</span><span class="chip">' + fmtSize(s.size) + '</span><span class="chip">Diubah ' + fmtTgl(s.updated) + '</span></div>' +
+              '</div><div style="display:flex; gap:8px; flex-shrink:0">' +
+              '<button class="btn btn-ghost btn-sm" type="button" data-update="' + esc(s.name) + '">Update</button>' +
+              '<button class="btn btn-danger-soft btn-sm" type="button" data-hapussitus="' + esc(s.name) + '">Hapus</button>' +
+              '</div></div>';
+          }).join('');
+          Array.prototype.forEach.call(box.querySelectorAll('[data-update]'), function (b) {
+            b.addEventListener('click', function () {
+              el('sNama').value = b.getAttribute('data-update');
+              switchView('publish');
+              toast('Mode update: pilih ZIP baru untuk ' + b.getAttribute('data-update') + '.tillrea.my.id');
+              el('dropzone').focus();
+            });
+          });
+          Array.prototype.forEach.call(box.querySelectorAll('[data-hapussitus]'), function (b) {
+            b.addEventListener('click', function () {
+              var nama = b.getAttribute('data-hapussitus');
+              openModal('Hapus situs ' + nama + '?',
+                'Semua file <b>' + esc(nama) + '.tillrea.my.id</b> akan dihapus permanen dari server. Tindakan ini tidak bisa dibatalkan.',
+                'Hapus Permanen',
+                function () {
+                  var ikut = el('modalIkutPameran') ? el('modalIkutPameran').checked : true;
+                  hapusSitus(nama, ikut);
+                },
+                '<div class="switch-row"><input type="checkbox" id="modalIkutPameran" checked /><div><div class="t">Ikut hapus dari Ruang Pameran</div><div class="d">Entri pameran untuk situs ini juga dibersihkan.</div></div></div>');
+            });
+          });
+        }
+        updateStats();
+      }
+      function muatSitus() {
+        api('/api/situs').then(function (res) {
+          if (res.status === 200) renderSitus(res.data.sites);
+          else el('daftarSitus').innerHTML = '<div class="empty">Gagal memuat: ' + esc(res.data.error || res.status) + '</div>';
+        }).catch(function () { el('daftarSitus').innerHTML = '<div class="empty">Tidak bisa menghubungi server.</div>'; });
+      }
+      function hapusSitus(nama, ikutPameran) {
+        api('/api/situs/hapus', 'POST', { subdomain: nama, hapus_pameran: ikutPameran }).then(function (res) {
+          if (res.status === 200) {
+            renderSitus(res.data.sites);
+            if (res.data.items) renderPameran(res.data.items);
+            toast('Situs ' + nama + ' sudah dihapus.');
+          } else toast('Gagal menghapus: ' + (res.data.error || res.status), true);
+        }).catch(function () { toast('Tidak bisa menghubungi server.', true); });
+      }
+      el('cariSitus').addEventListener('input', function () { renderSitus(sitesCache); });
+      el('btnSegarkan').addEventListener('click', function () { muatSitus(); toast('Daftar situs disegarkan.'); });
+
+      /* ---------- Publish / Deploy ---------- */
+      var dz = el('dropzone'), fileInput = el('sFile');
+      function tampilkanFile() {
+        var f = fileInput.files[0];
+        if (!f) { el('fileChosen').classList.remove('show'); return; }
+        el('fileName').textContent = f.name;
+        el('fileSize').textContent = fmtSize(f.size) + (f.size > 50 * 1024 * 1024 ? ' — melebihi batas 50 MB!' : '');
+        el('fileChosen').classList.add('show');
+      }
+      dz.addEventListener('click', function () { fileInput.click(); });
+      dz.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); } });
+      el('btnGantiFile').addEventListener('click', function () { fileInput.click(); });
+      fileInput.addEventListener('change', tampilkanFile);
+      ['dragenter', 'dragover'].forEach(function (ev) {
+        dz.addEventListener(ev, function (e) { e.preventDefault(); dz.classList.add('drag'); });
+      });
+      ['dragleave', 'drop'].forEach(function (ev) {
+        dz.addEventListener(ev, function (e) { e.preventDefault(); dz.classList.remove('drag'); });
+      });
+      dz.addEventListener('drop', function (e) {
+        var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+        if (f) {
+          var dt = new DataTransfer();
+          dt.items.add(f);
+          fileInput.files = dt.files;
+          tampilkanFile();
+        }
       });
       el('sTambah').addEventListener('change', function () {
-        el('sDetailPameran').classList.toggle('hidden', !el('sTambah').checked);
+        el('sDetailPameran').classList.toggle('detail-off', !el('sTambah').checked);
       });
       el('btnDeploy').addEventListener('click', function () {
         var nama = el('sNama').value.trim().toLowerCase();
-        var berkas = el('sFile').files[0];
-        if (!nama) { pesan('msgDeploy', 'Isi nama subdomain dulu ya.', false); return; }
-        if (!berkas) { pesan('msgDeploy', 'Pilih file ZIP situsnya dulu ya.', false); return; }
+        var berkas = fileInput.files[0];
+        if (!nama) { toast('Isi nama subdomain dulu ya.', true); el('sNama').focus(); return; }
+        if (!berkas) { toast('Pilih file ZIP situsnya dulu ya.', true); return; }
+        if (berkas.size > 50 * 1024 * 1024) { toast('File melebihi batas 50 MB.', true); return; }
         var fd = new FormData();
         fd.append('subdomain', nama);
         fd.append('file', berkas);
@@ -271,27 +631,59 @@
         fd.append('description', el('sDeskripsi').value.trim());
         var btn = el('btnDeploy');
         btn.disabled = true;
-        btn.textContent = '⏳ Mengupload & memproses…';
-        pesan('msgDeploy', 'Sedang memproses, tunggu sebentar…', true);
+        btn.innerHTML = '<span class="spin"></span> Mengupload & memproses…';
+        el('deploySukses').classList.remove('show');
         fetch('/api/situs/deploy', { method: 'POST', headers: { 'X-Admin-Pin': token() }, body: fd })
           .then(function (r) { return r.json().then(function (d) { return { status: r.status, data: d }; }); })
           .then(function (res) {
             btn.disabled = false;
-            btn.textContent = '🚀 Publish / Update Situs';
+            btn.textContent = '🚀 Publish Situs';
             if (res.status === 200) {
               renderSitus(res.data.sites);
               muatDaftar();
-              el('sFile').value = '';
-              pesan('msgDeploy', 'Berhasil! Situs live di ' + res.data.url, true);
-            } else {
-              pesan('msgDeploy', 'Gagal: ' + (res.data.error || res.status), false);
-            }
+              fileInput.value = ''; tampilkanFile();
+              var b = el('deploySukses');
+              b.innerHTML = '✅ Berhasil! Situsmu live di <a href="' + esc(res.data.url) + '" target="_blank" rel="noopener"><b>' + esc(res.data.url) + '</b></a>';
+              b.classList.add('show');
+              toast('Situs ' + nama + ' berhasil dipublish.');
+            } else toast('Gagal publish: ' + (res.data.error || res.status), true);
           })
           .catch(function () {
             btn.disabled = false;
-            btn.textContent = '🚀 Publish / Update Situs';
-            pesan('msgDeploy', 'Tidak bisa menghubungi server.', false);
+            btn.textContent = '🚀 Publish Situs';
+            toast('Tidak bisa menghubungi server.', true);
           });
+      });
+
+      /* ---------- Login ---------- */
+      function pesanPin(teks, ok) {
+        var m = el('msgPin');
+        m.textContent = teks;
+        m.className = 'msg ' + (ok ? 'ok' : 'err');
+      }
+      function masuk() {
+        el('loginView').classList.add('hidden');
+        el('appView').classList.remove('hidden');
+        muatDaftar();
+        muatSitus();
+      }
+      function cobaMasuk() {
+        var t = el('pin').value.trim();
+        if (!t) { pesanPin('Isi PIN dulu ya.', false); return; }
+        sessionStorage.setItem(KEY, t);
+        var btn = el('btnMasuk'); btn.disabled = true; btn.textContent = 'Memeriksa…';
+        api('/api/pameran/delete', 'POST', { id: '__cek_pin__' }).then(function (res) {
+          btn.disabled = false; btn.textContent = 'Masuk Panel';
+          if (res.status === 200) { pesanPin('', true); masuk(); }
+          else if (res.status === 429) { sessionStorage.removeItem(KEY); pesanPin('Terlalu banyak percobaan salah. Tunggu beberapa menit ya.', false); }
+          else { sessionStorage.removeItem(KEY); pesanPin('PIN salah. Cek lagi ya.', false); }
+        }).catch(function () { btn.disabled = false; btn.textContent = 'Masuk Panel'; pesanPin('Tidak bisa menghubungi server.', false); });
+      }
+      el('btnMasuk').addEventListener('click', cobaMasuk);
+      el('pin').addEventListener('keydown', function (e) { if (e.key === 'Enter') cobaMasuk(); });
+      el('btnKeluar').addEventListener('click', function () {
+        sessionStorage.removeItem(KEY);
+        location.reload();
       });
       if (token()) masuk();
     </script>
