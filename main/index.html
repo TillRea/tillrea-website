@@ -26,8 +26,10 @@
       // Override oleh Muse: kosongkan section kartu ruangan pameran (ROOM I/II/III).
       // Target utama: <section id="ruang-pameran">, diverifikasi memuat ketiga judul ruangan.
       // Cadangan: panjat DOM dari judul pertama; blok harus memuat ketiga judul + tepat 3
-      // tombol "Kunjungi Paviliun" dan tidak memuat footer. Teks dibandingkan tanpa
-      // memedulikan huruf besar/kecil dan whitespace (tombol tampil uppercase via CSS).
+      // tombol paviliun dan tidak memuat footer. Teks tombol diterima dua versi: build lama
+      // "Kunjungi Paviliun" dan build hasil refactor "Live Preview" (keduanya dihitung).
+      // Teks dibandingkan tanpa memedulikan huruf besar/kecil dan whitespace
+      // (tombol tampil uppercase via CSS).
       (function () {
         var TITLES = ['sistem pendukung keputusan', 'scraft product web refactor', 'pesona kaliwungu'];
         function norm(s) { return (s || '').toLowerCase().replace(/\s+/g, ''); }
@@ -38,7 +40,9 @@
         function isRoomsBlock(el) {
           if (el.hasAttribute && el.hasAttribute('data-muse-rooms')) return false;
           if (!hasAll(el)) return false;
-          var btns = norm(el.textContent).split('kunjungipaviliun').length - 1;
+          var txtNorm = norm(el.textContent);
+          var btns = (txtNorm.split('kunjungipaviliun').length - 1) +
+                     (txtNorm.split('livepreview').length - 1);
           return btns === 3 && !el.querySelector('footer');
         }
         function findAnchor() {
@@ -159,7 +163,7 @@
                 (it.label ? '<div class="mp-label">' + esc(it.label) + '</div>' : '') +
                 '<h3>' + esc(it.title) + '</h3>' +
                 (it.description ? '<p>' + esc(it.description) + '</p>' : '<p></p>') +
-                '<a class="mp-btn" href="' + esc(it.url) + '" target="_blank" rel="noopener noreferrer">Kunjungi Paviliun &#8599;</a>' +
+                '<a class="mp-btn" href="' + esc(it.url) + '" target="_blank" rel="noopener noreferrer">Live Preview &#8599;</a>' +
                 '</article>';
             }).join('') + '</div>';
           } else {
