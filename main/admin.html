@@ -18,8 +18,14 @@
       .card { background: #0f1117; border: 1px solid rgba(255,255,255,.09); border-radius: 16px; padding: 22px; margin-top: 18px; }
       label { display: block; font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: #94a3b8; margin: 14px 0 6px; }
       label:first-child { margin-top: 0; }
-      input, textarea { width: 100%; background: #0b0c10; border: 1px solid rgba(255,255,255,.14); border-radius: 10px; color: #e2e8f0; padding: 11px 13px; font-size: 14px; font-family: inherit; }
-      input:focus, textarea:focus { outline: none; border-color: #d4af37; }
+      input, textarea, select { width: 100%; background: #0b0c10; border: 1px solid rgba(255,255,255,.14); border-radius: 10px; color: #e2e8f0; padding: 11px 13px; font-size: 14px; font-family: inherit; }
+      input:focus, textarea:focus, select:focus { outline: none; border-color: #d4af37; }
+      input[type="file"] { padding: 9px 13px; }
+      input[type="checkbox"] { width: auto; accent-color: #d4af37; }
+      .cek { display: flex; align-items: center; gap: 9px; margin-top: 16px; font-size: 14px; color: #e2e8f0; text-transform: none; letter-spacing: 0; font-family: inherit; }
+      .badge { display: inline-block; font-family: "Space Mono", monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #6ee7b7; border: 1px solid rgba(110,231,183,.4); border-radius: 999px; padding: 2px 9px; margin-left: 8px; vertical-align: middle; }
+      .btn-mini { background: rgba(255,255,255,.06); color: #cbd5e1; border: 1px solid rgba(255,255,255,.12); padding: 7px 13px; font-size: 12px; margin-right: 8px; }
+      .rowbtn { display: flex; flex-shrink: 0; }
       textarea { resize: vertical; min-height: 74px; }
       button { cursor: pointer; border: none; border-radius: 10px; padding: 11px 20px; font-size: 13px; font-weight: 600; letter-spacing: .04em; }
       .btn-gold { background: linear-gradient(90deg, #fbbf24, #facc15); color: #000; margin-top: 18px; }
@@ -46,7 +52,7 @@
         <div>
           <div class="kicker">TillRea Virtual Exhibition</div>
           <h1>Panel Admin Ruang Pameran</h1>
-          <p class="sub">Tambah atau hapus alamat web yang tampil sebagai kartu karya di Ruang Pameran lobi utama. Perubahan langsung tampil di <a href="/">tillrea.my.id</a>.</p>
+          <p class="sub">Kelola Ruang Pameran dan publish situs baru langsung dari sini (cPanel mini): upload ZIP, situs langsung live di subdomain-nya. Perubahan langsung tampil di <a href="/">tillrea.my.id</a>.</p>
         </div>
         <button class="btn-ghost hidden" id="btnKeluar" type="button">Keluar</button>
       </div>
@@ -75,6 +81,34 @@
 
         <h2>Sedang Dipamerkan</h2>
         <div class="card" id="daftar"><p class="sub">Memuat…</p></div>
+
+        <h2>Kelola Situs — cPanel Mini</h2>
+        <div class="card">
+          <label for="sNama">Nama Subdomain</label>
+          <input type="text" id="sNama" placeholder="cth: portofolio-baru (nanti jadi portofolio-baru.tillrea.my.id)" maxlength="63" />
+          <label for="sFile">File ZIP Situs (maks 50 MB, wajib ada index.html di dalam)</label>
+          <input type="file" id="sFile" accept=".zip,application/zip" />
+          <label class="cek"><input type="checkbox" id="sTambah" checked /> Sekalian masukkan ke Ruang Pameran</label>
+          <div id="sDetailPameran">
+            <label for="sJudul">Judul di Ruang Pameran (opsional)</label>
+            <input type="text" id="sJudul" placeholder="Kosongkan untuk judul otomatis dari nama subdomain" maxlength="120" />
+            <label for="sSection">Ruangan</label>
+            <select id="sSection">
+              <option value="pribadi">Koleksi Pribadi</option>
+              <option value="tamu">Pameran Tamu</option>
+            </select>
+            <label for="sLabel">Label Ruangan (opsional)</label>
+            <input type="text" id="sLabel" placeholder="cth: PAMERAN • Koleksi Pribadi" maxlength="80" />
+            <label for="sDeskripsi">Deskripsi Singkat (opsional)</label>
+            <textarea id="sDeskripsi" placeholder="Satu-dua kalimat tentang situs ini…" maxlength="600"></textarea>
+          </div>
+          <button class="btn-gold" id="btnDeploy" type="button">🚀 Publish / Update Situs</button>
+          <div class="msg" id="msgDeploy"></div>
+          <p class="sub" style="margin-top:10px">Kalau nama subdomain sudah dipakai, isi situs lama akan diganti total dengan isi ZIP baru (update). Nama cadangan sistem (n8n, www, api, admin, mail, ftp) tidak bisa dipakai.</p>
+        </div>
+
+        <h2>Situs yang Live</h2>
+        <div class="card" id="daftarSitus"><p class="sub">Memuat…</p></div>
       </div>
     </div>
 
@@ -122,6 +156,61 @@
           else pesan('msgForm', 'Gagal menghapus: ' + (res.data.error || res.status), false);
         });
       }
+      function fmtSize(n) {
+        if (n < 1024) return n + ' B';
+        if (n < 1024 * 1024) return (n / 1024).toFixed(1).replace('.', ',') + ' KB';
+        return (n / 1024 / 1024).toFixed(2).replace('.', ',') + ' MB';
+      }
+      function fmtTgl(ts) {
+        if (!ts) return '-';
+        return new Date(ts * 1000).toLocaleString('id-ID');
+      }
+      function renderSitus(sites) {
+        var box = el('daftarSitus');
+        if (!sites || !sites.length) {
+          box.innerHTML = '<p class="sub">Belum ada situs subdomain yang live.</p>';
+          return;
+        }
+        box.innerHTML = sites.map(function (s) {
+          return '<div class="item"><div>' +
+            '<div class="ttl">' + esc(s.name) + (s.in_pameran ? '<span class="badge">Di Ruang Pameran</span>' : '') + '</div>' +
+            '<a class="url" href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + esc(s.url) + '</a>' +
+            '<div class="dsc">' + s.files + ' file • ' + fmtSize(s.size) + ' • terakhir diubah ' + fmtTgl(s.updated) + (s.has_index ? '' : ' • ⚠️ tidak ada index.html') + '</div>' +
+            '</div><div class="rowbtn">' +
+            '<button class="btn-mini" type="button" data-update="' + esc(s.name) + '">Update</button>' +
+            '<button class="btn-danger" type="button" data-hapussitus="' + esc(s.name) + '">Hapus</button>' +
+            '</div></div>';
+        }).join('');
+        Array.prototype.forEach.call(box.querySelectorAll('[data-update]'), function (b) {
+          b.addEventListener('click', function () {
+            el('sNama').value = b.getAttribute('data-update');
+            el('sNama').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            pesan('msgDeploy', 'Nama subdomain terisi. Sekarang pilih file ZIP barunya, lalu klik Publish / Update Situs.', true);
+          });
+        });
+        Array.prototype.forEach.call(box.querySelectorAll('[data-hapussitus]'), function (b) {
+          b.addEventListener('click', function () { hapusSitus(b.getAttribute('data-hapussitus')); });
+        });
+      }
+      function muatSitus() {
+        api('/api/situs').then(function (res) {
+          if (res.status === 200) renderSitus(res.data.sites);
+          else el('daftarSitus').innerHTML = '<p class="sub">Gagal memuat daftar situs: ' + esc(res.data.error || res.status) + '</p>';
+        }).catch(function () { el('daftarSitus').innerHTML = '<p class="sub">Tidak bisa menghubungi server.</p>'; });
+      }
+      function hapusSitus(nama) {
+        if (!confirm('Hapus situs ' + nama + '.tillrea.my.id secara permanen? Semua file-nya akan dihapus dari server.')) return;
+        if (!confirm('Yakin 100%? Tindakan ini tidak bisa dibatalkan.')) return;
+        api('/api/situs/hapus', 'POST', { subdomain: nama, hapus_pameran: true }).then(function (res) {
+          if (res.status === 200) {
+            renderSitus(res.data.sites);
+            if (res.data.items) render(res.data.items);
+            pesan('msgDeploy', 'Situs ' + nama + ' sudah dihapus.', true);
+          } else {
+            pesan('msgDeploy', 'Gagal menghapus: ' + (res.data.error || res.status), false);
+          }
+        }).catch(function () { pesan('msgDeploy', 'Tidak bisa menghubungi server.', false); });
+      }
       function pesan(id, teks, ok) {
         var m = el(id); m.textContent = teks; m.className = 'msg ' + (ok ? 'ok' : 'err');
       }
@@ -130,6 +219,7 @@
         el('panelUtama').classList.remove('hidden');
         el('btnKeluar').classList.remove('hidden');
         muatDaftar();
+        muatSitus();
       }
       el('btnMasuk').addEventListener('click', function () {
         var t = el('pin').value.trim();
@@ -162,6 +252,46 @@
             pesan('msgForm', 'Gagal: ' + (res.data.error || res.status), false);
           }
         }).catch(function () { pesan('msgForm', 'Tidak bisa menghubungi server.', false); });
+      });
+      el('sTambah').addEventListener('change', function () {
+        el('sDetailPameran').classList.toggle('hidden', !el('sTambah').checked);
+      });
+      el('btnDeploy').addEventListener('click', function () {
+        var nama = el('sNama').value.trim().toLowerCase();
+        var berkas = el('sFile').files[0];
+        if (!nama) { pesan('msgDeploy', 'Isi nama subdomain dulu ya.', false); return; }
+        if (!berkas) { pesan('msgDeploy', 'Pilih file ZIP situsnya dulu ya.', false); return; }
+        var fd = new FormData();
+        fd.append('subdomain', nama);
+        fd.append('file', berkas);
+        fd.append('tambah_pameran', el('sTambah').checked ? '1' : '0');
+        fd.append('title', el('sJudul').value.trim());
+        fd.append('section', el('sSection').value);
+        fd.append('label', el('sLabel').value.trim());
+        fd.append('description', el('sDeskripsi').value.trim());
+        var btn = el('btnDeploy');
+        btn.disabled = true;
+        btn.textContent = '⏳ Mengupload & memproses…';
+        pesan('msgDeploy', 'Sedang memproses, tunggu sebentar…', true);
+        fetch('/api/situs/deploy', { method: 'POST', headers: { 'X-Admin-Pin': token() }, body: fd })
+          .then(function (r) { return r.json().then(function (d) { return { status: r.status, data: d }; }); })
+          .then(function (res) {
+            btn.disabled = false;
+            btn.textContent = '🚀 Publish / Update Situs';
+            if (res.status === 200) {
+              renderSitus(res.data.sites);
+              muatDaftar();
+              el('sFile').value = '';
+              pesan('msgDeploy', 'Berhasil! Situs live di ' + res.data.url, true);
+            } else {
+              pesan('msgDeploy', 'Gagal: ' + (res.data.error || res.status), false);
+            }
+          })
+          .catch(function () {
+            btn.disabled = false;
+            btn.textContent = '🚀 Publish / Update Situs';
+            pesan('msgDeploy', 'Tidak bisa menghubungi server.', false);
+          });
       });
       if (token()) masuk();
     </script>
