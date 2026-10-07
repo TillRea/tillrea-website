@@ -127,11 +127,20 @@
           '.mp-card p{font-size:.85rem;color:#94a3b8;font-weight:300;line-height:1.65;margin:0;flex:1}',
           '.mp-btn{margin-top:1rem;display:inline-flex;align-items:center;gap:.4rem;align-self:flex-start;background:linear-gradient(90deg,#fbbf24,#facc15);color:#000;font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.65rem 1.1rem;border-radius:.6rem;text-decoration:none}',
           '.mp-btn:hover{filter:brightness(1.08)}',
-          '.mp-empty{margin-top:3rem;border:1px dashed rgba(255,255,255,.15);border-radius:1rem;padding:2rem;text-align:center;color:#64748b;font-size:.875rem}'
+          '.mp-empty{margin-top:3rem;border:1px dashed rgba(255,255,255,.15);border-radius:1rem;padding:2rem;text-align:center;color:#64748b;font-size:.875rem}',
+          '.mp-berkas-btn{position:fixed;right:1rem;bottom:1rem;z-index:60;display:inline-flex;align-items:center;gap:.4rem;background:rgba(11,12,16,.88);border:1px solid rgba(212,175,55,.5);color:#fcd34d;font-family:"Space Mono",monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:.55rem .85rem;border-radius:999px;text-decoration:none;backdrop-filter:blur(6px);box-shadow:0 8px 24px rgba(0,0,0,.45)}',
+          '.mp-berkas-btn:hover{border-color:#d4af37;color:#fde68a}'
         ].join('');
         var style = document.createElement('style');
         style.textContent = css;
         document.head.appendChild(style);
+
+        // --- 3. Tombol kecil akses berkas (PIN) di pojok kanan bawah.
+        var berkasBtn = document.createElement('a');
+        berkasBtn.href = '/berkas';
+        berkasBtn.className = 'mp-berkas-btn';
+        berkasBtn.textContent = '\uD83D\uDCC1 Berkas';
+        (document.body || document.documentElement).appendChild(berkasBtn);
 
         function esc(s) {
           return String(s || '').replace(/[&<>"']/g, function (c) {

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Berkas Saya — TillRea</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #0b0c10; color: #e2e8f0; font-family: "Plus Jakarta Sans", system-ui, sans-serif; font-weight: 300; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 40px 20px 80px; }
+      .kicker { font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: #d4af37; }
+      h1 { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 32px; margin: 8px 0 6px; color: #fff; }
+      p.sub { color: #94a3b8; font-size: 14px; line-height: 1.6; margin: 0 0 8px; }
+      .card { background: #0f1117; border: 1px solid rgba(255,255,255,.09); border-radius: 16px; padding: 22px; margin-top: 18px; }
+      label { display: block; font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: #94a3b8; margin: 0 0 6px; }
+      input { width: 100%; background: #0b0c10; border: 1px solid rgba(255,255,255,.14); border-radius: 10px; color: #e2e8f0; padding: 11px 13px; font-size: 14px; font-family: inherit; }
+      input:focus { outline: none; border-color: #d4af37; }
+      button { cursor: pointer; border: none; border-radius: 10px; padding: 11px 20px; font-size: 13px; font-weight: 600; letter-spacing: .04em; }
+      .btn-gold { background: linear-gradient(90deg, #fbbf24, #facc15); color: #000; margin-top: 16px; }
+      .btn-gold:hover { filter: brightness(1.08); }
+      .btn-ghost { background: rgba(255,255,255,.06); color: #cbd5e1; border: 1px solid rgba(255,255,255,.12); }
+      .btn-dl { background: rgba(212,175,55,.14); color: #fcd34d; border: 1px solid rgba(212,175,55,.4); padding: 7px 14px; font-size: 12px; white-space: nowrap; }
+      .msg { margin-top: 14px; font-size: 13px; min-height: 18px; }
+      .msg.err { color: #fca5a5; }
+      .file { display: flex; gap: 14px; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+      .file:last-child { border-bottom: none; }
+      .fname { font-size: 14px; color: #fff; word-break: break-all; }
+      .fmeta { font-family: "Space Mono", monospace; font-size: 11px; color: #64748b; margin-top: 2px; }
+      .topbar { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+      a { color: #d4af37; }
+      .hidden { display: none; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <div>
+          <div class="kicker">TillRea Virtual Exhibition</div>
+          <h1>Berkas Saya</h1>
+          <p class="sub">File-file yang tersimpan di folder berkas VPS. Masukkan PIN untuk melihat dan mengunduhnya. <a href="/">Kembali ke lobi</a>.</p>
+        </div>
+        <button class="btn-ghost hidden" id="btnKeluar" type="button">Keluar</button>
+      </div>
+
+      <div class="card" id="kotakPin">
+        <label for="pin">PIN</label>
+        <input type="password" id="pin" placeholder="Masukkan PIN (sama dengan PIN panel admin)" inputmode="numeric" autocomplete="off" />
+        <button class="btn-gold" id="btnMasuk" type="button">Buka Berkas</button>
+        <div class="msg" id="msgPin"></div>
+      </div>
+
+      <div class="card hidden" id="kotakDaftar">
+        <div id="daftar"><p class="sub">Memuat…</p></div>
+      </div>
+      <div class="msg" id="msgDaftar"></div>
+    </div>
+
+    <script>
+      var KEY = 'berkasPin';
+      function pin() { return sessionStorage.getItem(KEY) || ''; }
+      function el(id) { return document.getElementById(id); }
+      function esc(s) {
+        return String(s || '').replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+      function ukuran(n) {
+        if (n < 1024) return n + ' B';
+        if (n < 1024 * 1024) return (n / 1024).toFixed(1).replace('.', ',') + ' KB';
+        return (n / 1024 / 1024).toFixed(2).replace('.', ',') + ' MB';
+      }
+      function pesan(id, teks) { var m = el(id); m.textContent = teks; m.className = 'msg err'; }
+      function muat() {
+        fetch('/api/berkas', { headers: { 'X-Admin-Pin': pin() }, cache: 'no-store' })
+          .then(function (r) { return r.json().then(function (d) { return { status: r.status, data: d }; }); })
+          .then(function (res) {
+            if (res.status === 200) { tampil(res.data.files || []); }
+            else if (res.status === 429) { pesan('msgPin', 'Terlalu banyak percobaan salah. Tunggu beberapa menit ya.'); }
+            else { sessionStorage.removeItem(KEY); el('kotakDaftar').classList.add('hidden'); el('kotakPin').classList.remove('hidden'); pesan('msgPin', 'PIN salah. Cek lagi ya.'); }
+          })
+          .catch(function () { pesan('msgPin', 'Tidak bisa menghubungi server.'); });
+      }
+      function tampil(files) {
+        el('kotakPin').classList.add('hidden');
+        el('kotakDaftar').classList.remove('hidden');
+        el('btnKeluar').classList.remove('hidden');
+        var box = el('daftar');
+        if (!files.length) {
+          box.innerHTML = '<p class="sub">Belum ada berkas. Taruh file di folder <b>berkas</b> di VPS (lewat SCP) atau kirim ke Muse lewat chat, nanti muncul di sini.</p>';
+          return;
+        }
+        box.innerHTML = files.map(function (f) {
+          var tgl = new Date(f.mtime * 1000).toLocaleString('id-ID');
+          return '<div class="file"><div><div class="fname">' + esc(f.name) + '</div>' +
+            '<div class="fmeta">' + ukuran(f.size) + ' • ' + esc(tgl) + '</div></div>' +
+            '<button class="btn-dl" type="button" data-unduh="' + esc(f.name) + '">Unduh</button></div>';
+        }).join('');
+        Array.prototype.forEach.call(box.querySelectorAll('[data-unduh]'), function (b) {
+          b.addEventListener('click', function () { unduh(b.getAttribute('data-unduh')); });
+        });
+      }
+      function unduh(name) {
+        el('msgDaftar').textContent = '';
+        fetch('/api/berkas/unduh/' + encodeURIComponent(name), { headers: { 'X-Admin-Pin': pin() } })
+          .then(function (r) {
+            if (!r.ok) throw new Error('gagal');
+            return r.blob();
+          })
+          .then(function (blob) {
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = name;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+          })
+          .catch(function () { pesan('msgDaftar', 'Gagal mengunduh berkas.'); });
+      }
+      el('btnMasuk').addEventListener('click', function () {
+        var t = el('pin').value.trim();
+        if (!t) { pesan('msgPin', 'Isi PIN dulu ya.'); return; }
+        sessionStorage.setItem(KEY, t);
+        muat();
+      });
+      el('pin').addEventListener('keydown', function (e) { if (e.key === 'Enter') el('btnMasuk').click(); });
+      el('btnKeluar').addEventListener('click', function () { sessionStorage.removeItem(KEY); location.reload(); });
+      if (pin()) muat();
+    </script>
+  </body>
+</html>
