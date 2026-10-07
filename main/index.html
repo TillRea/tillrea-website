@@ -140,7 +140,8 @@
       .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
       .site-card { position: relative; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-card); transition: transform .22s ease, box-shadow .22s ease, border-color .22s; display: flex; flex-direction: column; gap: 10px; }
       .site-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); border-color: #d9ccf5; }
-      .site-card .top { display: flex; align-items: center; gap: 12px; }
+      .site-card .top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; row-gap: 8px; }
+      .site-card .chip:not(.live) { white-space: nowrap; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
       .site-tile { width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 19px; flex-shrink: 0; }
       .g0 { background: linear-gradient(135deg, #7c3aed, #4f46e5); } .g1 { background: linear-gradient(135deg, #0ea5e9, #2563eb); }
       .g2 { background: linear-gradient(135deg, #059669, #0d9488); } .g3 { background: linear-gradient(135deg, #f59e0b, #ea580c); }
