@@ -152,6 +152,35 @@
       .modal h3 { margin: 0 0 6px; font-size: 16.5px; font-weight: 700; }
       .modal p { margin: 0; color: var(--muted); font-size: 13.5px; }
       .modal .acts { display: flex; justify-content: flex-end; gap: 9px; margin-top: 22px; }
+      /* ---------- Server & explorer ---------- */
+      .bar { height: 8px; background: #ececf1; border-radius: 99px; overflow: hidden; margin-top: 10px; }
+      .bar > span { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), #4f46e5); border-radius: 99px; }
+      .bar.warn > span { background: linear-gradient(90deg, #f59e0b, #ea580c); }
+      .bar.bad > span { background: linear-gradient(90deg, #dc2626, #b91c1c); }
+      .svc-row { display: flex; align-items: center; gap: 11px; padding: 11px 20px; border-bottom: 1px solid #f1f1f4; font-size: 14px; }
+      .svc-row:last-child { border-bottom: none; }
+      .svc-dot { width: 9px; height: 9px; border-radius: 99px; background: #10b981; box-shadow: 0 0 0 3px #ecfdf5; flex-shrink: 0; }
+      .svc-dot.off { background: #ef4444; box-shadow: 0 0 0 3px #fef2f2; }
+      .svc-row .grow { flex: 1; font-weight: 500; }
+      .svc-row .det { color: var(--faint); font-size: 12.5px; }
+      .root-tabs { display: inline-flex; background: #ececf1; border-radius: 10px; padding: 3px; gap: 2px; }
+      .root-tabs button { border: none; background: transparent; padding: 6px 13px; border-radius: 8px; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; font-family: inherit; }
+      .root-tabs button.active { background: #fff; color: var(--text); box-shadow: 0 1px 3px rgba(16,16,20,.12); }
+      .crumbs { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; font-size: 13.5px; }
+      .crumbs button { background: none; border: none; color: var(--accent); font-weight: 600; cursor: pointer; font-family: inherit; font-size: 13.5px; padding: 2px 4px; }
+      .crumbs .sep { color: var(--faint); }
+      .crumbs .cur { color: var(--text); font-weight: 600; padding: 2px 4px; }
+      .fx-row { display: flex; gap: 12px; align-items: center; padding: 11px 20px; border-bottom: 1px solid #f1f1f4; }
+      .fx-row:last-child { border-bottom: none; }
+      .fx-row .grow { flex: 1; min-width: 0; }
+      .fx-name { font-weight: 600; font-size: 14px; word-break: break-all; }
+      .fx-name.clickable { cursor: pointer; }
+      .fx-name.clickable:hover { color: var(--accent); }
+      .fx-meta { font-size: 12.5px; color: var(--muted); }
+      .fx-acts { display: flex; gap: 6px; flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; }
+      .tile-folder { background: #fef3c7; color: #b45309; }
+      @media (max-width: 700px) { .fx-acts .btn span.lbl-btn { display: none; } }
+
       #toasts { position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 9px; z-index: 80; max-width: min(360px, calc(100vw - 40px)); }
       .toast { background: #18181b; color: #fafafa; border-radius: 11px; padding: 12px 16px; font-size: 13.5px; box-shadow: 0 12px 32px -8px rgba(0,0,0,.4); display: flex; gap: 9px; align-items: flex-start; animation: toast-in .22s ease-out; }
       .toast.err { background: #7f1d1d; }
@@ -214,6 +243,10 @@
           <button class="nav-item" data-view="situs" type="button">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg>
             Situs Live
+          </button>
+          <button class="nav-item" data-view="server" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="7" rx="2"/><rect x="2" y="14" width="20" height="7" rx="2"/><path d="M6 6.5h.01M6 17.5h.01"/></svg>
+            Server &amp; Berkas
           </button>
         </nav>
         <div class="spacer"></div>
@@ -369,6 +402,58 @@
             </div>
           </section>
 
+          <!-- ======= VIEW: SERVER & BERKAS ======= -->
+          <section id="view-server" class="hidden">
+            <div class="view-head">
+              <div class="row">
+                <div>
+                  <h2>Server &amp; Berkas</h2>
+                  <p>Kesehatan VPS ini dan penjelajah berkas folder kerja Muse — akses penuh dengan PIN yang sama.</p>
+                </div>
+                <button class="btn btn-ghost" id="btnSegarkanServer" type="button">↻ Segarkan</button>
+              </div>
+            </div>
+
+            <div class="stats" style="margin-top:0">
+              <div class="stat"><div class="k">Penyimpanan Terpakai</div><div class="v" id="srvDiskV">–</div><div class="bar" id="srvDiskBar"><span style="width:0%"></span></div><div class="d" id="srvDiskD">–</div></div>
+              <div class="stat"><div class="k">RAM Terpakai</div><div class="v" id="srvRamV">–</div><div class="bar" id="srvRamBar"><span style="width:0%"></span></div><div class="d" id="srvRamD">–</div></div>
+              <div class="stat"><div class="k">Beban CPU (1 mnt)</div><div class="v" id="srvLoadV">–</div><div class="d" id="srvLoadD">–</div></div>
+            </div>
+
+            <div class="grid-2" style="margin-bottom:18px">
+              <div class="card">
+                <div class="card-head"><span class="t">Status Layanan</span></div>
+                <div id="srvLayanan"><div class="empty">Memuat…</div></div>
+              </div>
+              <div class="card">
+                <div class="card-head"><span class="t">Folder Terbesar</span></div>
+                <div id="srvFolder"><div class="empty">Memuat…</div></div>
+                <div style="padding:12px 20px; border-top:1px solid #f1f1f4; font-size:12.5px; color:var(--faint)" id="srvMeta">–</div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-head" style="gap:14px">
+                <div class="root-tabs" id="rootTabs">
+                  <button data-root="workspace" class="active" type="button">Workspace</button>
+                  <button data-root="www" type="button">Situs Web</button>
+                  <button data-root="berkas" type="button">Berkas</button>
+                </div>
+                <div style="display:flex; gap:8px; flex-wrap:wrap">
+                  <button class="btn btn-ghost btn-sm" id="btnFolderBaru" type="button">＋ Folder Baru</button>
+                  <button class="btn btn-primary btn-sm" id="btnUnggah" type="button">⬆ Unggah File</button>
+                  <input type="file" id="fxFile" class="hidden" />
+                </div>
+              </div>
+              <div style="padding:11px 20px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:10px; flex-wrap:wrap">
+                <div class="crumbs" id="fxCrumbs"></div>
+                <span style="margin-left:auto; font-size:12.5px; color:var(--faint)" id="fxInfo"></span>
+              </div>
+              <div id="fxDaftar"><div class="empty">Memuat…</div></div>
+            </div>
+            <p style="color:var(--faint); font-size:12px; margin-top:14px">Berkas rahasia (token, kunci, PIN, .env) otomatis disembunyikan dan tidak bisa diakses dari panel. Berkas inti sistem (halaman lobi/admin/berkas, folder webtest &amp; scripts) dilindungi dari hapus &amp; ganti nama.</p>
+          </section>
+
           <p style="color:var(--faint); font-size:12px; margin-top:26px">Panel Admin TillRea • Perubahan tersimpan otomatis & tercatat di git server.</p>
         </div>
       </main>
@@ -429,6 +514,7 @@
         el('modalBody').innerHTML = bodyHtml;
         el('modalExtra').innerHTML = extraHtml || '';
         el('modalOk').textContent = okLabel;
+        el('modalOk').className = 'btn btn-danger';
         modalCb = cb;
         el('overlay').classList.add('show');
       }
@@ -439,13 +525,14 @@
 
       /* ---------- Navigasi tampilan ---------- */
       function switchView(name) {
-        ['pameran', 'publish', 'situs'].forEach(function (v) {
+        ['pameran', 'publish', 'situs', 'server'].forEach(function (v) {
           el('view-' + v).classList.toggle('hidden', v !== name);
         });
         Array.prototype.forEach.call(document.querySelectorAll('#mainNav .nav-item'), function (b) {
           b.classList.toggle('active', b.getAttribute('data-view') === name);
         });
         window.scrollTo({ top: 0 });
+        if (name === 'server') muatServer();
       }
       Array.prototype.forEach.call(document.querySelectorAll('#mainNav .nav-item'), function (b) {
         b.addEventListener('click', function () { switchView(b.getAttribute('data-view')); });
@@ -653,6 +740,187 @@
             btn.textContent = '🚀 Publish Situs';
             toast('Tidak bisa menghubungi server.', true);
           });
+      });
+
+      /* ---------- Server & File Explorer ---------- */
+      var fxRoot = 'workspace', fxPath = '', fxEntries = [], serverLoaded = false;
+      function fmtGB(n) { return (n / 1073741824).toFixed(1).replace('.', ',') + ' GB'; }
+      function fmtUptime(sec) {
+        var h = Math.floor(sec / 3600), d = Math.floor(h / 24);
+        if (d > 0) return d + ' hari ' + (h % 24) + ' jam';
+        if (h > 0) return h + ' jam ' + Math.floor((sec % 3600) / 60) + ' mnt';
+        return Math.floor(sec / 60) + ' menit';
+      }
+      function bar(elBar, elV, elD, used, total, label) {
+        var pct = total > 0 ? Math.min(100, Math.round(used / total * 100)) : 0;
+        elV.textContent = pct + '%';
+        var bar = elBar;
+        bar.className = 'bar' + (pct >= 90 ? ' bad' : (pct >= 75 ? ' warn' : ''));
+        bar.querySelector('span').style.width = pct + '%';
+        elD.textContent = label;
+      }
+      function muatServer() {
+        muatStatus();
+        muatFiles();
+      }
+      function muatStatus() {
+        api('/api/server/status').then(function (res) {
+          if (res.status !== 200) { toast('Gagal memuat status server.', true); return; }
+          serverLoaded = true;
+          var d = res.data;
+          bar(el('srvDiskBar'), el('srvDiskV'), el('srvDiskD'), d.disk.used, d.disk.total,
+            fmtGB(d.disk.used) + ' dari ' + fmtGB(d.disk.total) + ' • sisa ' + fmtGB(d.disk.free));
+          bar(el('srvRamBar'), el('srvRamV'), el('srvRamD'), d.memory.used, d.memory.total,
+            fmtGB(d.memory.used) + ' dari ' + fmtGB(d.memory.total));
+          el('srvLoadV').textContent = (d.load[0] || 0).toFixed(2).replace('.', ',');
+          el('srvLoadD').textContent = d.cpu_count + ' CPU • beban 5/15 mnt: ' + (d.load[1] || 0).toFixed(2).replace('.', ',') + ' / ' + (d.load[2] || 0).toFixed(2).replace('.', ',');
+          el('srvLayanan').innerHTML = (d.services || []).map(function (s) {
+            return '<div class="svc-row"><span class="svc-dot' + (s.ok ? '' : ' off') + '"></span><span class="grow">' + esc(s.name) + '</span><span class="det">' + esc(s.detail || '') + '</span><span class="badge ' + (s.ok ? 'badge-green' : 'badge-red') + '">' + (s.ok ? 'Aktif' : 'Mati') + '</span></div>';
+          }).join('') || '<div class="empty">Tidak ada data layanan.</div>';
+          el('srvFolder').innerHTML = (d.folders || []).map(function (f) {
+            return '<div class="svc-row"><span class="grow" style="font-weight:500">' + esc(f.label) + '</span><span class="det">' + esc(f.path) + '</span><b>' + fmtSize(f.size) + '</b></div>';
+          }).join('') || '<div class="empty">Tidak ada data folder.</div>';
+          el('srvMeta').textContent = 'Uptime ' + fmtUptime(d.uptime_seconds || 0) + ' • ' + d.platform + ' • Python ' + d.python;
+        }).catch(function () { toast('Tidak bisa menghubungi server.', true); });
+      }
+      el('btnSegarkanServer').addEventListener('click', muatServer);
+
+      function fxUrl(path) { return '/api/files?root=' + encodeURIComponent(fxRoot) + '&path=' + encodeURIComponent(path); }
+      function muatFiles() {
+        el('fxDaftar').innerHTML = '<div class="empty">Memuat…</div>';
+        api(fxUrl(fxPath)).then(function (res) {
+          if (res.status !== 200) {
+            el('fxDaftar').innerHTML = '<div class="empty">' + esc((res.data && res.data.error) || 'Gagal memuat folder.') + '</div>';
+            return;
+          }
+          fxPath = res.data.path || '';
+          fxEntries = res.data.entries || [];
+          renderFiles(res.data.hidden || 0);
+        }).catch(function () { el('fxDaftar').innerHTML = '<div class="empty">Tidak bisa menghubungi server.</div>'; });
+      }
+      function renderFiles(hidden) {
+        var parts = fxPath ? fxPath.split('/') : [];
+        var rootLabel = fxRoot === 'www' ? 'Situs Web' : (fxRoot === 'berkas' ? 'Berkas' : 'Workspace');
+        var crumbs = '<button type="button" data-crumb="">' + rootLabel + '</button>';
+        var acc = '';
+        parts.forEach(function (p, i) {
+          acc = acc ? acc + '/' + p : p;
+          crumbs += '<span class="sep">/</span>' + (i === parts.length - 1 ? '<span class="cur">' + esc(p) + '</span>' : '<button type="button" data-crumb="' + esc(acc) + '">' + esc(p) + '</button>');
+        });
+        el('fxCrumbs').innerHTML = crumbs;
+        Array.prototype.forEach.call(el('fxCrumbs').querySelectorAll('[data-crumb]'), function (b) {
+          b.addEventListener('click', function () { fxPath = b.getAttribute('data-crumb'); muatFiles(); });
+        });
+        var nDir = fxEntries.filter(function (e) { return e.type === 'dir'; }).length;
+        el('fxInfo').textContent = fxEntries.length + ' item (' + nDir + ' folder)' + (hidden ? ' • ' + hidden + ' berkas rahasia disembunyikan' : '');
+        var box = el('fxDaftar');
+        if (!fxEntries.length) {
+          box.innerHTML = '<div class="empty">Folder ini kosong.<br>Unggah file atau buat folder baru lewat tombol di atas.</div>';
+          return;
+        }
+        box.innerHTML = fxEntries.map(function (e) {
+          var full = fxPath ? fxPath + '/' + e.name : e.name;
+          var isDir = e.type === 'dir';
+          var meta = isDir ? (e.items + ' item • diubah ' + fmtTgl(e.mtime)) : (fmtSize(e.size) + ' • diubah ' + fmtTgl(e.mtime));
+          var tile = isDir
+            ? '<div class="ext-tile tile-folder"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>'
+            : '<div class="ext-tile">' + esc(extOf(e.name)) + '</div>';
+          var acts = '';
+          if (isDir) acts += '<button class="btn btn-ghost btn-sm" type="button" data-fxopen="' + esc(full) + '">Buka</button>';
+          else acts += '<button class="btn btn-ghost btn-sm" type="button" data-fxdl="' + esc(full) + '">Unduh</button>';
+          acts += '<button class="btn btn-ghost btn-sm" type="button" data-fxren="' + esc(full) + '" data-fxname="' + esc(e.name) + '">Ganti Nama</button>';
+          acts += '<button class="btn btn-ghost btn-sm danger-ghost" type="button" data-fxdel="' + esc(full) + '" data-fxname="' + esc(e.name) + '">Hapus</button>';
+          return '<div class="fx-row">' + tile + '<div class="grow"><div class="fx-name' + (isDir ? ' clickable' : '') + '"' + (isDir ? ' data-fxopen="' + esc(full) + '"' : '') + '>' + esc(e.name) + (isDir ? ' /' : '') + '</div><div class="fx-meta">' + esc(meta) + '</div></div><div class="fx-acts">' + acts + '</div></div>';
+        }).join('');
+        Array.prototype.forEach.call(box.querySelectorAll('[data-fxopen]'), function (b) {
+          b.addEventListener('click', function () { fxPath = b.getAttribute('data-fxopen'); muatFiles(); });
+        });
+        Array.prototype.forEach.call(box.querySelectorAll('[data-fxdl]'), function (b) {
+          b.addEventListener('click', function () { unduhFile(b.getAttribute('data-fxdl')); });
+        });
+        Array.prototype.forEach.call(box.querySelectorAll('[data-fxren]'), function (b) {
+          b.addEventListener('click', function () { gantiNamaFile(b.getAttribute('data-fxren'), b.getAttribute('data-fxname')); });
+        });
+        Array.prototype.forEach.call(box.querySelectorAll('[data-fxdel]'), function (b) {
+          b.addEventListener('click', function () { hapusFile(b.getAttribute('data-fxdel'), b.getAttribute('data-fxname')); });
+        });
+      }
+      function extOf(name) {
+        var m = /\.([A-Za-z0-9]{1,5})$/.exec(name || '');
+        return m ? m[1].toUpperCase() : 'FILE';
+      }
+      function unduhFile(full) {
+        fetch('/api/files/download?root=' + encodeURIComponent(fxRoot) + '&path=' + encodeURIComponent(full), { headers: { 'X-Admin-Pin': token() } })
+          .then(function (r) { if (!r.ok) throw new Error('gagal'); return r.blob(); })
+          .then(function (blob) {
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = full.split('/').pop();
+            document.body.appendChild(a); a.click(); a.remove();
+            setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+          })
+          .catch(function () { toast('Gagal mengunduh berkas.', true); });
+      }
+      function applyEntries(res) {
+        if (res.status === 200) { fxEntries = res.data.entries || []; renderFiles(res.data.hidden || 0); return true; }
+        toast((res.data && res.data.error) || 'Operasi gagal.', true);
+        return false;
+      }
+      function gantiNamaFile(full, nama) {
+        openModal('Ganti Nama', 'Nama baru untuk <b>' + esc(nama) + '</b>:', 'Simpan', function () {
+          var baru = el('modalInput').value.trim();
+          if (!baru) { toast('Nama baru tidak boleh kosong.', true); return; }
+          api('/api/files/rename', 'POST', { root: fxRoot, path: full, new_name: baru }).then(function (res) {
+            if (applyEntries(res)) toast('Berhasil diganti nama menjadi ' + baru + '.');
+          });
+        }, '<input type="text" id="modalInput" value="' + esc(nama) + '" style="margin-top:4px" />');
+        el('modalOk').className = 'btn btn-primary';
+        setTimeout(function () { var i = el('modalInput'); if (i) { i.focus(); i.select(); } }, 60);
+      }
+      function hapusFile(full, nama) {
+        openModal('Hapus Berkas?', 'Yakin menghapus <b>' + esc(nama) + '</b>?<br><span style="color:var(--muted)">Folder akan terhapus beserta seluruh isinya. Tindakan ini tidak bisa dibatalkan dari panel.</span>', 'Hapus', function () {
+          api('/api/files/delete', 'POST', { root: fxRoot, path: full }).then(function (res) {
+            if (applyEntries(res)) toast(nama + ' berhasil dihapus.');
+          });
+        });
+        el('modalOk').className = 'btn btn-danger';
+      }
+      el('btnFolderBaru').addEventListener('click', function () {
+        openModal('Folder Baru', 'Nama folder baru di lokasi ini:', 'Buat Folder', function () {
+          var nama = el('modalInput').value.trim();
+          if (!nama) { toast('Nama folder tidak boleh kosong.', true); return; }
+          api('/api/files/mkdir', 'POST', { root: fxRoot, path: fxPath, name: nama }).then(function (res) {
+            if (applyEntries(res)) toast('Folder ' + nama + ' berhasil dibuat.');
+          });
+        }, '<input type="text" id="modalInput" placeholder="nama-folder" style="margin-top:4px" />');
+        el('modalOk').className = 'btn btn-primary';
+        setTimeout(function () { var i = el('modalInput'); if (i) i.focus(); }, 60);
+      });
+      el('btnUnggah').addEventListener('click', function () { el('fxFile').click(); });
+      el('fxFile').addEventListener('change', function () {
+        var f = el('fxFile').files[0];
+        el('fxFile').value = '';
+        if (!f) return;
+        if (f.size > 50 * 1024 * 1024) { toast('File melebihi batas 50 MB.', true); return; }
+        var fd = new FormData();
+        fd.append('root', fxRoot);
+        fd.append('path', fxPath);
+        fd.append('file', f);
+        fetch('/api/files/upload', { method: 'POST', headers: { 'X-Admin-Pin': token() }, body: fd })
+          .then(function (r) { return r.json().then(function (d) { return { status: r.status, data: d }; }); })
+          .then(function (res) {
+            if (res.status === 200) { fxEntries = res.data.entries || []; renderFiles(res.data.hidden || 0); toast('File ' + f.name + ' berhasil diunggah.'); }
+            else toast((res.data && res.data.error) || 'Gagal mengunggah.', true);
+          })
+          .catch(function () { toast('Tidak bisa menghubungi server.', true); });
+      });
+      Array.prototype.forEach.call(el('rootTabs').querySelectorAll('[data-root]'), function (b) {
+        b.addEventListener('click', function () {
+          fxRoot = b.getAttribute('data-root');
+          fxPath = '';
+          Array.prototype.forEach.call(el('rootTabs').querySelectorAll('[data-root]'), function (x) { x.classList.toggle('active', x === b); });
+          muatFiles();
+        });
       });
 
       /* ---------- Login ---------- */
