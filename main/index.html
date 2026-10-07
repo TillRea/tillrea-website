@@ -116,6 +116,8 @@
           '.mp-title{font-family:"Fraunces",Georgia,serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;letter-spacing:.02em;margin:0}',
           '.mp-sub{max-width:28rem;font-size:.875rem;color:#94a3b8;font-weight:300;line-height:1.7;margin-top:1rem}',
           '.mp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem}',
+          '.mp-group{font-family:"Fraunces",Georgia,serif;font-size:1.45rem;color:#fff;margin:2.8rem 0 0;display:flex;align-items:center;gap:.6rem}',
+          '.mp-group + .mp-grid{margin-top:1.4rem}',
           '.mp-card{background:#0f1117;border:1px solid rgba(255,255,255,.08);border-radius:1rem;padding:1.75rem;display:flex;flex-direction:column;gap:.6rem}',
           '.mp-card:hover{border-color:rgba(212,175,55,.45)}',
           '.mp-label{font-family:"Space Mono",monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#d4af37}',
@@ -148,16 +150,23 @@
           sec.id = 'ruang-pameran';
           sec.setAttribute('data-muse-rooms', '1');
           sec.className = 'mp-section';
+          function cardOf(it) {
+            return '<article class="mp-card">' +
+              (it.label ? '<div class="mp-label">' + esc(it.label) + '</div>' : '') +
+              '<h3>' + esc(it.title) + '</h3>' +
+              (it.description ? '<p>' + esc(it.description) + '</p>' : '<p></p>') +
+              '<a class="mp-btn" href="' + esc(it.url) + '" target="_blank" rel="noopener noreferrer">Live Preview &#8599;</a>' +
+              '</article>';
+          }
+          function gridOf(list) { return '<div class="mp-grid">' + list.map(cardOf).join('') + '</div>'; }
           var cards;
           if (items && items.length) {
-            cards = '<div class="mp-grid">' + items.map(function (it) {
-              return '<article class="mp-card">' +
-                (it.label ? '<div class="mp-label">' + esc(it.label) + '</div>' : '') +
-                '<h3>' + esc(it.title) + '</h3>' +
-                (it.description ? '<p>' + esc(it.description) + '</p>' : '<p></p>') +
-                '<a class="mp-btn" href="' + esc(it.url) + '" target="_blank" rel="noopener noreferrer">Live Preview &#8599;</a>' +
-                '</article>';
-            }).join('') + '</div>';
+            var pribadi = items.filter(function (it) { return it.section !== 'tamu'; });
+            var tamu = items.filter(function (it) { return it.section === 'tamu'; });
+            cards = '';
+            if (pribadi.length) cards += '<h3 class="mp-group"><span>&#11088;</span><span>Koleksi Pribadi</span></h3>' + gridOf(pribadi);
+            if (tamu.length) cards += '<h3 class="mp-group"><span>&#127760;</span><span>Pameran Tamu</span></h3>' + gridOf(tamu);
+            if (!cards) cards = gridOf(items);
           } else {
             cards = '<div class="mp-empty">Belum ada karya yang dipamerkan saat ini.</div>';
           }
