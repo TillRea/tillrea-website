@@ -6,57 +6,133 @@
     <title>Berkas Saya — TillRea</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+      :root {
+        --bg: #f7f7f8; --panel: #ffffff; --border: #e6e6ea; --border-strong: #d4d4da;
+        --text: #17171c; --muted: #6b7280; --faint: #9ca3af;
+        --accent: #6d28d9; --accent-hover: #5b21b6; --accent-soft: #f3efff;
+        --danger: #dc2626; --ok: #059669; --ok-soft: #ecfdf5;
+        --radius: 14px; --shadow: 0 1px 2px rgba(16,16,20,.05), 0 8px 24px -12px rgba(16,16,20,.12);
+      }
       * { box-sizing: border-box; }
-      body { margin: 0; background: #0b0c10; color: #e2e8f0; font-family: "Plus Jakarta Sans", system-ui, sans-serif; font-weight: 300; }
-      .wrap { max-width: 760px; margin: 0 auto; padding: 40px 20px 80px; }
-      .kicker { font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: #d4af37; }
-      h1 { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 32px; margin: 8px 0 6px; color: #fff; }
-      p.sub { color: #94a3b8; font-size: 14px; line-height: 1.6; margin: 0 0 8px; }
-      .card { background: #0f1117; border: 1px solid rgba(255,255,255,.09); border-radius: 16px; padding: 22px; margin-top: 18px; }
-      label { display: block; font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: #94a3b8; margin: 0 0 6px; }
-      input { width: 100%; background: #0b0c10; border: 1px solid rgba(255,255,255,.14); border-radius: 10px; color: #e2e8f0; padding: 11px 13px; font-size: 14px; font-family: inherit; }
-      input:focus { outline: none; border-color: #d4af37; }
-      button { cursor: pointer; border: none; border-radius: 10px; padding: 11px 20px; font-size: 13px; font-weight: 600; letter-spacing: .04em; }
-      .btn-gold { background: linear-gradient(90deg, #fbbf24, #facc15); color: #000; margin-top: 16px; }
-      .btn-gold:hover { filter: brightness(1.08); }
-      .btn-ghost { background: rgba(255,255,255,.06); color: #cbd5e1; border: 1px solid rgba(255,255,255,.12); }
-      .btn-dl { background: rgba(212,175,55,.14); color: #fcd34d; border: 1px solid rgba(212,175,55,.4); padding: 7px 14px; font-size: 12px; white-space: nowrap; }
-      .msg { margin-top: 14px; font-size: 13px; min-height: 18px; }
-      .msg.err { color: #fca5a5; }
-      .file { display: flex; gap: 14px; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
-      .file:last-child { border-bottom: none; }
-      .fname { font-size: 14px; color: #fff; word-break: break-all; }
-      .fmeta { font-family: "Space Mono", monospace; font-size: 11px; color: #64748b; margin-top: 2px; }
-      .topbar { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
-      a { color: #d4af37; }
-      .hidden { display: none; }
+      html, body { margin: 0; padding: 0; }
+      body { background: var(--bg); color: var(--text); font-family: "Inter", system-ui, -apple-system, sans-serif; font-size: 14px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      button { font-family: inherit; cursor: pointer; }
+      .hidden { display: none !important; }
+
+      .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 10px; border: 1px solid transparent; padding: 9px 16px; font-size: 13.5px; font-weight: 600; transition: background .15s, border-color .15s; white-space: nowrap; }
+      .btn:disabled { opacity: .55; cursor: not-allowed; }
+      .btn-primary { background: var(--accent); color: #fff; }
+      .btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
+      .btn-ghost { background: var(--panel); border-color: var(--border); color: var(--text); }
+      .btn-ghost:hover { border-color: var(--border-strong); background: #fafafa; }
+      .btn-sm { padding: 6px 12px; font-size: 12.5px; border-radius: 8px; }
+      .btn-lg { padding: 12px 20px; font-size: 14.5px; border-radius: 11px; width: 100%; }
+      .btn svg { width: 15px; height: 15px; }
+      label.lbl { display: block; font-size: 12.5px; font-weight: 600; margin: 16px 0 6px; }
+      input[type="text"], input[type="password"] {
+        width: 100%; background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+        color: var(--text); padding: 10px 12px; font-size: 14px; font-family: inherit; transition: border-color .15s, box-shadow .15s;
+      }
+      input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+      .msg { font-size: 13px; min-height: 19px; margin-top: 12px; }
+      .msg.err { color: var(--danger); }
+      .logo-mark { width: 44px; height: 44px; border-radius: 12px; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 21px; box-shadow: 0 8px 18px -8px rgba(109,40,217,.55); flex-shrink: 0; }
+
+      /* ---------- Login ---------- */
+      .login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; background: radial-gradient(720px 380px at 50% -80px, #ede9fe 0%, var(--bg) 62%); }
+      .login-card { width: 100%; max-width: 392px; background: var(--panel); border: 1px solid var(--border); border-radius: 18px; box-shadow: var(--shadow); padding: 34px 32px 28px; }
+      .login-card h1 { font-size: 21px; font-weight: 700; margin: 18px 0 4px; letter-spacing: -.01em; }
+      .login-card p { color: var(--muted); font-size: 13.5px; margin: 0 0 8px; }
+
+      /* ---------- Halaman berkas ---------- */
+      .page { max-width: 880px; margin: 0 auto; padding: 30px 22px 60px; }
+      .page-head { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+      .page-head .logo-mark { width: 40px; height: 40px; font-size: 19px; border-radius: 11px; }
+      .page-head h1 { font-size: 22px; font-weight: 700; letter-spacing: -.015em; margin: 0; }
+      .page-head .sub { color: var(--muted); font-size: 13px; margin: 0; }
+      .page-head .acts { margin-left: auto; display: flex; gap: 8px; flex-shrink: 0; }
+      .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0 18px; }
+      .stat { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px 18px; }
+      .stat .k { font-size: 11.5px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+      .stat .v { font-size: 24px; font-weight: 700; letter-spacing: -.02em; margin-top: 2px; }
+      .card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 1px 2px rgba(16,16,20,.04); }
+      .card-head { padding: 15px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+      .card-head .t { font-weight: 600; font-size: 14.5px; }
+      .search-wrap { position: relative; }
+      .search-wrap input { padding-left: 34px; width: 230px; }
+      .search-wrap svg { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); width: 15px; height: 15px; color: var(--faint); }
+      .file-row { display: flex; gap: 13px; align-items: center; padding: 13px 20px; border-bottom: 1px solid #f1f1f4; }
+      .file-row:last-child { border-bottom: none; }
+      .ext-tile { width: 42px; height: 42px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 10.5px; font-weight: 700; letter-spacing: .03em; flex-shrink: 0; text-transform: uppercase; }
+      .file-row .grow { flex: 1; min-width: 0; }
+      .fname { font-weight: 600; font-size: 14px; word-break: break-all; }
+      .fmeta { font-size: 12.5px; color: var(--muted); margin-top: 1px; }
+      .empty { padding: 38px 22px; text-align: center; color: var(--muted); font-size: 13.5px; }
+      #toasts { position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 9px; z-index: 80; max-width: min(360px, calc(100vw - 40px)); }
+      .toast { background: #18181b; color: #fafafa; border-radius: 11px; padding: 12px 16px; font-size: 13.5px; box-shadow: 0 12px 32px -8px rgba(0,0,0,.4); animation: toast-in .22s ease-out; }
+      .toast.err { background: #7f1d1d; }
+      @keyframes toast-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+      @media (max-width: 640px) {
+        .search-wrap input { width: 100%; }
+        .search-wrap { width: 100%; }
+        .page-head .acts .btn .lbl-btn { display: none; }
+      }
     </style>
   </head>
   <body>
-    <div class="wrap">
-      <div class="topbar">
-        <div>
-          <div class="kicker">TillRea Virtual Exhibition</div>
-          <h1>Berkas Saya</h1>
-          <p class="sub">File-file yang tersimpan di folder berkas VPS. Masukkan PIN untuk melihat dan mengunduhnya. <a href="/">Kembali ke lobi</a>.</p>
-        </div>
-        <button class="btn-ghost hidden" id="btnKeluar" type="button">Keluar</button>
-      </div>
-
-      <div class="card" id="kotakPin">
-        <label for="pin">PIN</label>
+    <!-- ================= LOGIN ================= -->
+    <div class="login-wrap" id="loginView">
+      <div class="login-card">
+        <div class="logo-mark">T</div>
+        <h1>Berkas Saya</h1>
+        <p>File-file yang tersimpan di server TillRea. Masukkan PIN untuk melihat dan mengunduhnya.</p>
+        <label class="lbl" for="pin">PIN</label>
         <input type="password" id="pin" placeholder="Masukkan PIN (sama dengan PIN panel admin)" inputmode="numeric" autocomplete="off" />
-        <button class="btn-gold" id="btnMasuk" type="button">Buka Berkas</button>
+        <div style="height:14px"></div>
+        <button class="btn btn-primary btn-lg" id="btnMasuk" type="button">Buka Berkas</button>
         <div class="msg" id="msgPin"></div>
+        <p style="text-align:center; margin-top:14px"><a href="/">← Kembali ke lobi</a> &nbsp;•&nbsp; <a href="/admin">Panel Admin</a></p>
+      </div>
+    </div>
+
+    <!-- ================= DAFTAR BERKAS ================= -->
+    <div class="page hidden" id="pageView">
+      <div class="page-head">
+        <div class="logo-mark">T</div>
+        <div>
+          <h1>Berkas Saya</h1>
+          <p class="sub">File tersimpan di server TillRea — klik Unduh untuk mengunduh.</p>
+        </div>
+        <div class="acts">
+          <a class="btn btn-ghost btn-sm" href="/admin" style="text-decoration:none">Panel Admin</a>
+          <button class="btn btn-ghost btn-sm" id="btnKeluar" type="button">Keluar</button>
+        </div>
       </div>
 
-      <div class="card hidden" id="kotakDaftar">
-        <div id="daftar"><p class="sub">Memuat…</p></div>
+      <div class="stats">
+        <div class="stat"><div class="k">Jumlah Berkas</div><div class="v" id="statJumlah">–</div></div>
+        <div class="stat"><div class="k">Total Ukuran</div><div class="v" id="statUkuran">–</div></div>
       </div>
-      <div class="msg" id="msgDaftar"></div>
+
+      <div class="card">
+        <div class="card-head">
+          <span class="t">Semua Berkas</span>
+          <div class="search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            <input type="text" id="cariBerkas" placeholder="Cari berkas…" />
+          </div>
+        </div>
+        <div id="daftar"><div class="empty">Memuat…</div></div>
+      </div>
+
+      <p style="color:var(--faint); font-size:12px; margin-top:22px">Untuk menambah berkas, taruh file di folder berkas VPS (lewat SCP) atau kirim ke Muse lewat chat — nanti muncul di sini.</p>
     </div>
+
+    <div id="toasts"></div>
 
     <script>
       var KEY = 'berkasPin';
@@ -67,43 +143,70 @@
           return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
         });
       }
+      function toast(teks, isErr) {
+        var t = document.createElement('div');
+        t.className = 'toast' + (isErr ? ' err' : '');
+        t.textContent = teks;
+        el('toasts').appendChild(t);
+        setTimeout(function () { t.style.opacity = '0'; t.style.transition = 'opacity .3s'; setTimeout(function () { t.remove(); }, 320); }, 4200);
+      }
       function ukuran(n) {
         if (n < 1024) return n + ' B';
         if (n < 1024 * 1024) return (n / 1024).toFixed(1).replace('.', ',') + ' KB';
         return (n / 1024 / 1024).toFixed(2).replace('.', ',') + ' MB';
       }
-      function pesan(id, teks) { var m = el(id); m.textContent = teks; m.className = 'msg err'; }
+      function extOf(name) {
+        var m = /\.([A-Za-z0-9]{1,5})$/.exec(name || '');
+        return m ? m[1].toUpperCase() : 'FILE';
+      }
+      function pesanPin(teks) { var m = el('msgPin'); m.textContent = teks; m.className = 'msg err'; }
+
+      var filesCache = [];
       function muat() {
         fetch('/api/berkas', { headers: { 'X-Admin-Pin': pin() }, cache: 'no-store' })
           .then(function (r) { return r.json().then(function (d) { return { status: r.status, data: d }; }); })
           .then(function (res) {
             if (res.status === 200) { tampil(res.data.files || []); }
-            else if (res.status === 429) { pesan('msgPin', 'Terlalu banyak percobaan salah. Tunggu beberapa menit ya.'); }
-            else { sessionStorage.removeItem(KEY); el('kotakDaftar').classList.add('hidden'); el('kotakPin').classList.remove('hidden'); pesan('msgPin', 'PIN salah. Cek lagi ya.'); }
+            else if (res.status === 429) { pesanPin('Terlalu banyak percobaan salah. Tunggu beberapa menit ya.'); }
+            else { sessionStorage.removeItem(KEY); el('pageView').classList.add('hidden'); el('loginView').classList.remove('hidden'); pesanPin('PIN salah. Cek lagi ya.'); }
           })
-          .catch(function () { pesan('msgPin', 'Tidak bisa menghubungi server.'); });
+          .catch(function () { pesanPin('Tidak bisa menghubungi server.'); });
       }
       function tampil(files) {
-        el('kotakPin').classList.add('hidden');
-        el('kotakDaftar').classList.remove('hidden');
-        el('btnKeluar').classList.remove('hidden');
+        filesCache = files || [];
+        el('loginView').classList.add('hidden');
+        el('pageView').classList.remove('hidden');
+        el('statJumlah').textContent = filesCache.length;
+        el('statUkuran').textContent = ukuran(filesCache.reduce(function (a, f) { return a + (f.size || 0); }, 0));
+        renderDaftar();
+      }
+      function renderDaftar() {
         var box = el('daftar');
-        if (!files.length) {
-          box.innerHTML = '<p class="sub">Belum ada berkas. Taruh file di folder <b>berkas</b> di VPS (lewat SCP) atau kirim ke Muse lewat chat, nanti muncul di sini.</p>';
+        var q = el('cariBerkas').value.trim().toLowerCase();
+        var list = filesCache.filter(function (f) { return !q || f.name.toLowerCase().indexOf(q) !== -1; });
+        if (!filesCache.length) {
+          box.innerHTML = '<div class="empty">Belum ada berkas tersimpan.<br>Taruh file di folder berkas VPS atau kirim ke Muse lewat chat.</div>';
           return;
         }
-        box.innerHTML = files.map(function (f) {
-          var tgl = new Date(f.mtime * 1000).toLocaleString('id-ID');
-          return '<div class="file"><div><div class="fname">' + esc(f.name) + '</div>' +
+        if (!list.length) {
+          box.innerHTML = '<div class="empty">Tidak ada berkas yang cocok dengan pencarian.</div>';
+          return;
+        }
+        box.innerHTML = list.map(function (f) {
+          var tgl = new Date(f.mtime * 1000).toLocaleString('id-ID', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+          return '<div class="file-row">' +
+            '<div class="ext-tile">' + esc(extOf(f.name)) + '</div>' +
+            '<div class="grow"><div class="fname">' + esc(f.name) + '</div>' +
             '<div class="fmeta">' + ukuran(f.size) + ' • ' + esc(tgl) + '</div></div>' +
-            '<button class="btn-dl" type="button" data-unduh="' + esc(f.name) + '">Unduh</button></div>';
+            '<button class="btn btn-ghost btn-sm" type="button" data-unduh="' + esc(f.name) + '">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>' +
+            'Unduh</button></div>';
         }).join('');
         Array.prototype.forEach.call(box.querySelectorAll('[data-unduh]'), function (b) {
           b.addEventListener('click', function () { unduh(b.getAttribute('data-unduh')); });
         });
       }
       function unduh(name) {
-        el('msgDaftar').textContent = '';
         fetch('/api/berkas/unduh/' + encodeURIComponent(name), { headers: { 'X-Admin-Pin': pin() } })
           .then(function (r) {
             if (!r.ok) throw new Error('gagal');
@@ -117,12 +220,14 @@
             a.click();
             a.remove();
             setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+            toast('Mengunduh ' + name);
           })
-          .catch(function () { pesan('msgDaftar', 'Gagal mengunduh berkas.'); });
+          .catch(function () { toast('Gagal mengunduh berkas.', true); });
       }
+      el('cariBerkas').addEventListener('input', renderDaftar);
       el('btnMasuk').addEventListener('click', function () {
         var t = el('pin').value.trim();
-        if (!t) { pesan('msgPin', 'Isi PIN dulu ya.'); return; }
+        if (!t) { pesanPin('Isi PIN dulu ya.'); return; }
         sessionStorage.setItem(KEY, t);
         muat();
       });
