@@ -1,4 +1,4 @@
-import{r as js,j as Ho}from"./index-BKJY7SK5.js";/**
+import{r as js,j as Ho}from"./index-AiHG2U0d.js";/**
  * @license
  * Copyright 2010-2025 Three.js Authors
  * SPDX-License-Identifier: MIT
