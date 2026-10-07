@@ -118,18 +118,22 @@
         <div class="stat"><div class="k">Total Ukuran</div><div class="v" id="statUkuran">–</div></div>
       </div>
 
-      <div class="card">
+      <div class="card" id="berkasCard">
         <div class="card-head">
           <span class="t">Semua Berkas</span>
-          <div class="search-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-            <input type="text" id="cariBerkas" placeholder="Cari berkas…" />
+          <div style="display:flex; gap:9px; align-items:center; flex-wrap:wrap">
+            <div class="search-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              <input type="text" id="cariBerkas" placeholder="Cari berkas…" />
+            </div>
+            <button class="btn btn-primary btn-sm" id="btnUnggahBerkas" type="button">⬆ Unggah Berkas</button>
+            <input type="file" id="fileBerkas" class="hidden" />
           </div>
         </div>
         <div id="daftar"><div class="empty">Memuat…</div></div>
       </div>
 
-      <p style="color:var(--faint); font-size:12px; margin-top:22px">Untuk menambah berkas, taruh file di folder berkas VPS (lewat SCP) atau kirim ke Muse lewat chat — nanti muncul di sini.</p>
+      <p style="color:var(--faint); font-size:12px; margin-top:22px">Tambah berkas lewat tombol <b>Unggah Berkas</b> (maks 50 MB) atau seret &amp; letakkan file ke kartu di atas. File rahasia (token/kunci/.env) ditolak demi keamanan.</p>
     </div>
 
     <div id="toasts"></div>
@@ -224,6 +228,39 @@
           })
           .catch(function () { toast('Gagal mengunduh berkas.', true); });
       }
+      function unggahBerkas(f) {
+        if (!f) return;
+        if (f.size > 50 * 1024 * 1024) { toast('File melebihi batas 50 MB.', true); return; }
+        var fd = new FormData();
+        fd.append('root', 'berkas');
+        fd.append('path', '');
+        fd.append('file', f);
+        toast('Mengunggah ' + f.name + '…');
+        fetch('/api/files/upload', { method: 'POST', headers: { 'X-Admin-Pin': pin() }, body: fd })
+          .then(function (r) { return r.json().then(function (d) { return { status: r.status, data: d }; }); })
+          .then(function (res) {
+            if (res.status === 200) { toast('Berkas ' + f.name + ' berhasil diunggah.'); muat(); }
+            else toast((res.data && res.data.error) || 'Gagal mengunggah berkas.', true);
+          })
+          .catch(function () { toast('Tidak bisa menghubungi server.', true); });
+      }
+      el('btnUnggahBerkas').addEventListener('click', function () { el('fileBerkas').click(); });
+      el('fileBerkas').addEventListener('change', function () {
+        var f = el('fileBerkas').files[0];
+        el('fileBerkas').value = '';
+        unggahBerkas(f);
+      });
+      var kartu = el('berkasCard');
+      ['dragenter', 'dragover'].forEach(function (ev) {
+        kartu.addEventListener(ev, function (e) { e.preventDefault(); kartu.style.borderColor = 'var(--accent)'; kartu.style.boxShadow = '0 0 0 3px var(--accent-soft)'; });
+      });
+      ['dragleave', 'drop'].forEach(function (ev) {
+        kartu.addEventListener(ev, function (e) { e.preventDefault(); kartu.style.borderColor = ''; kartu.style.boxShadow = ''; });
+      });
+      kartu.addEventListener('drop', function (e) {
+        var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+        unggahBerkas(f);
+      });
       el('cariBerkas').addEventListener('input', renderDaftar);
       el('btnMasuk').addEventListener('click', function () {
         var t = el('pin').value.trim();
@@ -233,7 +270,8 @@
       });
       el('pin').addEventListener('keydown', function (e) { if (e.key === 'Enter') el('btnMasuk').click(); });
       el('btnKeluar').addEventListener('click', function () { sessionStorage.removeItem(KEY); location.reload(); });
-      if (pin()) muat();
+      // Halaman berkas SELALU meminta PIN setiap dibuka — sesi lama tidak dipakai ulang.
+      sessionStorage.removeItem(KEY);
     </script>
   </body>
 </html>
