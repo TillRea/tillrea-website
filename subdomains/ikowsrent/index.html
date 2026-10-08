@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+<script>window.imgFallback=function(el){el.onerror=null;el.src='https://i.ibb.co.com/SXnD3zrm/ikowsrent.png';};</script>
 <style>
 :root{
   --rose:#ec4899; --rose-dark:#be185d; --rose-soft:#fdf2f8; --rose-line:#f9d3e8;
@@ -304,12 +305,6 @@ footer .fine{border-top:1px solid rgba(255,255,255,.14);margin-top:36px;padding-
     <span class="kicker">Rental Kostum Cosplay • Jepara</span>
     <h1>Sewa kostum cosplay favoritmu, <span class="grad">tanpa ribet.</span></h1>
     <p class="lead">Pilih karakter, cek tanggalnya, lalu booking online atau lewat WhatsApp. Harga jelas per 3 hari, bisa diambil di rumah atau dikirim ke kotamu.</p>
-    <form class="searchbar" id="heroSearch">
-      <label><span>Cari kostum</span><input id="hsQuery" type="search" placeholder="Contoh: Makima, Genshin, maid…"></label>
-      <label><span>Tanggal sewa</span><input id="hsDate" type="date"></label>
-      <label><span>Ukuran</span><select id="hsSize"><option value="">Semua</option><option>L</option><option>L-XL</option></select></label>
-      <button class="btn btn-rose" type="submit">Cari Kostum</button>
-    </form>
     <div class="hero-stats">
       <div class="hstat"><b>10+</b><span>Kostum siap sewa</span></div>
       <div class="hstat"><b>3 hari</b><span>Durasi per paket sewa</span></div>
@@ -318,11 +313,18 @@ footer .fine{border-top:1px solid rgba(255,255,255,.14);margin-top:36px;padding-
     </div>
   </div>
   <div class="collage" aria-hidden="true">
-    <figure><img src="https://i.ibb.co/NdTfXSGQ/ikowsrent-yor-assassin.jpg" alt="" loading="lazy"></figure>
-    <figure><img src="https://i.ibb.co/V0LTnSn1/naffzx.jpg" alt="" loading="lazy"></figure>
-    <figure><img src="https://i.ibb.co/Zpp8Cskw/ikowsrent-mitsuri-kanroji.jpg" alt="" loading="lazy"></figure>
+    <figure><img src="https://i.ibb.co/NdTfXSGQ/ikowsrent-yor-assassin.jpg" alt="" loading="lazy" onerror="imgFallback(this)"></figure>
+    <figure><img src="https://i.ibb.co/V0LTnSn1/naffzx.jpg" alt="" loading="lazy" onerror="imgFallback(this)"></figure>
+    <figure><img src="https://i.ibb.co/Zpp8Cskw/ikowsrent-mitsuri-kanroji.jpg" alt="" loading="lazy" onerror="imgFallback(this)"></figure>
   </div>
-</div></div></div>
+</div>
+  <form class="searchbar" id="heroSearch" style="max-width:none;margin-top:38px">
+    <label><span>Cari kostum</span><input id="hsQuery" type="search" placeholder="Cari karakter / seri…"></label>
+    <label><span>Tanggal sewa</span><input id="hsDate" type="date"></label>
+    <label><span>Ukuran</span><select id="hsSize"><option value="">Semua ukuran</option><option>L</option><option>L-XL</option></select></label>
+    <button class="btn btn-rose" type="submit">Cari Kostum</button>
+  </form>
+</div></div>
 
 <div class="trust"><div class="wrap">
   <div class="trust-item"><div class="ic">🛡️</div><div><b>Booking jelas & aman</b><span>Identitas terverifikasi, aturan sewa tertulis, admin bisa dihubungi kapan saja.</span></div></div>
@@ -480,6 +482,7 @@ footer .fine{border-top:1px solid rgba(255,255,255,.14);margin-top:36px;padding-
     <h3>Form Booking</h3>
     <p style="color:var(--muted);font-weight:700;margin-bottom:14px" id="bItemName"></p>
     <div class="progress"><i id="p1" class="on"></i><i id="p2"></i><i id="p3"></i></div>
+    <div style="display:flex;justify-content:space-between;font-size:.8rem;font-weight:800;color:var(--muted);margin:-10px 0 16px"><span>Langkah 1 • Isi Data</span><span>Langkah 2 • Review</span><span>Langkah 3 • Selesai</span></div>
 
     <div id="step1">
       <div class="fgrid">
@@ -591,7 +594,7 @@ function renderCatalog(){
   document.getElementById('catalogEmpty').classList.toggle('show', list.length===0);
   document.getElementById('catalogGrid').innerHTML = list.map(i=>`
    <article class="card" data-open="${i.id}" tabindex="0" role="button" aria-label="Lihat detail ${esc(i.name)}">
-     <div class="ph"><img src="${esc(mainImg(i))}" alt="Kostum ${esc(i.name)}" loading="lazy"><span class="badge ${i.stock<=1?'low':''}">${i.stock>0?'Stok '+i.stock:'Habis'}</span></div>
+     <div class="ph"><img src="${esc(mainImg(i))}" alt="Kostum ${esc(i.name)}" loading="lazy" onerror="imgFallback(this)"><span class="badge ${i.stock<=1?'low':''}">${i.stock>0?'Stok '+i.stock:'Habis'}</span></div>
      <div class="bd">
        <div class="series">${esc(i.anime)}</div><h3>${esc(i.name)}</h3>
        <div class="meta"><span>Ukuran ${esc(i.size)}</span><span>Paket 3 hari</span></div>
@@ -776,6 +779,7 @@ mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.
 
 /* ---------- Init + live refresh ---------- */
 function renderAll(){ renderChips(); renderCatalog(); renderAcc(); renderMakeup(); renderEvents(); }
+document.getElementById('dImg').addEventListener('error',function(){imgFallback(this);});
 renderAccordions(); renderAll();
 (async()=>{
   try{
