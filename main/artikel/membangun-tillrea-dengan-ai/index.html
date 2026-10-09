@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236d28d9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'></polygon><polyline points='2 17 12 22 22 17'></polyline><polyline points='2 12 12 17 22 12'></polyline></svg>" />
+    <title>Cerita di Balik TillRea: Membangun Museum Digital dengan Bantuan AI — TillRea</title>
+    <meta name="description" content="TillRea (tillrea.my.id) dibangun tanpa code editor — seluruhnya lewat percakapan dengan AI. Cerita Fikri Hikam A., mahasiswa Sistem Informasi UNISNU Jepara, membangun dan merawat museum digitalnya sendiri dari nol." />
+    <meta name="author" content="Fikri Hikam A. — TillRea" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#6d28d9" />
+    <link rel="canonical" href="https://tillrea.my.id/artikel/membangun-tillrea-dengan-ai/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="TillRea" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:url" content="https://tillrea.my.id/artikel/membangun-tillrea-dengan-ai/" />
+    <meta property="og:title" content="Cerita di Balik TillRea: Membangun Museum Digital dengan Bantuan AI" />
+    <meta property="og:description" content="Tanpa code editor, tanpa file lokal — TillRea lahir dan dirawat lewat percakapan AI. Ini cerita di baliknya." />
+    <meta property="article:published_time" content="2026-10-09T16:00:00+07:00" />
+    <meta property="article:author" content="Fikri Hikam A." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Cerita di Balik TillRea: Membangun Museum Digital dengan Bantuan AI" />
+    <meta name="twitter:description" content="Bagaimana Fikri Hikam A. membangun TillRea (tillrea.my.id) sepenuhnya lewat percakapan dengan AI." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://tillrea.my.id/artikel/membangun-tillrea-dengan-ai/#article",
+          "headline": "Cerita di Balik TillRea: Membangun Museum Digital dengan Bantuan AI",
+          "description": "TillRea (tillrea.my.id) dibangun tanpa code editor — seluruhnya lewat percakapan dengan AI, oleh Fikri Hikam A., mahasiswa Sistem Informasi UNISNU Jepara.",
+          "inLanguage": "id-ID",
+          "datePublished": "2026-10-09T16:00:00+07:00",
+          "dateModified": "2026-10-09T16:00:00+07:00",
+          "author": { "@id": "https://tillrea.my.id/#person" },
+          "publisher": { "@id": "https://tillrea.my.id/#website" },
+          "mainEntityOfPage": "https://tillrea.my.id/artikel/membangun-tillrea-dengan-ai/"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://tillrea.my.id/" },
+            { "@type": "ListItem", "position": 2, "name": "Artikel", "item": "https://tillrea.my.id/artikel/" },
+            { "@type": "ListItem", "position": 3, "name": "Membangun TillRea dengan AI", "item": "https://tillrea.my.id/artikel/membangun-tillrea-dengan-ai/" }
+          ]
+        }
+      ]
+    }
+    </script>
+    <style>
+      :root { --accent:#6d28d9; --accent-2:#7c3aed; --ink:#0f172a; --mut:#64748b; --line:#e7e5f4; --bg:#fbfaff; }
+      * { margin:0; padding:0; box-sizing:border-box; }
+      body { font-family:'Inter',system-ui,-apple-system,sans-serif; color:var(--ink); background:var(--bg); line-height:1.7; }
+      a { color:var(--accent); text-decoration:none; }
+      a:hover { text-decoration:underline; }
+      .container { max-width:780px; margin:0 auto; padding:0 24px; }
+      header.site { position:sticky; top:0; z-index:40; background:rgba(251,250,255,.82); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
+      .container-wide { max-width:1080px; margin:0 auto; padding:0 24px; }
+      .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
+      .brand { font-weight:800; font-size:20px; letter-spacing:-.02em; color:var(--ink); display:inline-flex; align-items:center; gap:9px; }
+      .brand:hover { text-decoration:none; }
+      .brand .mark { width:30px; height:30px; border-radius:9px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; }
+      .nav-links { display:flex; gap:26px; font-size:14.5px; font-weight:500; }
+      .nav-links a { color:#334155; }
+      .nav-links a:hover { color:var(--accent); text-decoration:none; }
+      @media (max-width:640px){ .nav-links { display:none; } }
+      .crumbs { font-size:13px; color:var(--mut); padding:26px 0 0; }
+      .crumbs a { color:var(--mut); font-weight:500; }
+      article { padding:14px 0 10px; }
+      article h1 { font-size:clamp(28px,4.4vw,40px); font-weight:800; letter-spacing:-.03em; line-height:1.15; margin:10px 0 12px; }
+      .art-meta { font-size:13.5px; color:#94a3b8; font-weight:500; padding-bottom:22px; border-bottom:1px solid var(--line); margin-bottom:26px; }
+      .prose p { margin:0 0 18px; font-size:16.5px; color:#1e293b; }
+      .prose p.lead { font-size:18px; color:#334155; }
+      .prose h2 { font-size:22px; font-weight:700; letter-spacing:-.02em; margin:32px 0 12px; }
+      .prose ol, .prose ul { margin:0 0 18px 20px; font-size:16.5px; color:#1e293b; }
+      .prose li { margin-bottom:8px; }
+      .prose strong { color:var(--ink); }
+      .readalso { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px 24px; margin:34px 0 10px; }
+      .readalso h3 { font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
+      .readalso ul { list-style:none; }
+      .readalso li { margin-bottom:9px; font-size:15.5px; font-weight:500; }
+      footer.mini { border-top:1px solid var(--line); padding:30px 0 40px; color:var(--mut); font-size:13.5px; margin-top:50px; }
+      footer.mini .row { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+      footer.mini a { color:#475569; font-weight:500; }
+    </style>
+  </head>
+  <body>
+    <header class="site">
+      <div class="container-wide">
+        <nav class="nav">
+          <a class="brand" href="/"><span class="mark">T</span>tillrea</a>
+          <div class="nav-links">
+            <a href="/">Beranda</a>
+            <a href="/#pameran">Ruang Pameran</a>
+            <a href="/artikel/">Artikel</a>
+            <a href="https://portofolio.tillrea.my.id" target="_blank" rel="noopener">Portofolio</a>
+            <a href="/#kontak">Kontak</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <nav class="crumbs"><a href="/">Beranda</a> › <a href="/artikel/">Artikel</a> › Membangun TillRea dengan AI</nav>
+      <article>
+        <h1>Cerita di Balik TillRea: Membangun Museum Digital dengan Bantuan AI</h1>
+        <div class="art-meta">Oleh Fikri Hikam A. • 9 Oktober 2026 • 5 menit baca</div>
+        <div class="prose">
+          <p class="lead">Ada fakta yang jarang dimiliki website lain: <strong>TillRea dibangun tanpa code editor sama sekali</strong>. Kuratornya, Fikri Hikam A., tidak pernah membuka aplikasi pemrograman dan tidak menyimpan file proyek di komputer pribadi. Seluruh situs — dari lobi museum sampai sistem di baliknya — dibangun, diubah, dan dirawat lewat percakapan dengan kecerdasan buatan.</p>
+
+          <h2>Berawal dari Percakapan</h2>
+          <p>Kebiasaan membangun lewat AI dimulai Fikri jauh sebelum TillRea ada, berawal dari eksperimen-eksperimen kecil melalui layanan AI generatif. Ketika domain tillrea.my.id aktif pada Oktober 2026, pola kerjanya tetap sama: Fikri menyampaikan maksudnya dalam bahasa sehari-hari — "buatkan lobi museum", "tambahkan ruang pameran", "halaman ini kurang nyaman, cari referensi desain yang lebih baik" — dan AI yang menerjemahkannya menjadi kode, memasangnya di server, lalu memverifikasi hasilnya secara langsung.</p>
+          <p>Artinya, seluruh "kantor" TillRea adalah sebuah server pribadi dan riwayat percakapan. Kode sumber situs tinggal di server itu sendiri, bukan di laptop siapa pun.</p>
+
+          <h2>Apa Saja yang Dibangun dengan Cara Ini</h2>
+          <ul>
+            <li><strong>Lobi museum &amp; Ruang Pameran</strong> di tillrea.my.id, termasuk situs portofolio dan website Reny HikZar Collection.</li>
+            <li><strong>Panel admin</strong> untuk mengelola situs-situs pameran dan berkas — cukup dilindungi PIN, bisa dioperasikan dari ponsel.</li>
+            <li><strong>Sistem hosting tamu otomatis</strong>: pengunjung mengirim ZIP lewat bot Telegram, admin menyetujui dengan satu tombol, situs langsung tayang. Jalur ini dijelaskan di artikel <a href="/artikel/hosting-website-gratis-tillrea/">hosting gratis TillRea</a>.</li>
+            <li><strong>Penjaga otomatis 24 jam</strong> yang memeriksa kesehatan situs tiap beberapa menit dan menghidupkannya kembali sendiri bila server mengalami restart.</li>
+            <li><strong>Optimasi kecepatan menyeluruh</strong> yang menaikkan skor performa PageSpeed mobile lobi TillRea dari 37 menjadi 85.</li>
+            <li><strong>Eksperimen otomasi lain</strong>, seperti <a href="/artikel/bot-whatsapp-kuota-akrab/">bot WhatsApp pengingat kuota</a> untuk kelompok urunan internet.</li>
+          </ul>
+
+          <h2>AI Menulis Kode, Manusia Memegang Arah</h2>
+          <p>Cara kerja ini bukan berarti manusianya lepas tangan. Justru sebaliknya: semua keputusan penting tetap datang dari Fikri — arah desain (beberapa rancangan awal ditolak sampai ditemukan referensi yang benar-benar bagus), aturan keamanan (misalnya persetujuan manual untuk setiap situs tamu), sampai hal-hal kecil seperti "alamat situs jangan pakai tanda pagar". AI berperan sebagai tangan yang mengeksekusi dan memverifikasi; manusia tetap kuratornya.</p>
+          <p>Pendekatan bertahap juga jadi kunci: setiap perubahan dikerjakan per bagian, diuji, baru disimpan sebagai titik simpan (save point) di repositori Git — kebiasaan yang membuat kesalahan selalu bisa dibatalkan.</p>
+
+          <h2>Pelajaran dari TillRea</h2>
+          <p>TillRea membuktikan bahwa keterbatasan alat bukan lagi penghalang utama untuk membangun sesuatu di internet. Seorang mahasiswa Sistem Informasi dari Jepara — lulusan SMK jurusan Kriya Kayu dan Rotan, yang belajar web secara otodidak dan sempat magang di agensi digital — bisa memiliki dan mengelola platform webnya sendiri: domain, server, museum digital, layanan hosting untuk orang lain, dan otomasi-otomasi kecil yang bermanfaat.</p>
+          <p>Yang dibutuhkan bukan lagi sekadar kemampuan mengetik kode, melainkan kemampuan menyampaikan ide dengan jelas, menilai hasil dengan jujur, dan konsisten merawatnya. Sisanya, seperti yang ditunjukkan <a href="/artikel/apa-itu-tillrea/">TillRea</a>, bisa dikerjakan bersama AI.</p>
+        </div>
+
+        <aside class="readalso">
+          <h3>Baca Juga</h3>
+          <ul>
+            <li><a href="/artikel/apa-itu-tillrea/">Apa Itu TillRea? Museum &amp; Galeri Web Digital dari Jepara</a></li>
+            <li><a href="/artikel/bot-whatsapp-kuota-akrab/">Bot WhatsApp Pengingat Kuota Akrab: Otomasi Kecil ala TillRea</a></li>
+            <li><a href="/artikel/hosting-website-gratis-tillrea/">Hosting Website Statis Gratis di TillRea Lewat Bot Telegram</a></li>
+          </ul>
+        </aside>
+      </article>
+    </main>
+
+    <footer class="mini">
+      <div class="container">
+        <div class="row">
+          <span>© 2026 TillRea — Fikri Hikam A. Museum &amp; galeri web digital dari Jepara.</span>
+          <span><a href="/">tillrea.my.id</a> • <a href="/artikel/">Artikel</a> • <a href="https://portofolio.tillrea.my.id" target="_blank" rel="noopener">Portofolio</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

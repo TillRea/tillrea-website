@@ -6,6 +6,47 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://tillrea.my.id/artikel/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tillrea.my.id/artikel/apa-itu-tillrea/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tillrea.my.id/artikel/hosting-website-gratis-tillrea/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tillrea.my.id/artikel/membangun-tillrea-dengan-ai/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tillrea.my.id/artikel/reny-hikzar-collection/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tillrea.my.id/artikel/bot-whatsapp-kuota-akrab/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://portofolio.tillrea.my.id/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://renyhikzar.tillrea.my.id/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
