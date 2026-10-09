@@ -248,6 +248,10 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="7" rx="2"/><rect x="2" y="14" width="20" height="7" rx="2"/><path d="M6 6.5h.01M6 17.5h.01"/></svg>
             Server &amp; Berkas
           </button>
+          <button class="nav-item" data-view="botkuota" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            Bot Kuota WA
+          </button>
         </nav>
         <div class="spacer"></div>
         <a class="side-link" href="/" target="_blank" rel="noopener">
@@ -454,6 +458,46 @@
             <p style="color:var(--faint); font-size:12px; margin-top:14px">Berkas rahasia (token, kunci, PIN, .env) otomatis disembunyikan dan tidak bisa diakses dari panel. Berkas inti sistem (halaman lobi/admin/berkas, folder webtest &amp; scripts) dilindungi dari hapus &amp; ganti nama.</p>
           </section>
 
+          <!-- ======= VIEW: BOT KUOTA WA ======= -->
+          <section id="view-botkuota" class="hidden">
+            <div class="view-head">
+              <div class="row">
+                <div>
+                  <h2>Bot Kuota WA</h2>
+                  <p>Bot WhatsApp penagihan urunan Kuota Akrab — status, jadwal penagihan, dan buku pencatatan pembayaran. Panel ini perantara aman: port bot tidak dibuka ke publik dan tetap terkunci di balik PIN panel.</p>
+                </div>
+                <button class="btn btn-ghost" id="btnSegarkanBot" type="button">↻ Segarkan</button>
+              </div>
+            </div>
+
+            <div class="stats" style="margin-top:0">
+              <div class="stat"><div class="k">Mode Bot</div><div class="v" id="botModeV">–</div><div class="d" id="botModeD">–</div></div>
+              <div class="stat"><div class="k">Status WhatsApp</div><div class="v" id="botWaV">–</div><div class="d" id="botWaD">–</div></div>
+              <div class="stat"><div class="k">Pengingat Pribadi</div><div class="v" id="botPribadiV" style="font-size:17px">–</div><div class="d" id="botPribadiD">–</div></div>
+            </div>
+
+            <div class="grid-2" style="margin-bottom:18px">
+              <div class="card">
+                <div class="card-head"><span class="t">Jadwal Berikutnya</span></div>
+                <div id="botJadwal"><div class="empty">Memuat…</div></div>
+              </div>
+              <div class="card">
+                <div class="card-head"><span class="t">Aksi Cepat</span></div>
+                <div style="padding:16px 20px; display:flex; flex-direction:column; gap:10px">
+                  <button class="btn btn-primary" id="btnBotTes" type="button">Kirim Pesan Tes ke Nomor Saya</button>
+                  <button class="btn btn-ghost" id="btnBotIngatkan" type="button">Kirim Pengingat Kuota Pribadi Sekarang</button>
+                  <p style="color:var(--faint); font-size:12.5px; margin:4px 0 0">Kedua aksi hanya mengirim ke nomor pribadimu. Pengiriman tagihan ke anggota berjalan otomatis sesuai jadwal — tidak ada tombol kirim ke anggota di panel ini, demi keamanan.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-head"><span class="t">Buku Pencatatan Pembayaran</span></div>
+              <div id="botBuku"><div class="empty">Memuat…</div></div>
+            </div>
+            <p style="color:var(--faint); font-size:12px; margin-top:14px">Tombol "Tandai Lunas" menulis langsung ke buku pencatatan bot — sama seperti membalas LUNAS &lt;nama&gt; ke nomor bot. Bukti pembayaran yang dikirim anggota ke nomor bot tersimpan di server dan diteruskan ke WhatsApp pribadimu.</p>
+          </section>
+
           <p style="color:var(--faint); font-size:12px; margin-top:26px">Panel Admin TillRea • Perubahan tersimpan otomatis & tercatat di git server.</p>
         </div>
       </main>
@@ -525,7 +569,7 @@
 
       /* ---------- Navigasi tampilan ---------- */
       function switchView(name) {
-        ['pameran', 'publish', 'situs', 'server'].forEach(function (v) {
+        ['pameran', 'publish', 'situs', 'server', 'botkuota'].forEach(function (v) {
           el('view-' + v).classList.toggle('hidden', v !== name);
         });
         Array.prototype.forEach.call(document.querySelectorAll('#mainNav .nav-item'), function (b) {
@@ -533,9 +577,85 @@
         });
         window.scrollTo({ top: 0 });
         if (name === 'server') muatServer();
+        if (name === 'botkuota') muatBot();
       }
       Array.prototype.forEach.call(document.querySelectorAll('#mainNav .nav-item'), function (b) {
         b.addEventListener('click', function () { switchView(b.getAttribute('data-view')); });
+      });
+
+      /* ---------- Bot Kuota WA ---------- */
+      function fmtRp(n) { return 'Rp' + Number(n || 0).toLocaleString('id-ID'); }
+      function muatBot() {
+        api('/api/bot/status').then(function (r) {
+          if (r.status !== 200) {
+            el('botModeV').textContent = 'Error';
+            el('botJadwal').innerHTML = '<div class="empty">—</div>';
+            el('botBuku').innerHTML = '<div class="empty">' + ((r.data && r.data.error) || 'Bot tidak bisa dihubungi.') + '</div>';
+            return;
+          }
+          renderBot(r.data);
+        }).catch(function () { toast('Gagal menghubungi server panel', true); });
+      }
+      function renderBot(d) {
+        var st = d.status || {}, jw = d.jadwal || {}, pb = (d.pembayaran && d.pembayaran.catatan) || [];
+        el('botModeV').textContent = st.mode || '–';
+        el('botModeD').textContent = st.produksi_aktif ? 'penagihan produksi AKTIF' : 'produksi nonaktif';
+        el('botWaV').textContent = st.waState === 'open' ? 'Terhubung' : (st.waState || '–');
+        el('botWaD').textContent = st.me ? ('sebagai ' + String(st.me).split('@')[0]) : 'belum masuk';
+        var pp = jw.pengingat_pribadi || {};
+        el('botPribadiV').textContent = pp.pengingat_berikutnya || '–';
+        el('botPribadiD').textContent = pp.kuota_berakhir ? ('kuota berakhir ' + pp.kuota_berakhir) : '–';
+        var jh = '';
+        (jw.jadwal || []).forEach(function (g) {
+          jh += '<div class="row-item"><div class="grow"><div class="ttl">Kelompok ' + g.batch + '</div>' +
+            '<div class="dsc">Siklus habis ' + g.siklus_habis + '<br>Tagih pertama: ' + g.tagih_pertama + '<br>Pengingat tenggat: ' + g.peringatan_tenggat + '<br>Penutup tenggat: ' + g.penutup_tenggat + '</div></div></div>';
+        });
+        (jw.pengingat_orang || []).forEach(function (o) {
+          jh += '<div class="row-item"><div class="grow"><div class="ttl">Pengingat ' + o.nama + '</div>' +
+            '<div class="dsc">Kuotanya berakhir ' + o.kuota_berakhir + '<br>Pengingat H-7: ' + o.pengingat_h7 + '</div></div></div>';
+        });
+        el('botJadwal').innerHTML = jh || '<div class="empty">Tidak ada jadwal.</div>';
+        function entriUntuk(nama, key) {
+          for (var i = 0; i < pb.length; i++) if (pb[i].nama === nama && pb[i].siklus_habis === key) return pb[i];
+          return null;
+        }
+        var bh = '';
+        (jw.jadwal || []).forEach(function (g) {
+          bh += '<div style="padding:13px 20px 4px; font-weight:600; font-size:13px; color:var(--muted)">Kelompok ' + g.batch + ' — siklus habis ' + g.siklus_habis + '</div>';
+          (g.penerima || []).forEach(function (p) {
+            var e = entriUntuk(p.nama, g.siklus_key);
+            var chip, aksi = '';
+            if (e && e.status === 'lunas') chip = '<span class="badge badge-ok">Lunas</span>';
+            else if (e) chip = '<span class="badge badge-amber">Bukti masuk — menunggu konfirmasi</span>';
+            else chip = '<span class="badge" style="background:#f4f4f5; color:var(--muted)">Belum ada bukti</span>';
+            if (!e || e.status !== 'lunas') aksi = '<button class="btn btn-primary btn-sm" data-lunas="' + String(p.nama).replace(/"/g, '&quot;') + '" type="button">Tandai Lunas</button>';
+            bh += '<div class="row-item"><div class="grow"><div class="ttl">' + p.nama + ' ' + chip + '</div><div class="dsc">' + fmtRp(p.nominal) + (e && e.waktu_lunas ? ' • lunas ' + new Date(e.waktu_lunas).toLocaleString('id-ID') : '') + '</div></div>' + aksi + '</div>';
+          });
+        });
+        el('botBuku').innerHTML = bh || '<div class="empty">Buku masih kosong.</div>';
+        Array.prototype.forEach.call(el('botBuku').querySelectorAll('[data-lunas]'), function (b) {
+          b.addEventListener('click', function () {
+            var nama = b.getAttribute('data-lunas');
+            b.disabled = true;
+            api('/api/bot/lunas', 'POST', { nama: nama }).then(function (r) {
+              if (r.status === 200 && r.data.ok) { toast('Tercatat lunas: ' + nama); muatBot(); }
+              else { toast((r.data && r.data.error) || 'Gagal menandai lunas', true); b.disabled = false; }
+            });
+          });
+        });
+      }
+      el('btnSegarkanBot').addEventListener('click', muatBot);
+      el('btnBotTes').addEventListener('click', function () {
+        api('/api/bot/tes', 'POST', {}).then(function (r) {
+          if (r.status === 200) toast('Pesan tes terkirim ke nomor pribadimu');
+          else toast((r.data && r.data.error) || 'Gagal mengirim tes', true);
+        });
+      });
+      el('btnBotIngatkan').addEventListener('click', function () {
+        api('/api/bot/pengingat-pribadi', 'POST', {}).then(function (r) {
+          if (r.status === 200) toast('Pengingat pribadi terkirim ke nomor WhatsApp-mu');
+          else toast((r.data && r.data.error) || 'Gagal mengirim pengingat', true);
+        });
       });
 
       /* ---------- Statistik ---------- */
