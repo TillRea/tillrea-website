@@ -65,13 +65,18 @@
       ]
     }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/inter-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
     <style>
+      @font-face { font-family: "Inter"; src: url("/assets/fonts/inter-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Inter"; src: url("/assets/fonts/inter-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Inter"; src: url("/assets/fonts/inter-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Inter"; src: url("/assets/fonts/inter-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Inter"; src: url("/assets/fonts/inter-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+      @font-face { font-family: "Inter"; src: url("/assets/fonts/inter-latin-900-normal.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
       :root {
         --bg: #ffffff; --bg-soft: #f7f7f8; --border: #e6e6ea; --border-strong: #d8d8de;
-        --text: #0a0a0c; --muted: #52525b; --faint: #8e8e99;
+        --text: #0a0a0c; --muted: #52525b; --faint: #71717a;
         --accent: #6d28d9; --accent-2: #4f46e5; --accent-soft: #f3efff;
         --radius: 16px;
         --shadow-card: 0 1px 2px rgba(16,16,20,.05), 0 12px 32px -16px rgba(16,16,20,.14);
@@ -182,7 +187,7 @@
       .feat { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
       .feat .ic { width: 38px; height: 38px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
       .feat .ic svg { width: 19px; height: 19px; }
-      .feat h4 { margin: 0 0 5px; font-size: 15.5px; font-weight: 700; }
+      .feat h3 { margin: 0 0 5px; font-size: 15.5px; font-weight: 700; }
       .feat p { margin: 0; color: var(--muted); font-size: 14px; }
 
       /* ---------- Hosting gratis ---------- */
@@ -191,7 +196,7 @@
       .step-row { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid #f1f1f4; align-items: flex-start; }
       .step-row:last-child { border-bottom: none; }
       .step-num { width: 34px; height: 34px; border-radius: 99px; background: var(--accent-soft); color: var(--accent); font-weight: 800; font-size: 14.5px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-      .step-row h4 { margin: 2px 0 3px; font-size: 15.5px; font-weight: 700; }
+      .step-row h3 { margin: 2px 0 3px; font-size: 15.5px; font-weight: 700; }
       .step-row p { margin: 0; color: var(--muted); font-size: 14.5px; }
       @media (max-width: 920px) { .hosting-grid { grid-template-columns: 1fr; gap: 30px; } }
 
@@ -210,12 +215,12 @@
       .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; padding: 58px 0 40px; }
       footer.site .brand { color: #fff; }
       footer.site p { font-size: 14px; margin: 14px 0 0; max-width: 340px; }
-      footer.site h5 { color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; margin: 0 0 14px; }
+      footer.site h3 { color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; margin: 0 0 14px; }
       footer.site ul { list-style: none; margin: 0; padding: 0; }
       footer.site li { margin-bottom: 9px; }
       footer.site li a { color: #a1a1aa; font-size: 14.5px; }
       footer.site li a:hover { color: #fff; text-decoration: none; }
-      .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding: 20px 0 26px; font-size: 13px; color: #71717a; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+      .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding: 20px 0 26px; font-size: 13px; color: #a1a1aa; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
       #toTop { position: fixed; right: 22px; bottom: 22px; width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--border); background: #fff; box-shadow: var(--shadow-card); color: var(--text); display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 40; }
       #toTop.show { display: flex; }
       #toTop svg { width: 18px; height: 18px; }
@@ -366,17 +371,17 @@
               <div class="feat-grid">
                 <div class="feat">
                   <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
-                  <h4>Cepat &amp; Ringan</h4>
+                  <h3>Cepat &amp; Ringan</h3>
                   <p>Satu server melayani banyak situs sekaligus — tiap pameran tampil sebagai subdomain mandiri yang ringan dibuka.</p>
                 </div>
                 <div class="feat">
                   <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-                  <h4>Terkelola &amp; Aman</h4>
+                  <h3>Terkelola &amp; Aman</h3>
                   <p>Kurator mengelola seluruh koleksi dari satu panel ber-PIN — publish, perbarui, dan arsipkan situs tanpa ribet.</p>
                 </div>
                 <div class="feat">
                   <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-                  <h4>Terbuka untuk Tamu</h4>
+                  <h3>Terbuka untuk Tamu</h3>
                   <p>Punya karya web? Pengunjung bisa mengajukan situsnya untuk dipamerkan lewat bot Telegram TillRea.</p>
                 </div>
               </div>
@@ -402,15 +407,15 @@
             <div class="steps-card reveal">
               <div class="step-row">
                 <div class="step-num">1</div>
-                <div><h4>Chat bot Telegram</h4><p>Buka @TillReaVPS_bot dan sapa botnya — kamu akan dipandu langkah demi langkah.</p></div>
+                <div><h3>Chat bot Telegram</h3><p>Buka @TillReaVPS_bot dan sapa botnya — kamu akan dipandu langkah demi langkah.</p></div>
               </div>
               <div class="step-row">
                 <div class="step-num">2</div>
-                <div><h4>Kirim ZIP situsmu</h4><p>Siapkan website statis (HTML/CSS/JS) dalam satu file ZIP, lalu pilih nama subdomain yang kamu mau.</p></div>
+                <div><h3>Kirim ZIP situsmu</h3><p>Siapkan website statis (HTML/CSS/JS) dalam satu file ZIP, lalu pilih nama subdomain yang kamu mau.</p></div>
               </div>
               <div class="step-row">
                 <div class="step-num">3</div>
-                <div><h4>Disetujui &amp; langsung live</h4><p>Kurator meninjau pengajuanmu. Begitu disetujui, situsmu tayang dan masuk Ruang Pameran Tamu.</p></div>
+                <div><h3>Disetujui &amp; langsung live</h3><p>Kurator meninjau pengajuanmu. Begitu disetujui, situsmu tayang dan masuk Ruang Pameran Tamu.</p></div>
               </div>
             </div>
           </div>
@@ -443,7 +448,7 @@
             <p>Museum &amp; galeri web digital karya Fikri Hikam A. — portofolio Full-Stack Web &amp; Data Analytics dari Jepara.</p>
           </div>
           <div>
-            <h5>Jelajahi</h5>
+            <h3>Jelajahi</h3>
             <ul>
               <li><a href="#pameran">Ruang Pameran</a></li>
               <li><a href="#tentang">Tentang Saya</a></li>
@@ -452,7 +457,7 @@
             </ul>
           </div>
           <div>
-            <h5>Kurator</h5>
+            <h3>Kurator</h3>
             <ul>
               <li><a href="/admin">Panel Admin</a></li>
               <li><a href="/berkas">Berkas Saya</a></li>
