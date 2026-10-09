@@ -170,7 +170,7 @@
       /* ---------- Tentang ---------- */
       .about-grid { display: grid; grid-template-columns: 380px 1fr; gap: 54px; align-items: start; }
       .profile-card { background: #fff; border: 1px solid var(--border); border-radius: 20px; box-shadow: var(--shadow-card); padding: 28px; text-align: center; position: sticky; top: 96px; }
-      .avatar { width: 104px; height: 104px; border-radius: 28px; margin: 0 auto 16px; background: linear-gradient(135deg, var(--accent), var(--accent-2) 60%, #db2777); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 38px; font-weight: 800; letter-spacing: -.02em; box-shadow: 0 16px 30px -12px rgba(109,40,217,.5); }
+      .avatar { width: 104px; height: 104px; border-radius: 28px; margin: 0 auto 16px; display: block; object-fit: cover; background: var(--accent); box-shadow: 0 16px 30px -12px rgba(109,40,217,.5); }
       .profile-card h3 { margin: 0 0 2px; font-size: 20px; font-weight: 700; letter-spacing: -.015em; }
       .profile-card .role { color: var(--accent); font-weight: 600; font-size: 14px; margin: 0 0 14px; }
       .profile-card .loc { color: var(--faint); font-size: 13.5px; margin: 0 0 20px; }
@@ -345,7 +345,7 @@
         <div class="container">
           <div class="about-grid">
             <aside class="profile-card reveal">
-              <div class="avatar">FH</div>
+              <img class="avatar" src="/foto-fikri.jpg" alt="Foto Fikri Hikam A." width="104" height="104">
               <h3>Fikri Hikam A.</h3>
               <p class="role">Full-Stack Web &amp; Data Analytics</p>
               <p class="loc">📍 Jepara, Jawa Tengah, Indonesia</p>
