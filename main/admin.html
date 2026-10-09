@@ -610,6 +610,10 @@
           jh += '<div class="row-item"><div class="grow"><div class="ttl">Kelompok ' + g.batch + '</div>' +
             '<div class="dsc">Siklus habis ' + g.siklus_habis + '<br>Tagih pertama: ' + g.tagih_pertama + '<br>Pengingat tenggat: ' + g.peringatan_tenggat + '<br>Penutup tenggat: ' + g.penutup_tenggat + '</div></div></div>';
         });
+        if (pp.kuota_berakhir) {
+          jh += '<div class="row-item"><div class="grow"><div class="ttl">Pengingat Fikri (kamu)</div>' +
+            '<div class="dsc">Kuotamu berakhir ' + pp.kuota_berakhir + '<br>Pengingat H-7: ' + (pp.pengingat_berikutnya || '–') + ' (sekali, pagi 09.00–12.00)</div></div></div>';
+        }
         (jw.pengingat_orang || []).forEach(function (o) {
           jh += '<div class="row-item"><div class="grow"><div class="ttl">Pengingat ' + o.nama + '</div>' +
             '<div class="dsc">Kuotanya berakhir ' + o.kuota_berakhir + '<br>Pengingat H-7: ' + o.pengingat_h7 + '</div></div></div>';
