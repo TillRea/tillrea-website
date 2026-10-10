@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /berkas
 
 Sitemap: https://tillrea.my.id/sitemap.xml
