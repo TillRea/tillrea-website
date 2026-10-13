@@ -66,7 +66,12 @@
       .page-head h1 { font-size:clamp(30px,4.6vw,44px); font-weight:800; letter-spacing:-.03em; line-height:1.12; }
       .page-head h1 .grad { background:linear-gradient(92deg,var(--accent),#db2777); -webkit-background-clip:text; background-clip:text; color:transparent; }
       .page-head p { color:var(--mut); max-width:620px; margin:16px auto 0; font-size:16.5px; }
-      .promo-list { display:flex; flex-direction:column; gap:8px; padding:34px 0 8px; }
+      .promo-filter { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; padding:28px 0 0; }
+      .fchip { border:1px solid var(--line); background:#fff; color:#334155; border-radius:999px; padding:7px 14px; font-size:13.5px; font-weight:600; cursor:pointer; font-family:inherit; }
+      .fchip:hover { border-color:var(--accent); color:var(--accent); }
+      .fchip.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+      .fchip .n { opacity:.7; font-weight:500; }
+      .promo-list { display:flex; flex-direction:column; gap:8px; padding:18px 0 8px; }
       .promo-item { background:#fff; border:1px solid var(--border); border-radius:12px; }
       .promo-item summary { list-style:none; cursor:pointer; display:flex; align-items:center; gap:10px; padding:10px 14px; }
       .promo-item summary::-webkit-details-marker { display:none; }
@@ -111,96 +116,107 @@
         <p>Hasil buruan harian dari komunitas Threads, Facebook, dan Instagram, akun agregator, katalog, dan akun resmi brand — disaring manual: hanya gratisan murni, Beli 1 Gratis 1, paket harga datar murah, dan diskon 40% ke atas — diprioritaskan yang berlaku di gerai Kab. Jepara (promo online &amp; AI gratis tetap dimuat karena bisa diakses dari Jepara). Klik satu promo untuk info lengkapnya. Diperbarui terakhir <span id="promoUpdated">13 Oktober 2026</span>.</p>
       </div>
 
+      <div class="promo-filter" id="promoFilter">
+        <button type="button" class="fchip active" data-jenis="Semua">Semua <span class="n">22</span></button>
+        <button type="button" class="fchip" data-jenis="Makanan">Makanan <span class="n">8</span></button>
+        <button type="button" class="fchip" data-jenis="Minuman">Minuman <span class="n">7</span></button>
+        <button type="button" class="fchip" data-jenis="Kebutuhan Rumah">Kebutuhan Rumah <span class="n">3</span></button>
+        <button type="button" class="fchip" data-jenis="Voucher & Gratis">Voucher & Gratis <span class="n">1</span></button>
+        <button type="button" class="fchip" data-jenis="AI Gratis">AI Gratis <span class="n">1</span></button>
+        <button type="button" class="fchip" data-jenis="Lainnya">Lainnya <span class="n">2</span></button>
+      </div>
+
       <div id="promoList" class="promo-list">
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Voucher &amp; Gratis">
           <summary><span class="promo-tag">s.d. Rp15.000</span><span class="promo-title">Klik Indomaret — Diskon Member Baru s.d. Rp15.000</span><span class="promo-store">Klik Indomaret</span><span class="promo-date">12–13 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Diskon khusus member baru Klik Indomaret + gratis ongkir 1 jam sampai. BERAKHIR HARI INI. Bisa dipakai online dari Jepara.</p><div class="promo-meta"><span>Klik Indomaret • Minimarket</span><span>Periode: 12–13 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="https://www.instagram.com/reel/DeY3G56AYu1/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Makanan">
           <summary><span class="promo-tag">Promo</span><span class="promo-title">Hemat Minggu Ini &amp; Harga Khusus Member</span><span class="promo-store">Indomaret</span><span class="promo-date">s.d. 14 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Minyak goreng Tropical/Sania/Fortune, Bango, Wow Spageti, Sedaap Cup, Frisian Flag, Indomilk, dan Silver Queen turun harga. Harga member lebih murah untuk Filma, Sunlight, Kopi Gadjah, Fitbar, dll. Program nasional, berlaku di Indomaret Jepara.</p><div class="promo-meta"><span>Indomaret • Minimarket</span><span>Periode: s.d. 14 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="https://www.instagram.com/p/DeObzyxE_tL/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Lainnya">
           <summary><span class="promo-tag">GRATIS</span><span class="promo-title">Promo Berhadiah Indomaret — Hadiah Gratis Langsung</span><span class="promo-store">Indomaret</span><span class="promo-date">1–14 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Beli Antangin Good Night gratis FreshCare Inhaler; beli Kacang Pistachio 60g gratis Air Mineral 1L; beli Sikat Gigi Formula Discovery gratis Pasta Gigi Formula 160g. Tidak berlaku kelipatan, stok per toko. Program nasional, berlaku di Indomaret Jepara.</p><div class="promo-meta"><span>Indomaret • Voucher &amp; Gratis</span><span>Periode: 1–14 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="https://katalogpromosi.com/promo-indomaret-bulan-ini/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Minuman">
           <summary><span class="promo-tag">3 pcs Rp33.000</span><span class="promo-title">Coffee Gold Geng Hepi — Beli 3 Rp33.000</span><span class="promo-store">Indomaret</span><span class="promo-date">1–15 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Paket 3 minuman Coffee Gold pilihan, berlaku tiap Selasa-Kamis di toko tertentu. Cek Indomaret ber-Coffee Gold di Jepara (Mlonggo terkonfirmasi ada Coffee Gold). Kesempatan terakhir Kamis 15 Okt.</p><div class="promo-meta"><span>Indomaret • Kopi</span><span>Periode: 1–15 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="http://katalogpromosi.com/promo-terbaru-minggu-ini/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Makanan">
           <summary><span class="promo-tag">mulai Rp41.800</span><span class="promo-title">Minyak Goreng 2L — Rp41.800 sampai Rp43.900</span><span class="promo-store">Alfamart</span><span class="promo-date">s.d. 15 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Sunco, Tropical, Filma, dan Bimoli kemasan 2 liter turun harga di periode promo Alfamart 1–15 Oktober. Maksimal 2 unit per konsumen. Program nasional, berlaku di Alfamart Jepara.</p><div class="promo-meta"><span>Alfamart • Minimarket</span><span>Periode: s.d. 15 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="http://hargacampur.com/promo-serba-gratis-alfamart/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Kebutuhan Rumah">
           <summary><span class="promo-tag">Beli 1 Gratis 1</span><span class="promo-title">Serba Gratis Alfamart — Beli 1 Gratis 1 Pilihan</span><span class="promo-store">Alfamart</span><span class="promo-date">1–15 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Sikat Gigi Formula dan Hit Aerosol 600ml Beli 1 Gratis 1 dalam program Serba Gratis Alfamart 1–15 Okt. Program nasional, berlaku di Alfamart Jepara.</p><div class="promo-meta"><span>Alfamart • Minimarket</span><span>Periode: 1–15 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="http://hargacampur.com/promo-serba-gratis-alfamart/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Makanan">
           <summary><span class="promo-tag">4 pcs Rp10.000</span><span class="promo-title">Alfamart Ice Cream Fair — Glico Frostbite Mochi 4 pcs Rp10.000</span><span class="promo-store">Alfamart</span><span class="promo-date">1–15 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Paket harga datar dari katalog Ice Cream Fair Alfamart 1–15 Okt. Program nasional, cek freezer Alfamart Jepara terdekat.</p><div class="promo-meta"><span>Alfamart • Minimarket</span><span>Periode: 1–15 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="https://www.instagram.com/p/DeX-VmJkt8Z/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Makanan">
           <summary><span class="promo-tag">Beli 1 Gratis 1</span><span class="promo-title">Kriuk Kriuk Day — Beli 1 Gratis 1 Ayam Kriuk</span><span class="promo-store">Kriuk Kriuk</span><span class="promo-date">15 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Khusus 15 Okt 2026, semua outlet, dine-in &amp; takeaway, pembayaran tunai. Ketersediaan outlet di Kab. Jepara belum terkonfirmasi, cek lokasi dulu.</p><div class="promo-meta"><span>Kriuk Kriuk • Kuliner</span><span>Periode: 15 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="http://katalogpromosi.com/promo-terbaru-minggu-ini/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Kebutuhan Rumah">
           <summary><span class="promo-tag">Rp15.900 Beli 1 Gratis 1</span><span class="promo-title">JSM Alfamart — Mitu Baby Wipes Beli 1 Gratis 1</span><span class="promo-store">Alfamart</span><span class="promo-date">12–18 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Mitu Baby Wipes Anti Septic 50s dalam JSM Alfamart 12–18 Okt. Program nasional, berlaku di Alfamart Jepara &amp; Alfagift.</p><div class="promo-meta"><span>Alfamart • Minimarket</span><span>Periode: 12–18 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="https://hargacampur.com/katalog-promo-jsm-alfamart/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Makanan">
           <summary><span class="promo-tag">3 pcs Rp10.000</span><span class="promo-title">Es Krim Glico Wings Frost Bite — 3 pcs Rp10.000</span><span class="promo-store">Indomaret</span><span class="promo-date">14–20 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>JSM Indomaret, program Family Weekend Treats khusus member Poinku. Es krim 90ml jadi sekitar Rp3.300 per pcs. Program nasional, berlaku di Indomaret Jepara.</p><div class="promo-meta"><span>Indomaret • Minimarket</span><span>Periode: 14–20 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="https://hargacampur.com/katalog-promo-jsm-indomaret/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Makanan">
           <summary><span class="promo-tag">Diskon 50%</span><span class="promo-title">Golden Farm Potato Nugget 750g — Hemat 50%</span><span class="promo-store">Indomaret</span><span class="promo-date">14–20 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>JSM Indomaret, Family Weekend Treats khusus member Poinku. Program nasional, berlaku di Indomaret Jepara.</p><div class="promo-meta"><span>Indomaret • Minimarket</span><span>Periode: 14–20 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="https://hargacampur.com/katalog-promo-jsm-indomaret/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Makanan">
           <summary><span class="promo-tag">Beli 1 Gratis 1</span><span class="promo-title">Kaluli Ice Cream — Beli 1 Gratis 1 Fitbar</span><span class="promo-store">Indomaret</span><span class="promo-date">14–20 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Kaluli Ice Cream Cheers Cheese 110ml Beli 1 Gratis 1 pack Fitbar 20g, bagian Family Weekend Treats JSM Indomaret khusus member Poinku. Program nasional, berlaku di Indomaret Jepara.</p><div class="promo-meta"><span>Indomaret • Minimarket</span><span>Periode: 14–20 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="https://hargacampur.com/katalog-promo-jsm-indomaret/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Lainnya">
           <summary><span class="promo-tag">s.d. −50%</span><span class="promo-title">Promo 1 Hari Poinku — Hemat hingga 50%</span><span class="promo-store">Indomaret</span><span class="promo-date">Setiap hari</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Promo termurah berganti setiap hari di aplikasi Indomaret Poinku. Biasakan cek aplikasi tiap pagi sebelum belanja.</p><div class="promo-meta"><span>Indomaret • Minimarket</span><span>Periode: Setiap hari</span><span>Status: Resmi</span></div><a class="promo-src" href="https://www.threads.com/@yeaybackup/post/DeY42pjjyHT" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Kebutuhan Rumah">
           <summary><span class="promo-tag">GRATIS</span><span class="promo-title">Gratis Ekonomi Liquid 650ml</span><span class="promo-store">Alfamart</span><span class="promo-date">s.d. 31 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Bayar angsuran Kreditplus 3 kali berturut-turut di Alfamart, dapatkan 1 pcs Ekonomi Liquid 650ml gratis. Stok per toko.</p><div class="promo-meta"><span>Alfamart • Voucher &amp; Gratis</span><span>Periode: s.d. 31 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="https://kitaindonesiasatu.com/umkm/promo-alfamart-hari-ini-1-oktober-2026/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Minuman">
           <summary><span class="promo-tag">Rp10.000</span><span class="promo-title">Bean Spot Coffee Day — Semua Varian Kopi Rp10.000</span><span class="promo-store">Alfamart</span><span class="promo-date">1–31 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Semua varian kopi Bean Spot Rp10.000 setiap Senin, Rabu, Jumat sepanjang Oktober, di Alfamart atau Alfagift. Cari Alfamart ber-Bean Spot di Jepara lewat Alfagift.</p><div class="promo-meta"><span>Alfamart • Kopi</span><span>Periode: 1–31 Okt 2026</span><span>Status: Resmi</span><span>Harga normal: <s>Rp15.000</s></span></div><a class="promo-src" href="https://katalogpromosi.com/promo-bean-spot-coffee-day-semua-varian-kopi-rp10-000/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Makanan">
           <summary><span class="promo-tag">Rp12.500</span><span class="promo-title">Wall&#x27;s Magnum Almond — Diskon 48%</span><span class="promo-store">Klik Indomaret / Alfagift</span><span class="promo-date">Temuan komunitas 10 Okt</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Temuan komunitas dari tangkapan layar keranjang belanja online. Cek ketersediaan di Klik Indomaret atau Alfagift sebelum membeli.</p><div class="promo-meta"><span>Klik Indomaret / Alfagift • Minimarket</span><span>Periode: Temuan komunitas 10 Okt</span><span>Status: Komunitas</span><span>Harga normal: <s>Rp24.000</s></span></div><a class="promo-src" href="https://www.threads.com/@_imyourshn/post/DeTewmPFL_h" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Minuman">
           <summary><span class="promo-tag">s.d. −50% tiap Senin</span><span class="promo-title">Point Coffee — Spesial Oktober &amp; I Like Monday s.d. 50%</span><span class="promo-store">Point Coffee</span><span class="promo-date">1–31 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Rangkaian promo Point Coffee (Indomaret) sepanjang Oktober 2026. I Like Monday: diskon hingga 50% menu pilihan tiap Senin (Senin berikutnya 19 Okt), beli langsung, tidak berlaku di toko grand opening/bandara/rest area/stasiun. Berlaku di Point Coffee Jepara.</p><div class="promo-meta"><span>Point Coffee • Kopi</span><span>Periode: 1–31 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="https://hargacampur.com/promo-point-coffee-i-like-monday/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Minuman">
           <summary><span class="promo-tag">Beli 1 Gratis 1</span><span class="promo-title">Fore Coffee — Beli 1 Gratis 1 Tiap Jumat</span><span class="promo-store">Fore Coffee</span><span class="promo-date">Tiap Jumat s.d. 30 Okt</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Promo Fore Coffee x BCA setiap hari Jumat selama Oktober 2026, di jam tertentu. Cek syarat pembayaran di sumber. Cakupan antar ke Jepara cek di aplikasi Fore.</p><div class="promo-meta"><span>Fore Coffee • Kopi</span><span>Periode: Tiap Jumat s.d. 30 Okt</span><span>Status: Resmi</span></div><a class="promo-src" href="https://www.instagram.com/p/DeQxG6cE_b7/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Minuman">
           <summary><span class="promo-tag">Diskon 40%</span><span class="promo-title">Fore Coffee — The Unexpected Bundle Diskon 40%</span><span class="promo-store">Fore Coffee</span><span class="promo-date">1–31 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Diskon 40% menu pilihan (a.l. Crunchy Cereal Latte kategori Twist Sips) lewat aplikasi Fore, plus gratis ongkir. Cakupan antar ke Jepara cek di aplikasi Fore.</p><div class="promo-meta"><span>Fore Coffee • Kopi</span><span>Periode: 1–31 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="https://arasvara.id/aneka/2026/10/12/promo-fore-coffee-sepanjang-bulan-oktober-2026-bisa-ngopi-dengan-potongan-harga-menarik" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Minuman">
           <summary><span class="promo-tag">Beli 1 Gratis 1</span><span class="promo-title">Eskopi KLAVA — Beli Satu Bawa Pulang Dua</span><span class="promo-store">Eskopi</span><span class="promo-date">Sedang berjalan</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Promo seri KLAVA dari Eskopi Indonesia: beli satu minuman, bisa bawa pulang dua.</p><div class="promo-meta"><span>Eskopi • Kopi</span><span>Periode: Sedang berjalan</span><span>Status: Resmi</span></div><a class="promo-src" href="https://www.instagram.com/p/DeOWQgkjzzL/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="Minuman">
           <summary><span class="promo-tag">Free Upsize</span><span class="promo-title">FamilyMart — Free Upsize Kopi Tiap Kamis</span><span class="promo-store">FamilyMart</span><span class="promo-date">Tiap Kamis</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Ngopi di FamilyMart makin hemat: gratis naik ukuran setiap hari Kamis.</p><div class="promo-meta"><span>FamilyMart • Kopi</span><span>Periode: Tiap Kamis</span><span>Status: Resmi</span></div><a class="promo-src" href="https://www.instagram.com/p/DeNsRfaExL5/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
-        <details class="promo-item">
+        <details class="promo-item" data-jenis="AI Gratis">
           <summary><span class="promo-tag">Gratis 12 bulan</span><span class="promo-title">Claude for Startups — Claude Team 12 Bulan + Kredit API $1.000</span><span class="promo-store">Anthropic</span><span class="promo-date">Program berjalan</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="promo-body"><p>Untuk startup berusia ≤5 tahun atau yang dapat pendanaan ≤2 tahun terakhir (bootstrap boleh). Catatan: per 10 Okt benefit utamanya dilaporkan berstatus &#x27;paused&#x27; untuk pendaftar baru — cek halaman resmi program sebelum mendaftar.</p><div class="promo-meta"><span>Anthropic • AI Gratis</span><span>Periode: Program berjalan</span><span>Status: Resmi</span></div><a class="promo-src" href="https://blog.laozhang.ai/en/posts/claude-for-startups" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
         </details>
       </div>
+      <p id="promoEmpty" style="display:none; text-align:center; color:var(--mut); padding:10px 0 4px;">Tidak ada promo di pilihan ini saat ini.</p>
       <p class="promo-note">Harga &amp; stok minimarket bisa berbeda per toko. Promo bertanda Komunitas berasal dari bukti unggahan warganet — cek aplikasi (Poinku, Alfagift, Klik Indomaret) atau toko terdekat sebelum membeli. Promo yang sudah lewat otomatis dihapus dari daftar ini.</p>
     </main>
 
@@ -226,7 +242,7 @@
           if (!items.length) { grid.innerHTML = '<p style="color:var(--muted)">Belum ada promo yang lolos saringan hari ini. Cek lagi besok pagi.</p>'; return; }
           grid.innerHTML = items.map(function (p) {
             var normal = p.normal ? '<span>Harga normal: <s>' + esc(p.normal) + '</s></span>' : '';
-            return '<details class="promo-item"><summary><span class="promo-tag">' + esc(p.harga || 'Promo') + '</span>' +
+            return '<details class="promo-item" data-jenis="' + esc(p.jenis || 'Lainnya') + '"><summary><span class="promo-tag">' + esc(p.harga || 'Promo') + '</span>' +
               '<span class="promo-title">' + esc(p.judul) + '</span><span class="promo-store">' + esc(p.toko) + '</span>' +
               '<span class="promo-date">' + esc(p.label_periode) + '</span>' + chev + '</summary>' +
               '<div class="promo-body"><p>' + esc(p.deskripsi) + '</p><div class="promo-meta"><span>' + esc(p.toko) + ' • ' + esc(p.kategori) + '</span>' +
@@ -236,6 +252,32 @@
           var up = document.getElementById('promoUpdated');
           if (up && d.diperbarui) { try { up.textContent = new Date(d.diperbarui + 'T00:00:00').toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }); } catch (e) {} }
         }).catch(function () { /* daftar pra-render tetap tampil */ });
+      })();
+    </script>
+
+    <script>
+      (function () {
+        var list = document.getElementById('promoList'); if (!list) return;
+        var bar = document.getElementById('promoFilter'); var empty = document.getElementById('promoEmpty');
+        var order = ['Makanan','Minuman','Kebutuhan Rumah','Voucher & Gratis','Pesan Antar Online','AI Gratis','Lainnya'];
+        var active = 'Semua';
+        function items() { return Array.prototype.slice.call(list.querySelectorAll('.promo-item')); }
+        function build() {
+          var counts = {}; var total = 0;
+          items().forEach(function (el) { var j = el.getAttribute('data-jenis') || 'Lainnya'; counts[j] = (counts[j] || 0) + 1; total++; });
+          if (active !== 'Semua' && !counts[active]) active = 'Semua';
+          var html = '<button type="button" class="fchip' + (active === 'Semua' ? ' active' : '') + '" data-jenis="Semua">Semua <span class="n">' + total + '</span></button>';
+          order.forEach(function (j) { if (!counts[j]) return; html += '<button type="button" class="fchip' + (active === j ? ' active' : '') + '" data-jenis="' + j + '">' + j + ' <span class="n">' + counts[j] + '</span></button>'; });
+          bar.innerHTML = html;
+          Array.prototype.forEach.call(bar.querySelectorAll('.fchip'), function (b) { b.addEventListener('click', function () { active = b.getAttribute('data-jenis'); build(); apply(); }); });
+        }
+        function apply() {
+          var shown = 0;
+          items().forEach(function (el) { var ok = active === 'Semua' || (el.getAttribute('data-jenis') || 'Lainnya') === active; el.style.display = ok ? '' : 'none'; if (ok) shown++; });
+          if (empty) empty.style.display = shown ? 'none' : '';
+        }
+        build(); apply();
+        new MutationObserver(function () { build(); apply(); }).observe(list, { childList: true });
       })();
     </script>
   </body>
