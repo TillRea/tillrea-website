@@ -174,10 +174,25 @@
       .site-card .visit svg { width: 15px; height: 15px; transition: transform .2s; }
       .site-card:hover .visit svg { transform: translate(2px, -2px); }
       .site-card a.stretch { position: absolute; inset: 0; border-radius: inherit; }
-      .promo-price { font-size: 20px; font-weight: 800; color: var(--accent); letter-spacing: -.01em; }
-      .promo-price s { color: var(--faint); font-size: 13.5px; font-weight: 600; margin-left: 7px; }
-      .chip.end { color: #b45309; background: #fffbeb; margin-left: auto; text-transform: none; letter-spacing: 0; font-size: 12px; }
-      .promo-note { color: var(--muted); font-size: 13.5px; margin: 20px 0 0; }
+      #promo { padding: 52px 0; }
+      #promo .sec-head { margin-bottom: 20px; }
+      .promo-list { display: flex; flex-direction: column; gap: 8px; }
+      .promo-item { background: #fff; border: 1px solid var(--border); border-radius: 12px; }
+      .promo-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px; padding: 9px 12px; }
+      .promo-item summary::-webkit-details-marker { display: none; }
+      .promo-tag { font-size: 12.5px; font-weight: 800; color: var(--accent); background: var(--accent-soft); border-radius: 999px; padding: 4px 10px; white-space: nowrap; }
+      .promo-title { flex: 1; min-width: 0; font-size: 14.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .promo-store { font-size: 13px; color: var(--faint); white-space: nowrap; }
+      .promo-date { font-size: 12px; font-weight: 600; color: #b45309; background: #fffbeb; border-radius: 999px; padding: 3px 9px; white-space: nowrap; }
+      .promo-chev { width: 16px; height: 16px; color: var(--faint); flex-shrink: 0; transition: transform .2s; }
+      .promo-item[open] .promo-chev { transform: rotate(180deg); }
+      .promo-body { padding: 2px 14px 14px; border-top: 1px solid #f1f1f4; }
+      .promo-body p { color: var(--muted); font-size: 14.5px; margin: 10px 0; }
+      .promo-meta { display: flex; flex-wrap: wrap; gap: 5px 16px; font-size: 13px; color: var(--faint); margin-bottom: 10px; }
+      .promo-src { font-size: 14px; font-weight: 600; }
+      .promo-more { margin-top: 16px; }
+      .promo-note { color: var(--muted); font-size: 13.5px; margin: 14px 0 0; }
+      @media (max-width: 700px) { .promo-store { display: none; } .promo-title { white-space: normal; } }
 
       /* ---------- Tentang ---------- */
       .about-grid { display: grid; grid-template-columns: 380px 1fr; gap: 54px; align-items: start; }
@@ -263,7 +278,7 @@
             <a href="#tentang">Tentang</a>
             <a href="#hosting">Hosting Gratis</a>
             <a href="#jasa">Jasa SEO Lokal</a>
-            <a href="#promo">Promo</a>
+            <a href="/promo/">Promo</a>
             <a href="/artikel/">Artikel</a>
             <a href="#kontak">Kontak</a>
           </div>
@@ -282,7 +297,7 @@
         <a href="#tentang">Tentang</a>
         <a href="#hosting">Hosting Gratis</a>
         <a href="#jasa">Jasa SEO Lokal</a>
-        <a href="#promo">Promo</a>
+        <a href="/promo/">Promo</a>
         <a href="/artikel/">Artikel</a>
         <a href="#kontak">Kontak</a>
         <a href="/berkas">Berkas</a>
@@ -469,105 +484,36 @@
         <div class="container">
           <div class="sec-head reveal">
             <div class="eyebrow">Info Promo</div>
-            <h2 class="sec-title">Promo pilihan yang sedang berjalan</h2>
-            <p class="sec-sub">Hasil buruan harian dari komunitas Threads, Facebook, dan Instagram, akun agregator, katalog, dan akun resmi brand — disaring manual: hanya yang benar-benar worth it (gratisan, separuh harga, paket banting harga). Diperbarui terakhir <span id="promoUpdated">13 Oktober 2026</span>.</p>
+            <h2 class="sec-title">Promo pilihan, ringkas saja</h2>
+            <p class="sec-sub">Kurasi harian promo yang benar-benar worth it — gratisan, separuh harga, paket banting harga. Klik satu baris untuk info lengkapnya. Diperbarui terakhir <span id="promoUpdated">13 Oktober 2026</span>.</p>
           </div>
-          <div id="promoGrid" class="cards reveal">
-      <article class="site-card">
-        <div class="top"><div class="site-tile g0">I</div><span class="chip">Indomaret • Minimarket</span><span class="chip end">14–20 Okt 2026</span></div>
-        <h3>Es Krim Glico Wings Frost Bite — 3 pcs Rp10.000</h3>
-        <div class="promo-price">3 pcs Rp10.000</div>
-        <p>JSM Indomaret, program Family Weekend Treats khusus member Poinku. Es krim 90ml jadi sekitar Rp3.300 per pcs.</p>
-        <div class="foot"><span class="domain">Resmi</span><span class="visit">Sumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div>
-        <a class="stretch" href="https://hargacampur.com/katalog-promo-jsm-indomaret/" target="_blank" rel="noopener" aria-label="Lihat sumber promo Es Krim Glico Wings Frost Bite — 3 pcs Rp10.000"></a>
-      </article>
-      <article class="site-card">
-        <div class="top"><div class="site-tile g1">I</div><span class="chip">Indomaret • Minimarket</span><span class="chip end">14–20 Okt 2026</span></div>
-        <h3>Golden Farm Potato Nugget 750g — Hemat 50%</h3>
-        <div class="promo-price">Diskon 50%</div>
-        <p>JSM Indomaret, Family Weekend Treats khusus member Poinku.</p>
-        <div class="foot"><span class="domain">Resmi</span><span class="visit">Sumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div>
-        <a class="stretch" href="https://hargacampur.com/katalog-promo-jsm-indomaret/" target="_blank" rel="noopener" aria-label="Lihat sumber promo Golden Farm Potato Nugget 750g — Hemat 50%"></a>
-      </article>
-      <article class="site-card">
-        <div class="top"><div class="site-tile g2">I</div><span class="chip">Indomaret • Minimarket</span><span class="chip end">s.d. 14 Okt 2026</span></div>
-        <h3>Hemat Minggu Ini & Harga Khusus Member</h3>
-        <p>Minyak goreng Tropical/Sania/Fortune, Bango, Wow Spageti, Sedaap Cup, Frisian Flag, Indomilk, dan Silver Queen turun harga. Harga member lebih murah untuk Filma, Sunlight, Kopi Gadjah, Fitbar, dll.</p>
-        <div class="foot"><span class="domain">Resmi</span><span class="visit">Sumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div>
-        <a class="stretch" href="https://www.instagram.com/p/DeObzyxE_tL/" target="_blank" rel="noopener" aria-label="Lihat sumber promo Hemat Minggu Ini & Harga Khusus Member"></a>
-      </article>
-      <article class="site-card">
-        <div class="top"><div class="site-tile g3">A</div><span class="chip">Alfamart • Minimarket</span><span class="chip end">s.d. 15 Okt 2026</span></div>
-        <h3>Minyak Goreng 2L — Rp41.800 sampai Rp43.900</h3>
-        <div class="promo-price">mulai Rp41.800</div>
-        <p>Sunco, Tropical, Filma, dan Bimoli kemasan 2 liter turun harga di periode promo Alfamart 1–15 Oktober. Maksimal 2 unit per konsumen.</p>
-        <div class="foot"><span class="domain">Resmi</span><span class="visit">Sumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div>
-        <a class="stretch" href="http://hargacampur.com/promo-serba-gratis-alfamart/" target="_blank" rel="noopener" aria-label="Lihat sumber promo Minyak Goreng 2L — Rp41.800 sampai Rp43.900"></a>
-      </article>
-      <article class="site-card">
-        <div class="top"><div class="site-tile g4">I</div><span class="chip">Indomaret • Minimarket</span><span class="chip end">Setiap hari</span></div>
-        <h3>Promo 1 Hari Poinku — Hemat hingga 50%</h3>
-        <div class="promo-price">s.d. −50%</div>
-        <p>Promo termurah berganti setiap hari di aplikasi Indomaret Poinku. Biasakan cek aplikasi tiap pagi sebelum belanja.</p>
-        <div class="foot"><span class="domain">Resmi</span><span class="visit">Sumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div>
-        <a class="stretch" href="https://www.threads.com/@yeaybackup/post/DeY42pjjyHT" target="_blank" rel="noopener" aria-label="Lihat sumber promo Promo 1 Hari Poinku — Hemat hingga 50%"></a>
-      </article>
-      <article class="site-card">
-        <div class="top"><div class="site-tile g5">A</div><span class="chip">Alfamart • Voucher & Gratis</span><span class="chip end">s.d. 31 Okt 2026</span></div>
-        <h3>Gratis Ekonomi Liquid 650ml</h3>
-        <div class="promo-price">GRATIS</div>
-        <p>Bayar angsuran Kreditplus 3 kali berturut-turut di Alfamart, dapatkan 1 pcs Ekonomi Liquid 650ml gratis. Stok per toko.</p>
-        <div class="foot"><span class="domain">Resmi</span><span class="visit">Sumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div>
-        <a class="stretch" href="https://kitaindonesiasatu.com/umkm/promo-alfamart-hari-ini-1-oktober-2026/" target="_blank" rel="noopener" aria-label="Lihat sumber promo Gratis Ekonomi Liquid 650ml"></a>
-      </article>
-      <article class="site-card">
-        <div class="top"><div class="site-tile g0">K</div><span class="chip">Klik Indomaret / Alfagift • Minimarket</span><span class="chip end">Temuan komunitas 10 Okt</span></div>
-        <h3>Wall's Magnum Almond — Diskon 48%</h3>
-        <div class="promo-price">Rp12.500<s>Rp24.000</s></div>
-        <p>Temuan komunitas dari tangkapan layar keranjang belanja online. Cek ketersediaan di Klik Indomaret atau Alfagift sebelum membeli.</p>
-        <div class="foot"><span class="domain">Komunitas</span><span class="visit">Sumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div>
-        <a class="stretch" href="https://www.threads.com/@_imyourshn/post/DeTewmPFL_h" target="_blank" rel="noopener" aria-label="Lihat sumber promo Wall's Magnum Almond — Diskon 48%"></a>
-      </article>
-      <article class="site-card">
-        <div class="top"><div class="site-tile g1">P</div><span class="chip">Point Coffee • Kopi</span><span class="chip end">1–31 Okt 2026</span></div>
-        <h3>Point Coffee — Spesial Oktober</h3>
-        <p>Rangkaian promo kopi Point Coffee (Indomaret) sepanjang Oktober 2026. Detail tiap penawaran ada di unggahan resmi @pointcoffeeid.</p>
-        <div class="foot"><span class="domain">Resmi</span><span class="visit">Sumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div>
-        <a class="stretch" href="https://www.instagram.com/p/DeLR8pKARJp/" target="_blank" rel="noopener" aria-label="Lihat sumber promo Point Coffee — Spesial Oktober"></a>
-      </article>
-      <article class="site-card">
-        <div class="top"><div class="site-tile g2">F</div><span class="chip">Fore Coffee • Kopi</span><span class="chip end">Tiap Jumat s.d. 31 Okt</span></div>
-        <h3>Fore Coffee — Beli 1 Gratis 1 Tiap Jumat</h3>
-        <div class="promo-price">Beli 1 Gratis 1</div>
-        <p>Promo Fore Coffee x BCA setiap hari Jumat selama Oktober 2026, di jam tertentu. Cek syarat pembayaran di sumber.</p>
-        <div class="foot"><span class="domain">Resmi</span><span class="visit">Sumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div>
-        <a class="stretch" href="https://www.instagram.com/p/DeQxG6cE_b7/" target="_blank" rel="noopener" aria-label="Lihat sumber promo Fore Coffee — Beli 1 Gratis 1 Tiap Jumat"></a>
-      </article>
-      <article class="site-card">
-        <div class="top"><div class="site-tile g3">E</div><span class="chip">Eskopi • Kopi</span><span class="chip end">Sedang berjalan</span></div>
-        <h3>Eskopi KLAVA — Beli Satu Bawa Pulang Dua</h3>
-        <div class="promo-price">Beli 1 Gratis 1</div>
-        <p>Promo seri KLAVA dari Eskopi Indonesia: beli satu minuman, bisa bawa pulang dua.</p>
-        <div class="foot"><span class="domain">Resmi</span><span class="visit">Sumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div>
-        <a class="stretch" href="https://www.instagram.com/p/DeOWQgkjzzL/" target="_blank" rel="noopener" aria-label="Lihat sumber promo Eskopi KLAVA — Beli Satu Bawa Pulang Dua"></a>
-      </article>
-      <article class="site-card">
-        <div class="top"><div class="site-tile g4">F</div><span class="chip">FamilyMart • Kopi</span><span class="chip end">Tiap Kamis</span></div>
-        <h3>FamilyMart — Free Upsize Kopi Tiap Kamis</h3>
-        <div class="promo-price">Free Upsize</div>
-        <p>Ngopi di FamilyMart makin hemat: gratis naik ukuran setiap hari Kamis.</p>
-        <div class="foot"><span class="domain">Resmi</span><span class="visit">Sumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div>
-        <a class="stretch" href="https://www.instagram.com/p/DeNsRfaExL5/" target="_blank" rel="noopener" aria-label="Lihat sumber promo FamilyMart — Free Upsize Kopi Tiap Kamis"></a>
-      </article>
-      <article class="site-card">
-        <div class="top"><div class="site-tile g5">A</div><span class="chip">Anthropic • AI Gratis</span><span class="chip end">Program berjalan</span></div>
-        <h3>Claude for Startups — Claude Team 12 Bulan + Kredit API $1.000</h3>
-        <div class="promo-price">Gratis 12 bulan</div>
-        <p>Untuk startup berusia ≤5 tahun atau yang dapat pendanaan ≤2 tahun terakhir (bootstrap boleh). Catatan: per 10 Okt benefit utamanya dilaporkan berstatus 'paused' untuk pendaftar baru — cek halaman resmi program sebelum mendaftar.</p>
-        <div class="foot"><span class="domain">Resmi</span><span class="visit">Sumber <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div>
-        <a class="stretch" href="https://blog.laozhang.ai/en/posts/claude-for-startups" target="_blank" rel="noopener" aria-label="Lihat sumber promo Claude for Startups — Claude Team 12 Bulan + Kredit API $1.000"></a>
-      </article>
+          <div id="promoGrid" class="promo-list reveal">
+        <details class="promo-item">
+          <summary><span class="promo-tag">3 pcs Rp10.000</span><span class="promo-title">Es Krim Glico Wings Frost Bite — 3 pcs Rp10.000</span><span class="promo-store">Indomaret</span><span class="promo-date">14–20 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="promo-body"><p>JSM Indomaret, program Family Weekend Treats khusus member Poinku. Es krim 90ml jadi sekitar Rp3.300 per pcs.</p><div class="promo-meta"><span>Indomaret • Minimarket</span><span>Periode: 14–20 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="https://hargacampur.com/katalog-promo-jsm-indomaret/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
+        </details>
+        <details class="promo-item">
+          <summary><span class="promo-tag">Diskon 50%</span><span class="promo-title">Golden Farm Potato Nugget 750g — Hemat 50%</span><span class="promo-store">Indomaret</span><span class="promo-date">14–20 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="promo-body"><p>JSM Indomaret, Family Weekend Treats khusus member Poinku.</p><div class="promo-meta"><span>Indomaret • Minimarket</span><span>Periode: 14–20 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="https://hargacampur.com/katalog-promo-jsm-indomaret/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
+        </details>
+        <details class="promo-item">
+          <summary><span class="promo-tag">Promo</span><span class="promo-title">Hemat Minggu Ini &amp; Harga Khusus Member</span><span class="promo-store">Indomaret</span><span class="promo-date">s.d. 14 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="promo-body"><p>Minyak goreng Tropical/Sania/Fortune, Bango, Wow Spageti, Sedaap Cup, Frisian Flag, Indomilk, dan Silver Queen turun harga. Harga member lebih murah untuk Filma, Sunlight, Kopi Gadjah, Fitbar, dll.</p><div class="promo-meta"><span>Indomaret • Minimarket</span><span>Periode: s.d. 14 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="https://www.instagram.com/p/DeObzyxE_tL/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
+        </details>
+        <details class="promo-item">
+          <summary><span class="promo-tag">mulai Rp41.800</span><span class="promo-title">Minyak Goreng 2L — Rp41.800 sampai Rp43.900</span><span class="promo-store">Alfamart</span><span class="promo-date">s.d. 15 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="promo-body"><p>Sunco, Tropical, Filma, dan Bimoli kemasan 2 liter turun harga di periode promo Alfamart 1–15 Oktober. Maksimal 2 unit per konsumen.</p><div class="promo-meta"><span>Alfamart • Minimarket</span><span>Periode: s.d. 15 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="http://hargacampur.com/promo-serba-gratis-alfamart/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
+        </details>
+        <details class="promo-item">
+          <summary><span class="promo-tag">s.d. −50%</span><span class="promo-title">Promo 1 Hari Poinku — Hemat hingga 50%</span><span class="promo-store">Indomaret</span><span class="promo-date">Setiap hari</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="promo-body"><p>Promo termurah berganti setiap hari di aplikasi Indomaret Poinku. Biasakan cek aplikasi tiap pagi sebelum belanja.</p><div class="promo-meta"><span>Indomaret • Minimarket</span><span>Periode: Setiap hari</span><span>Status: Resmi</span></div><a class="promo-src" href="https://www.threads.com/@yeaybackup/post/DeY42pjjyHT" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
+        </details>
+        <details class="promo-item">
+          <summary><span class="promo-tag">GRATIS</span><span class="promo-title">Gratis Ekonomi Liquid 650ml</span><span class="promo-store">Alfamart</span><span class="promo-date">s.d. 31 Okt 2026</span><svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="promo-body"><p>Bayar angsuran Kreditplus 3 kali berturut-turut di Alfamart, dapatkan 1 pcs Ekonomi Liquid 650ml gratis. Stok per toko.</p><div class="promo-meta"><span>Alfamart • Voucher &amp; Gratis</span><span>Periode: s.d. 31 Okt 2026</span><span>Status: Resmi</span></div><a class="promo-src" href="https://kitaindonesiasatu.com/umkm/promo-alfamart-hari-ini-1-oktober-2026/" target="_blank" rel="noopener">Lihat sumber promo →</a></div>
+        </details>
           </div>
+          <div class="promo-more"><a class="btn btn-accent" href="/promo/">Lihat semua promo (12) →</a></div>
           <p class="promo-note">Harga &amp; stok minimarket bisa berbeda per toko. Promo bertanda Komunitas berasal dari bukti unggahan warganet — cek aplikasi (Poinku, Alfagift, Klik Indomaret) atau toko terdekat sebelum membeli. Promo yang sudah lewat otomatis hilang dari daftar ini.</p>
         </div>
       </section>
@@ -603,7 +549,7 @@
               <li><a href="#pameran">Ruang Pameran</a></li>
               <li><a href="#tentang">Tentang Saya</a></li>
               <li><a href="#jasa">Jasa Optimasi &amp; SEO Lokal</a></li>
-              <li><a href="#promo">Promo Pilihan</a></li>
+              <li><a href="/promo/">Promo Pilihan</a></li>
               <li><a href="/artikel/">Artikel &amp; Cerita</a></li>
               <li><a href="https://portofolio.tillrea.my.id" target="_blank" rel="noopener">Portofolio Lengkap</a></li>
             </ul>
@@ -711,26 +657,29 @@
       })();
     </script>
   
-    <script>
+<script>
       (function () {
         var grid = document.getElementById('promoGrid');
         if (!grid) return;
         function esc(t) { return String(t == null ? '' : t).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+        var chev = '<svg class="promo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>';
         fetch('/promo.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) {
           var today = new Date(); today.setHours(0, 0, 0, 0);
           var items = (d.promo || []).filter(function (p) { return !p.berakhir || new Date(p.berakhir + 'T23:59:59') >= today; });
+          items = items.slice(0, 6);
           if (!items.length) { grid.innerHTML = '<p style="color:var(--muted)">Belum ada promo yang lolos saringan hari ini. Cek lagi besok pagi.</p>'; return; }
-          grid.innerHTML = items.map(function (p, i) {
-            var harga = p.harga ? '<div class="promo-price">' + esc(p.harga) + (p.normal ? '<s>' + esc(p.normal) + '</s>' : '') + '</div>' : '';
-            return '<article class="site-card"><div class="top"><div class="site-tile g' + (i % 6) + '">' + esc((p.toko || 'P').charAt(0).toUpperCase()) + '</div>' +
-              '<span class="chip">' + esc(p.toko) + ' • ' + esc(p.kategori) + '</span><span class="chip end">' + esc(p.label_periode) + '</span></div>' +
-              '<h3>' + esc(p.judul) + '</h3>' + harga + '<p>' + esc(p.deskripsi) + '</p>' +
-              '<div class="foot"><span class="domain">' + esc(p.status) + '</span><span class="visit">Sumber ' + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>' + '</span></div>' +
-              '<a class="stretch" href="' + esc(p.sumber) + '" target="_blank" rel="noopener" aria-label="Lihat sumber promo"></a></article>';
+          grid.innerHTML = items.map(function (p) {
+            var normal = p.normal ? '<span>Harga normal: <s>' + esc(p.normal) + '</s></span>' : '';
+            return '<details class="promo-item"><summary><span class="promo-tag">' + esc(p.harga || 'Promo') + '</span>' +
+              '<span class="promo-title">' + esc(p.judul) + '</span><span class="promo-store">' + esc(p.toko) + '</span>' +
+              '<span class="promo-date">' + esc(p.label_periode) + '</span>' + chev + '</summary>' +
+              '<div class="promo-body"><p>' + esc(p.deskripsi) + '</p><div class="promo-meta"><span>' + esc(p.toko) + ' • ' + esc(p.kategori) + '</span>' +
+              '<span>Periode: ' + esc(p.label_periode) + '</span><span>Status: ' + esc(p.status) + '</span>' + normal + '</div>' +
+              '<a class="promo-src" href="' + esc(p.sumber) + '" target="_blank" rel="noopener">Lihat sumber promo →</a></div></details>';
           }).join('');
           var up = document.getElementById('promoUpdated');
           if (up && d.diperbarui) { try { up.textContent = new Date(d.diperbarui + 'T00:00:00').toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }); } catch (e) {} }
-        }).catch(function () { /* kartu pra-render tetap tampil */ });
+        }).catch(function () { /* daftar pra-render tetap tampil */ });
       })();
     </script>
   </body>
