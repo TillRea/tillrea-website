@@ -104,6 +104,20 @@ a.chip.linkchip:hover{border-color:var(--violet);color:var(--violet);text-decora
 .empty b{display:block;font-size:16.5px;color:var(--ink);margin-bottom:5px}
 .empty p{font-size:14px;max-width:440px;margin:0 auto}
 
+
+/* ---------- Jadwal kuliah ---------- */
+.jadwallink{display:inline-flex;align-items:center;gap:6px;margin-top:10px;margin-left:8px;background:#fff;border:1px solid rgba(255,255,255,.25);font-size:12.5px;font-weight:600;padding:4px 11px;border-radius:99px;color:var(--violet)}
+.jadwalhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:34px 2px 4px}
+.jadwalhead h2{font-size:19px;font-weight:800;letter-spacing:-.015em}
+.jadwalhead .sub2{font-size:13px;color:var(--mut)}
+.jrow{display:flex;gap:13px;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:13px 15px;align-items:flex-start}
+.jrow .time{flex:none;width:118px;font-weight:800;font-size:13.5px;color:var(--violet);line-height:1.45;padding-top:1px}
+.jrow .time small{display:block;color:var(--faint);font-weight:600;font-size:12px}
+.jrow .body{flex:1;min-width:0}
+.jrow .title{font-weight:600;font-size:15.5px;line-height:1.35}
+.jrow .dosen{font-size:13.5px;color:var(--mut);margin-top:2px}
+.grouptitle.today{color:var(--violet)}
+
 /* ---------- Kalender ---------- */
 .calwrap{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px;margin-top:18px}
 .calhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:10px;flex-wrap:wrap}
@@ -149,8 +163,9 @@ footer b{color:var(--mut)}
         <div class="sub">Sistem Informasi • Semester 5 • UNISNU Jepara</div>
       </div>
     </div>
-    <p class="desc">Semua tugas kelas dan tenggatnya ada di satu tempat ini. Centang tugas yang sudah kamu kerjakan — centangan tersimpan di perangkatmu sendiri.</p>
+    <p class="desc">Semua tugas kelas, tenggatnya, dan jadwal kuliah ada di satu tempat ini. Centang tugas yang sudah kamu kerjakan — centangan tersimpan di perangkatmu sendiri.</p>
     <span class="upd" id="updatedLine">🕒 Memuat data terbaru…</span>
+    <a class="jadwallink" href="#jadwal">📚 Jadwal Kuliah</a>
   </header>
 
   <div class="stats">
@@ -182,6 +197,16 @@ footer b{color:var(--mut)}
     <div class="empty"><b>Memuat daftar tugas…</b><p>Sedang mengambil data terbaru dari server.</p></div>
   </main>
 
+  <section id="jadwal">
+    <div class="jadwalhead">
+      <h2>📚 Jadwal Kuliah</h2>
+      <span class="sub2" id="jadwalMeta">Memuat jadwal…</span>
+    </div>
+    <div id="jadwalBody">
+      <div class="empty"><b>Memuat jadwal kuliah…</b><p>Sedang mengambil data terbaru dari server.</p></div>
+    </div>
+  </section>
+
   <footer>
     <b>Ada tugas baru, perubahan jadwal, atau koreksi?</b><br>
     Kabari Fikri — data di halaman ini dikelola &amp; diperbarui terpusat olehnya.
@@ -195,6 +220,8 @@ footer b{color:var(--mut)}
 /* ============ Data terpusat (server) + centang pribadi (perangkat ini) ============ */
 const DONE_KEY = 'tugasku_done_v1';
 let tasks = [];
+let jadwal = [];
+let jadwalMeta = null;
 let updatedAt = '';
 let doneIds = loadDone();
 let view = 'list';
@@ -365,6 +392,38 @@ function renderList(){
   content.innerHTML = html || emptyBox('Tidak ada tugas di tampilan ini', 'Coba ganti filter di atas atau ubah kata pencarianmu.');
 }
 
+
+/* ============ Jadwal kuliah ============ */
+const HARI_ORDER = ['Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+function renderJadwal(){
+  const body = document.getElementById('jadwalBody');
+  const meta = document.getElementById('jadwalMeta');
+  if(!jadwal.length){ body.innerHTML = emptyBox('Jadwal kuliah belum dimasukkan', 'Jadwal kuliah semester ini akan tampil di sini.'); meta.textContent = ''; return; }
+  const totalSks = jadwal.reduce((a, j) => a + (j.sks || 0), 0);
+  meta.textContent = (jadwalMeta && jadwalMeta.semester ? jadwalMeta.semester + ' • ' : '') + jadwal.length + ' mata kuliah • ' + totalSks + ' SKS';
+  const todayName = DOW[new Date().getDay()];
+  let html = '';
+  for(const hari of [...HARI_ORDER, null]){
+    const g = jadwal.filter(j => (j.hari || null) === hari).sort((a, b) => (a.jam || '') < (b.jam || '') ? -1 : 1);
+    if(!g.length) continue;
+    const isToday = hari !== null && hari === todayName;
+    html += `<div class="grouptitle ${isToday ? 'today' : ''}">${hari ? '📅 ' + hari : '📌 Belum Terjadwal'}${isToday ? ' — hari ini' : ''}<span class="cnt">${g.length} mata kuliah</span></div><div class="tasklist">` +
+      g.map(j => `<div class="jrow">
+        <div class="time">${j.jam ? esc(j.jam.replace(/:/g, '.').replace('-', '–')) + ' <small>WIB</small>' : '—'}${j.ruang ? `<small>📍 Ruang ${esc(j.ruang)}</small>` : ''}</div>
+        <div class="body">
+          <div class="title">${esc(j.matkul)}</div>
+          <div class="dosen">👨‍🏫 ${esc(j.dosen)}</div>
+          <div class="meta">
+            <span class="chip">${esc(j.kode)}</span>
+            <span class="chip">${j.sks} SKS</span>
+            <span class="chip">Kelas ${esc(j.kelas)}</span>
+          </div>
+        </div>
+      </div>`).join('') + '</div>';
+  }
+  body.innerHTML = html;
+}
+
 /* ============ Kalender ============ */
 function renderCal(){
   const y = calCursor.getFullYear(), m = calCursor.getMonth();
@@ -443,8 +502,10 @@ fetch('data.json?_=' + Date.now(), {cache:'no-store'})
   .then(r => { if(!r.ok) throw new Error('http ' + r.status); return r.json(); })
   .then(data => {
     tasks = Array.isArray(data.tasks) ? data.tasks : [];
+    jadwal = Array.isArray(data.jadwal) ? data.jadwal : [];
+    jadwalMeta = data.jadwalMeta || null;
     updatedAt = data.updatedAt || '';
-    render();
+    render(); renderJadwal();
   })
   .catch(() => {
     document.getElementById('updatedLine').textContent = '⚠️ Gagal memuat data';

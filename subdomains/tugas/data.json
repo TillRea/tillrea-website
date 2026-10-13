@@ -1,1 +1,101 @@
-{"tasks":[],"updatedAt":"2026-10-11"}
+{
+  "tasks": [],
+  "updatedAt": "2026-10-13",
+  "jadwal": [
+    {
+      "kode": "24SIF502",
+      "matkul": "SI Manajemen Rantai Pasok",
+      "sks": 2,
+      "kelas": "5SI1",
+      "dosen": "ALZENA DONA SABILLA, S.Kom., M.Kom.",
+      "hari": "Senin",
+      "jam": "10:00-11:40",
+      "ruang": "D302"
+    },
+    {
+      "kode": "24SIF504",
+      "matkul": "Komunikasi Bisnis dan Teknis",
+      "sks": 2,
+      "kelas": "5SI1",
+      "dosen": "Dr. JOKO MINARDI, S.Kom., M.Kom.",
+      "hari": "Senin",
+      "jam": "12:30-14:10",
+      "ruang": "D204"
+    },
+    {
+      "kode": "24SIF505",
+      "matkul": "Manajemen Produk Digital",
+      "sks": 2,
+      "kelas": "5SI1",
+      "dosen": "Dr. JOKO MINARDI, S.Kom., M.Kom.",
+      "hari": "Selasa",
+      "jam": "07:30-09:10",
+      "ruang": "D102"
+    },
+    {
+      "kode": "24SIF506P",
+      "matkul": "Visualisasi Data Geospasial",
+      "sks": 3,
+      "kelas": "5SI1",
+      "dosen": "HERU SAPUTRO, M.Kom",
+      "hari": "Selasa",
+      "jam": "10:00-12:30",
+      "ruang": "D103 (Lab Komputer)"
+    },
+    {
+      "kode": "24SIF501",
+      "matkul": "Visualisasi Data Bisnis",
+      "sks": 2,
+      "kelas": "5SI1",
+      "dosen": "HERU SAPUTRO, M.Kom",
+      "hari": "Selasa",
+      "jam": "12:30-14:20",
+      "ruang": "D305"
+    },
+    {
+      "kode": "24SIF503",
+      "matkul": "E-commerce",
+      "sks": 3,
+      "kelas": "5SI1",
+      "dosen": "DANANG MAHENDRA, M.Kom.",
+      "hari": "Rabu",
+      "jam": "07:30-10:00",
+      "ruang": "D104 (Lab Komputer)"
+    },
+    {
+      "kode": "24FST501",
+      "matkul": "Kewirausahaan",
+      "sks": 2,
+      "kelas": "5SI1",
+      "dosen": "Ir. H. GUN SUDIRYANTO, M.M.",
+      "hari": "Rabu",
+      "jam": "10:00-12:30",
+      "ruang": "D203 (Seminar)"
+    },
+    {
+      "kode": "23SIF704",
+      "matkul": "Teknologi AR/VR",
+      "sks": 3,
+      "kelas": "7SI1",
+      "dosen": "HERU SAPUTRO, M.Kom",
+      "hari": "Kamis",
+      "jam": "12:30-15:00",
+      "ruang": "Dosen TIF 311"
+    },
+    {
+      "kode": "24FST601",
+      "matkul": "Kerja Praktik",
+      "sks": 2,
+      "kelas": "5SI1",
+      "dosen": "Dr. AGUS SUBHAN AKBAR, S.Kom., M.Kom.",
+      "hari": null,
+      "jam": null,
+      "ruang": null
+    }
+  ],
+  "jadwalMeta": {
+    "semester": "Semester Gasal 2026/2027",
+    "prodi": "Sistem Informasi",
+    "totalSks": 21
+  }
+}
