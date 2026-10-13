@@ -1,5 +1,13 @@
 {
-  "tasks": [],
+  "tasks": [
+    {
+      "id": "kbt-diskusi-kasus-sistem-down",
+      "title": "Diskusi Kasus — Menjelaskan Sistem Down kepada Klien",
+      "course": "Komunikasi Bisnis dan Teknis",
+      "note": "Bayangkan Anda adalah seorang System Analyst. Bagaimana Anda menjelaskan penyebab sistem down selama 5 jam kepada klien yang tidak paham teknis tanpa membuatnya marah?\nInstruksi: Tuliskan 3 kalimat kunci yang akan Anda ucapkan.",
+      "deadline": "2026-10-19T12:30"
+    }
+  ],
   "updatedAt": "2026-10-13",
   "jadwal": [
     {
