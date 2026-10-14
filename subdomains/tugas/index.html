@@ -96,6 +96,16 @@ a{color:var(--violet);text-decoration:none}
 .chip.due-amber{background:var(--amberbg);border-color:#fde68a;color:var(--amber)}
 .chip.due-green{background:var(--greenbg);border-color:#bbf7d0;color:var(--green)}
 a.chip.linkchip:hover{border-color:var(--violet);color:var(--violet);text-decoration:none}
+.task .title.clickable{cursor:pointer}
+button.chip.detbtn{cursor:pointer}
+button.chip.detbtn:hover{border-color:var(--violet);color:var(--violet)}
+.task .detail{display:none;margin-top:11px;border-top:1px dashed var(--line);padding-top:11px}
+.task.open .detail{display:block}
+.detail .dhead{font-size:12px;font-weight:700;color:var(--faint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:9px}
+.lampiran{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.lfoto{margin:0;width:100%;max-width:520px}
+.lfoto img{width:100%;border-radius:10px;border:1px solid var(--line);display:block}
+.lfoto figcaption{font-size:12.5px;color:var(--faint);margin-top:5px}
 .flag{font-size:11px;font-weight:800;letter-spacing:.03em;padding:3px 8px;border-radius:6px;text-transform:uppercase}
 .flag.tinggi{background:var(--redbg);color:var(--red)}
 .flag.sedang{background:var(--amberbg);color:var(--amber)}
@@ -340,16 +350,28 @@ function renderChips(){
   html += courses().map(c => `<button class="fchip ${filter==='mk:'+c?'on':''}" data-filter="mk:${esc(c)}"><span class="dot" style="background:${courseColor(c)}"></span>${esc(c)}</button>`).join('');
   document.getElementById('filterChips').innerHTML = html;
 }
+function lampiranOf(t){ return Array.isArray(t.lampiran) ? t.lampiran.filter(l => l && l.url) : []; }
+function lampiranItem(l){
+  const label = l.label || '';
+  if(l.tipe === 'foto'){
+    return `<figure class="lfoto"><a href="${esc(l.url)}" target="_blank" rel="noopener"><img src="${esc(l.url)}" alt="${esc(label || 'Foto soal tugas')}" loading="lazy"></a>${label ? `<figcaption>📷 ${esc(label)} — klik foto untuk ukuran penuh</figcaption>` : ''}</figure>`;
+  }
+  if(l.tipe === 'file'){
+    return `<a class="chip linkchip" href="${esc(l.url)}" target="_blank" rel="noopener" download>📄 ${esc(label || 'File soal tugas')}</a>`;
+  }
+  return `<a class="chip linkchip" href="${esc(l.url)}" target="_blank" rel="noopener">🔗 ${esc(label || 'Tautan soal tugas')}</a>`;
+}
 function taskRow(t){
   const info = dueInfo(t);
   const dd = dayDiff(t.deadline);
   const mine = doneIds.has(t.id);
+  const lamp = lampiranOf(t);
   return `<div class="task ${dd !== null && dd < 0 && !mine ? 'overdue' : ''} ${mine ? 'minedone' : ''}" data-id="${t.id}">
     <button class="check ${mine ? 'on' : ''}" data-act="toggle" title="Tandai sudah kukerjakan">
       <svg viewBox="0 0 24 24" fill="none"><path d="M4.5 12.5l5 5L19.5 7" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="body">
-      <div class="title">${esc(t.title)}</div>
+      <div class="title ${lamp.length ? 'clickable' : ''}" ${lamp.length ? 'data-act="detail" title="Klik untuk melihat rincian & lampiran soal"' : ''}>${esc(t.title)}</div>
       ${t.note ? `<div class="note">${esc(t.note)}</div>` : ''}
       <div class="meta">
         ${t.course ? `<span class="chip course"><span class="dot" style="background:${courseColor(t.course)};width:8px;height:8px;border-radius:99px;display:inline-block"></span>${esc(t.course)}</span>` : ''}
@@ -357,7 +379,12 @@ function taskRow(t){
         ${t.priority ? `<span class="flag ${t.priority}">${t.priority}</span>` : ''}
         ${t.type ? `<span class="chip">${t.type === 'Kelompok' ? '👥 Kelompok' : '👤 Individu'}</span>` : ''}
         ${t.link ? `<a class="chip linkchip" href="${esc(t.link)}" target="_blank" rel="noopener">🔗 Link pengumpulan</a>` : ''}
+        ${lamp.length ? `<button class="chip detbtn" data-act="detail" type="button">📎 Lampiran soal (${lamp.length}) <span class="arr">▾</span></button>` : ''}
       </div>
+      ${lamp.length ? `<div class="detail">
+        <div class="dhead">📎 Bukti &amp; lampiran soal tugas</div>
+        <div class="lampiran">${lamp.map(lampiranItem).join('')}</div>
+      </div>` : ''}
     </div>
   </div>`;
 }
@@ -473,6 +500,14 @@ function renderCal(){
 
 /* ============ Interaksi ============ */
 content.addEventListener('click', e => {
+  const det = e.target.closest('[data-act="detail"]');
+  if(det){
+    const rowD = e.target.closest('[data-id]'); if(!rowD) return;
+    rowD.classList.toggle('open');
+    const open = rowD.classList.contains('open');
+    rowD.querySelectorAll('.arr').forEach(a => { a.textContent = open ? '▴' : '▾'; });
+    return;
+  }
   const btn = e.target.closest('[data-act="toggle"]'); if(!btn) return;
   const row = e.target.closest('[data-id]'); if(!row) return;
   const id = row.dataset.id;
