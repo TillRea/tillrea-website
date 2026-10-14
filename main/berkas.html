@@ -66,6 +66,10 @@
       .search-wrap { position: relative; }
       .search-wrap input { padding-left: 34px; width: 230px; }
       .search-wrap svg { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); width: 15px; height: 15px; color: var(--faint); }
+      .tautan-card { margin-bottom: 18px; }
+      .link-add { display: flex; gap: 9px; flex-wrap: wrap; padding: 15px 20px; border-bottom: 1px solid var(--border); }
+      .link-add input { flex: 1 1 180px; width: auto; }
+      .link-url { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 520px; }
       .file-row { display: flex; gap: 13px; align-items: center; padding: 13px 20px; border-bottom: 1px solid #f1f1f4; }
       .file-row:last-child { border-bottom: none; }
       .ext-tile { width: 42px; height: 42px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 10.5px; font-weight: 700; letter-spacing: .03em; flex-shrink: 0; text-transform: uppercase; }
@@ -124,6 +128,19 @@
         <div class="stat"><div class="k">Total Ukuran</div><div class="v" id="statUkuran">–</div></div>
       </div>
 
+      <div class="card tautan-card">
+        <div class="card-head">
+          <span class="t">🔗 Tautan</span>
+          <span style="color:var(--muted); font-size:12.5px">Klik Buka untuk membuka tautan di tab baru</span>
+        </div>
+        <div class="link-add">
+          <input type="text" id="tautanLabel" placeholder="Nama tautan (opsional)" />
+          <input type="text" id="tautanUrl" placeholder="https://…" />
+          <button class="btn btn-primary btn-sm" id="btnTambahTautan" type="button">+ Tambah Tautan</button>
+        </div>
+        <div id="daftarTautan"><div class="empty">Memuat…</div></div>
+      </div>
+
       <div class="card" id="berkasCard">
         <div class="card-head">
           <span class="t">Semua Berkas</span>
@@ -172,23 +189,74 @@
       function pesanPin(teks) { var m = el('msgPin'); m.textContent = teks; m.className = 'msg err'; }
 
       var filesCache = [];
+      var linksCache = [];
       function muat() {
         fetch('/api/berkas', { headers: { 'X-Admin-Pin': pin() }, cache: 'no-store' })
           .then(function (r) { return r.json().then(function (d) { return { status: r.status, data: d }; }); })
           .then(function (res) {
-            if (res.status === 200) { tampil(res.data.files || []); }
+            if (res.status === 200) { tampil(res.data.files || [], res.data.links || []); }
             else if (res.status === 429) { pesanPin('Terlalu banyak percobaan salah. Tunggu beberapa menit ya.'); }
             else { sessionStorage.removeItem(KEY); el('pageView').classList.add('hidden'); el('loginView').classList.remove('hidden'); pesanPin('PIN salah. Cek lagi ya.'); }
           })
           .catch(function () { pesanPin('Tidak bisa menghubungi server.'); });
       }
-      function tampil(files) {
+      function tampil(files, links) {
         filesCache = files || [];
+        linksCache = links || [];
         el('loginView').classList.add('hidden');
         el('pageView').classList.remove('hidden');
         el('statJumlah').textContent = filesCache.length;
         el('statUkuran').textContent = ukuran(filesCache.reduce(function (a, f) { return a + (f.size || 0); }, 0));
+        renderTautan();
         renderDaftar();
+      }
+      function renderTautan() {
+        var box = el('daftarTautan');
+        var q = el('cariBerkas').value.trim().toLowerCase();
+        var list = linksCache.filter(function (l) { return !q || (l.label || '').toLowerCase().indexOf(q) !== -1 || (l.url || '').toLowerCase().indexOf(q) !== -1; });
+        if (!linksCache.length) {
+          box.innerHTML = '<div class="empty">Belum ada tautan tersimpan.<br>Tambahkan lewat formulir di atas, misalnya tautan Canva atau Google Drive.</div>';
+          return;
+        }
+        if (!list.length) {
+          box.innerHTML = '<div class="empty">Tidak ada tautan yang cocok dengan pencarian.</div>';
+          return;
+        }
+        box.innerHTML = list.map(function (l) {
+          return '<div class="file-row">' +
+            '<div class="ext-tile">LINK</div>' +
+            '<div class="grow"><div class="fname">' + esc(l.label) + '</div>' +
+            '<div class="fmeta link-url">' + esc(l.url) + '</div></div>' +
+            '<a class="btn btn-primary btn-sm" href="' + esc(l.url) + '" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Buka</a>' +
+            '<button class="btn btn-ghost btn-sm" type="button" data-hapus-tautan="' + esc(l.id) + '">Hapus</button></div>';
+        }).join('');
+        Array.prototype.forEach.call(box.querySelectorAll('[data-hapus-tautan]'), function (b) {
+          b.addEventListener('click', function () { hapusTautan(b.getAttribute('data-hapus-tautan')); });
+        });
+      }
+      function tambahTautan() {
+        var url = el('tautanUrl').value.trim();
+        var label = el('tautanLabel').value.trim();
+        if (!/^https?:\/\//i.test(url)) { toast('Alamat tautan harus diawali http:// atau https://', true); return; }
+        var btn = el('btnTambahTautan');
+        btn.disabled = true;
+        fetch('/api/berkas/link', { method: 'POST', headers: { 'X-Admin-Pin': pin(), 'Content-Type': 'application/json' }, body: JSON.stringify({ label: label, url: url }) })
+          .then(function (r) { return r.json().then(function (d) { return { status: r.status, data: d }; }); })
+          .then(function (res) {
+            btn.disabled = false;
+            if (res.status === 201) { el('tautanUrl').value = ''; el('tautanLabel').value = ''; toast('Tautan ditambahkan.'); muat(); }
+            else toast((res.data && res.data.error) || 'Gagal menambah tautan.', true);
+          })
+          .catch(function () { btn.disabled = false; toast('Tidak bisa menghubungi server.', true); });
+      }
+      function hapusTautan(id) {
+        fetch('/api/berkas/link/hapus', { method: 'POST', headers: { 'X-Admin-Pin': pin(), 'Content-Type': 'application/json' }, body: JSON.stringify({ id: id }) })
+          .then(function (r) { return r.json().then(function (d) { return { status: r.status, data: d }; }); })
+          .then(function (res) {
+            if (res.status === 200) { toast('Tautan dihapus.'); muat(); }
+            else toast((res.data && res.data.error) || 'Gagal menghapus tautan.', true);
+          })
+          .catch(function () { toast('Tidak bisa menghubungi server.', true); });
       }
       function renderDaftar() {
         var box = el('daftar');
@@ -267,7 +335,10 @@
         var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
         unggahBerkas(f);
       });
-      el('cariBerkas').addEventListener('input', renderDaftar);
+      el('cariBerkas').addEventListener('input', function () { renderTautan(); renderDaftar(); });
+      el('btnTambahTautan').addEventListener('click', tambahTautan);
+      el('tautanUrl').addEventListener('keydown', function (e) { if (e.key === 'Enter') tambahTautan(); });
+      el('tautanLabel').addEventListener('keydown', function (e) { if (e.key === 'Enter') tambahTautan(); });
       el('btnMasuk').addEventListener('click', function () {
         var t = el('pin').value.trim();
         if (!t) { pesanPin('Isi PIN dulu ya.'); return; }
