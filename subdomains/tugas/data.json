@@ -106,11 +106,21 @@
       "hari": null,
       "jam": null,
       "ruang": null
+    },
+    {
+      "kode": "23SIF701",
+      "matkul": "Manajemen Proyek Sistem Informasi",
+      "sks": 3,
+      "kelas": "7SI1",
+      "dosen": "Dr. JOKO MINARDI, S.Kom., M.Kom.",
+      "hari": "Senin",
+      "jam": "07:30-10:00",
+      "ruang": "D306"
     }
   ],
   "jadwalMeta": {
     "semester": "Semester Gasal 2026/2027",
     "prodi": "Sistem Informasi",
-    "totalSks": 21
+    "totalSks": 24
   }
 }
