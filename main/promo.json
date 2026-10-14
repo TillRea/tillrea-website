@@ -1,19 +1,6 @@
 {
-  "diperbarui": "2026-10-13",
+  "diperbarui": "2026-10-14",
   "promo": [
-    {
-      "berakhir": "2026-10-13",
-      "deskripsi": "Diskon khusus member baru Klik Indomaret + gratis ongkir 1 jam sampai. BERAKHIR HARI INI. Bisa dipakai online dari Jepara.",
-      "harga": "s.d. Rp15.000",
-      "judul": "Klik Indomaret — Diskon Member Baru s.d. Rp15.000",
-      "kategori": "Minimarket",
-      "label_periode": "12–13 Okt 2026",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://www.instagram.com/reel/DeY3G56AYu1/",
-      "toko": "Klik Indomaret",
-      "jenis": "Voucher & Gratis"
-    },
     {
       "berakhir": "2026-10-14",
       "deskripsi": "Minyak goreng Tropical/Sania/Fortune, Bango, Wow Spageti, Sedaap Cup, Frisian Flag, Indomilk, dan Silver Queen turun harga. Harga member lebih murah untuk Filma, Sunlight, Kopi Gadjah, Fitbar, dll. Program nasional, berlaku di Indomaret Jepara.",
@@ -286,6 +273,97 @@
       "sumber": "https://blog.laozhang.ai/en/posts/claude-for-startups",
       "toko": "Anthropic",
       "jenis": "AI Gratis"
+    },
+    {
+      "judul": "Bean Spot — Beli Kopi Gratis Roti",
+      "toko": "Alfamart / Bean Spot",
+      "kategori": "Kopi",
+      "jenis": "Minuman",
+      "harga": "Rp15.000 + GRATIS roti",
+      "normal": "",
+      "deskripsi": "Beli Iced Americano atau Caffe Latte Rp15.000 di Bean Spot dapat gratis 1 roti pilihan (Keju Manis, Cokelat Keju, Babka Cokelat, Polo Cokelat, Pisang Cokelat, Cokelat Kacang). Program nasional 1–31 Okt, berlaku di Alfamart Jepara yang memiliki Bean Spot — cek di Alfagift.",
+      "label_periode": "1–31 Okt 2026",
+      "berakhir": "2026-10-31",
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/promo-bean-spot-alfamart-beli-kopi-gratis-roti/"
+    },
+    {
+      "judul": "PWP Indomaret — Total Detergent 750g Tebus Rp8.900 (−49%)",
+      "toko": "Indomaret",
+      "kategori": "Minimarket",
+      "jenis": "Kebutuhan Rumah",
+      "harga": "Rp8.900",
+      "normal": "Rp17.500",
+      "deskripsi": "Promo Purchase With Purchase 15–21 Okt: tebus Total Detergent Powder De Parfumee 750g Rp8.900 dari Rp17.500 (hemat sekitar 49%, syarat belanja PWP berlaku, tidak berlaku untuk rokok/susu bayi <1 th/tagihan/top-up). Mulai BESOK. Program nasional, berlaku di Indomaret Jepara.",
+      "label_periode": "15–21 Okt 2026",
+      "berakhir": "2026-10-21",
+      "status": "Resmi",
+      "sumber": "https://hargacampur.com/promo-pwp-indomaret/"
+    },
+    {
+      "judul": "Krispy Kreme — Beli 1 Gratis 1 Lusin Rp129.000",
+      "toko": "Krispy Kreme",
+      "kategori": "Kuliner",
+      "jenis": "Makanan",
+      "harga": "Rp129.000 Beli 1 Gratis 1",
+      "normal": "",
+      "deskripsi": "Beli 1 lusin Mixed Assorted gratis 1 lusin Original Glazed, 13–15 Okt. BERAKHIR BESOK. Hanya outlet Jabodetabek (harga khusus Rp144.000 di Paskal 23 Bandung/Stasiun KCIC/Gambir/Rest Area KM57), tidak berlaku bandara, bisa delivery. TIDAK ada outlet di Kab. Jepara — pelengkap bila sedang ke kota tersebut.",
+      "label_periode": "13–15 Okt 2026",
+      "berakhir": "2026-10-15",
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/promo-krispy-kreme-beli-1-gratis-1-lusin/"
+    },
+    {
+      "judul": "Pancious — Beli 1 Gratis 1 Spaghetti (HANYA HARI INI)",
+      "toko": "Pancious",
+      "kategori": "Kuliner",
+      "jenis": "Makanan",
+      "harga": "Beli 1 Gratis 1",
+      "normal": "",
+      "deskripsi": "Khusus 14 Okt 2026: beli Spaghetti Black Pepper Meatball gratis Classico Arrabiata, khusus member. BERAKHIR HARI INI. Outlet Pancious tidak ada di Kab. Jepara — pelengkap luar Jepara.",
+      "label_periode": "14 Okt 2026",
+      "berakhir": "2026-10-14",
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/page/256/?cst"
+    },
+    {
+      "judul": "Alfamart — Safe Care 10ml Diskon 43% Rp10.000",
+      "toko": "Alfamart",
+      "kategori": "Minimarket",
+      "jenis": "Kebutuhan Rumah",
+      "harga": "Rp10.000",
+      "normal": "Rp17.400",
+      "deskripsi": "Safe Care Minyak Angin Lavender 10ml diskon 43% jadi Rp10.000 dari Rp17.400, s.d. 15 Okt. BERAKHIR BESOK. Program Alfamart, cek stok di Alfamart Jepara.",
+      "label_periode": "s.d. 15 Okt 2026",
+      "berakhir": "2026-10-15",
+      "status": "Resmi",
+      "sumber": "https://www.hemat.id/katalog-alfamart,indomaret/sania-royale-minyak-wijen.minyak-herbal/"
+    },
+    {
+      "judul": "Alfamidi NGARTIS — Beli 1 Gratis 1 Pilihan (s.d. 15 Okt)",
+      "toko": "Alfamidi",
+      "kategori": "Minimarket",
+      "jenis": "Lainnya",
+      "harga": "Beli 1 Gratis 1",
+      "normal": "",
+      "deskripsi": "Program NGARTIS (Ngarep Gratisan) 1–15 Okt dengan sejumlah item Beli 1 Gratis 1 (a.l. pasta gigi, ramen, susu oat — daftar lengkap di pamflet toko). BERAKHIR BESOK. Cek Alfamidi terdekat dari Jepara.",
+      "label_periode": "1–15 Okt 2026",
+      "berakhir": "2026-10-15",
+      "status": "Resmi",
+      "sumber": "https://www.instagram.com/reel/DebjZw1CkSh/"
+    },
+    {
+      "judul": "Cinema XXI — Beli 1 Gratis 1 Tiket Ghosthing (beli HARI INI)",
+      "toko": "Cinema XXI",
+      "kategori": "Lainnya",
+      "jenis": "Lainnya",
+      "harga": "Beli 1 Gratis 1",
+      "normal": "",
+      "deskripsi": "Beli minimal 2 tiket Ghosthing via m.tix untuk penayangan 15 Okt, pembelian s.d. 14 Okt selama kuota tersedia. BERAKHIR HARI INI untuk pembelian. Tidak ada XXI di Kab. Jepara — pelengkap bila ke kota ber-XXI.",
+      "label_periode": "Beli s.d. 14 Okt 2026",
+      "berakhir": "2026-10-14",
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/page/256/?cst"
     }
   ]
 }
