@@ -1,32 +1,6 @@
 {
-  "diperbarui": "2026-10-14",
+  "diperbarui": "2026-10-15",
   "promo": [
-    {
-      "berakhir": "2026-10-14",
-      "deskripsi": "Minyak goreng Tropical/Sania/Fortune, Bango, Wow Spageti, Sedaap Cup, Frisian Flag, Indomilk, dan Silver Queen turun harga. Harga member lebih murah untuk Filma, Sunlight, Kopi Gadjah, Fitbar, dll. Program nasional, berlaku di Indomaret Jepara.",
-      "harga": "",
-      "judul": "Hemat Minggu Ini & Harga Khusus Member",
-      "kategori": "Minimarket",
-      "label_periode": "s.d. 14 Okt 2026",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://www.instagram.com/p/DeObzyxE_tL/",
-      "toko": "Indomaret",
-      "jenis": "Makanan"
-    },
-    {
-      "berakhir": "2026-10-14",
-      "deskripsi": "Beli Antangin Good Night gratis FreshCare Inhaler; beli Kacang Pistachio 60g gratis Air Mineral 1L; beli Sikat Gigi Formula Discovery gratis Pasta Gigi Formula 160g. Tidak berlaku kelipatan, stok per toko. Program nasional, berlaku di Indomaret Jepara.",
-      "harga": "GRATIS",
-      "judul": "Promo Berhadiah Indomaret — Hadiah Gratis Langsung",
-      "kategori": "Voucher & Gratis",
-      "label_periode": "1–14 Okt 2026",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://katalogpromosi.com/promo-indomaret-bulan-ini/",
-      "toko": "Indomaret",
-      "jenis": "Lainnya"
-    },
     {
       "berakhir": "2026-10-15",
       "deskripsi": "Paket 3 minuman Coffee Gold pilihan, berlaku tiap Selasa-Kamis di toko tertentu. Cek Indomaret ber-Coffee Gold di Jepara (Mlonggo terkonfirmasi ada Coffee Gold). Kesempatan terakhir Kamis 15 Okt.",
@@ -314,19 +288,6 @@
       "sumber": "https://katalogpromosi.com/promo-krispy-kreme-beli-1-gratis-1-lusin/"
     },
     {
-      "judul": "Pancious — Beli 1 Gratis 1 Spaghetti (HANYA HARI INI)",
-      "toko": "Pancious",
-      "kategori": "Kuliner",
-      "jenis": "Makanan",
-      "harga": "Beli 1 Gratis 1",
-      "normal": "",
-      "deskripsi": "Khusus 14 Okt 2026: beli Spaghetti Black Pepper Meatball gratis Classico Arrabiata, khusus member. BERAKHIR HARI INI. Outlet Pancious tidak ada di Kab. Jepara — pelengkap luar Jepara.",
-      "label_periode": "14 Okt 2026",
-      "berakhir": "2026-10-14",
-      "status": "Resmi",
-      "sumber": "https://katalogpromosi.com/page/256/?cst"
-    },
-    {
       "judul": "Alfamart — Safe Care 10ml Diskon 43% Rp10.000",
       "toko": "Alfamart",
       "kategori": "Minimarket",
@@ -353,17 +314,56 @@
       "sumber": "https://www.instagram.com/reel/DebjZw1CkSh/"
     },
     {
-      "judul": "Cinema XXI — Beli 1 Gratis 1 Tiket Ghosthing (beli HARI INI)",
-      "toko": "Cinema XXI",
-      "kategori": "Lainnya",
+      "judul": "Promo Berhadiah Indomaret 15–28 Okt — Beli 1 Gratis 1 Pilihan",
+      "toko": "Indomaret",
+      "kategori": "Voucher & Gratis",
       "jenis": "Lainnya",
       "harga": "Beli 1 Gratis 1",
       "normal": "",
-      "deskripsi": "Beli minimal 2 tiket Ghosthing via m.tix untuk penayangan 15 Okt, pembelian s.d. 14 Okt selama kuota tersedia. BERAKHIR HARI INI untuk pembelian. Tidak ada XXI di Kab. Jepara — pelengkap bila ke kota ber-XXI.",
-      "label_periode": "Beli s.d. 14 Okt 2026",
-      "berakhir": "2026-10-14",
+      "deskripsi": "Periode baru 15–28 Okt. Yang lolos saring: MY BABY Body Cologne 100ml Beli 1 Gratis 1, Lasegar Twist 320ml Beli 1 Gratis 1, tisu wajah Indomaret beli 1 gratis 2 pak travel, dan hadiah langsung lain untuk produk tertentu. Tidak berlaku kelipatan, stok per toko, tidak berlaku di Indomaret Point. Program nasional, berlaku di Indomaret Jepara.",
+      "label_periode": "15–28 Okt 2026",
+      "berakhir": "2026-10-28",
       "status": "Resmi",
-      "sumber": "https://katalogpromosi.com/page/256/?cst"
+      "sumber": "https://katalogpromosi.com/promo-indomaret-bulan-ini/"
+    },
+    {
+      "judul": "Alfamart Serba Gratis 16–31 Okt — Beli 1 Gratis 1 Pilihan",
+      "toko": "Alfamart",
+      "kategori": "Minimarket",
+      "jenis": "Lainnya",
+      "harga": "Beli 1 Gratis 1",
+      "normal": "",
+      "deskripsi": "Lanjutan Serba Gratis mulai 16 Okt. Item Beli 1 Gratis 1 antara lain Sikat Gigi Formula dan Hit Aerosol 600ml, plus daftar gratis 1 lain di pamflet periode ini. Pamfletnya juga beredar di grup Facebook promo. Program nasional, berlaku di Alfamart Jepara.",
+      "label_periode": "16–31 Okt 2026",
+      "berakhir": "2026-10-31",
+      "status": "Resmi",
+      "sumber": "http://hargacampur.com/promo-serba-gratis-alfamart/"
+    },
+    {
+      "judul": "JSM Indomaret Family Weekend Treats 16–18 Okt — Frost Bite Mochi 4 pcs Rp10.000",
+      "toko": "Indomaret",
+      "kategori": "Minimarket",
+      "jenis": "Makanan",
+      "harga": "4 pcs Rp10.000",
+      "normal": "",
+      "deskripsi": "Family Weekend Treats 16–18 Okt khusus member Poinku: Glico Wings Frost Bite Mochi 4 pcs Rp10.000, Golden Farm Mixed Vegetable 500g hemat 50%, Kiwi Green hemat 40%. Program nasional, berlaku di Indomaret Jepara.",
+      "label_periode": "16–18 Okt 2026",
+      "berakhir": "2026-10-18",
+      "status": "Resmi",
+      "sumber": "https://hargacampur.com/katalog-promo-jsm-indomaret/"
+    },
+    {
+      "judul": "Bean Spot Promo SUA HUT Alfamart — Beli 1 Gratis 1 Kopi Pilihan",
+      "toko": "Alfamart / Bean Spot",
+      "kategori": "Kopi",
+      "jenis": "Minuman",
+      "harga": "Beli 1 Gratis 1",
+      "normal": "",
+      "deskripsi": "Dari video kreator di gerai Bean Spot: menyambut HUT ke-27 Alfamart (18 Okt), Beli 1 Gratis 1 untuk Iced Americano, Iced Palm Sugar Latte, dan Iced Black Lychee, plus item Choco Lava Cake/Family Food tertentu, dalam rangkaian promo Bean Spot 1–31 Okt. Label Komunitas — cek dulu di Alfamart ber-Bean Spot di Jepara atau Alfagift.",
+      "label_periode": "1–31 Okt 2026",
+      "berakhir": "2026-10-31",
+      "status": "Komunitas",
+      "sumber": "https://www.instagram.com/reel/Deeb3LbhkU1/"
     }
   ]
 }
