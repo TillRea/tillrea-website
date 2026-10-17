@@ -10,6 +10,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem("tillrea-tema");if(t)document.documentElement.setAttribute("data-tema",t);var b=localStorage.getItem("tillrea-bahasa");if(b==="en")document.documentElement.setAttribute("lang","en");}catch(e){}})();</script>
 <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -161,31 +162,135 @@ footer b{color:var(--mut)}
   .calday .ev{font-size:10px}
   .wrap{padding:14px 12px 50px}
 }
+
+/* ===== Navbar seragam TillRea + mode malam ===== */
+header.site{
+  --h-bg:rgba(255,255,255,.88); --h-card:#ffffff; --h-border:#e6e6ea; --h-strong:#d8d8de;
+  --h-text:#0a0a0c; --h-muted:#52525b; --h-accent:#6d28d9; --h-accent2:#4f46e5;
+  --h-btn-bg:#0a0a0c; --h-btn-text:#ffffff; --h-btn-hover:#26262b;
+  position:sticky; top:0; z-index:60; background:var(--h-bg);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--h-border);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+}
+html[data-tema="gelap"] header.site{
+  --h-bg:rgba(10,10,15,.88); --h-card:#15151e; --h-border:#23232d; --h-strong:#34343f;
+  --h-text:#f4f4f6; --h-muted:#a7a7b3; --h-accent:#a78bfa; --h-accent2:#818cf8;
+  --h-btn-bg:#f4f4f6; --h-btn-text:#0a0a0f; --h-btn-hover:#d7d7de;
+}
+header.site .nav-wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header.site .nav{display:flex;align-items:center;gap:20px;height:66px}
+header.site .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.02em;color:var(--h-text)}
+header.site .brand .mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--h-accent),var(--h-accent2));color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;box-shadow:0 6px 14px -6px rgba(109,40,217,.6)}
+header.site .nav-links{display:flex;gap:20px;margin-left:6px}
+header.site .nav-links a{color:var(--h-muted);font-size:14px;font-weight:500;white-space:nowrap}
+header.site .nav-links a:hover{color:var(--h-text);text-decoration:none}
+header.site .nav-acts{margin-left:auto;display:flex;gap:10px;align-items:center}
+header.site .btn{display:inline-flex;align-items:center;gap:8px;border-radius:10px;border:1px solid transparent;padding:8px 14px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
+header.site .btn-ghost{background:var(--h-card);border-color:var(--h-strong);color:var(--h-text)}
+header.site .btn-primary{background:var(--h-btn-bg);color:var(--h-btn-text)}
+header.site .btn-primary:hover{background:var(--h-btn-hover);text-decoration:none}
+header.site .nav-toggles{display:flex;gap:8px;align-items:center}
+header.site .tgl{height:38px;min-width:38px;padding:0 10px;border-radius:999px;border:1px solid var(--h-border);background:var(--h-card);color:var(--h-text);font:inherit;font-size:13px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+header.site .tgl .ikon{display:inline-flex;transition:transform .5s ease}
+header.site .tgl .ikon svg{width:17px;height:17px}
+header.site .tgl.berputar .ikon{transform:rotate(360deg)}
+header.site .ikon-matahari{display:none}
+html[data-tema="gelap"] header.site .ikon-bulan{display:none}
+html[data-tema="gelap"] header.site .ikon-matahari{display:inline-flex}
+header.site .hamburger{display:none;background:none;border:1px solid var(--h-border);border-radius:9px;width:40px;height:40px;align-items:center;justify-content:center;cursor:pointer;color:var(--h-text)}
+header.site .hamburger svg{width:20px;height:20px}
+header.site .mobile-menu{display:none;background:var(--h-card);border-top:1px solid var(--h-border);padding:10px 24px 18px}
+header.site .mobile-menu.open{display:block}
+header.site .mobile-menu a{display:block;padding:10px 0;color:var(--h-text);font-weight:500;border-bottom:1px solid var(--h-border)}
+header.site .mobile-menu a:last-child{border-bottom:none}
+@media(max-width:1024px){
+  header.site .nav-links,header.site .nav-acts{display:none}
+  header.site .nav-toggles{margin-left:auto}
+  header.site .hamburger{display:inline-flex}
+}
+html[data-tema="gelap"]{
+  --bg:#0a0a0f; --panel:#15151e; --ink:#f4f4f6; --mut:#a7a7b3; --faint:#85858f;
+  --line:#23232d; --vsoft:#221a3d;
+  --redbg:rgba(220,38,38,.14); --amberbg:rgba(251,191,36,.13);
+  --greenbg:rgba(34,197,94,.13); --bluebg:rgba(59,130,246,.15);
+  --shadow:0 10px 30px rgba(0,0,0,.5);
+}
+html[data-tema="gelap"] .bar{background:#26262e}
+html[data-tema="gelap"] .seg{background:#1b1b23}
+html[data-tema="gelap"] .seg button.on{background:#2a2a35;color:var(--ink)}
+html[data-tema="gelap"] .check{background:var(--panel);border-color:#3f3f4c}
+html[data-tema="gelap"] .chip.course{background:var(--panel)}
+html[data-tema="gelap"] .calnav button{background:var(--panel)}
+html[data-tema="gelap"] .calday{background:var(--panel)}
+html[data-tema="gelap"] .calday .ev.more{background:#26262e!important}
+html[data-tema="gelap"] .empty{border-color:#2c2c36}
+html[data-tema="gelap"] .task:hover{border-color:#34343f}
+html[data-tema="gelap"] .search svg circle,html[data-tema="gelap"] .search svg path{stroke:var(--ink)}
+body{transition:background .35s ease,color .35s ease}
 </style>
 </head>
 <body>
+<header class="site" id="siteHeader">
+  <div class="nav-wrap">
+    <nav class="nav">
+      <a class="brand" href="https://tillrea.my.id/"><span class="mark">T</span>tillrea</a>
+      <div class="nav-links">
+        <a href="https://tillrea.my.id/" data-i18n="beranda">Beranda</a>
+        <a href="https://tillrea.my.id/#pameran" data-i18n="nav_pameran">Ruang Pameran</a>
+        <a href="https://tillrea.my.id/#tentang" data-i18n="nav_tentang">Tentang</a>
+        <a href="https://tillrea.my.id/#hosting" data-i18n="hosting_gratis">Hosting Gratis</a>
+        <a href="https://tillrea.my.id/#jasa" data-i18n="nav_jasa">Jasa SEO Lokal</a>
+        <a href="https://tillrea.my.id/promo/">Promo</a>
+        <a href="https://tillrea.my.id/artikel/" data-i18n="nav_artikel">Artikel</a>
+        <a href="https://tillrea.my.id/#kontak" data-i18n="nav_kontak">Kontak</a>
+      </div>
+      <div class="nav-acts">
+        <a class="btn btn-ghost" href="https://tillrea.my.id/berkas" data-i18n="berkas">Berkas</a>
+        <a class="btn btn-primary" href="https://tillrea.my.id/admin" data-i18n="panel">Panel Admin</a>
+      </div>
+      <div class="nav-toggles">
+        <button class="tgl" id="tglBahasa" type="button" aria-label="Ganti bahasa / Switch language">EN</button>
+        <button class="tgl" id="tglTema" type="button" aria-label="Mode malam atau pagi"><span class="ikon ikon-bulan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span><span class="ikon ikon-matahari"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span></button>
+      </div>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Buka menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="https://tillrea.my.id/" data-i18n="beranda">Beranda</a>
+    <a href="https://tillrea.my.id/#pameran" data-i18n="nav_pameran">Ruang Pameran</a>
+    <a href="https://tillrea.my.id/#tentang" data-i18n="nav_tentang">Tentang</a>
+    <a href="https://tillrea.my.id/#hosting" data-i18n="hosting_gratis">Hosting Gratis</a>
+    <a href="https://tillrea.my.id/#jasa" data-i18n="nav_jasa">Jasa SEO Lokal</a>
+    <a href="https://tillrea.my.id/promo/">Promo</a>
+    <a href="https://tillrea.my.id/artikel/" data-i18n="nav_artikel">Artikel</a>
+    <a href="https://tillrea.my.id/#kontak" data-i18n="nav_kontak">Kontak</a>
+    <a href="https://tillrea.my.id/berkas" data-i18n="berkas">Berkas</a>
+    <a href="https://tillrea.my.id/admin" data-i18n="panel">Panel Admin</a>
+  </div>
+</header>
 <div class="wrap">
   <header class="hero">
     <div class="brand">
       <div class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M4.5 12.5l5 5L19.5 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div>
-        <h1>TugasKu — Papan Tugas Kelas</h1>
-        <div class="sub">Sistem Informasi • Semester 5 • UNISNU Jepara</div>
+        <h1 data-i18n="judul">TugasKu — Papan Tugas Kelas</h1>
+        <div class="sub" data-i18n="subjudul">Sistem Informasi • Semester 5 • UNISNU Jepara</div>
       </div>
     </div>
-    <p class="desc">Semua tugas kelas, tenggatnya, dan jadwal kuliah ada di satu tempat ini. Centang tugas yang sudah kamu kerjakan — centangan tersimpan di perangkatmu sendiri.</p>
-    <span class="upd" id="updatedLine">🕒 Memuat data terbaru…</span>
-    <a class="jadwallink" href="#jadwal">📚 Jadwal Kuliah</a>
+    <p class="desc" data-i18n="deskripsi">Semua tugas kelas, tenggatnya, dan jadwal kuliah ada di satu tempat ini. Centang tugas yang sudah kamu kerjakan — centangan tersimpan di perangkatmu sendiri.</p>
+    <span class="upd" id="updatedLine" data-i18n="memuat">🕒 Memuat data terbaru…</span>
+    <a class="jadwallink" href="#jadwal" data-i18n="tautan_jadwal">📚 Jadwal Kuliah</a>
   </header>
 
   <div class="stats">
-    <div class="stat"><div class="k">Tugas Aktif</div><div class="v" id="stActive">–</div><div class="d">belum lewat tenggat</div></div>
-    <div class="stat red"><div class="k">Sudah Terlambat</div><div class="v" id="stOverdue">–</div><div class="d">lewat tenggat</div></div>
-    <div class="stat"><div class="k">Deadline Terdekat</div><div class="v" id="stNext" style="font-size:18px;padding-top:4px">–</div><div class="d" id="stNextSub">—</div></div>
+    <div class="stat"><div class="k" data-i18n="st_aktif">Tugas Aktif</div><div class="v" id="stActive">–</div><div class="d" data-i18n="st_aktif_d">belum lewat tenggat</div></div>
+    <div class="stat red"><div class="k" data-i18n="st_terlambat">Sudah Terlambat</div><div class="v" id="stOverdue">–</div><div class="d" data-i18n="st_terlambat_d">lewat tenggat</div></div>
+    <div class="stat"><div class="k" data-i18n="st_terdekat">Deadline Terdekat</div><div class="v" id="stNext" style="font-size:18px;padding-top:4px">–</div><div class="d" id="stNextSub">—</div></div>
   </div>
 
   <div class="myprog">
-    <div class="t"><span>Progresmu sendiri</span><span id="progPct">0%</span></div>
+    <div class="t"><span data-i18n="progres">Progresmu sendiri</span><span id="progPct">0%</span></div>
     <div class="bar"><i id="progBar" style="width:0%"></i></div>
     <p id="progText">Centang tugas yang sudah kamu selesaikan untuk melihat progresmu di sini.</p>
   </div>
@@ -193,33 +298,33 @@ footer b{color:var(--mut)}
   <div class="toolbar">
     <label class="search">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#17171c" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="#17171c" stroke-width="2" stroke-linecap="round"/></svg>
-      <input id="searchInput" type="text" placeholder="Cari tugas atau mata kuliah…">
+      <input id="searchInput" type="text" placeholder="Cari tugas atau mata kuliah…" data-i18n-ph="cari_ph">
     </label>
     <div class="seg" id="viewSeg">
-      <button data-view="list" class="on">Daftar</button>
-      <button data-view="cal">Kalender</button>
+      <button data-view="list" class="on" data-i18n="v_daftar">Daftar</button>
+      <button data-view="cal" data-i18n="v_kalender">Kalender</button>
     </div>
   </div>
 
   <div class="chips" id="filterChips"></div>
 
   <main id="content">
-    <div class="empty"><b>Memuat daftar tugas…</b><p>Sedang mengambil data terbaru dari server.</p></div>
+    <div class="empty"><b data-i18n="memuat_tugas">Memuat daftar tugas…</b><p data-i18n="memuat_teks">Sedang mengambil data terbaru dari server.</p></div>
   </main>
 
   <section id="jadwal">
     <div class="jadwalhead">
-      <h2>📚 Jadwal Kuliah</h2>
-      <span class="sub2" id="jadwalMeta">Memuat jadwal…</span>
+      <h2 data-i18n="jadwal_judul">📚 Jadwal Kuliah</h2>
+      <span class="sub2" id="jadwalMeta" data-i18n="memuat_jadwal">Memuat jadwal…</span>
     </div>
     <div id="jadwalBody">
-      <div class="empty"><b>Memuat jadwal kuliah…</b><p>Sedang mengambil data terbaru dari server.</p></div>
+      <div class="empty"><b data-i18n="memuat_jadwal2">Memuat jadwal kuliah…</b><p data-i18n="memuat_teks">Sedang mengambil data terbaru dari server.</p></div>
     </div>
   </section>
 
   <footer>
-    <b>Ada tugas baru, perubahan jadwal, atau koreksi?</b><br>
-    Kabari Fikri — data di halaman ini dikelola &amp; diperbarui terpusat olehnya.
+    <b data-i18n="footer_b">Ada tugas baru, perubahan jadwal, atau koreksi?</b><br>
+    <span data-i18n="footer_t">Kabari Fikri — data di halaman ini dikelola &amp; diperbarui terpusat olehnya.</span>
   </footer>
 </div>
 
@@ -245,9 +350,77 @@ function saveDone(){ localStorage.setItem(DONE_KEY, JSON.stringify([...doneIds])
 function esc(s){ return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
 /* ============ Tanggal ============ */
-const DOW = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
-const DOWS = ['Min','Sen','Sel','Rab','Kam','Jum','Sab'];
-const MON = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+let DOW = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+let DOWS = ['Min','Sen','Sel','Rab','Kam','Jum','Sab'];
+let MON = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+/* ============ Bahasa & tema ============ */
+const KAMUS = {
+  id: { dow:['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'], dows:['Min','Sen','Sel','Rab','Kam','Jum','Sab'],
+    mon:['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+    hari:{Senin:'Senin',Selasa:'Selasa',Rabu:'Rabu',Kamis:'Kamis',Jumat:'Jumat',Sabtu:'Sabtu',Minggu:'Minggu'} },
+  en: { dow:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], dows:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
+    mon:['January','February','March','April','May','June','July','August','September','October','November','December'],
+    hari:{Senin:'Monday',Selasa:'Tuesday',Rabu:'Wednesday',Kamis:'Thursday',Jumat:'Friday',Sabtu:'Saturday',Minggu:'Sunday'} }
+};
+const TEKS = {
+  id: { beranda:'Beranda', nav_pameran:'Ruang Pameran', nav_tentang:'Tentang', hosting_gratis:'Hosting Gratis', nav_jasa:'Jasa SEO Lokal', nav_artikel:'Artikel', nav_kontak:'Kontak', berkas:'Berkas', panel:'Panel Admin',
+    judul:'TugasKu — Papan Tugas Kelas', subjudul:'Sistem Informasi • Semester 5 • UNISNU Jepara',
+    deskripsi:'Semua tugas kelas, tenggatnya, dan jadwal kuliah ada di satu tempat ini. Centang tugas yang sudah kamu kerjakan — centangan tersimpan di perangkatmu sendiri.',
+    memuat:'🕒 Memuat data terbaru…', tautan_jadwal:'📚 Jadwal Kuliah',
+    st_aktif:'Tugas Aktif', st_aktif_d:'belum lewat tenggat', st_terlambat:'Sudah Terlambat', st_terlambat_d:'lewat tenggat', st_terdekat:'Deadline Terdekat',
+    progres:'Progresmu sendiri', cari_ph:'Cari tugas atau mata kuliah…', v_daftar:'Daftar', v_kalender:'Kalender',
+    jadwal_judul:'📚 Jadwal Kuliah', memuat_jadwal:'Memuat jadwal…', memuat_tugas:'Memuat daftar tugas…', memuat_jadwal2:'Memuat jadwal kuliah…', memuat_teks:'Sedang mengambil data terbaru dari server.',
+    footer_b:'Ada tugas baru, perubahan jadwal, atau koreksi?', footer_t:'Kabari Fikri — data di halaman ini dikelola & diperbarui terpusat olehnya.',
+    pukul:'pukul', tanpa_tenggat:'Tanpa tenggat', hari_ini:'Hari ini', besok:'Besok', tidak_ada:'tidak ada',
+    diperbarui:'🕒 Terakhir diperbarui: ', data_kelas:'🕒 Data tugas kelas', gagal:'⚠️ Gagal memuat data',
+    semua:'Semua', chip_7hari:'7 Hari Ke Depan', terlambat:'Terlambat',
+    foto_soal:'Foto soal tugas', klik_penuh:' — klik foto untuk ukuran penuh', file_soal:'File soal tugas', tautan_soal:'Tautan soal tugas',
+    tandai:'Tandai sudah kukerjakan', klik_rincian:'Klik untuk melihat rincian & lampiran soal',
+    kelompok:'👥 Kelompok', individu:'👤 Individu', link_kumpul:'🔗 Link pengumpulan', lampiran:'📎 Lampiran soal', dhead:'📎 Bukti & lampiran soal tugas',
+    prio_tinggi:'tinggi', prio_sedang:'sedang', prio_rendah:'rendah',
+    g_terlambat:'⏰ Sudah Terlambat', g_hariini:'📅 Tenggat Hari Ini', g_besok:'🌤️ Besok', g_minggu:'🗓️ Minggu Ini', g_nanti:'🔭 Nanti', g_tanpa:'📌 Tanpa Tenggat', g_mine:'✅ Sudah Kamu Kerjakan',
+    kosong_judul:'Belum ada tugas yang tercatat', kosong_teks:'Daftar tugas kelas akan muncul di sini begitu ada yang dilaporkan. Ada tugas baru? Kabari Fikri supaya dimasukkan.',
+    saring_judul:'Tidak ada tugas di tampilan ini', saring_teks:'Coba ganti filter di atas atau ubah kata pencarianmu.',
+    jadwal_kosong_judul:'Jadwal kuliah belum dimasukkan', jadwal_kosong_teks:'Jadwal kuliah semester ini akan tampil di sini.',
+    kal_kosong_judul:'Tidak ada tenggat di tanggal ini', kal_kosong_teks:'Klik tanggal lain untuk melihat tugasnya.',
+    err_judul:'Data tugas gagal dimuat', err_teks:'Periksa koneksi internetmu lalu muat ulang halaman ini.',
+    belum_terjadwal:'📌 Belum Terjadwal', hari_ini_kecil:' — hari ini', ruang:'📍 Ruang ', kelas:'Kelas ',
+    bulan_lalu:'‹ Bulan lalu', kal_hari_ini:'Hari ini', bulan_depan:'Bulan depan ›',
+    kal_petunjuk:'Klik sebuah tanggal untuk melihat daftar tugas di hari itu.',
+    toast_batal:'Centang dibatalkan.', toast_selesai:'Mantap, ditandai selesai! 🎉', prog_hint:'Centang tugas yang sudah kamu selesaikan untuk melihat progresmu di sini.' },
+  en: { beranda:'Home', nav_pameran:'Exhibition Rooms', nav_tentang:'About', hosting_gratis:'Free Hosting', nav_jasa:'Local SEO Services', nav_artikel:'Articles', nav_kontak:'Contact', berkas:'Files', panel:'Admin Panel',
+    judul:'TugasKu — Class Assignment Board', subjudul:'Information Systems • Semester 5 • UNISNU Jepara',
+    deskripsi:'All class assignments, their deadlines, and the class schedule in one place. Check off the assignments you have finished — the checkmarks are saved on your own device.',
+    memuat:'🕒 Loading the latest data…', tautan_jadwal:'📚 Class Schedule',
+    st_aktif:'Active Assignments', st_aktif_d:'not past due', st_terlambat:'Overdue', st_terlambat_d:'past due', st_terdekat:'Next Deadline',
+    progres:'Your own progress', cari_ph:'Search assignments or courses…', v_daftar:'List', v_kalender:'Calendar',
+    jadwal_judul:'📚 Class Schedule', memuat_jadwal:'Loading schedule…', memuat_tugas:'Loading assignments…', memuat_jadwal2:'Loading class schedule…', memuat_teks:'Fetching the latest data from the server.',
+    footer_b:'New assignment, schedule change, or a correction?', footer_t:'Tell Fikri — the data on this page is managed & updated centrally by him.',
+    pukul:'at', tanpa_tenggat:'No deadline', hari_ini:'Today', besok:'Tomorrow', tidak_ada:'none',
+    diperbarui:'🕒 Last updated: ', data_kelas:'🕒 Class assignment data', gagal:'⚠️ Failed to load data',
+    semua:'All', chip_7hari:'Next 7 Days', terlambat:'Overdue',
+    foto_soal:'Assignment photo', klik_penuh:' — tap the photo for full size', file_soal:'Assignment file', tautan_soal:'Assignment link',
+    tandai:'Mark as done', klik_rincian:'Click to see details & assignment attachments',
+    kelompok:'👥 Group', individu:'👤 Individual', link_kumpul:'🔗 Submission link', lampiran:'📎 Attachments', dhead:'📎 Assignment evidence & attachments',
+    prio_tinggi:'high', prio_sedang:'medium', prio_rendah:'low',
+    g_terlambat:'⏰ Overdue', g_hariini:'📅 Due Today', g_besok:'🌤️ Tomorrow', g_minggu:'🗓️ This Week', g_nanti:'🔭 Later', g_tanpa:'📌 No Deadline', g_mine:'✅ Done by You',
+    kosong_judul:'No assignments recorded yet', kosong_teks:'The class assignment list will appear here once one is reported. New assignment? Tell Fikri to add it.',
+    saring_judul:'No assignments in this view', saring_teks:'Try another filter above or change your search words.',
+    jadwal_kosong_judul:'Class schedule not added yet', jadwal_kosong_teks:'This semester\'s class schedule will appear here.',
+    kal_kosong_judul:'No deadlines on this date', kal_kosong_teks:'Click another date to see its assignments.',
+    err_judul:'Failed to load assignment data', err_teks:'Check your internet connection, then reload this page.',
+    belum_terjadwal:'📌 Not Scheduled Yet', hari_ini_kecil:' — today', ruang:'📍 Room ', kelas:'Class ',
+    bulan_lalu:'‹ Prev month', kal_hari_ini:'Today', bulan_depan:'Next month ›',
+    kal_petunjuk:'Click a date to see the assignments due that day.',
+    toast_batal:'Check removed.', toast_selesai:'Nice, marked as done! 🎉', prog_hint:'Check off the assignments you have finished to see your progress here.' }
+};
+let LANG = 'id';
+try { LANG = localStorage.getItem('tillrea-bahasa') === 'en' ? 'en' : 'id'; } catch(e) {}
+function T(k){ return (TEKS[LANG] && TEKS[LANG][k]) || TEKS.id[k] || k; }
+function hariKata(n){ return LANG === 'en' ? (n === 1 ? 'day' : 'days') : 'hari'; }
+function cntTugas(n){ return n + ' ' + (LANG === 'en' ? (n === 1 ? 'assignment' : 'assignments') : 'tugas'); }
+function cntMk(n){ return n + ' ' + (LANG === 'en' ? (n === 1 ? 'course' : 'courses') : 'mata kuliah'); }
+function namaHari(h){ return (KAMUS[LANG].hari && KAMUS[LANG].hari[h]) || h; }
 function dstr(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
 function todayStr(){ return dstr(new Date()); }
 function dayDiff(deadline){
@@ -265,15 +438,15 @@ function fmtShort(s){
 }
 function fmtTime(deadline){
   const t = deadline.slice(11,16);
-  return (t && t !== '00:00') ? ' • pukul ' + t.replace(':','.') + ' WIB' : '';
+  return (t && t !== '00:00') ? ' • ' + T('pukul') + ' ' + t.replace(':','.') + ' WIB' : '';
 }
 function dueInfo(t){
   const dd = dayDiff(t.deadline);
-  if(dd === null) return {label:'Tanpa tenggat', cls:''};
+  if(dd === null) return {label:T('tanpa_tenggat'), cls:''};
   const base = fmtDate(t.deadline) + fmtTime(t.deadline);
-  if(dd < 0)  return {label:'Terlambat ' + Math.abs(dd) + ' hari • ' + base, cls:'due-red'};
-  if(dd === 0) return {label:'Hari ini • ' + base, cls:'due-red'};
-  if(dd === 1) return {label:'Besok • ' + base, cls:'due-amber'};
+  if(dd < 0)  return {label:(LANG === 'en' ? 'Overdue ' : 'Terlambat ') + Math.abs(dd) + ' ' + hariKata(Math.abs(dd)) + ' • ' + base, cls:'due-red'};
+  if(dd === 0) return {label:T('hari_ini') + ' • ' + base, cls:'due-red'};
+  if(dd === 1) return {label:T('besok') + ' • ' + base, cls:'due-amber'};
   if(dd <= 7) return {label:'H-' + dd + ' • ' + base, cls:'due-amber'};
   return {label:'H-' + dd + ' • ' + base, cls:'due-green'};
 }
@@ -320,8 +493,8 @@ function render(){
 }
 function renderHead(){
   document.getElementById('updatedLine').textContent = updatedAt
-    ? '🕒 Terakhir diperbarui: ' + fmtDate(updatedAt)
-    : '🕒 Data tugas kelas';
+    ? T('diperbarui') + fmtDate(updatedAt)
+    : T('data_kelas');
   const aktif = tasks.filter(t => { const d = dayDiff(t.deadline); return d === null || d >= 0; });
   const over = tasks.filter(t => { const d = dayDiff(t.deadline); return d !== null && d < 0; });
   document.getElementById('stActive').textContent = aktif.length;
@@ -332,19 +505,19 @@ function renderHead(){
     document.getElementById('stNextSub').textContent = upcoming[0].title;
   } else {
     document.getElementById('stNext').textContent = '—';
-    document.getElementById('stNextSub').textContent = 'tidak ada';
+    document.getElementById('stNextSub').textContent = T('tidak_ada');
   }
   const doneCount = tasks.filter(t => doneIds.has(t.id)).length;
   const pct = tasks.length ? Math.round(doneCount / tasks.length * 100) : 0;
   document.getElementById('progPct').textContent = pct + '%';
   document.getElementById('progBar').style.width = pct + '%';
   document.getElementById('progText').textContent = tasks.length
-    ? `Kamu sudah menandai ${doneCount} dari ${tasks.length} tugas sebagai selesai (tersimpan di perangkat ini).`
-    : 'Centang tugas yang sudah kamu selesaikan untuk melihat progresmu di sini.';
+    ? (LANG === 'en' ? `You have marked ${doneCount} of ${tasks.length} assignments as done (saved on this device).` : `Kamu sudah menandai ${doneCount} dari ${tasks.length} tugas sebagai selesai (tersimpan di perangkat ini).`)
+    : T('prog_hint');
 }
 function renderChips(){
   const base = [
-    ['semua','Semua'], ['hariini','Hari Ini'], ['minggu','7 Hari Ke Depan'], ['terlambat','Terlambat']
+    ['semua',T('semua')], ['hariini',T('hari_ini')], ['minggu',T('chip_7hari')], ['terlambat',T('terlambat')]
   ];
   let html = base.map(([k,l]) => `<button class="fchip ${filter===k?'on':''}" data-filter="${k}">${l}</button>`).join('');
   html += courses().map(c => `<button class="fchip ${filter==='mk:'+c?'on':''}" data-filter="mk:${esc(c)}"><span class="dot" style="background:${courseColor(c)}"></span>${esc(c)}</button>`).join('');
@@ -354,12 +527,12 @@ function lampiranOf(t){ return Array.isArray(t.lampiran) ? t.lampiran.filter(l =
 function lampiranItem(l){
   const label = l.label || '';
   if(l.tipe === 'foto'){
-    return `<figure class="lfoto"><a href="${esc(l.url)}" target="_blank" rel="noopener"><img src="${esc(l.url)}" alt="${esc(label || 'Foto soal tugas')}" loading="lazy"></a>${label ? `<figcaption>📷 ${esc(label)} — klik foto untuk ukuran penuh</figcaption>` : ''}</figure>`;
+    return `<figure class="lfoto"><a href="${esc(l.url)}" target="_blank" rel="noopener"><img src="${esc(l.url)}" alt="${esc(label || T('foto_soal'))}" loading="lazy"></a>${label ? `<figcaption>📷 ${esc(label)}${T('klik_penuh')}</figcaption>` : ''}</figure>`;
   }
   if(l.tipe === 'file'){
-    return `<a class="chip linkchip" href="${esc(l.url)}" target="_blank" rel="noopener" download>📄 ${esc(label || 'File soal tugas')}</a>`;
+    return `<a class="chip linkchip" href="${esc(l.url)}" target="_blank" rel="noopener" download>📄 ${esc(label || T('file_soal'))}</a>`;
   }
-  return `<a class="chip linkchip" href="${esc(l.url)}" target="_blank" rel="noopener">🔗 ${esc(label || 'Tautan soal tugas')}</a>`;
+  return `<a class="chip linkchip" href="${esc(l.url)}" target="_blank" rel="noopener">🔗 ${esc(label || T('tautan_soal'))}</a>`;
 }
 function taskRow(t){
   const info = dueInfo(t);
@@ -367,22 +540,22 @@ function taskRow(t){
   const mine = doneIds.has(t.id);
   const lamp = lampiranOf(t);
   return `<div class="task ${dd !== null && dd < 0 && !mine ? 'overdue' : ''} ${mine ? 'minedone' : ''}" data-id="${t.id}">
-    <button class="check ${mine ? 'on' : ''}" data-act="toggle" title="Tandai sudah kukerjakan">
+    <button class="check ${mine ? 'on' : ''}" data-act="toggle" title="${T('tandai')}">
       <svg viewBox="0 0 24 24" fill="none"><path d="M4.5 12.5l5 5L19.5 7" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="body">
-      <div class="title ${lamp.length ? 'clickable' : ''}" ${lamp.length ? 'data-act="detail" title="Klik untuk melihat rincian & lampiran soal"' : ''}>${esc(t.title)}</div>
+      <div class="title ${lamp.length ? 'clickable' : ''}" ${lamp.length ? 'data-act="detail" title="' + T('klik_rincian') + '"' : ''}>${esc(t.title)}</div>
       ${t.note ? `<div class="note">${esc(t.note)}</div>` : ''}
       <div class="meta">
         ${t.course ? `<span class="chip course"><span class="dot" style="background:${courseColor(t.course)};width:8px;height:8px;border-radius:99px;display:inline-block"></span>${esc(t.course)}</span>` : ''}
         <span class="chip ${info.cls}">🕒 ${esc(info.label)}</span>
-        ${t.priority ? `<span class="flag ${t.priority}">${t.priority}</span>` : ''}
-        ${t.type ? `<span class="chip">${t.type === 'Kelompok' ? '👥 Kelompok' : '👤 Individu'}</span>` : ''}
-        ${t.link ? `<a class="chip linkchip" href="${esc(t.link)}" target="_blank" rel="noopener">🔗 Link pengumpulan</a>` : ''}
-        ${lamp.length ? `<button class="chip detbtn" data-act="detail" type="button">📎 Lampiran soal (${lamp.length}) <span class="arr">▾</span></button>` : ''}
+        ${t.priority ? `<span class="flag ${t.priority}">${T('prio_' + t.priority)}</span>` : ''}
+        ${t.type ? `<span class="chip">${t.type === 'Kelompok' ? T('kelompok') : T('individu')}</span>` : ''}
+        ${t.link ? `<a class="chip linkchip" href="${esc(t.link)}" target="_blank" rel="noopener">${T('link_kumpul')}</a>` : ''}
+        ${lamp.length ? `<button class="chip detbtn" data-act="detail" type="button">${T('lampiran')} (${lamp.length}) <span class="arr">▾</span></button>` : ''}
       </div>
       ${lamp.length ? `<div class="detail">
-        <div class="dhead">📎 Bukti &amp; lampiran soal tugas</div>
+        <div class="dhead">${T('dhead')}</div>
         <div class="lampiran">${lamp.map(lampiranItem).join('')}</div>
       </div>` : ''}
     </div>
@@ -394,29 +567,29 @@ function emptyBox(title, text){
 function renderList(){
   const vis = visible();
   if(!tasks.length){
-    content.innerHTML = emptyBox('Belum ada tugas yang tercatat', 'Daftar tugas kelas akan muncul di sini begitu ada yang dilaporkan. Ada tugas baru? Kabari Fikri supaya dimasukkan.');
+    content.innerHTML = emptyBox(T('kosong_judul'), T('kosong_teks'));
     return;
   }
   if(!vis.length){
-    content.innerHTML = emptyBox('Tidak ada tugas di tampilan ini', 'Coba ganti filter di atas atau ubah kata pencarianmu.');
+    content.innerHTML = emptyBox(T('saring_judul'), T('saring_teks'));
     return;
   }
   const groups = [
-    ['terlambat','⏰ Sudah Terlambat', true,  t => !doneIds.has(t.id) && dayDiff(t.deadline) !== null && dayDiff(t.deadline) < 0],
-    ['hariini','📅 Tenggat Hari Ini', false,  t => !doneIds.has(t.id) && dayDiff(t.deadline) === 0],
-    ['besok','🌤️ Besok', false,              t => !doneIds.has(t.id) && dayDiff(t.deadline) === 1],
-    ['minggu','🗓️ Minggu Ini', false,        t => !doneIds.has(t.id) && dayDiff(t.deadline) > 1 && dayDiff(t.deadline) <= 7],
-    ['nanti','🔭 Nanti', false,               t => !doneIds.has(t.id) && dayDiff(t.deadline) > 7],
-    ['tanpa','📌 Tanpa Tenggat', false,       t => !doneIds.has(t.id) && !t.deadline],
-    ['mine','✅ Sudah Kamu Kerjakan', false,  t => doneIds.has(t.id)]
+    ['terlambat',T('g_terlambat'), true,  t => !doneIds.has(t.id) && dayDiff(t.deadline) !== null && dayDiff(t.deadline) < 0],
+    ['hariini',T('g_hariini'), false,  t => !doneIds.has(t.id) && dayDiff(t.deadline) === 0],
+    ['besok',T('g_besok'), false,              t => !doneIds.has(t.id) && dayDiff(t.deadline) === 1],
+    ['minggu',T('g_minggu'), false,        t => !doneIds.has(t.id) && dayDiff(t.deadline) > 1 && dayDiff(t.deadline) <= 7],
+    ['nanti',T('g_nanti'), false,               t => !doneIds.has(t.id) && dayDiff(t.deadline) > 7],
+    ['tanpa',T('g_tanpa'), false,       t => !doneIds.has(t.id) && !t.deadline],
+    ['mine',T('g_mine'), false,  t => doneIds.has(t.id)]
   ];
   let html = '';
   for(const [, title, red, fn] of groups){
     const g = vis.filter(fn).sort(sortTasks);
     if(!g.length) continue;
-    html += `<div class="grouptitle ${red ? 'red' : ''}">${title}<span class="cnt">${g.length} tugas</span></div><div class="tasklist">${g.map(taskRow).join('')}</div>`;
+    html += `<div class="grouptitle ${red ? 'red' : ''}">${title}<span class="cnt">${cntTugas(g.length)}</span></div><div class="tasklist">${g.map(taskRow).join('')}</div>`;
   }
-  content.innerHTML = html || emptyBox('Tidak ada tugas di tampilan ini', 'Coba ganti filter di atas atau ubah kata pencarianmu.');
+  content.innerHTML = html || emptyBox(T('saring_judul'), T('saring_teks'));
 }
 
 
@@ -425,25 +598,25 @@ const HARI_ORDER = ['Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
 function renderJadwal(){
   const body = document.getElementById('jadwalBody');
   const meta = document.getElementById('jadwalMeta');
-  if(!jadwal.length){ body.innerHTML = emptyBox('Jadwal kuliah belum dimasukkan', 'Jadwal kuliah semester ini akan tampil di sini.'); meta.textContent = ''; return; }
+  if(!jadwal.length){ body.innerHTML = emptyBox(T('jadwal_kosong_judul'), T('jadwal_kosong_teks')); meta.textContent = ''; return; }
   const totalSks = jadwal.reduce((a, j) => a + (j.sks || 0), 0);
-  meta.textContent = (jadwalMeta && jadwalMeta.semester ? jadwalMeta.semester + ' • ' : '') + jadwal.length + ' mata kuliah • ' + totalSks + ' SKS';
+  meta.textContent = (jadwalMeta && jadwalMeta.semester ? jadwalMeta.semester + ' • ' : '') + cntMk(jadwal.length) + ' • ' + totalSks + ' ' + (LANG === 'en' ? 'credits' : 'SKS');
   const todayName = DOW[new Date().getDay()];
   let html = '';
   for(const hari of [...HARI_ORDER, null]){
     const g = jadwal.filter(j => (j.hari || null) === hari).sort((a, b) => (a.jam || '') < (b.jam || '') ? -1 : 1);
     if(!g.length) continue;
     const isToday = hari !== null && hari === todayName;
-    html += `<div class="grouptitle ${isToday ? 'today' : ''}">${hari ? '📅 ' + hari : '📌 Belum Terjadwal'}${isToday ? ' — hari ini' : ''}<span class="cnt">${g.length} mata kuliah</span></div><div class="tasklist">` +
+    html += `<div class="grouptitle ${isToday ? 'today' : ''}">${hari ? '📅 ' + namaHari(hari) : T('belum_terjadwal')}${isToday ? T('hari_ini_kecil') : ''}<span class="cnt">${cntMk(g.length)}</span></div><div class="tasklist">` +
       g.map(j => `<div class="jrow">
-        <div class="time">${j.jam ? esc(j.jam.replace(/:/g, '.').replace('-', '–')) + ' <small>WIB</small>' : '—'}${j.ruang ? `<small>📍 Ruang ${esc(j.ruang)}</small>` : ''}</div>
+        <div class="time">${j.jam ? esc(j.jam.replace(/:/g, '.').replace('-', '–')) + ' <small>WIB</small>' : '—'}${j.ruang ? `<small>${T('ruang')}${esc(j.ruang)}</small>` : ''}</div>
         <div class="body">
           <div class="title">${esc(j.matkul)}</div>
           <div class="dosen">👨‍🏫 ${esc(j.dosen)}</div>
           <div class="meta">
             <span class="chip">${esc(j.kode)}</span>
-            <span class="chip">${j.sks} SKS</span>
-            <span class="chip">Kelas ${esc(j.kelas)}</span>
+            <span class="chip">${j.sks} ${LANG === 'en' ? 'credits' : 'SKS'}</span>
+            <span class="chip">${T('kelas')}${esc(j.kelas)}</span>
           </div>
         </div>
       </div>`).join('') + '</div>';
@@ -472,7 +645,7 @@ function renderCal(){
     cells += `<button class="calday ${dim ? 'dim' : ''} ${key === todayStr() ? 'today' : ''} ${key === calSelected ? 'sel' : ''}" data-day="${key}">
       <span class="n">${dObj.getDate()}</span>
       ${evs.slice(0,2).map(t => `<div class="ev" style="background:${courseColor(t.course)};${doneIds.has(t.id) ? 'opacity:.45;text-decoration:line-through' : ''}">${esc(t.title)}</div>`).join('')}
-      ${evs.length > 2 ? `<div class="ev more">+${evs.length - 2} lagi</div>` : ''}
+      ${evs.length > 2 ? `<div class="ev more">+${evs.length - 2} ${LANG === 'en' ? 'more' : 'lagi'}</div>` : ''}
     </button>`;
     if(i >= 35 && dayNum >= daysIn) break;
   }
@@ -481,15 +654,15 @@ function renderCal(){
     <div class="calhead">
       <b>${MON[m]} ${y}</b>
       <div class="calnav">
-        <button id="calPrev">‹ Bulan lalu</button>
-        <button id="calToday">Hari ini</button>
-        <button id="calNext">Bulan depan ›</button>
+        <button id="calPrev">${T('bulan_lalu')}</button>
+        <button id="calToday">${T('kal_hari_ini')}</button>
+        <button id="calNext">${T('bulan_depan')}</button>
       </div>
     </div>
     <div class="calgrid">${DOWS.map(d => `<div class="caldow">${d}</div>`).join('')}${cells}</div>
     <div class="caldaylist">
-      ${calSelected ? `<div class="grouptitle">📅 ${fmtDate(calSelected)}<span class="cnt">${dayTasks.length} tugas</span></div>
-      ${dayTasks.length ? `<div class="tasklist">${dayTasks.map(taskRow).join('')}</div>` : emptyBox('Tidak ada tenggat di tanggal ini', 'Klik tanggal lain untuk melihat tugasnya.')}` : '<p style="color:var(--faint);font-size:13.5px;margin-top:12px">Klik sebuah tanggal untuk melihat daftar tugas di hari itu.</p>'}
+      ${calSelected ? `<div class="grouptitle">📅 ${fmtDate(calSelected)}<span class="cnt">${cntTugas(dayTasks.length)}</span></div>
+      ${dayTasks.length ? `<div class="tasklist">${dayTasks.map(taskRow).join('')}</div>` : emptyBox(T('kal_kosong_judul'), T('kal_kosong_teks'))}` : '<p style="color:var(--faint);font-size:13.5px;margin-top:12px">' + T('kal_petunjuk') + '</p>'}
     </div>
   </div>`;
   document.getElementById('calPrev').onclick = () => { calCursor.setMonth(calCursor.getMonth() - 1); renderCal(); };
@@ -511,8 +684,8 @@ content.addEventListener('click', e => {
   const btn = e.target.closest('[data-act="toggle"]'); if(!btn) return;
   const row = e.target.closest('[data-id]'); if(!row) return;
   const id = row.dataset.id;
-  if(doneIds.has(id)){ doneIds.delete(id); toast('Centang dibatalkan.'); }
-  else { doneIds.add(id); toast('Mantap, ditandai selesai! 🎉'); }
+  if(doneIds.has(id)){ doneIds.delete(id); toast(T('toast_batal')); }
+  else { doneIds.add(id); toast(T('toast_selesai')); }
   saveDone(); render();
 });
 document.getElementById('filterChips').addEventListener('click', e => {
@@ -532,6 +705,33 @@ function toast(msg){
   clearTimeout(el._h); el._h = setTimeout(() => el.classList.remove('show'), 2400);
 }
 
+/* ============ Terapkan bahasa & tema ============ */
+function terapkanBahasa(){
+  document.documentElement.setAttribute('lang', LANG);
+  DOW = KAMUS[LANG].dow; DOWS = KAMUS[LANG].dows; MON = KAMUS[LANG].mon;
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = T(el.getAttribute('data-i18n')); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.setAttribute('placeholder', T(el.getAttribute('data-i18n-ph'))); });
+  const bb = document.getElementById('tglBahasa'); if(bb) bb.textContent = LANG === 'id' ? 'EN' : 'ID';
+  if(tasks.length || jadwal.length){ render(); renderJadwal(); }
+  else { const ul = document.getElementById('updatedLine'); if(ul && updatedAt) renderHead(); }
+}
+const btnB = document.getElementById('tglBahasa');
+if(btnB) btnB.addEventListener('click', () => { LANG = LANG === 'id' ? 'en' : 'id'; try{ localStorage.setItem('tillrea-bahasa', LANG); }catch(e){} terapkanBahasa(); });
+const btnT = document.getElementById('tglTema');
+if(btnT) btnT.addEventListener('click', () => {
+  const gelap = document.documentElement.getAttribute('data-tema') === 'gelap';
+  if(gelap) document.documentElement.removeAttribute('data-tema'); else document.documentElement.setAttribute('data-tema', 'gelap');
+  try{ localStorage.setItem('tillrea-tema', gelap ? 'pagi' : 'gelap'); }catch(e){}
+  btnT.classList.remove('berputar'); void btnT.offsetWidth; btnT.classList.add('berputar');
+});
+const mMenu = document.getElementById('mobileMenu');
+const mBurger = document.getElementById('hamburger');
+if(mMenu && mBurger){
+  mBurger.addEventListener('click', () => mMenu.classList.toggle('open'));
+  mMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mMenu.classList.remove('open')));
+}
+terapkanBahasa();
+
 /* ============ Muat data dari server ============ */
 fetch('data.json?_=' + Date.now(), {cache:'no-store'})
   .then(r => { if(!r.ok) throw new Error('http ' + r.status); return r.json(); })
@@ -543,8 +743,8 @@ fetch('data.json?_=' + Date.now(), {cache:'no-store'})
     render(); renderJadwal();
   })
   .catch(() => {
-    document.getElementById('updatedLine').textContent = '⚠️ Gagal memuat data';
-    content.innerHTML = emptyBox('Data tugas gagal dimuat', 'Periksa koneksi internetmu lalu muat ulang halaman ini.');
+    document.getElementById('updatedLine').textContent = T('gagal');
+    content.innerHTML = emptyBox(T('err_judul'), T('err_teks'));
   });
 setInterval(() => render(), 60000);
 </script>

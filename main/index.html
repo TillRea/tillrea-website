@@ -694,6 +694,7 @@
               tamu.map(function (i) { return card(i, gi++); }).join('') + '</div>';
           }
           document.getElementById('rooms').innerHTML = html;
+          if (window.__terapkanBahasa) window.__terapkanBahasa();
           document.getElementById('statTotal').textContent = items.length;
         }
         fetch('/api/pameran', { cache: 'no-store' })
@@ -874,6 +875,31 @@
         var bahasa = 'id';
         try { bahasa = localStorage.getItem('tillrea-bahasa') === 'en' ? 'en' : 'id'; } catch (e) {}
         window.__t = function (k) { return (KAMUS[bahasa] && KAMUS[bahasa][k]) || KAMUS.id[k] || k; };
+        var LABEL_EN = { 'PAMERAN': 'EXHIBITION', 'Situs Demo': 'Demo Site', 'Koleksi Pribadi': 'Personal Collection', 'Tamu': 'Guest' };
+        var KARTU_EN = {
+          'demo.tillrea.my.id': "TillRea's first demo site — a test page proving that one VPS can serve many sites at once through subdomains.",
+          'renyhikzar.tillrea.my.id': "Website for the Reny HikZar Collection tailor shop in Sinanggul, Mlonggo, Jepara — men's, women's, uniforms, alterations, and custom orders, in a cream-glass theme with glass bubble buttons.",
+          'portofolio.tillrea.my.id': "Fikri Hikam A.'s personal portfolio website — a dedicated portfolio site with a clean classic design featuring profile, project list, education, experience, blog, and contact.",
+          'cpi.tillrea.my.id': 'A guest website of the TillRea Museum, submitted via Telegram bot and deployed after admin approval.'
+        };
+        function patchKartu() {
+          Array.prototype.forEach.call(document.querySelectorAll('.site-card'), function (card) {
+            var domEl = card.querySelector('.domain');
+            var domain = domEl ? domEl.textContent.trim() : '';
+            var chip = card.querySelector('.chip:not(.live)');
+            if (chip) {
+              if (!chip.dataset.asli) chip.dataset.asli = chip.textContent;
+              chip.textContent = bahasa === 'en'
+                ? chip.dataset.asli.split('•').map(function (s) { var t = s.trim(); return LABEL_EN[t] || t; }).join(' • ')
+                : chip.dataset.asli;
+            }
+            var desc = card.querySelector('p');
+            if (desc) {
+              if (!desc.dataset.asli) desc.dataset.asli = desc.textContent;
+              desc.textContent = (bahasa === 'en' && KARTU_EN[domain]) ? KARTU_EN[domain] : desc.dataset.asli;
+            }
+          });
+        }
         function terapkanBahasa() {
           document.documentElement.setAttribute('lang', bahasa);
           Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'), function (el) {
@@ -897,6 +923,7 @@
           });
           var more = document.querySelector('.promo-more a');
           if (more) { var m = more.textContent.match(/\d+/); more.textContent = window.__t('semua_promo') + (m ? ' (' + m[0] + ')' : '') + ' →'; }
+          patchKartu();
           var btnB = document.getElementById('tglBahasa');
           if (btnB) btnB.textContent = bahasa === 'id' ? 'EN' : 'ID';
         }
