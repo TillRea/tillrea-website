@@ -303,34 +303,6 @@
         html { scroll-behavior: auto; }
       }
     </style>
-    <!-- TEMA TES MENCOLOK — SEMENTARA (perintah Fikri 2026-10-20, buat tes saja). Hapus blok <style id="tema-tes"> ini untuk balik ke tampilan normal. -->
-    <style id="tema-tes">
-      html:root, html[data-tema="gelap"] {
-        --bg: #0d0217; --bg-soft: #170430; --border: #4c1d95; --border-strong: #7c3aed;
-        --card: #1b0533; --divider: #2a0a4a; --header-bg: rgba(13,2,23,.88);
-        --btn-bg: #b6ff2e; --btn-text: #0d0217; --btn-bg-hover: #d4ff5e;
-        --text: #ffffff; --muted: #e3d5ff; --faint: #b79cff;
-        --accent: #ff2fb3; --accent-2: #22d3ee; --accent-soft: #33052a;
-        --shadow-card: 6px 6px 0 rgba(255,47,179,.55);
-        --shadow-lift: 10px 10px 0 rgba(34,211,238,.6);
-      }
-      .hero h1 {
-        background: linear-gradient(92deg, #ff2fb3, #22d3ee 55%, #b6ff2e);
-        -webkit-background-clip: text; background-clip: text; color: transparent;
-        text-transform: uppercase; letter-spacing: -.01em;
-      }
-      .cta-band { background: linear-gradient(120deg, #ff2fb3, #7c3aed 60%, #0891b2) !important; }
-      .site-card { border: 2px solid var(--border-strong); }
-      .site-card:hover { border-color: #ff2fb3; }
-      ::selection { background: #ff2fb3; color: #fff; }
-      body::after {
-        content: "🎨 MODE TES — tampilan sementara";
-        position: fixed; right: 14px; bottom: 14px; z-index: 9999;
-        background: #b6ff2e; color: #0d0217; font-weight: 800; font-size: 13px;
-        padding: 8px 14px; border-radius: 999px; border: 2px solid #0d0217;
-        box-shadow: 4px 4px 0 #ff2fb3; pointer-events: none;
-      }
-    </style>
   </head>
   <body>
     <header class="site" id="siteHeader">
