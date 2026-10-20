@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TillRea Prompt Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --card: #ffffff;
+    --accent: #6d28d9;
+    --accent-soft: #f3e8ff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --muted: #6b7280;
+    --err: #ef4444;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  a { color: inherit; }
+  header {
+    padding: 18px 22px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+    box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  }
+  header h1 { font-size: 20px; font-weight: 700; margin: 0; }
+  header p { color: var(--muted); font-size: 13px; margin: 4px 0 0; }
+  main {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 22px;
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 960px) {
+    .layout { grid-template-columns: 1fr 1fr; gap: 24px; }
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  }
+  h2 { font-size: 15px; font-weight: 600; margin: 0 0 14px; color: var(--muted); letter-spacing:.2px; }
+  /* ===== Form ===== */
+  .field { margin-bottom: 16px; }
+  .field:last-child { margin-bottom: 0; }
+  label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+  textarea, select {
+    width: 100%; border: 1px solid var(--border); border-radius: 10px;
+    padding: 10px 12px; font: inherit; font-size: 14px;
+    background: var(--card); color: var(--text); outline: none;
+  }
+  textarea:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  textarea { min-height: 110px; resize: vertical; font-size: 14px; }
+  .char-bar { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .char-bar .over { color: var(--err); font-weight: 600; }
+  .row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .row > .field { flex: 1 1 160px; }
+  .toggles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (min-width: 960px) { .toggles { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+  .toggle-line { display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; user-select: none; }
+  .toggle-line label { font-size: 13px; font-weight: 500; color: var(--text); margin: 0; cursor: pointer; flex: 1; }
+  .switch { position: relative; display: inline-block; width: 42px; height: 24px; }
+  .switch input { opacity: 0; width: 0; height: 0; }
+  .switch .knob {
+    position: absolute; cursor: pointer; inset: 0; border-radius: 999px;
+    background: #e5e7eb; transition: .2s;
+  }
+  .switch .knob::before {
+    content: ""; position: absolute; height: 18px; width: 18px;
+    left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: .2s;
+  }
+  .switch input:checked + .knob { background: var(--accent); }
+  .switch input:checked + .knob::before { transform: translateX(18px); }
+  button {
+    border: none; border-radius: 10px; padding: 11px 18px; font-size: 14px; font-weight: 600;
+    cursor: pointer; transition: .15s; font-family: inherit;
+  }
+  button.btn-primary {
+    background: var(--accent); color: #fff;
+  }
+  button.btn-primary:hover:not(:disabled) { background: #5b21b6; }
+  button.btn-primary:disabled { background: var(--muted); cursor: not-allowed; opacity: .8; }
+  .btn-ghost { background: var(--accent-soft); color: var(--accent); }
+  .btn-ghost:hover { background: #ecdffc; }
+  .status { font-size: 13px; color: var(--muted); padding: 6px 0; display: flex; align-items: center; gap: 8px; }
+  .spinner { width: 14px; height: 14px; border: 2px solid #ddd; border-top-color: var(--accent); border-radius: 50%; animation: spin .7s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  /* ===== Result ===== */
+  .result-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .result-head h2 { font-size: 20px; font-weight: 700; margin: 0; color: var(--text); }
+  .meta { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
+  .badge.ai { background: var(--accent-soft); color: var(--accent); }
+  .badge.tpl { background: #fef3c2; color: #92400e; }
+  .score { font-size: 26px; font-weight: 800; line-height: 1; }
+  .score.subtle { color: var(--muted); }
+  .grid6 { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 16px; }
+  @media (min-width: 700px) { .grid6 { grid-template-columns: 1fr 1fr; } }
+  .kartu-elemen { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+  .kartu-elemen h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing:.3px; color: var(--muted); margin: 0 0 8px; }
+  .kartu-elemen pre { font-size: 13px; white-space: pre-wrap; word-break: break-word; margin: 0; color: var(--text); max-height: 220px; overflow:auto; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; }
+  .chip { background: #eef2ff; color: var(--accent); font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: 999px; }
+  .tabs { display: flex; gap: 4px; background: var(--bg); border-radius: 10px; padding: 4px; border: 1px solid var(--border); }
+  .tab-btn { flex: 1; padding: 8px 12px; font-size: 13px; font-weight: 600; border-radius: 8px; background: none; color: var(--muted); cursor: pointer; }
+  .tab-btn.active { background: var(--accent); color: #fff; }
+  #master-view { margin-top: 10px; }
+  #master-view pre { background: #0f172a; color: #e2e8f0; font-size: 12.5px; padding: 14px; border-radius: 12px; white-space: pre-wrap; word-break: break-word; max-height: 320px; overflow:auto; }
+  .copy-row { display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; }
+  .msg { padding: 12px 14px; border-radius: 10px; font-size: 13px; }
+  .msg.err { background: #fef2f2; color: var(--err); border: 1px solid #fecfca; }
+  .msg.ok { background: var(--accent-soft); color: var(--accent); border: 1px solid #ddd; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<header>
+  <h1>TillRea Prompt Studio</h1>
+  <p>Ubah satu ide menjadi master prompt terstruktur 6 elemen — ditenagai AI, tanpa login, tanpa API key.</p>
+</header>
+<main>
+  <div class="layout">
+    <!-- ============ FORM ============ -->
+    <section class="card">
+      <h2>Bangun Master Prompt</h2>
+      <form id="prompt-form" autocomplete="off">
+        <div class="field">
+          <label for="ide">Ide (1 baris, maks 500 karakter) *</label>
+          <textarea id="ide" name="ide" maxlength="500" spellcheck="false"
+                    placeholder="mis. buatkan satu situs portofolio statis untuk fotografer"></textarea>
+          <div class="char-bar"><span id="char-count">0/500</span><span id="char-warn" class="hidden"></span></div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="target">Target model</label>
+            <select id="target" name="target">
+              <option value="Claude">Claude</option>
+              <option value="GPT">GPT</option>
+              <option value="Gemini">Gemini</option>
+              <option value="Umum" selected>Umum</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="domain">Domain</label>
+            <select id="domain" name="domain">
+              <option value="Umum">Umum</option>
+              <option value="Bisnis & Marketing">Bisnis & Marketing</option>
+              <option value="Teknologi & Kode" selected>Teknologi & Kode</option>
+              <option value="Pendidikan">Pendidikan</option>
+              <option value="Konten & Media Sosial">Konten & Media Sosial</option>
+              <option value="Data & Analisis">Data & Analisis</option>
+              <option value="Layanan Pelanggan">Layanan Pelanggan</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="gaya">Gaya</label>
+            <select id="gaya" name="gaya">
+              <option value="Standar" selected>Standar</option>
+              <option value="Ketat">Ketat</option>
+              <option value="Santai">Santai</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="bahasa">Bahasa</label>
+            <select id="bahasa" name="bahasa">
+              <option value="Indonesia" selected>Indonesia</option>
+              <option value="English">English</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Flag tambahan</label>
+          <div class="toggles">
+            <div class="toggle-line">
+              <label for="flag_guardrails">Guardrails (anti-halusinasi &amp; keamanan)</label>
+              <label class="switch"><input type="checkbox" id="flag_guardrails" name="f_guardrails"></label>
+            </div>
+            <div class="toggle-line">
+              <label for="flag_variabel">Variabel (placeholder {{...}})</label>
+              <label class="switch"><input type="checkbox" id="flag_variabel" name="f_variabel"></label>
+            </div>
+            <div class="toggle-line">
+              <label for="flag_cot">Chain-of-Thought</label>
+              <label class="switch"><input type="checkbox" id="flag_cot" name="f_cot"></label>
+            </div>
+            <div class="toggle-line">
+              <label for="flag_jsonschema">JSON Schema (validasi output)</label>
+              <label class="switch"><input type="checkbox" id="flag_jsonschema" name="f_jsonschema"></label>
+            </div>
+            <div class="toggle-line">
+              <label for="flag_fewshot">Few-shot (contoh)</label>
+              <label class="switch"><input type="checkbox" id="flag_fewshot" name="f_fewshot"></label>
+            </div>
+            <div class="toggle-line">
+              <label for="flag_critique">Critique (self-check)</label>
+              <label class="switch"><input type="checkbox" id="flag_critique" name="f_critique"></label>
+            </div>
+            <div class="toggle-line">
+              <label for="flag_persona">Persona konsisten</label>
+              <label class="switch"><input type="checkbox" id="flag_persona" name="f_persona"></label>
+            </div>
+            <div class="toggle-line">
+              <label for="flag_noslop">No-slop (bahasa natural)</label>
+              <label class="switch"><input type="checkbox" id="flag_noslop" name="f_noslop"></label>
+            </div>
+          </div>
+        </div>
+        <div class="field" style="margin-top:18px">
+          <button type="submit" id="btn-sintesis" class="btn-primary" disabled>Sintesis</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ============ HASIL ============ -->
+    <section class="card" id="result-section">
+      <div id="result-placeholder" class="status">
+        <span>Masukkan ide di samping kiri, lalu klik <strong>Sintesis</strong>.</span>
+      </div>
+
+      <div id="result-loading" class="hidden status">
+        <span class="spinner"></span>
+        <span>Menyusun master prompt…</span>
+      </div>
+
+      <div id="result-error" class="hidden">
+        <div class="msg err" id="err-msg"></div>
+        <div style="margin-top:10px;text-align:right">
+          <button class="btn-ghost" onclick="resetResult()">Coba lagi</button>
+        </div>
+      </div>
+
+      <div id="result-ok" class="hidden">
+        <div class="result-head">
+          <h2 id="mp-title">Master Prompt</h2>
+          <div>
+            <div class="meta" id="mp-meta"></div>
+            <div style="margin-top:6px"><span class="badge ai" id="mp-badge">AI</span></div>
+          </div>
+        </div>
+        <div id="mp-score" style="margin-top:6px">
+          <span class="score" id="mp-score-num">0</span>
+          <span class="meta">/100</span>
+        </div>
+        <div class="chips" id="mp-chips"></div>
+
+        <div class="grid6" id="mp-cards"></div>
+
+        <h2 style="margin-top:18px;font-size:14px">Master Prompt</h2>
+        <div class="tabs">
+          <button type="button" class="tab-btn active" data-tab="text" onclick="switchTab('text')">Teks</button>
+          <button type="button" class="tab-btn" data-tab="xml" onclick="switchTab('xml')">XML</button>
+        </div>
+        <div id="master-view"><pre id="master-text"></pre><pre id="master-xml" class="hidden"></pre></div>
+        <div class="copy-row">
+          <button class="btn-ghost" id="btn-copy" onclick="copyMaster()">Salin Master Prompt</button>
+        </div>
+        <div class="msg ok hidden" id="copied-msg">Tersalin ke papan klip.</div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const FORM = $("prompt-form");
+const BTN  = $("btn-sintesis");
+const COUNT = $("char-count");
+const WARN  = $("char-warn");
+
+const FLAGS = ["guardrails","variabel","cot","jsonschema","fewshot","critique","persona","noslop"];
+
+function escapeXml(s){ return String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function textOf(id){ return $(id).value; }
+
+function bindForm() {
+  const ide = $("ide");
+  const update = () => {
+    const v = ide.value;
+    COUNT.textContent = (v && v.length ? v.length : 0) + "/500";
+    const over = v.length > 500;
+    WARN.textContent = over ? "Karakter melebihi 500." : "";
+    WARN.classList.toggle("hidden", !over);
+    BTN.disabled = !v.trim() || v.length > 500;
+  };
+  ide.addEventListener("input", update);
+  update();
+}
+
+function collectBody() {
+  const flags = {};
+  FLAGS.forEach(k => { flags[k] = !!document.getElementById("flag_" + k).checked; });
+  return {
+    ide: textOf("ide").trim(),
+    target: textOf("target"),
+    domain: textOf("domain"),
+    gaya: textOf("gaya"),
+    bahasa: textOf("bahasa"),
+    flags: flags,
+  };
+}
+
+function setState(show){ // 'placeholder' | 'loading' | 'error' | 'ok'
+  $("result-placeholder").classList.toggle("hidden", show !== "placeholder");
+  $("result-loading").classList.toggle("hidden", show !== "loading");
+  $("result-error").classList.toggle("hidden", show !== "error");
+  $("result-ok").classList.toggle("hidden", show !== "ok");
+  BTN.disabled = show === "loading";
+  BTN.textContent = show === "loading" ? "Menyusun…" : "Sintesis";
+}
+
+async function submit(e){
+  e.preventDefault();
+  const body = collectBody();
+  if (!body.ide) { showError("Ide wajib diisi."); return; }
+  if (body.ide.length > 500) { showError("Ide melebihi 500 karakter."); return; }
+  setState("loading");
+  try {
+    const res = await fetch("/api/prompt/sintesis", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(body),
+    });
+    if (res.status === 429) { showError("Terlalu banyak permintaan, coba lagi beberapa menit lagi."); return; }
+    const j = await res.json().catch(() => null);
+    if (!j || !j.ok) { showError("Gagal menyusun master prompt. Cek isian dan coba lagi nanti."); return; }
+    renderResult(j);
+  } catch (e) {
+    showError("Gagal menyusun master prompt. Coba lagi nanti.");
+  }
+}
+function showError(msg){ setState("error"); $("err-msg").textContent = msg; }
+
+function scorePrompt(d){
+  let s = 70;
+  if ((d.context||"").toLowerCase().includes("- ")) s += 10;
+  if ((d.stopConditions||"").toLowerCase().includes("only stop when")) s += 10;
+  if ((d.output||"").toLowerCase().includes("present as")) s += 10;
+  return Math.min(s, 100);
+}
+function detectVars(text){
+  const re = /\{\{[A-Z0-9_]+\}\}/g, seen = new Set(), out = [];
+  let m; while ((m = re.exec(text)) !== null) { if (!seen.has(m[0])) { seen.add(m[0]); out.push(m[0]); } }
+  return out;
+}
+function combineText(d){
+  return [
+    "Judul: " + (d.title||"").trim(),
+    "Role:\n" + (d.role||"").trim(),
+    "Task:\n" + (d.task||"").trim(),
+    "Context:\n" + (d.context||"").trim(),
+    "Reasoning:\n" + (d.reasoning||"").trim(),
+    "Stop Conditions:\n" + (d.stopConditions||"").trim(),
+    "Output:\n" + (d.output||"").trim(),
+  ].join("\n\n");
+}
+function buildXml(d){
+  return "<!-- Judul: " + escapeXml(d.title||"") + " -->\n" +
+    "<role>" + escapeXml(d.role||"") + "</role>\n" +
+    "<task>" + escapeXml(d.task||"") + "</task>\n" +
+    "<context>" + escapeXml(d.context||"") + "</context>\n" +
+    "<reasoning>" + escapeXml(d.reasoning||"") + "</reasoning>\n" +
+    "<stop_conditions>" + escapeXml(d.stopConditions||"") + "</stop_conditions>\n" +
+    "<output>" + escapeXml(d.output||"") + "</output>";
+}
+function card(label, value){
+  const c = document.createElement("div"); c.className = "kartu-elemen";
+  const h = document.createElement("h3"); h.textContent = label;
+  const pre = document.createElement("pre"); pre.textContent = value || "";
+  c.appendChild(h); c.appendChild(pre); return c;
+}
+function renderResult(resp){
+  const d = resp.data || {};
+  const sumber = resp.sumber || "ai";
+  const combined = combineText(d);
+  const score = scorePrompt(d);
+  const tokens = Math.round(combined.length / 4);
+
+  $("mp-title").textContent = d.title || "Master Prompt";
+  $("mp-meta").textContent = "Estimasi token: " + tokens;
+  const badge = $("mp-badge");
+  badge.textContent = sumber === "template" ? "Template cadangan" : "AI";
+  badge.className = "badge " + (sumber === "template" ? "tpl" : "ai");
+  $("mp-score-num").textContent = String(score);
+  $("mp-score-num").className = "score " + (score < 80 ? "subtle" : "");
+
+  // 6 kartu elemen (title dipakai sebagai judul di atas)
+  const grid = $("mp-cards"); grid.innerHTML = "";
+  const labels = {role:"Role",task:"Task",context:"Context",reasoning:"Reasoning",stopConditions:"Stop Conditions",output:"Output"};
+  Object.keys(labels).forEach(k => grid.appendChild(card(labels[k], d[k])));
+
+  // variabel terdeteksi
+  const chips = $("mp-chips"); chips.innerHTML = "";
+  detectVars(combined).forEach(v => {
+    const sp = document.createElement("span"); sp.className = "chip"; sp.textContent = v;
+    chips.appendChild(sp);
+  });
+
+  // tab master prompt
+  $("master-text").textContent = combined;
+  $("master-xml").textContent = buildXml(d);
+  $("master-xml").classList.add("hidden");
+  switchTab("text");
+  setState("ok");
+}
+function switchTab(which){
+  const t = $("master-text"), x = $("master-xml");
+  document.querySelectorAll(".tab-btn").forEach(b =>
+    b.classList.toggle("active", b.getAttribute("data-tab") === which));
+  if (which === "text") { t.classList.remove("hidden"); x.classList.add("hidden"); }
+  else { x.classList.remove("hidden"); t.classList.add("hidden"); }
+}
+function copyMaster(){
+  const t = $("master-xml").classList.contains("hidden") ? $("master-text") : $("master-xml");
+  const val = t.textContent;
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(val).then(() => copiedOk());
+  } else {
+    const ta = document.createElement("textarea"); ta.value = val; ta.style.position="fixed";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); copiedOk(); } catch (e) { /* noop */ }
+    document.body.removeChild(ta);
+  }
+}
+function copiedOk(){ $("copied-msg").classList.remove("hidden"); setTimeout(()=>$("copied-msg").classList.add("hidden"), 1600); }
+function resetResult(){ setState("placeholder"); }
+FORM.addEventListener("submit", submit);
+bindForm();
+</script>
+</body>
+</html>
