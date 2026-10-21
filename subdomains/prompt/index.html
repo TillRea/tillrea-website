@@ -16,7 +16,7 @@
     --accent-soft: #f3e8ff;
     --border: #e7e5f0;
     --text: #111827;
-    --muted: #6b7280;
+    --muted: #5f6b7a;
     --err: #dc2626;
     --track: #d8d5e3;
   }
@@ -84,6 +84,7 @@
   .char-bar .over { color: var(--err); font-weight: 600; }
   .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .row .field { margin-bottom: 12px; }
+  @media (max-width: 520px) { .row { grid-template-columns: 1fr; } }
   /* ===== Toggle flag ===== */
   .toggles { border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; }
   .toggle-line {
