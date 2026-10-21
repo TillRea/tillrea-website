@@ -1,58 +1,6 @@
 {
-  "diperbarui": "2026-10-16",
+  "diperbarui": "2026-10-21",
   "promo": [
-    {
-      "berakhir": "2026-10-18",
-      "deskripsi": "Mitu Baby Wipes Anti Septic 50s dalam JSM Alfamart 12–18 Okt. Program nasional, berlaku di Alfamart Jepara & Alfagift.",
-      "harga": "Rp15.900 Beli 1 Gratis 1",
-      "judul": "JSM Alfamart — Mitu Baby Wipes Beli 1 Gratis 1",
-      "kategori": "Minimarket",
-      "label_periode": "12–18 Okt 2026",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://hargacampur.com/katalog-promo-jsm-alfamart/",
-      "toko": "Alfamart",
-      "jenis": "Kebutuhan Rumah"
-    },
-    {
-      "berakhir": "2026-10-20",
-      "deskripsi": "JSM Indomaret, program Family Weekend Treats khusus member Poinku. Es krim 90ml jadi sekitar Rp3.300 per pcs. Program nasional, berlaku di Indomaret Jepara.",
-      "harga": "3 pcs Rp10.000",
-      "judul": "Es Krim Glico Wings Frost Bite — 3 pcs Rp10.000",
-      "kategori": "Minimarket",
-      "label_periode": "14–20 Okt 2026",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://hargacampur.com/katalog-promo-jsm-indomaret/",
-      "toko": "Indomaret",
-      "jenis": "Makanan"
-    },
-    {
-      "berakhir": "2026-10-20",
-      "deskripsi": "JSM Indomaret, Family Weekend Treats khusus member Poinku. Program nasional, berlaku di Indomaret Jepara.",
-      "harga": "Diskon 50%",
-      "judul": "Golden Farm Potato Nugget 750g — Hemat 50%",
-      "kategori": "Minimarket",
-      "label_periode": "14–20 Okt 2026",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://hargacampur.com/katalog-promo-jsm-indomaret/",
-      "toko": "Indomaret",
-      "jenis": "Makanan"
-    },
-    {
-      "berakhir": "2026-10-20",
-      "deskripsi": "Kaluli Ice Cream Cheers Cheese 110ml Beli 1 Gratis 1 pack Fitbar 20g, bagian Family Weekend Treats JSM Indomaret khusus member Poinku. Program nasional, berlaku di Indomaret Jepara.",
-      "harga": "Beli 1 Gratis 1",
-      "judul": "Kaluli Ice Cream — Beli 1 Gratis 1 Fitbar",
-      "kategori": "Minimarket",
-      "label_periode": "14–20 Okt 2026",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://hargacampur.com/katalog-promo-jsm-indomaret/",
-      "toko": "Indomaret",
-      "jenis": "Makanan"
-    },
     {
       "berakhir": null,
       "deskripsi": "Promo termurah berganti setiap hari di aplikasi Indomaret Poinku. Biasakan cek aplikasi tiap pagi sebelum belanja.",
@@ -229,24 +177,11 @@
       "jenis": "Lainnya",
       "harga": "Beli 1 Gratis 1",
       "normal": "",
-      "deskripsi": "Lanjutan Serba Gratis mulai 16 Okt. Item Beli 1 Gratis 1 antara lain Sikat Gigi Formula dan Hit Aerosol 600ml, plus daftar gratis 1 lain di pamflet periode ini. Pamfletnya juga beredar di grup Facebook promo. Program nasional, berlaku di Alfamart Jepara.",
+      "deskripsi": "Periode 16–31 Okt. Item Beli 1 Gratis 1 terverifikasi dari pamflet: Sikat Gigi Formula, Hit Aerosol 600ml, Sidomuncul Kunyit Asam 150ml, Alfamart Facial Tissue OnePiece 100's, dan Hemaviton C1000 Lemon 330ml. Program nasional, berlaku di Alfamart Jepara (tidak berlaku di NTT).",
       "label_periode": "16–31 Okt 2026",
       "berakhir": "2026-10-31",
       "status": "Resmi",
       "sumber": "http://hargacampur.com/promo-serba-gratis-alfamart/"
-    },
-    {
-      "judul": "JSM Indomaret Family Weekend Treats 16–18 Okt — Frost Bite Mochi 4 pcs Rp10.000",
-      "toko": "Indomaret",
-      "kategori": "Minimarket",
-      "jenis": "Makanan",
-      "harga": "4 pcs Rp10.000",
-      "normal": "",
-      "deskripsi": "Family Weekend Treats 16–18 Okt khusus member Poinku: Glico Wings Frost Bite Mochi 4 pcs Rp10.000, Golden Farm Mixed Vegetable 500g hemat 50%, Kiwi Green hemat 40%. Program nasional, berlaku di Indomaret Jepara.",
-      "label_periode": "16–18 Okt 2026",
-      "berakhir": "2026-10-18",
-      "status": "Resmi",
-      "sumber": "https://hargacampur.com/katalog-promo-jsm-indomaret/"
     },
     {
       "judul": "Bean Spot Promo SUA HUT Alfamart — Beli 1 Gratis 1 Kopi Pilihan",
@@ -262,30 +197,69 @@
       "sumber": "https://www.instagram.com/reel/Deeb3LbhkU1/"
     },
     {
-      "judul": "Klik Indomaret TEBAR — Diskon s.d. 55% + Beli 1 Gratis 1 (HANYA HARI INI)",
-      "toko": "Klik Indomaret",
-      "kategori": "E-Commerce",
-      "jenis": "Lainnya",
-      "harga": "s.d. −55% + Beli 1 Gratis 1",
+      "judul": "Point Coffee x Binadigital — Diskon 50% Maks. Rp10.000 Tiap Hari",
+      "toko": "Point Coffee",
+      "kategori": "Kopi",
+      "jenis": "Minuman",
+      "harga": "Diskon 50% maks. Rp10.000",
       "normal": "",
-      "deskripsi": "TEBAR (Tengah Bulan Irit) Klik Indomaret khusus 16 Okt 2026: diskon hingga 55% dan Beli 1 Gratis 1 untuk produk pilihan, plus gratis ongkir 1 jam sampai. Belanja lewat aplikasi Klik Indomaret, bisa diakses dari Jepara dan diantar dari toko terdekat. HANYA HARI INI.",
-      "label_periode": "16 Okt 2026",
-      "berakhir": "2026-10-16",
+      "deskripsi": "Promo Binadigital 1–31 Okt: beli Point Coffee di dalam gerai Indomaret bayar pakai Kode Bayar Indomaret Binadigital, diskon 50% maks. Rp10.000, berlaku setiap hari, 1x transaksi/minggu/nasabah, kuota terbatas. Tidak berlaku di Point Coffee Gedhe, bandara, dan stasiun. Berlaku di Point Coffee dalam Indomaret Jepara.",
+      "label_periode": "1–31 Okt 2026",
+      "berakhir": "2026-10-31",
       "status": "Resmi",
-      "sumber": "https://www.instagram.com/p/DehXia6kzZQ/"
+      "sumber": "https://binadigital.id/promotions/diskon-50-persen-beli-point-coffee/"
     },
     {
-      "judul": "JSM Alfamart — Air Mineral 600ml 2 pcs Rp4.000",
+      "judul": "ShopeeFood — Mie Gacoan Rp1 via Live (HANYA HARI INI)",
+      "toko": "ShopeeFood",
+      "kategori": "Pesan Antar Online",
+      "jenis": "Pesan Antar Online",
+      "harga": "Rp1",
+      "normal": "",
+      "deskripsi": "Promo Mie Gacoan cuma Rp1 khusus pembelian lewat Live ShopeeFood, periode 19–21 Okt — berakhir HARI INI. Bukti komunitas: unggahan agregator @anakdiskonid (20 Okt). Pesan antar lewat aplikasi, ketersediaan resto & cakupan antar ke Jepara cek di aplikasi ShopeeFood.",
+      "label_periode": "19–21 Okt 2026",
+      "berakhir": "2026-10-21",
+      "status": "Komunitas",
+      "sumber": "https://www.instagram.com/p/Des5hA0Em-u/"
+    },
+    {
+      "judul": "Indomaret Coffee Gold Geng Hepi — 3 Minuman Rp33.000 (Selasa–Kamis)",
+      "toko": "Indomaret",
+      "kategori": "Kopi",
+      "jenis": "Minuman",
+      "harga": "3 pcs Rp33.000",
+      "normal": "",
+      "deskripsi": "Paket Geng Hepi 16–31 Okt, berlaku setiap Selasa–Kamis (hari ini Rabu, sedang berlaku): 3 minuman Coffee Gold Rp33.000 untuk pilihan Butterscotch Latte Hot, Dolce Latte, dan Hazelnut Chocolate Ice. Tidak berlaku di toko grand opening, rest area, bandara, stasiun, dan toko tertentu. Berlaku di Indomaret Jepara yang berpartisipasi.",
+      "label_periode": "16–31 Okt 2026 (Selasa–Kamis)",
+      "berakhir": "2026-10-31",
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/promo-indomaret-coffee-gold-geng-hepi-beli-3-rp33-000/"
+    },
+    {
+      "judul": "PWP Indomaret 22–28 Okt — Total Detergent 750g Tebus Rp8.900",
+      "toko": "Indomaret",
+      "kategori": "Minimarket",
+      "jenis": "Kebutuhan Rumah",
+      "harga": "Rp8.900",
+      "normal": "Rp17.500",
+      "deskripsi": "Periode PWP BARU mulai besok 22–28 Okt: belanja min. Rp75.000 dalam satu struk (berlaku kelipatan; kecuali rokok, susu bayi <1 th, tagihan, top-up, tarik tunai) bisa tebus Total Detergent Powder De Parfumee 750g Rp8.900 dari Rp17.500. Pilihan tebus lain di periode ini: Fortune Minyak Goreng 2L Rp36.800 dan Bango Kecap Manis 735ml Rp24.500. Program nasional, berlaku di Indomaret Jepara.",
+      "label_periode": "22–28 Okt 2026",
+      "berakhir": "2026-10-28",
+      "status": "Resmi",
+      "sumber": "https://hargacampur.com/promo-pwp-indomaret/"
+    },
+    {
+      "judul": "Alfamart Tebus Murah — Belanja Rp50.000 Tebus Produk Mulai Rp5.000",
       "toko": "Alfamart",
       "kategori": "Minimarket",
-      "jenis": "Minuman",
-      "harga": "2 pcs Rp4.000",
+      "jenis": "Lainnya",
+      "harga": "Tebus mulai Rp5.000",
       "normal": "",
-      "deskripsi": "JSM Alfamart 16–18 Okt: Alfamart Air Mineral 600ml 2 pcs Rp4.000 (setara Rp2.000 per botol). Program nasional akhir pekan, berlaku di Alfamart Jepara dan Alfagift.",
-      "label_periode": "16–18 Okt 2026",
-      "berakhir": "2026-10-18",
+      "deskripsi": "Program 16–31 Okt: belanja Rp50.000 bisa tebus 1 produk serba Rp5.000/Rp10.000/Rp15.000 (maks. 6 item, tidak berlaku kelipatan, varian tebus tidak boleh sama; kecuali rokok & susu bayi), termasuk bean! Spot Onigiri tebus Rp7.500. Bayar GoPay dapat cashback coins Rp2.000 untuk item tebus tertentu. Berlaku di seluruh Alfamart kecuali NTT dan gerai rest area/bandara/stasiun/pelabuhan — termasuk Alfamart Jepara.",
+      "label_periode": "16–31 Okt 2026",
+      "berakhir": "2026-10-31",
       "status": "Resmi",
-      "sumber": "https://hargacampur.com/katalog-promo-jsm-alfamart/"
+      "sumber": "https://katalogpromosi.com/promo-alfamart-tebus-murah-serba-mulai-rp5-000/"
     }
   ]
 }
