@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rumah TillRea — Rumahnya Tim AI Agent</title>
+<meta name="description" content="Rumah TillRea: denah dan ruang kerja tim AI agent Fikri — Muse (TillRea Agent), Hermes, Pi, dan bot hosting n8n — dengan status nyata dari VPS TillRea.">
+<link rel="canonical" href="https://rumah.tillrea.my.id/">
+<meta property="og:title" content="Rumah TillRea — Rumahnya Tim AI Agent">
+<meta property="og:description" content="Satu rumah untuk semua AI agent TillRea: siapa tinggal di ruangan mana, sedang apa, dan statusnya apa.">
+<meta property="og:url" content="https://rumah.tillrea.my.id/">
+<meta property="og:type" content="website">
+<link rel="icon" href="https://tillrea.my.id/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f7fb; --card:#ffffff; --accent:#6d28d9; --accent-dark:#5b21b6;
+    --accent-soft:#f3e8ff; --border:#e7e5f0; --text:#111827; --muted:#5f6b7a;
+    --ok:#16a34a; --ok-bg:#dcfce7; --warn:#b45309; --warn-bg:#fef3c7;
+    --idle:#64748b; --idle-bg:#e2e8f0; --roof:#6d28d9; --wall:#ede9fe;
+  }
+  [data-theme="dark"]{
+    --bg:#0f1117; --card:#171a23; --accent:#a78bfa; --accent-dark:#c4b5fd;
+    --accent-soft:#2a2145; --border:#262b3a; --text:#eef0f6; --muted:#9aa3b5;
+    --ok:#4ade80; --ok-bg:#14532d; --warn:#fbbf24; --warn-bg:#453309;
+    --idle:#94a3b8; --idle-bg:#1e293b; --roof:#4c1d95; --wall:#1d1830;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+  a{color:var(--accent)}
+  header{background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}
+  .header-in{max-width:1140px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:13px}
+  .logo-tile{width:42px;height:42px;flex:none;border-radius:12px;background:linear-gradient(145deg,#7c3aed,#4c1d95);color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(109,40,217,.35)}
+  .header-in h1{font-size:19px;font-weight:800;margin:0;letter-spacing:-.2px}
+  .header-in p{color:var(--muted);font-size:12.5px;margin:1px 0 0}
+  .hbtn{margin-left:auto;flex:none;font:inherit;font-size:13px;font-weight:600;color:var(--accent);background:var(--accent-soft);border:0;padding:8px 13px;border-radius:999px;cursor:pointer;text-decoration:none}
+  .hbtn + .hbtn{margin-left:8px}
+  main{max-width:1140px;margin:0 auto;padding:26px 16px 40px}
+  .hero{text-align:center;padding:14px 6px 6px}
+  .hero h2{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.6px;margin:0 0 10px}
+  .hero h2 em{font-style:normal;color:var(--accent)}
+  .hero p{color:var(--muted);max-width:640px;margin:0 auto 16px;font-size:15.5px}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:600;color:var(--muted)}
+  .pill .dot{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+  section{margin-top:34px}
+  .sec-title{font-size:13px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+  /* ===== Denah rumah ===== */
+  .house{max-width:860px;margin:0 auto}
+  .roof{height:74px;background:linear-gradient(145deg,#7c3aed,var(--roof));clip-path:polygon(50% 0,100% 100%,0 100%);margin:0 26px}
+  .house-body{background:var(--wall);border:1px solid var(--border);border-top:0;border-radius:0 0 20px 20px;padding:16px}
+  .rooms{display:grid;grid-template-columns:1fr;gap:12px}
+  @media(min-width:720px){.rooms{grid-template-columns:1fr 1fr}}
+  .room{font:inherit;text-align:left;background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:16px;cursor:pointer;display:flex;gap:13px;align-items:flex-start;color:var(--text);transition:border-color .15s,transform .15s;width:100%}
+  .room:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .room.sel{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .avatar{width:46px;height:46px;flex:none;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff}
+  .room h3{margin:0;font-size:15px}
+  .room .who{color:var(--muted);font-size:12.5px;margin:2px 0 8px}
+  .badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px}
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+  .badge.ok{background:var(--ok-bg);color:var(--ok)}
+  .badge.warn{background:var(--warn-bg);color:var(--warn)}
+  .badge.idle{background:var(--idle-bg);color:var(--idle)}
+  /* ===== Ruang kerja agent (ala MausBot) ===== */
+  .layout{display:grid;grid-template-columns:1fr;gap:18px;align-items:start}
+  @media(min-width:960px){.layout{grid-template-columns:340px 1fr;gap:22px}}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:0 1px 3px rgba(17,24,39,.05)}
+  .card>h2{font-size:13px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+  .agent-item{font:inherit;width:100%;display:flex;gap:12px;align-items:center;text-align:left;background:transparent;border:1.5px solid transparent;border-radius:14px;padding:11px 12px;cursor:pointer;color:var(--text)}
+  .agent-item:hover{background:var(--accent-soft)}
+  .agent-item.sel{background:var(--accent-soft);border-color:var(--accent)}
+  .agent-item .avatar{width:42px;height:42px;border-radius:12px;font-size:14px}
+  .agent-item b{display:block;font-size:14.5px}
+  .agent-item span{display:block;color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:190px}
+  .agent-item .badge{margin-left:auto;flex:none}
+  .detail h3{font-size:22px;font-weight:800;margin:0 0 2px;letter-spacing:-.3px}
+  .detail .role{color:var(--accent);font-weight:700;font-size:14px;margin:0 0 12px}
+  .detail .desc{color:var(--muted);font-size:14.5px;margin:0 0 16px}
+  .kv{display:grid;grid-template-columns:1fr;gap:10px}
+  @media(min-width:640px){.kv{grid-template-columns:1fr 1fr}}
+  .kv div{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:11px 13px}
+  .kv b{display:block;font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+  .kv span{font-size:13.5px;font-weight:600;word-break:break-word}
+  .note{margin-top:14px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 12px 12px 0;padding:11px 14px;font-size:13.5px}
+  .note b{display:block;margin-bottom:2px}
+  /* ===== Fasilitas & alur ===== */
+  .grid{display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:1020px){.grid.f4{grid-template-columns:repeat(4,1fr)} .grid.f3{grid-template-columns:repeat(3,1fr)}}
+  .fac h3{margin:0 0 5px;font-size:15px}
+  .fac p{margin:0;color:var(--muted);font-size:13.5px}
+  .fac .badge{margin-bottom:9px}
+  .step{text-align:left}
+  .step .num{width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-bottom:9px}
+  .road{opacity:.95}
+  .road .done{color:var(--ok);font-weight:800}
+  footer{border-top:1px solid var(--border);margin-top:44px;padding:22px 16px;text-align:center;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-in">
+    <div class="logo-tile">T</div>
+    <div>
+      <h1>Rumah TillRea</h1>
+      <p>rumah.tillrea.my.id — rumahnya tim AI agent</p>
+    </div>
+    <button class="hbtn" id="themeBtn" type="button">🌙 Mode malam</button>
+    <a class="hbtn" href="https://tillrea.my.id/">← Lobi</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <h2>Semua agent-ku, <em>satu rumah.</em></h2>
+    <p>Terinspirasi konsep MausBot — “rumah untuk tim AI-mu” — tapi isinya bukan pajangan: ini tim AI asli yang menjalankan TillRea dari VPS, lengkap dengan ruangan, pekerjaan, dan status nyatanya.</p>
+    <span class="pill"><span class="dot"></span> Status snapshot — dicek langsung dari VPS · 23 Okt 2026, 00:30 WIB</span>
+  </div>
+
+  <section>
+    <h2 class="sec-title">🏠 Denah rumah — klik ruangannya</h2>
+    <div class="house">
+      <div class="roof"></div>
+      <div class="house-body">
+        <div class="rooms" id="rooms"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec-title">💬 Ruang kerja — daftar penghuni</h2>
+    <div class="layout">
+      <div class="card">
+        <h2>Tim Agent</h2>
+        <div id="agentList"></div>
+      </div>
+      <div class="card detail" id="detail"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec-title">🔌 Dapur &amp; penjaga rumah</h2>
+    <div class="grid f4">
+      <div class="card fac">
+        <span class="badge ok"><span class="dot"></span>Aktif</span>
+        <h3>🍳 9Router — Dapur Model</h3>
+        <p>Penghubung model-model AI di rumah ini. Dasbornya hidup di <a href="https://9router.tillrea.my.id/">9router.tillrea.my.id</a> dan layanannya merespons normal di VPS.</p>
+      </div>
+      <div class="card fac">
+        <span class="badge ok"><span class="dot"></span>Aktif</span>
+        <h3>⚙️ n8n — Ruang Mesin</h3>
+        <p>Mesin otomasi di balik bot hosting dan workflow Telegram. Berjalan lokal di VPS, terhubung ke tunnel publik.</p>
+      </div>
+      <div class="card fac">
+        <span class="badge ok"><span class="dot"></span>Aktif</span>
+        <h3>🛡️ Para Penjaga — Pos Satpam</h3>
+        <p>Keeper hosting mengecek rumah tiap 2 menit; penjaga sistem, 9Router, dan tunnel SSH berjaga otomatis dan melaporkan setiap kegagalan total ke Fikri.</p>
+      </div>
+      <div class="card fac">
+        <span class="badge ok"><span class="dot"></span>Aktif</span>
+        <h3>📚 Markas TillRea — Perpustakaan</h3>
+        <p>Vault Obsidian berisi ingatan &amp; catatan bersama tim — diperbarui dan diunggah otomatis tiap malam pukul 21:00 WIB.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec-title">🧭 Cara tim ini bekerja</h2>
+    <div class="grid f4">
+      <div class="card step"><div class="num">1</div><h3 style="margin:0 0 5px;font-size:15px">Fikri memberi arah</h3><p style="margin:0;color:var(--muted);font-size:13.5px">Keputusan besar tetap di pemilik rumah: kirim ke luar, perubahan produksi besar, uang, dan akses baru.</p></div>
+      <div class="card step"><div class="num">2</div><h3 style="margin:0 0 5px;font-size:15px">Muse mengatur kerja</h3><p style="margin:0;color:var(--muted);font-size:13.5px">TillRea Agent berperan seperti CEO: membagi tugas, menulis kode sendiri, dan memverifikasi semua hasil.</p></div>
+      <div class="card step"><div class="num">3</div><h3 style="margin:0 0 5px;font-size:15px">Spesialis mengerjakan</h3><p style="margin:0;color:var(--muted);font-size:13.5px">Pi mengaudit, bot n8n melayani hosting, Hermes disiapkan jadi spesialis Telegram yang belajar.</p></div>
+      <div class="card step"><div class="num">4</div><h3 style="margin:0 0 5px;font-size:15px">Hasil diverifikasi</h3><p style="margin:0;color:var(--muted);font-size:13.5px">Tidak ada hasil mentah yang langsung sampai ke Fikri — semua dicek dulu oleh Muse.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec-title">🗺️ Rencana rumah ini</h2>
+    <div class="grid f3">
+      <div class="card road"><p style="margin:0"><span class="done">✓ Fase 1 — sekarang</span><br><span style="color:var(--muted);font-size:13.5px">Denah rumah + profil penghuni + status snapshot yang dicek manual dari VPS.</span></p></div>
+      <div class="card road"><p style="margin:0"><b>Fase 2 — berikutnya</b><br><span style="color:var(--muted);font-size:13.5px">Status live otomatis dari layanan rumah (agent menyala / standby / dorman), tanpa snapshot manual.</span></p></div>
+      <div class="card road"><p style="margin:0"><b>Fase 3 — dievaluasi</b><br><span style="color:var(--muted);font-size:13.5px">Chat &amp; tombol setujui/tolak langsung dari rumah ini, plus hasil evaluasi MausBot asli (OpenMausBot).</span></p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Rumah TillRea · Dibangun 23 Oktober 2026 oleh TillRea Agent untuk Fikri Hikam A.<br>
+  Konsep “rumah tim AI” terinspirasi MausBot (OpenMausBot, open-source) — situs ini bukan bagian dari proyek tersebut.
+</footer>
+
+<script>
+const AGENTS = [
+  {
+    id:"muse", initials:"TR", color:"#6d28d9", room:"Ruang Komando", roomIcon:"🎛️",
+    name:"TillRea Agent", alias:"Muse — penghuni utama",
+    status:"ok", statusLabel:"Aktif sekarang",
+    role:"CEO & otak utama rumah ini",
+    desc:"Agent pribadi Fikri yang menjalankan seluruh operasi TillRea dari VPS: membangun situs, mengelola hosting, membagi tugas ke agent lain, dan memverifikasi setiap hasil sebelum sampai ke Fikri.",
+    kv:{ "Sedang dikerjakan":"Membangun Rumah TillRea ini", "Mesin":"Muse Spark (Meta)", "Kanal":"WhatsApp & web Muse", "Tempat tinggal":"VPS TillRea (utama)" },
+    noteTitle:"Catatan jujur", note:"Penghuni yang sedang kamu ajak bicara membaca halaman ini juga. Semua kode rumah ini ditulis langsung oleh Muse, bukan dilempar ke agent lain."
+  },
+  {
+    id:"hermes", initials:"HM", color:"#0ea5e9", room:"Kamar Belajar", roomIcon:"📖",
+    name:"Hermes", alias:"@TillRea_Bot — spesialis Telegram",
+    status:"warn", statusLabel:"Menyala · otak dorman",
+    role:"Calon mesin yang belajar",
+    desc:"Hermes Agent (Nous Research) — agent yang dirancang menulis skill-nya sendiri dan belajar dari pekerjaannya, persis seperti di konsep MausBot + Hermes. Gateway-nya menyala di VPS dan Telegram-nya terhubung.",
+    kv:{ "Status gateway":"Berjalan — Telegram terhubung", "Mesin saat ini":"9Router, combo muse/muse", "Prompt":"HERMES v1.0 — sudah terpasang", "Kanal":"Telegram @TillRea_Bot" },
+    noteTitle:"Kenapa “dorman”?", note:"Diagnosis 13 Okt 2026 membuktikan combo 9Router saat ini menelan system prompt Hermes, jadi kepribadian & skill-nya belum berpengaruh. Mengaktifkannya butuh keputusan Fikri: pindah ke model mentah (raw model) — itu juga akan mengaktifkan tool aslinya via Telegram."
+  },
+  {
+    id:"pi", initials:"PI", color:"#f59e0b", room:"Ruang Arsip & Audit", roomIcon:"🔍",
+    name:"Pi", alias:"Auditor — anak buah Muse",
+    status:"idle", statusLabel:"Standby",
+    role:"Auditor read-only tim",
+    desc:"Agent pekerja yang menerima tugas terbatas dari Muse: memeriksa file dan situs secara read-only lalu menulis laporan audit. Hasilnya tidak pernah langsung dipakai — selalu diverifikasi Muse dulu.",
+    kv:{ "Model utama":"Nemotron 3 Super 120B (gratis)", "Model cadangan":"MiniMax M3.1 Flash (gratis)", "Penyedia":"OpenRouter", "Wewenang":"Audit saja — tanpa menulis kode" },
+    noteTitle:"Riwayat keputusan", note:"Sejak 21 Okt 2026 peran Pi dipersempit Fikri menjadi audit saja, setelah hasil bangunannya dinilai kurang proper. Semua penulisan kode dikerjakan Muse sendiri."
+  },
+  {
+    id:"n8nbot", initials:"NV", color:"#ec4899", room:"Ruang Tamu & Loket Hosting", roomIcon:"🎁",
+    name:"TillReaVPS Bot", alias:"Bot hosting — digerakkan n8n",
+    status:"ok", statusLabel:"Aktif",
+    role:"Penerima tamu & deployer pameran",
+    desc:"Bot Telegram publik untuk layanan hosting TillRea: menerima pengajuan subdomain dan file ZIP dari tamu, lalu men-deploy-nya jadi situs pameran secara otomatis dengan kontrol akses per pengirim.",
+    kv:{ "Mesin":"n8n (berjalan, sehat)", "Kanal":"Telegram @TillReaVPS_bot", "Tamu pertama":"Farhan Ariyadi (7 Okt 2026)", "Situs tamu perdana":"cpi.tillrea.my.id — Maulana" },
+    noteTitle:"Aturan main", note:"Bot ini yang menghadap publik. Bot pribadi Fikri adalah Hermes (@TillRea_Bot) — keduanya sengaja dipisah sejak awal."
+  }
+];
+
+const roomsEl = document.getElementById('rooms');
+const listEl = document.getElementById('agentList');
+const detailEl = document.getElementById('detail');
+
+function badge(a){ return '<span class="badge '+a.status+'"><span class="dot"></span>'+a.statusLabel+'</span>'; }
+
+function renderRooms(sel){
+  roomsEl.innerHTML = AGENTS.map(a =>
+    '<button type="button" class="room'+(a.id===sel?' sel':'')+'" data-id="'+a.id+'">' +
+    '<span class="avatar" style="background:'+a.color+'">'+a.initials+'</span>' +
+    '<span><h3>'+a.roomIcon+' '+a.room+'</h3>' +
+    '<p class="who">'+a.name+' — '+a.role+'</p>' + badge(a) + '</span></button>'
+  ).join('');
+}
+function renderList(sel){
+  listEl.innerHTML = AGENTS.map(a =>
+    '<button type="button" class="agent-item'+(a.id===sel?' sel':'')+'" data-id="'+a.id+'">' +
+    '<span class="avatar" style="background:'+a.color+'">'+a.initials+'</span>' +
+    '<span><b>'+a.name+'</b><span>'+a.alias+'</span></span>' + badge(a) + '</button>'
+  ).join('');
+}
+function renderDetail(a){
+  const kv = Object.entries(a.kv).map(([k,v]) => '<div><b>'+k+'</b><span>'+v+'</span></div>').join('');
+  detailEl.innerHTML =
+    '<h2>Ruang '+a.room.replace(/^Ruang /,'')+' · '+a.roomIcon+'</h2>' +
+    '<h3>'+a.name+'</h3><p class="role">'+a.role+'</p>' +
+    '<p>'+badge(a)+'</p><p class="desc">'+a.desc+'</p>' +
+    '<div class="kv">'+kv+'</div>' +
+    '<div class="note"><b>'+a.noteTitle+'</b>'+a.note+'</div>';
+}
+function select(id){
+  const a = AGENTS.find(x => x.id===id) || AGENTS[0];
+  renderRooms(a.id); renderList(a.id); renderDetail(a);
+  document.querySelectorAll('[data-id]').forEach(el =>
+    el.addEventListener('click', () => select(el.getAttribute('data-id'))));
+}
+select('muse');
+
+/* Mode malam — mengikuti kebiasaan keluarga situs TillRea */
+const themeBtn = document.getElementById('themeBtn');
+function applyTheme(t){
+  if(t==='dark'){ document.documentElement.setAttribute('data-theme','dark'); themeBtn.textContent='☀️ Mode terang'; }
+  else { document.documentElement.removeAttribute('data-theme'); themeBtn.textContent='🌙 Mode malam'; }
+}
+applyTheme(localStorage.getItem('rumah-theme') || 'light');
+themeBtn.addEventListener('click', () => {
+  const next = document.documentElement.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
+  localStorage.setItem('rumah-theme', next); applyTheme(next);
+});
+</script>
+</body>
+</html>
