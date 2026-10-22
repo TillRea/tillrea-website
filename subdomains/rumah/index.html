@@ -18,12 +18,14 @@
     --accent-soft:#f3e8ff; --border:#e7e5f0; --text:#111827; --muted:#5f6b7a;
     --ok:#16a34a; --ok-bg:#dcfce7; --warn:#b45309; --warn-bg:#fef3c7;
     --idle:#64748b; --idle-bg:#e2e8f0; --roof:#6d28d9; --wall:#ede9fe;
+    --off:#dc2626; --off-bg:#fee2e2;
   }
   [data-theme="dark"]{
     --bg:#0f1117; --card:#171a23; --accent:#a78bfa; --accent-dark:#c4b5fd;
     --accent-soft:#2a2145; --border:#262b3a; --text:#eef0f6; --muted:#9aa3b5;
     --ok:#4ade80; --ok-bg:#14532d; --warn:#fbbf24; --warn-bg:#453309;
     --idle:#94a3b8; --idle-bg:#1e293b; --roof:#4c1d95; --wall:#1d1830;
+    --off:#f87171; --off-bg:#450a0a;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
@@ -61,6 +63,7 @@
   .badge.ok{background:var(--ok-bg);color:var(--ok)}
   .badge.warn{background:var(--warn-bg);color:var(--warn)}
   .badge.idle{background:var(--idle-bg);color:var(--idle)}
+  .badge.off{background:var(--off-bg);color:var(--off)}
   /* ===== Ruang kerja agent (ala MausBot) ===== */
   .layout{display:grid;grid-template-columns:1fr;gap:18px;align-items:start}
   @media(min-width:960px){.layout{grid-template-columns:340px 1fr;gap:22px}}
@@ -114,7 +117,7 @@
   <div class="hero">
     <h2>Semua agent-ku, <em>satu rumah.</em></h2>
     <p>Terinspirasi konsep MausBot — “rumah untuk tim AI-mu” — tapi isinya bukan pajangan: ini tim AI asli yang menjalankan TillRea dari VPS, lengkap dengan ruangan, pekerjaan, dan status nyatanya.</p>
-    <span class="pill"><span class="dot"></span> Status snapshot — dicek langsung dari VPS · 23 Okt 2026, 00:30 WIB</span>
+    <span class="pill"><span class="dot"></span> <span id="statusPill">Status live — diperbarui otomatis tiap ±5 menit dari VPS</span></span>
   </div>
 
   <section>
@@ -142,17 +145,17 @@
     <h2 class="sec-title">🔌 Dapur &amp; penjaga rumah</h2>
     <div class="grid f4">
       <div class="card fac">
-        <span class="badge ok"><span class="dot"></span>Aktif</span>
+        <span class="badge ok" data-fac="router"><span class="dot"></span>Aktif</span>
         <h3>🍳 9Router — Dapur Model</h3>
         <p>Penghubung model-model AI di rumah ini. Dasbornya hidup di <a href="https://9router.tillrea.my.id/">9router.tillrea.my.id</a> dan layanannya merespons normal di VPS.</p>
       </div>
       <div class="card fac">
-        <span class="badge ok"><span class="dot"></span>Aktif</span>
+        <span class="badge ok" data-fac="n8n"><span class="dot"></span>Aktif</span>
         <h3>⚙️ n8n — Ruang Mesin</h3>
         <p>Mesin otomasi di balik bot hosting dan workflow Telegram. Berjalan lokal di VPS, terhubung ke tunnel publik.</p>
       </div>
       <div class="card fac">
-        <span class="badge ok"><span class="dot"></span>Aktif</span>
+        <span class="badge ok" data-fac="penjaga"><span class="dot"></span>Aktif</span>
         <h3>🛡️ Para Penjaga — Pos Satpam</h3>
         <p>Keeper hosting mengecek rumah tiap 2 menit; penjaga sistem, 9Router, dan tunnel SSH berjaga otomatis dan melaporkan setiap kegagalan total ke Fikri.</p>
       </div>
@@ -177,9 +180,9 @@
   <section>
     <h2 class="sec-title">🗺️ Rencana rumah ini</h2>
     <div class="grid f3">
-      <div class="card road"><p style="margin:0"><span class="done">✓ Fase 1 — sekarang</span><br><span style="color:var(--muted);font-size:13.5px">Denah rumah + profil penghuni + status snapshot yang dicek manual dari VPS.</span></p></div>
-      <div class="card road"><p style="margin:0"><b>Fase 2 — berikutnya</b><br><span style="color:var(--muted);font-size:13.5px">Status live otomatis dari layanan rumah (agent menyala / standby / dorman), tanpa snapshot manual.</span></p></div>
-      <div class="card road"><p style="margin:0"><b>Fase 3 — dievaluasi</b><br><span style="color:var(--muted);font-size:13.5px">Chat &amp; tombol setujui/tolak langsung dari rumah ini, plus hasil evaluasi MausBot asli (OpenMausBot).</span></p></div>
+      <div class="card road"><p style="margin:0"><span class="done">✓ Fase 1 — selesai 23 Okt 2026</span><br><span style="color:var(--muted);font-size:13.5px">Denah rumah + profil penghuni + status snapshot yang dicek manual dari VPS.</span></p></div>
+      <div class="card road"><p style="margin:0"><span class="done">✓ Fase 2 — selesai 23 Okt 2026</span><br><span style="color:var(--muted);font-size:13.5px">Status live otomatis: penjaga status mengecek layanan rumah tiap ±5 menit dan halaman ini menampilkannya. Evaluasi MausBot asli juga tuntas — penghuni kelima, Atlas, tinggal di Paviliun Laptop.</span></p></div>
+      <div class="card road"><p style="margin:0"><b>Fase 3 — berikutnya</b><br><span style="color:var(--muted);font-size:13.5px">Chat &amp; tombol setujui/tolak langsung dari rumah ini, menyambungkan halaman ini ke para penghuninya.</span></p></div>
     </div>
   </section>
 </main>
@@ -226,6 +229,15 @@ const AGENTS = [
     desc:"Bot Telegram publik untuk layanan hosting TillRea: menerima pengajuan subdomain dan file ZIP dari tamu, lalu men-deploy-nya jadi situs pameran secara otomatis dengan kontrol akses per pengirim.",
     kv:{ "Mesin":"n8n (berjalan, sehat)", "Kanal":"Telegram @TillReaVPS_bot", "Tamu pertama":"Farhan Ariyadi (7 Okt 2026)", "Situs tamu perdana":"cpi.tillrea.my.id — Maulana" },
     noteTitle:"Aturan main", note:"Bot ini yang menghadap publik. Bot pribadi Fikri adalah Hermes (@TillRea_Bot) — keduanya sengaja dipisah sejak awal."
+  },
+  {
+    id:"atlas", initials:"AT", color:"#14b8a6", room:"Paviliun Laptop", roomIcon:"💻",
+    name:"Atlas", alias:"Bot MausBot — di laptop Fikri",
+    status:"idle", statusLabel:"Di laptop Fikri · tidak dipantau VPS",
+    role:"Penghuni cabang laptop (MausBot + Hermes)",
+    desc:"Penghuni terbaru, hasil evaluasi MausBot asli (OpenMausBot) yang dinyatakan berhasil pada 23 Okt 2026: sebuah bot bernama TillRea dengan persona Atlas, berjalan di aplikasi MausBot pada laptop Lenovo LOQ milik Fikri dan digerakkan Hermes Agent v0.21.4 setempat.",
+    kv:{ "Model":"ornith/ornith-1.5-122b:free (Nous)", "Mesin":"Hermes v0.21.4 di laptop", "Tempat tinggal":"Laptop Fikri (Windows)", "Terhubung":"23 Okt 2026 — tes chat lulus" },
+    noteTitle:"Beda rumah, satu tim", note:"Atlas hidup hanya saat laptop menyala — kebalikan penghuni VPS yang selalu-on. Statusnya di halaman ini tidak dipantau otomatis dari VPS; terakhir dilaporkan Fikri berhasil menjawab pada 23 Okt 2026 dini hari."
   }
 ];
 
@@ -261,11 +273,28 @@ function renderDetail(a){
 }
 function select(id){
   const a = AGENTS.find(x => x.id===id) || AGENTS[0];
+  window._selId = a.id;
   renderRooms(a.id); renderList(a.id); renderDetail(a);
   document.querySelectorAll('[data-id]').forEach(el =>
     el.addEventListener('click', () => select(el.getAttribute('data-id'))));
 }
 select('muse');
+
+/* ===== Fase 2: status live dari status.json (diperbarui penjaga tiap ±5 menit) ===== */
+fetch('status.json', {cache:'no-store'}).then(r => r.ok ? r.json() : null).then(d => {
+  if(!d) return;
+  AGENTS.forEach(a => {
+    const s = (d.agents || {})[a.id];
+    if(s){ a.status = s.status; a.statusLabel = s.label; }
+  });
+  document.querySelectorAll('[data-fac]').forEach(el => {
+    const f = (d.facilities || {})[el.getAttribute('data-fac')];
+    if(f){ el.className = 'badge ' + f.status; el.innerHTML = '<span class="dot"></span>' + f.label; }
+  });
+  const pill = document.getElementById('statusPill');
+  if(pill) pill.textContent = 'Status live · terakhir dicek otomatis ' + d.updated_at;
+  select(window._selId || 'muse');
+}).catch(() => {});
 
 /* Mode malam — mengikuti kebiasaan keluarga situs TillRea */
 const themeBtn = document.getElementById('themeBtn');
