@@ -1,5 +1,5 @@
 {
-  "diperbarui": "2026-10-22",
+  "diperbarui": "2026-10-23",
   "promo": [
     {
       "berakhir": null,
@@ -55,7 +55,7 @@
     },
     {
       "berakhir": "2026-10-31",
-      "deskripsi": "Rangkaian promo Point Coffee (Indomaret) sepanjang Oktober 2026. I Like Monday: diskon hingga 50% menu pilihan tiap Senin (Senin berikutnya 19 Okt), beli langsung, tidak berlaku di toko grand opening/bandara/rest area/stasiun. Berlaku di Point Coffee Jepara.",
+      "deskripsi": "Rangkaian promo Point Coffee (Indomaret) sepanjang Oktober 2026. I Like Monday: diskon hingga 50% menu pilihan tiap Senin (Senin berikutnya 26 Okt), beli langsung, tidak berlaku di toko grand opening/bandara/rest area/stasiun. Berlaku di Point Coffee Jepara.",
       "harga": "s.d. −50% tiap Senin",
       "judul": "Point Coffee — Spesial Oktober & I Like Monday s.d. 50%",
       "kategori": "Kopi",
@@ -120,14 +120,14 @@
     },
     {
       "berakhir": null,
-      "deskripsi": "Untuk startup berusia ≤5 tahun atau yang dapat pendanaan ≤2 tahun terakhir (bootstrap boleh). Catatan: per 10 Okt benefit utamanya dilaporkan berstatus 'paused' untuk pendaftar baru — cek halaman resmi program sebelum mendaftar.",
+      "deskripsi": "Untuk startup berusia ≤5 tahun atau yang dapat pendanaan ≤2 tahun terakhir (bootstrap boleh). UPDATE 23 Okt: pendaftaran pendaftar baru DITUTUP — kohort penuh per 13–15 Okt (benefit Team 12 bln + kredit $1.000 di-pause); kredit s.d. $100.000 kini hanya via partner VC. Jangan daftar dulu sampai kohort baru dibuka.",
       "harga": "Gratis 12 bulan",
       "judul": "Claude for Startups — Claude Team 12 Bulan + Kredit API $1.000",
       "kategori": "AI Gratis",
       "label_periode": "Program berjalan",
       "normal": "",
       "status": "Resmi",
-      "sumber": "https://blog.laozhang.ai/en/posts/claude-for-startups",
+      "sumber": "https://reconscribe.com/free-credits/ai-api/",
       "toko": "Anthropic",
       "jenis": "AI Gratis"
     },
@@ -203,7 +203,7 @@
       "jenis": "Minuman",
       "harga": "3 pcs Rp33.000",
       "normal": "",
-      "deskripsi": "Paket Geng Hepi 16–31 Okt, berlaku setiap Selasa–Kamis (hari ini Kamis, sedang berlaku): 3 minuman Coffee Gold Rp33.000 untuk pilihan Butterscotch Latte Hot, Dolce Latte, dan Hazelnut Chocolate Ice. Tidak berlaku di toko grand opening, rest area, bandara, stasiun, dan toko tertentu. Berlaku di Indomaret Jepara yang berpartisipasi.",
+      "deskripsi": "Paket Geng Hepi 16–31 Okt, berlaku setiap Selasa–Kamis (hari ini Jumat: jeda, lanjut Selasa 27 Okt): 3 minuman Coffee Gold Rp33.000 untuk pilihan Butterscotch Latte Hot, Dolce Latte, dan Hazelnut Chocolate Ice. Tidak berlaku di toko grand opening, rest area, bandara, stasiun, dan toko tertentu. Berlaku di Indomaret Jepara yang berpartisipasi.",
       "label_periode": "16–31 Okt 2026 (Selasa–Kamis)",
       "berakhir": "2026-10-31",
       "status": "Resmi",
@@ -255,11 +255,76 @@
       "jenis": "Makanan",
       "harga": "s.d. −50% / 3 pcs Rp10.000",
       "normal": "",
-      "deskripsi": "Mulai besok 23–25 Okt, khusus member Poinku: Golden Farm Potato Nugget 750g hemat 50% dan Glico Wings Frost Bite 90ml 3 pcs Rp10.000. Program nasional, berlaku di Indomaret Jepara untuk member Poinku. Item Beli 2 Gratis 1 di periode yang sama (Aice Cup, Pir Segar) di-skip sesuai saringan.",
+      "deskripsi": "23–25 Okt (Jumat–Minggu), khusus member Poinku: Golden Farm Potato Nugget 750g hemat 50% dan Glico Wings Frost Bite 90ml 3 pcs Rp10.000. Program nasional, berlaku di Indomaret Jepara untuk member Poinku. Item Beli 2 Gratis 1 di periode yang sama (Aice Cup, Pir Segar) di-skip sesuai saringan.",
       "label_periode": "23–25 Okt 2026",
       "berakhir": "2026-10-25",
       "status": "Resmi",
       "sumber": "https://hargacampur.com/katalog-promo-jsm-indomaret/"
+    },
+    {
+      "judul": "Glico Frost Bite Mochi — Beli 4 Rp10.000",
+      "toko": "Alfamart",
+      "kategori": "Minimarket",
+      "jenis": "Makanan",
+      "harga": "Rp10.000 / 4 pcs",
+      "normal": "",
+      "deskripsi": "Ice Cream Carnaval Alfamart 16–31 Okt: Glico Frost Bite mochi semua varian, beli 4 hanya Rp10.000. Catatan: versi Indomaret (JSM 14–20 Okt) sudah berakhir — yang ini program Alfamart, masih jalan s.d. 31 Okt. Program nasional, berlaku di Alfamart Jepara.",
+      "label_periode": "16–31 Okt 2026",
+      "berakhir": "2026-10-31",
+      "status": "Resmi",
+      "sumber": "https://www.instagram.com/p/DeynFSkATFl/"
+    },
+    {
+      "judul": "Belfoods Royal Chicken Stick 470g — Beli 1 Gratis 1",
+      "toko": "Indomaret",
+      "kategori": "Minimarket",
+      "jenis": "Makanan",
+      "harga": "Beli 1 Gratis 1",
+      "normal": "",
+      "deskripsi": "Frozen Fever Payday Sale 20 Okt–2 Nov: Belfoods Royal Chicken Stick 470g Beli 1 Gratis 1. Catatan pamflet: 'berlaku di toko tertentu' — cek Indomaret Jepara terdekat.",
+      "label_periode": "20 Okt–2 Nov 2026",
+      "berakhir": "2026-11-02",
+      "status": "Komunitas",
+      "sumber": "https://www.instagram.com/p/De0HxKGkwpS/"
+    },
+    {
+      "judul": "BCA The New Gacha Berhadiah — Voucher Belanja Indomaret/Alfamart",
+      "toko": "BCA",
+      "kategori": "Voucher & Gratis",
+      "jenis": "Voucher & Gratis",
+      "harga": "GRATIS (main gacha)",
+      "normal": "",
+      "deskripsi": "Program resmi BCA 1 Jul 2026–31 Jan 2027: nasabah Tahapan BCA/Xpresi/Gold kumpulkan poin dari transaksi & menabung, 20 poin = 1x main Flying Gacha (maks 10x/hari) via myBCA; hadiah langsung termasuk ribuan voucher belanja. Bukti komunitas: warganet memenangkan voucher Indomaret Rp50.000 (14 Okt) serta Alfamart Rp50.000/Rp25.000. Voucher bisa dipakai di gerai Jepara.",
+      "label_periode": "1 Jul 2026–31 Jan 2027",
+      "berakhir": "2027-01-31",
+      "status": "Resmi",
+      "sumber": "https://www.harianbasis.co/bca-program-new-gacha-berhadiah"
+    },
+    {
+      "judul": "Bean Spot — Beli Kopi, Tebus SilverQueen Rp5.900",
+      "toko": "Alfamart / Bean Spot",
+      "kategori": "Kopi",
+      "jenis": "Minuman",
+      "harga": "Rp5.900 (tebus)",
+      "normal": "",
+      "deskripsi": "1–31 Okt: beli kopi Bean Spot semua varian bisa tebus murah SilverQueen Cashew/Almond (edisi Spooktopia) Rp5.900. Bukti foto table tent di gerai Alfamart — label Komunitas; cek di Alfamart ber-Bean Spot di Jepara.",
+      "label_periode": "1–31 Okt 2026",
+      "berakhir": "2026-10-31",
+      "status": "Komunitas",
+      "sumber": "https://www.facebook.com/groups/996951724153287/permalink/2688840261631083/"
+    },
+    {
+      "judul": "Ultra Voucher — Diskon s.d. 50% Voucher via MyTelkomsel",
+      "toko": "Ultra Voucher / MyTelkomsel",
+      "kategori": "Voucher & Gratis",
+      "jenis": "Voucher & Gratis",
+      "harga": "s.d. −50%",
+      "normal": "",
+      "deskripsi": "22–31 Okt: diskon s.d. 50% untuk voucher 14 brand di aplikasi MyTelkomsel, termasuk Alfamart, Indomaret, Shopee, GoPay, GrabGifts. Voucher minimarketnya bisa dipakai di gerai Jepara. Catatan: 's.d. 50%' — tidak semua brand 50%, cek harga per voucher di aplikasi.",
+      "label_periode": "22–31 Okt 2026",
+      "berakhir": "2026-10-31",
+      "status": "Resmi",
+      "sumber": "https://www.instagram.com/p/DeyYVrCyD2y/"
     }
   ]
 }
