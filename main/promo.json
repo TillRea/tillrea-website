@@ -1,5 +1,5 @@
 {
-  "diperbarui": "2026-10-23",
+  "diperbarui": "2026-10-24",
   "promo": [
     {
       "berakhir": null,
@@ -93,12 +93,12 @@
       "jenis": "Minuman"
     },
     {
-      "berakhir": null,
-      "deskripsi": "Promo seri KLAVA dari Eskopi Indonesia: beli satu minuman, bisa bawa pulang dua.",
+      "berakhir": "2026-11-30",
+      "deskripsi": "Terkonfirmasi berjalan 1 Okt–30 Nov 2026 via akun resmi @eskopiindonesiaofficial. Promo seri KLAVA dari Eskopi Indonesia: beli satu minuman, bisa bawa pulang dua.",
       "harga": "Beli 1 Gratis 1",
       "judul": "Eskopi KLAVA — Beli Satu Bawa Pulang Dua",
       "kategori": "Kopi",
-      "label_periode": "Sedang berjalan",
+      "label_periode": "1 Okt–30 Nov 2026",
       "normal": "",
       "status": "Resmi",
       "sumber": "https://www.instagram.com/p/DeOWQgkjzzL/",
@@ -325,6 +325,32 @@
       "berakhir": "2026-10-31",
       "status": "Resmi",
       "sumber": "https://www.instagram.com/p/DeyYVrCyD2y/"
+    },
+    {
+      "judul": "Fore Coffee — Voucher 'FORE More Sips' Diskon 90% Maks. Rp8.000",
+      "toko": "Fore Coffee",
+      "kategori": "Kopi",
+      "jenis": "Minuman",
+      "harga": "Diskon 90% maks. Rp8.000",
+      "normal": "",
+      "deskripsi": "Voucher di aplikasi Fore: diskon 90% (maks. potongan Rp8.000) tanpa minimum belanja, bayar via QRIS. Berlaku s.d. 29 Okt 2026. Bukti komunitas: checkout Rp32.000 jadi Rp24.000. Cakupan antar ke Jepara cek di aplikasi Fore.",
+      "label_periode": "s.d. 29 Okt 2026",
+      "berakhir": "2026-10-29",
+      "status": "Komunitas",
+      "sumber": "https://www.threads.com/@diskondanflashsale/post/De0bh0uga8E"
+    },
+    {
+      "judul": "Beng Beng — Gratis 1, Tukar di Toko Terdekat",
+      "toko": "Beng Beng (Mayora)",
+      "kategori": "Minimarket",
+      "jenis": "Makanan",
+      "harga": "GRATIS",
+      "normal": "",
+      "deskripsi": "Cek balik kemasan foil Beng Beng: bila menemukan kode QR bertuliskan 'GRATIS 1 BENG BENG', tukarkan di toko terdekat s.d. 31 Des 2026. Foto bukti komunitas 23 Okt. Program nasional Mayora — bisa ditukar di minimarket Jepara.",
+      "label_periode": "s.d. 31 Des 2026",
+      "berakhir": "2026-12-31",
+      "status": "Komunitas",
+      "sumber": "https://www.threads.com/@rd_tya/post/De1sbUiIw96"
     }
   ]
 }
