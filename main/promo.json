@@ -1,5 +1,5 @@
 {
-  "diperbarui": "2026-10-24",
+  "diperbarui": "2026-10-25",
   "promo": [
     {
       "berakhir": null,
@@ -351,6 +351,58 @@
       "berakhir": "2026-12-31",
       "status": "Komunitas",
       "sumber": "https://www.threads.com/@rd_tya/post/De1sbUiIw96"
+    },
+    {
+      "judul": "Kredivo — Cashback 50% s.d. Rp50.000 di Alfamart/Alfamidi/Indomaret",
+      "toko": "Alfamart / Alfamidi / Indomaret",
+      "kategori": "Voucher & Gratis",
+      "jenis": "Voucher & Gratis",
+      "harga": "Cashback 50% s.d. Rp50.000",
+      "normal": "",
+      "deskripsi": "Cashback poin Kredivo (1 poin = Rp1), belanja min. Rp20.000, tenor 1 bulan bunga 0%, 1x pakai per pengguna per bulan, s.d. 31 Okt 2026. Catatan: persentase BERVARIASI per akun (warganet melaporkan 10%/25%/50%) — cek voucher di aplikasi Kredivo sebelum belanja. Berlaku di gerai Jepara.",
+      "label_periode": "s.d. 31 Okt 2026",
+      "berakhir": "2026-10-31",
+      "status": "Komunitas",
+      "sumber": "https://www.facebook.com/groups/1202647523486400/permalink/2654331111651360/"
+    },
+    {
+      "judul": "ShopeeFood Gajian Sale 25 Okt — Diskon 90% s.d. Rp22.000 + Gratis Ongkir s.d. Rp33.000",
+      "toko": "ShopeeFood",
+      "kategori": "Pesan Antar Online",
+      "jenis": "Pesan Antar Online",
+      "harga": "Diskon 90% s.d. Rp22.000",
+      "normal": "",
+      "deskripsi": "Voucher ShopeeFood diperbarui pukul 11.00, 15.00, dan 18.00 WIB: diskon 90% s.d. Rp22.000 khusus aplikasi ShopeePay + gratis ongkir s.d. Rp33.000, pemakaian terbatas, kuota cepat habis. Bukti komunitas untuk Gajian Sale 25 Okt. Cakupan resto ke Jepara cek di aplikasi.",
+      "label_periode": "25 Okt 2026",
+      "berakhir": "2026-10-25",
+      "status": "Komunitas",
+      "sumber": "https://www.threads.com/@makaroni.97/post/De5RB49E1hn"
+    },
+    {
+      "judul": "VideoGen Model 1 — Pool Kredit AI Gratis $1 Juta untuk Kreator",
+      "toko": "VideoGen",
+      "kategori": "AI Gratis",
+      "jenis": "AI Gratis",
+      "harga": "Gratis (seleksi)",
+      "normal": "",
+      "deskripsi": "Model video AI multi-shot s.d. 10 menit dari teks/gambar; pendaftaran dibuka untuk pool kredit gratis $1 juta bagi proyek terpilih (kreator, filmmaker, studio, pelajar, amatir). Program seleksi, bukan kredit instan — daftar di videogen.io/model-1.",
+      "label_periode": "Pendaftaran dibuka",
+      "berakhir": null,
+      "status": "Resmi",
+      "sumber": "https://www.globenewswire.com/news-release/2026/10/20/3384785/0/en/videogen-unveils-model-1-its-first-ai-video-generation-model-and-1-million-in-free-ai-credits.html"
+    },
+    {
+      "judul": "Meta Global AI Developer Hackathon — Kredit $150 (Pendaftaran Ditutup 25 Okt)",
+      "toko": "Meta",
+      "kategori": "AI Gratis",
+      "jenis": "AI Gratis",
+      "harga": "$150 (bila terpilih)",
+      "normal": "",
+      "deskripsi": "Peserta terpilih mendapat $150 kredit Meta Model API untuk pengembangan 10 hari; hackathon 26 Okt–4 Nov 2026. Pendaftaran ditutup 25 Okt 23:59 ET, seleksi bergilir tidak dijamin diterima, syarat 18+; baca waiver sebelum daftar.",
+      "label_periode": "Pendaftaran s.d. 25 Okt 2026",
+      "berakhir": "2026-10-25",
+      "status": "Resmi",
+      "sumber": "https://freetokens.custats.info/offers/meta-global-ai-developer-hackathon.html"
     }
   ]
 }
