@@ -1,6 +1,20 @@
 {
   "tasks": [
     {
+      "id": "scm-peramalan-persediaan",
+      "title": "Peramalan Permintaan & Kebutuhan Persediaan (EOQ, Safety Stock, ROP)",
+      "course": "SI Manajemen Rantai Pasok",
+      "note": "Penugasan kelompok.\n1. Pengumpulan data dari Kaggle (dataset historis penjualan, minimal 12 periode).\n2. Terapkan 3 metode peramalan permintaan, hitung error, cari metode terbaik.\n3. Lanjutkan dengan menghitung kebutuhan persediaan dari hasil prediksi metode terbaik: EOQ, safety stock, ROP — sehingga diketahui jumlah persediaan, stok aman, dan titik pesan kembali (contoh dosen: bila prediksi metode terbaik misal 100, hitung kebutuhan persediaan dari angka itu).\nKetentuan: gunakan hitungan rumus dasar di Excel.\nDeadline di atas memakai aturan satu minggu dari hari kuliah (Senin) — konfirmasi bila dosen menetapkan tanggal lain.",
+      "deadline": "2026-11-02T10:00",
+      "lampiran": [
+        {
+          "tipe": "foto",
+          "url": "lampiran/scm-peramalan-persediaan/foto-tugas.jpg",
+          "label": "Foto slide penugasan + catatan dosen dari kelas (Senin, 26 Oktober 2026)"
+        }
+      ]
+    },
+    {
       "id": "kbt-analisis-kasus-proyek",
       "title": "Analisis Kasus Proyek Nyata — Evaluasi Efektivitas Komunikasi Teknis",
       "course": "Komunikasi Bisnis dan Teknis",
@@ -29,7 +43,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-18",
+  "updatedAt": "2026-10-26",
   "jadwal": [
     {
       "kode": "24SIF502",
