@@ -16,6 +16,16 @@
           "tipe": "file",
           "url": "lampiran/scm-peramalan-persediaan/materi-scm5-peramalan-permintaan.pdf",
           "label": "Materi SCM-5: Peramalan Permintaan / Demand Forecasting (24SIF502)"
+        },
+        {
+          "tipe": "file",
+          "url": "lampiran/scm-peramalan-persediaan/dataset_penjualan_shampo.csv",
+          "label": "Dataset Kaggle: penjualan sampo bulanan Jan 2001–Des 2003 (36 periode)"
+        },
+        {
+          "tipe": "file",
+          "url": "lampiran/scm-peramalan-persediaan/SCM_Peramalan_dan_Persediaan.xlsx",
+          "label": "Excel kerja: 3 metode peramalan (MA3, ES, regresi) + MAE/MAPE + EOQ, safety stock, ROP — semua rumus dasar"
         }
       ]
     },
