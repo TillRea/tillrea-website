@@ -1,6 +1,14 @@
 {
   "tasks": [
     {
+      "id": "kwu-resume-pertemuan-1-7",
+      "title": "Resume Pertemuan 1–7 (Tugas Mandiri)",
+      "course": "Kewirausahaan",
+      "note": "Tugas mandiri.\n1. Resume pertemuan 1–7.\n2. Print menggunakan kertas A4.\n3. Spasi 1,5.\n4. Dijilid cover warna merah.\n5. Dikumpulkan di meja Pak Gun (Ir. H. Gun Sudiryanto) tanggal 04 November 2026.\nCatatan: jam pengumpulan tidak disebutkan — deadline di papan dipasang 10:00 (jam kuliah Rabu); koreksi bila ada jam pasti.",
+      "deadline": "2026-11-04T10:00",
+      "lampiran": []
+    },
+    {
       "id": "scm-peramalan-persediaan",
       "title": "Peramalan Permintaan & Kebutuhan Persediaan (EOQ, Safety Stock, ROP)",
       "course": "SI Manajemen Rantai Pasok",
@@ -43,7 +51,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-26",
+  "updatedAt": "2026-10-28",
   "jadwal": [
     {
       "kode": "24SIF502",
