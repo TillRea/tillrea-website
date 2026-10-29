@@ -1,5 +1,5 @@
 {
-  "diperbarui": "2026-10-28",
+  "diperbarui": "2026-10-29",
   "promo": [
     {
       "berakhir": null,
@@ -145,19 +145,6 @@
       "sumber": "https://katalogpromosi.com/promo-bean-spot-alfamart-beli-kopi-gratis-roti/"
     },
     {
-      "judul": "Promo Berhadiah Indomaret 15–28 Okt — Beli 1 Gratis 1 Pilihan",
-      "toko": "Indomaret",
-      "kategori": "Voucher & Gratis",
-      "jenis": "Lainnya",
-      "harga": "Beli 1 Gratis 1",
-      "normal": "",
-      "deskripsi": "Periode baru 15–28 Okt. Yang lolos saring: MY BABY Body Cologne 100ml Beli 1 Gratis 1, Lasegar Twist 320ml Beli 1 Gratis 1, tisu wajah Indomaret beli 1 gratis 2 pak travel, dan hadiah langsung lain untuk produk tertentu. Tidak berlaku kelipatan, stok per toko, tidak berlaku di Indomaret Point. Program nasional, berlaku di Indomaret Jepara.",
-      "label_periode": "15–28 Okt 2026",
-      "berakhir": "2026-10-28",
-      "status": "Resmi",
-      "sumber": "https://katalogpromosi.com/promo-indomaret-bulan-ini/"
-    },
-    {
       "judul": "Alfamart Serba Gratis 16–31 Okt — Beli 1 Gratis 1 Pilihan",
       "toko": "Alfamart",
       "kategori": "Minimarket",
@@ -208,19 +195,6 @@
       "berakhir": "2026-10-31",
       "status": "Resmi",
       "sumber": "https://katalogpromosi.com/promo-indomaret-coffee-gold-geng-hepi-beli-3-rp33-000/"
-    },
-    {
-      "judul": "PWP Indomaret 22–28 Okt — Total Detergent 750g Tebus Rp8.900",
-      "toko": "Indomaret",
-      "kategori": "Minimarket",
-      "jenis": "Kebutuhan Rumah",
-      "harga": "Rp8.900",
-      "normal": "Rp17.500",
-      "deskripsi": "Periode PWP BARU 22–28 Okt (mulai hari ini): belanja min. Rp75.000 dalam satu struk (berlaku kelipatan; kecuali rokok, susu bayi <1 th, tagihan, top-up, tarik tunai) bisa tebus Total Detergent Powder De Parfumee 750g Rp8.900 dari Rp17.500. Pilihan tebus lain di periode ini: Fortune Minyak Goreng 2L Rp36.800 dan Bango Kecap Manis 735ml Rp24.500. Program nasional, berlaku di Indomaret Jepara.",
-      "label_periode": "22–28 Okt 2026",
-      "berakhir": "2026-10-28",
-      "status": "Resmi",
-      "sumber": "https://hargacampur.com/promo-pwp-indomaret/"
     },
     {
       "judul": "Alfamart Tebus Murah — Belanja Rp50.000 Tebus Produk Mulai Rp5.000",
@@ -429,6 +403,58 @@
       "berakhir": "2026-11-11",
       "status": "Resmi",
       "sumber": "https://dev.to/richard_lin_46b30cea4e4d7/free-credits-mango-inference-59fm"
+    },
+    {
+      "judul": "Indomaret Paling Murah 29 Okt–4 Nov — Le Minerale 600ml 2 pcs Rp5.900",
+      "toko": "Indomaret",
+      "kategori": "Minimarket",
+      "jenis": "Minuman",
+      "harga": "2 pcs Rp5.900",
+      "normal": "",
+      "deskripsi": "Katalog Paling Murah 29 Okt–4 Nov (Jawa–Bali–Lombok, termasuk Jepara): Le Minerale 600ml 2 pcs Rp5.900. Harga katalog lain: Pepsodent White 120+30g Rp9.900, Sunlight 650g Rp9.500, STT French Fries Rp7.500. Program nasional, berlaku di Indomaret Jepara.",
+      "label_periode": "29 Okt–4 Nov 2026",
+      "berakhir": "2026-11-04",
+      "status": "Resmi",
+      "sumber": "https://hargacampur.com/katalog-promo-jsm-indomaret/"
+    },
+    {
+      "judul": "Indomaret Promo 4 Hari 29 Okt–1 Nov — Indomie 5 pcs Rp15.000",
+      "toko": "Indomaret",
+      "kategori": "Minimarket",
+      "jenis": "Makanan",
+      "harga": "5 pcs Rp15.000",
+      "normal": "",
+      "deskripsi": "Promo 4 Hari 29 Okt–1 Nov: Indomie 5 pcs Rp15.000, Mie Sedaap isi 5 Rp13.000, Good Day 3in1 Rp13.900. Program nasional, berlaku di Indomaret Jepara.",
+      "label_periode": "29 Okt–1 Nov 2026",
+      "berakhir": "2026-11-01",
+      "status": "Resmi",
+      "sumber": "https://hargacampur.com/katalog-promo-jsm-indomaret/"
+    },
+    {
+      "judul": "Alfamart Tebus WOW Spageti Goreng Rp2.000",
+      "toko": "Alfamart",
+      "kategori": "Minimarket",
+      "jenis": "Makanan",
+      "harga": "Rp2.000 (tebus)",
+      "normal": "",
+      "deskripsi": "Khusus member: bayar booking bus (Budiman, Rosalia Indah, Medali Mas, P.O. Santoso, Pahala Kencana, Sumber Alam) atau beli voucher game (Google Play, UniPin, Free Fire, itemku, CODAPAY, LapakGaming) bisa tebus 1 pak WOW Spageti Goreng Rp2.000. Program nasional 1–31 Okt, berlaku di Alfamart Jepara.",
+      "label_periode": "1–31 Okt 2026",
+      "berakhir": "2026-10-31",
+      "status": "Resmi",
+      "sumber": "https://www.instagram.com/p/DfCfbppk_J4/"
+    },
+    {
+      "judul": "Photon 2.0 — Kredit Gratis $100 untuk Pembangun Agen Pesan",
+      "toko": "Photon",
+      "kategori": "AI Gratis",
+      "jenis": "AI Gratis",
+      "harga": "Gratis $100 kredit (beta)",
+      "normal": "",
+      "deskripsi": "Satu API untuk iMessage, WhatsApp, Telegram, SMS, email, dan voice bagi pembangun agen pesan; kredit gratis $100 selama beta publik. Catatan: syarat kredit belum didokumentasikan di situs — cek halaman billing workspace setelah daftar. Daftar: photon.codes/beta.",
+      "label_periode": "Beta publik",
+      "berakhir": null,
+      "status": "Resmi",
+      "sumber": "https://aifree.dev/news/photon-2-0-100-free-credits-messaging-agents"
     }
   ]
 }
