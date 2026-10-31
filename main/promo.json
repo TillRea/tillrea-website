@@ -1,5 +1,5 @@
 {
-  "diperbarui": "2026-10-30",
+  "diperbarui": "2026-10-31",
   "promo": [
     {
       "berakhir": null,
@@ -64,19 +64,6 @@
       "status": "Resmi",
       "sumber": "https://hargacampur.com/promo-point-coffee-i-like-monday/",
       "toko": "Point Coffee",
-      "jenis": "Minuman"
-    },
-    {
-      "berakhir": "2026-10-30",
-      "deskripsi": "Promo Fore Coffee x BCA setiap hari Jumat selama Oktober 2026, di jam tertentu. Cek syarat pembayaran di sumber. Cakupan antar ke Jepara cek di aplikasi Fore.",
-      "harga": "Beli 1 Gratis 1",
-      "judul": "Fore Coffee — Beli 1 Gratis 1 Tiap Jumat",
-      "kategori": "Kopi",
-      "label_periode": "Tiap Jumat s.d. 30 Okt",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://www.instagram.com/p/DeQxG6cE_b7/",
-      "toko": "Fore Coffee",
       "jenis": "Minuman"
     },
     {
@@ -457,19 +444,6 @@
       "sumber": "https://katalogpromosi.com/promo-indomaret-serba-gratis-beli-1-gratis-1/"
     },
     {
-      "judul": "Klik Indomaret Kejutan Akhir Bulan — Beli 1 Gratis 1 (Hari Ini Saja)",
-      "toko": "Klik Indomaret",
-      "kategori": "Minimarket",
-      "jenis": "Lainnya",
-      "harga": "Beli 1 Gratis 1 & s.d. −50%",
-      "normal": "",
-      "deskripsi": "HANYA hari ini 30 Okt: Kejutan Akhir Bulan di Klik Indomaret, diskon s.d. 50% dan Beli 1 Gratis 1 untuk item pilihan — Kin Yogurt, Cat Choize, dan Belfoods Royal Chicken Stick (juga ada di katalog gerai s.d. 2 Nov). Cek ketersediaan & ongkir Klik Indomaret ke Jepara di aplikasi; gratis ongkir 1 jam sampai di area layanan.",
-      "label_periode": "30 Okt 2026 saja",
-      "berakhir": "2026-10-30",
-      "status": "Resmi",
-      "sumber": "https://www.instagram.com/p/DfEot1AkSUk/"
-    },
-    {
       "judul": "Indomaret PWP Tebus Heboh — Tebus Mulai Rp5.000",
       "toko": "Indomaret",
       "kategori": "Minimarket",
@@ -494,6 +468,71 @@
       "berakhir": "2026-10-31",
       "status": "Komunitas",
       "sumber": "https://www.threads.com/@mumpung_promo2/post/DfGQ0Fzk23V"
+    },
+    {
+      "judul": "Indomaret Serba Gratis — Pantene Beli 1 Gratis 1",
+      "toko": "Indomaret",
+      "kategori": "Minimarket",
+      "jenis": "Kebutuhan Rumah",
+      "harga": "Beli 1 Gratis 1",
+      "normal": "",
+      "deskripsi": "Serba Gratis 29 Okt–11 Nov: Pantene Shampoo Pro-V Anti Dandruff/Hair Fall Control 290ml Beli 1 Gratis 1 pack Pantene Miracles Vitamin Ampoule 5's. Berlaku di gerai Indomaret Jepara yang berpartisipasi, selama stok.",
+      "label_periode": "29 Okt–11 Nov 2026",
+      "berakhir": "2026-11-11",
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/promo-indomaret-serba-gratis-beli-1-gratis-1/"
+    },
+    {
+      "judul": "Indomaret Paling Murah — POND'S Pembersih Wajah Diskon 45%",
+      "toko": "Indomaret",
+      "kategori": "Minimarket",
+      "jenis": "Kebutuhan Rumah",
+      "harga": "Rp23.900",
+      "normal": "Rp43.900",
+      "deskripsi": "Paling Murah 29 Okt–4 Nov (Jawa–Bali–Lombok, termasuk Jepara): POND'S Pembersih Wajah Beauty Niasorcinol/Pure Bright 100g, potongan 45%.",
+      "label_periode": "29 Okt–4 Nov 2026",
+      "berakhir": "2026-11-04",
+      "status": "Resmi",
+      "sumber": "https://www.mediakompeten.co.id/indomaret-tawarkan-promo-paling-murah-untuk-kebutuhan-rumah-tangga"
+    },
+    {
+      "judul": "Fore Coffee Update PIN — Beli 1 Dapat 2",
+      "toko": "Fore Coffee",
+      "kategori": "Kopi",
+      "jenis": "Minuman",
+      "harga": "Beli 1 Gratis 1",
+      "normal": "",
+      "deskripsi": "AKSI HARI INI 31 Okt: ganti PIN di aplikasi Fore (28–31 Okt) untuk dapat voucher Beli 1 Dapat 2 (minuman gratis maks. Rp29.000), dikirim 1–4 Nov, berlaku 10 hari sejak diterima s.d. 13 Nov 2026. Cakupan outlet Fore cek di aplikasi.",
+      "label_periode": "Aksi s.d. 31 Okt 2026; voucher s.d. 13 Nov 2026",
+      "berakhir": "2026-11-13",
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/promo-fore-coffee-update-pin-beli-1-dapat-2/"
+    },
+    {
+      "judul": "Shopee 11.11 Big Sale — JINISO Jeans Diskon ~62%",
+      "toko": "Shopee",
+      "kategori": "E-Commerce",
+      "jenis": "Lainnya",
+      "harga": "Rp247.500",
+      "normal": "Rp655.714",
+      "deskripsi": "Carousel resmi @shopee_id (30 Okt) untuk 11.11 Big Sale 25 Okt–11/12 Nov: JINISO Ultra Highwaist Baggy Loose Overtime Jeans. Harga & stok cek di Shopee saat checkout.",
+      "label_periode": "25 Okt–12 Nov 2026",
+      "berakhir": "2026-11-12",
+      "status": "Resmi",
+      "sumber": "https://www.instagram.com/p/DfGnr47CRkq/"
+    },
+    {
+      "judul": "Binance AI Pro — Kredit Gratis 2.500.000",
+      "toko": "Binance",
+      "kategori": "AI Gratis",
+      "jenis": "AI Gratis",
+      "harga": "Gratis 2.500.000 kredit",
+      "normal": "",
+      "deskripsi": "Pengumuman 24 Okt: peningkatan ke Binance AI Pro memberi tambahan kredit gratis satu kali kepada semua pengguna sehingga kuota menjadi 2.500.000 kredit (10x kuota gratis sebelumnya), plus akses model LLM lebih banyak bagi pengguna gratis. Syarat aplikasi iOS 3.22.2+ / Android 3.22.0+.",
+      "label_periode": "Program berjalan (pengumuman 24 Okt 2026)",
+      "berakhir": null,
+      "status": "Resmi",
+      "sumber": "https://www.binance.com/id/square/post/10-24-2026-binance-ai-pro-upgrade-raises-free-credits-to-2-5-million-and-expands-llm-access-380628552986233"
     }
   ]
 }
