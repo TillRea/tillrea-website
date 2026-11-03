@@ -1,5 +1,5 @@
 {
-  "diperbarui": "2026-11-02",
+  "diperbarui": "2026-11-03",
   "promo": [
     {
       "berakhir": null,
@@ -65,19 +65,6 @@
       "status": "Resmi",
       "sumber": "https://reconscribe.com/free-credits/ai-api/",
       "toko": "Anthropic"
-    },
-    {
-      "berakhir": "2026-11-02",
-      "deskripsi": "Frozen Fever Payday Sale 20 Okt–2 Nov: Belfoods Royal Chicken Stick 470g Beli 1 Gratis 1. Catatan pamflet: 'berlaku di toko tertentu' — cek Indomaret Jepara terdekat.",
-      "harga": "Beli 1 Gratis 1",
-      "jenis": "Makanan",
-      "judul": "Belfoods Royal Chicken Stick 470g — Beli 1 Gratis 1",
-      "kategori": "Minimarket",
-      "label_periode": "20 Okt–2 Nov 2026",
-      "normal": "",
-      "status": "Komunitas",
-      "sumber": "https://www.instagram.com/p/De0HxKGkwpS/",
-      "toko": "Indomaret"
     },
     {
       "berakhir": "2027-01-31",
@@ -314,19 +301,6 @@
       "toko": "AIVideoFree"
     },
     {
-      "berakhir": "2026-11-02",
-      "deskripsi": "HANYA HARI INI, Senin 2 Nov 2026, khusus member Poinku (scan QR di kasir): Belfoods Royal RTE Sausage Nami/Daegu 55g Beli 1 Gratis 1 dan KIN Dezzert Milky Choco Milk/Almond 80g Beli 1 Gratis 1. Berlaku di Indomaret yang berpartisipasi — cek Indomaret Jepara terdekat.",
-      "harga": "Beli 1 Gratis 1",
-      "jenis": "Makanan",
-      "judul": "Indomaret Senin Ceria — Belfoods Sausage & KIN Dezzert Beli 1 Gratis 1",
-      "kategori": "Minimarket",
-      "label_periode": "Hanya 2 Nov 2026",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://katalogpromosi.com/promo-indomaret-senin-ceria-khusus-member/",
-      "toko": "Indomaret"
-    },
-    {
       "berakhir": "2026-11-11",
       "deskripsi": "Kampanye DANA 11.11 1–11 Nov 2026: voucher Alfamart dan Indomaret senilai Rp10.000 bisa ditebus seharga Rp11 lewat aplikasi DANA. Stok terbatas, restock tiap hari pukul 11.00, 13.00, dan 16.00 WIB — siap-siap di jam restock. Voucher bisa dipakai di gerai Jepara.",
       "harga": "Rp11",
@@ -341,7 +315,7 @@
     },
     {
       "berakhir": "2026-11-06",
-      "deskripsi": "Promo komunitas Shopee '60% Setiap Hari' 1–6 Nov: tiap hari kategori berganti — 1 Nov detergen & kebersihan, HARI INI 2 Nov daging ayam & sapi (siaga pukul 09.00), 3 Nov telur, 4 Nov nugget & dimsum, 5 Nov buah & sayur, 6 Nov camilan & susu. Pakai pengiriman instan prioritas untuk gratis ongkir (per keterangan unggahan komunitas).",
+      "deskripsi": "Promo komunitas Shopee '60% Setiap Hari' 1–6 Nov: tiap hari kategori berganti — 1 Nov detergen & kebersihan, 2 Nov daging ayam & sapi, HARI INI 3 Nov telur, 4 Nov nugget & dimsum, 5 Nov buah & sayur, 6 Nov camilan & susu. Pakai pengiriman instan prioritas untuk gratis ongkir (per keterangan unggahan komunitas).",
       "harga": "Diskon 60%",
       "jenis": "Makanan",
       "judul": "Shopee Promo 60% Setiap Hari 1–6 Nov — Hari Ini Daging Ayam & Sapi",
@@ -364,6 +338,32 @@
       "status": "Resmi",
       "sumber": "https://aicredits.tech/blog/free-ai-api-credits-compared",
       "toko": "You.com"
+    },
+    {
+      "berakhir": "2026-11-30",
+      "deskripsi": "COFFEEDAY: semua varian kopi Bean Spot hanya Rp10.000 (normal Rp15.000), setiap Senin, Rabu, dan Jumat selama November 2026. Hari ini Selasa bukan hari promo — hari promo berikutnya BESOK Rabu 4 Nov. Berlaku di Alfamart yang memiliki booth Bean Spot dan via Alfagift — cek Alfamart Jepara terdekat.",
+      "harga": "Rp10.000",
+      "jenis": "Minuman",
+      "judul": "Bean Spot COFFEEDAY — Semua Varian Kopi Rp10.000 (Senin/Rabu/Jumat)",
+      "kategori": "Kopi",
+      "label_periode": "Senin, Rabu, Jumat, 1–30 Nov 2026",
+      "normal": "Rp15.000",
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/promo-bean-spot-coffee-day-semua-varian-kopi-rp10-000/",
+      "toko": "Bean Spot (Alfamart)"
+    },
+    {
+      "berakhir": null,
+      "deskripsi": "Kredit signup $200 untuk API speech-to-text, text-to-speech, dan voice agent; tanpa kartu kredit dan tanpa kedaluwarsa (per halaman harga resmi yang dikutip 2 Nov 2026). Untuk developer, bukan aplikasi chat. Di luar radar FreeToken (ini kredit API speech, bukan model free-token).",
+      "harga": "Gratis $200 kredit",
+      "jenis": "AI Gratis",
+      "judul": "Deepgram — Kredit API Gratis $200 Tanpa Kartu Kredit",
+      "kategori": "AI Gratis",
+      "label_periode": "Kredit gratis saat daftar, tanpa kedaluwarsa",
+      "normal": "",
+      "status": "Resmi",
+      "sumber": "https://freetokens.custats.info/offers/deepgram-free-credit.html",
+      "toko": "Deepgram"
     }
   ]
 }
