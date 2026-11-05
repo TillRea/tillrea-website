@@ -1,5 +1,5 @@
 {
-  "diperbarui": "2026-11-04",
+  "diperbarui": "2026-11-05",
   "promo": [
     {
       "berakhir": null,
@@ -119,19 +119,6 @@
       "toko": "Mango Inference (MangoBoost)"
     },
     {
-      "berakhir": "2026-11-04",
-      "deskripsi": "Katalog Paling Murah 29 Okt–4 Nov (Jawa–Bali–Lombok, termasuk Jepara): Le Minerale 600ml 2 pcs Rp5.900. Harga katalog lain: Pepsodent White 120+30g Rp9.900, Sunlight 650g Rp9.500, STT French Fries Rp7.500. Program nasional, berlaku di Indomaret Jepara.",
-      "harga": "2 pcs Rp5.900",
-      "jenis": "Minuman",
-      "judul": "Indomaret Paling Murah 29 Okt–4 Nov — Le Minerale 600ml 2 pcs Rp5.900",
-      "kategori": "Minimarket",
-      "label_periode": "29 Okt–4 Nov 2026",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://hargacampur.com/katalog-promo-jsm-indomaret/",
-      "toko": "Indomaret"
-    },
-    {
       "berakhir": null,
       "deskripsi": "Satu API untuk iMessage, WhatsApp, Telegram, SMS, email, dan voice bagi pembangun agen pesan; kredit gratis $100 selama beta publik. Catatan: syarat kredit belum didokumentasikan di situs — cek halaman billing workspace setelah daftar. Daftar: photon.codes/beta.",
       "harga": "Gratis $100 kredit (beta)",
@@ -181,19 +168,6 @@
       "normal": "",
       "status": "Resmi",
       "sumber": "https://katalogpromosi.com/promo-indomaret-serba-gratis-beli-1-gratis-1/",
-      "toko": "Indomaret"
-    },
-    {
-      "berakhir": "2026-11-04",
-      "deskripsi": "Paling Murah 29 Okt–4 Nov (Jawa–Bali–Lombok, termasuk Jepara): POND'S Pembersih Wajah Beauty Niasorcinol/Pure Bright 100g, potongan 45%.",
-      "harga": "Rp23.900",
-      "jenis": "Kebutuhan Rumah",
-      "judul": "Indomaret Paling Murah — POND'S Pembersih Wajah Diskon 45%",
-      "kategori": "Minimarket",
-      "label_periode": "29 Okt–4 Nov 2026",
-      "normal": "Rp43.900",
-      "status": "Resmi",
-      "sumber": "https://www.mediakompeten.co.id/indomaret-tawarkan-promo-paling-murah-untuk-kebutuhan-rumah-tangga",
       "toko": "Indomaret"
     },
     {
@@ -276,7 +250,7 @@
     },
     {
       "berakhir": "2026-11-06",
-      "deskripsi": "Promo komunitas Shopee '60% Setiap Hari' 1–6 Nov: tiap hari kategori berganti — 1 Nov detergen & kebersihan, 2 Nov daging ayam & sapi, 3 Nov telur, HARI INI 4 Nov nugget & dimsum, 5 Nov buah & sayur, 6 Nov camilan & susu. Pakai pengiriman instan prioritas untuk gratis ongkir (per keterangan unggahan komunitas).",
+      "deskripsi": "Promo komunitas Shopee '60% Setiap Hari' 1–6 Nov: tiap hari kategori berganti — 1 Nov detergen & kebersihan, 2 Nov daging ayam & sapi, 3 Nov telur, 4 Nov nugget & dimsum, HARI INI 5 Nov buah & sayur, BESOK 6 Nov camilan & susu (hari terakhir). Pakai pengiriman instan prioritas untuk gratis ongkir (per keterangan unggahan komunitas).",
       "harga": "Diskon 60%",
       "jenis": "Makanan",
       "judul": "Shopee Promo 60% Setiap Hari 1–6 Nov — Hari Ini Nugget & Dimsum",
@@ -302,7 +276,7 @@
     },
     {
       "berakhir": "2026-11-30",
-      "deskripsi": "COFFEEDAY: semua varian kopi Bean Spot hanya Rp10.000 (normal Rp15.000), setiap Senin, Rabu, dan Jumat selama November 2026. HARI INI Rabu 4 Nov adalah hari promo — hari promo berikutnya Jumat 6 Nov. Berlaku di Alfamart yang memiliki booth Bean Spot dan via Alfagift — cek Alfamart Jepara terdekat.",
+      "deskripsi": "COFFEEDAY: semua varian kopi Bean Spot hanya Rp10.000 (normal Rp15.000), setiap Senin, Rabu, dan Jumat selama November 2026. Hari ini Kamis 5 Nov BUKAN hari promo — hari promo berikutnya Jumat 6 Nov. Berlaku di Alfamart yang memiliki booth Bean Spot dan via Alfagift — cek Alfamart Jepara terdekat.",
       "harga": "Rp10.000",
       "jenis": "Minuman",
       "judul": "Bean Spot COFFEEDAY — Semua Varian Kopi Rp10.000 (Senin/Rabu/Jumat)",
@@ -416,6 +390,45 @@
       "status": "Resmi",
       "sumber": "https://freetokens.custats.info/offers/free-ai-30000-tokens-day.html",
       "toko": "Free.ai"
+    },
+    {
+      "berakhir": null,
+      "deskripsi": "Beli satu minuman Large pilihan (mis. Butterscotch Aren Latte, Latte, Creamy Aren Latte, Matcha Latte), gratis satu minuman Regular pilihan (mis. Americano, Kopi Kenangan Mantan). Hanya di outlet yang menampilkan banner promo di aplikasi — gerai Kartini Jepara terkonfirmasi ada. Hari promo berikutnya: Senin 9 Nov & Selasa 10 Nov 2026.",
+      "harga": "Beli 1 Gratis 1",
+      "jenis": "Minuman",
+      "judul": "Kopi Kenangan — Beli 1 Gratis 1 Setiap Senin & Selasa",
+      "kategori": "Kopi",
+      "label_periode": "Setiap Senin & Selasa",
+      "normal": "",
+      "status": "Komunitas",
+      "sumber": "https://www.threads.com/@giladiskonn/post/DfVvHQnE9RC",
+      "toko": "Kopi Kenangan"
+    },
+    {
+      "berakhir": "2026-12-31",
+      "deskripsi": "Gratis naik ukuran untuk semua varian Point Coffee, setiap Selasa 1 Okt–31 Des 2026, dengan pembayaran i.saku, maks. 1x per akun per hari. Berlaku di Point Coffee di Indomaret — cek gerai Jepara terdekat.",
+      "harga": "Free Upsize",
+      "jenis": "Minuman",
+      "judul": "Point Coffee — Free Upsize Setiap Selasa via i.saku",
+      "kategori": "Kopi",
+      "label_periode": "Setiap Selasa, 1 Okt–31 Des 2026",
+      "normal": "",
+      "status": "Resmi",
+      "sumber": "https://www.limapagi.id/promo-point-coffee-tumbler",
+      "toko": "Point Coffee"
+    },
+    {
+      "berakhir": "2026-11-16",
+      "deskripsi": "PASEO Wet Tissue 2×25's Beli 1 Gratis 1 seharga Rp12.300 dalam program Harga Spesial 3–16 Nov 2026 (Jawa–Bali–Lombok, termasuk Jepara). Item lain di katalog yang sama belum terverifikasi diskonnya ≥40% dari sumber ini.",
+      "harga": "Beli 1 Gratis 1",
+      "jenis": "Kebutuhan Rumah",
+      "judul": "Indomaret Harga Spesial 3–16 Nov — PASEO Wet Tissue Beli 1 Gratis 1",
+      "kategori": "Minimarket",
+      "label_periode": "3–16 Nov 2026",
+      "normal": "",
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/promo-indomaret-harga-spesial-diskon-minggu-ini/",
+      "toko": "Indomaret"
     }
   ]
 }
