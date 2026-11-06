@@ -1,5 +1,5 @@
 {
-  "diperbarui": "2026-11-05",
+  "diperbarui": "2026-11-06",
   "promo": [
     {
       "berakhir": null,
@@ -250,10 +250,10 @@
     },
     {
       "berakhir": "2026-11-06",
-      "deskripsi": "Promo komunitas Shopee '60% Setiap Hari' 1–6 Nov: tiap hari kategori berganti — 1 Nov detergen & kebersihan, 2 Nov daging ayam & sapi, 3 Nov telur, 4 Nov nugget & dimsum, HARI INI 5 Nov buah & sayur, BESOK 6 Nov camilan & susu (hari terakhir). Pakai pengiriman instan prioritas untuk gratis ongkir (per keterangan unggahan komunitas).",
+      "deskripsi": "Promo komunitas Shopee '60% Setiap Hari' 1–6 Nov: tiap hari kategori berganti — 1 Nov detergen & kebersihan, 2 Nov daging ayam & sapi, 3 Nov telur, 4 Nov nugget & dimsum, 5 Nov buah & sayur, HARI INI 6 Nov camilan & susu (HARI TERAKHIR). Pakai pengiriman instan prioritas untuk gratis ongkir (per keterangan unggahan komunitas).",
       "harga": "Diskon 60%",
       "jenis": "Makanan",
-      "judul": "Shopee Promo 60% Setiap Hari 1–6 Nov — Hari Ini Nugget & Dimsum",
+      "judul": "Shopee Promo 60% Setiap Hari 1–6 Nov — Hari Terakhir: Camilan & Susu",
       "kategori": "E-Commerce",
       "label_periode": "1–6 Nov 2026",
       "normal": "",
@@ -276,7 +276,7 @@
     },
     {
       "berakhir": "2026-11-30",
-      "deskripsi": "COFFEEDAY: semua varian kopi Bean Spot hanya Rp10.000 (normal Rp15.000), setiap Senin, Rabu, dan Jumat selama November 2026. Hari ini Kamis 5 Nov BUKAN hari promo — hari promo berikutnya Jumat 6 Nov. Berlaku di Alfamart yang memiliki booth Bean Spot dan via Alfagift — cek Alfamart Jepara terdekat.",
+      "deskripsi": "COFFEEDAY: semua varian kopi Bean Spot hanya Rp10.000 (normal Rp15.000), setiap Senin, Rabu, dan Jumat selama November 2026. HARI INI Jumat 6 Nov ADALAH hari promo. Berlaku di Alfamart yang memiliki booth Bean Spot dan via Alfagift — cek Alfamart Jepara terdekat.",
       "harga": "Rp10.000",
       "jenis": "Minuman",
       "judul": "Bean Spot COFFEEDAY — Semua Varian Kopi Rp10.000 (Senin/Rabu/Jumat)",
@@ -341,7 +341,7 @@
     },
     {
       "berakhir": "2026-11-08",
-      "deskripsi": "Khusus member Poinku di toko Indomaret dan Klik Indomaret (tunjukkan QR member), mulai Jumat 6 Nov: Just Fry French Fries 900g / Golden Farm Potato Nuggets 750g / Mixed Vegetable 500g hemat 50%, dan Belfoods Chicken Nugget Jagung Bakar 450g Beli 1 Gratis 1 (member hemat 50%). Berlaku Jawa & Bali.",
+      "deskripsi": "Khusus member Poinku di toko Indomaret dan Klik Indomaret (tunjukkan QR member), mulai Jumat 6 Nov: Just Fry French Fries 900g / Golden Farm Potato Nuggets 750g / Mixed Vegetable 500g hemat 50%, dan Belfoods Chicken Nugget Jagung Bakar 450g Beli 1 Gratis 1 (member hemat 50%). Tambahan: Kiwi Hijau Beli 2 Rp15.000 (member hemat 40%). Berlaku Jawa & Bali.",
       "harga": "Hemat 50% / Beli 1 Gratis 1",
       "jenis": "Makanan",
       "judul": "Indomaret Family Weekend Treats 6–8 Nov — Golden Farm Hemat 50% & Belfoods B1G1",
@@ -429,6 +429,84 @@
       "status": "Resmi",
       "sumber": "https://katalogpromosi.com/promo-indomaret-harga-spesial-diskon-minggu-ini/",
       "toko": "Indomaret"
+    },
+    {
+      "berakhir": null,
+      "deskripsi": "Paket sambutan akun baru di aplikasi Kopi Kenangan: tiga kali potongan 50%. Program aktif sejak 1 Okt 2026 menurut ringkasan situs resmi Kenangan Global. Berlaku di outlet yang menampilkan banner promo di aplikasi — gerai Kartini Jepara terkonfirmasi ada. Bonus: potongan delivery 35% (pengguna reguler) / 40% (pengguna baru), maks. Rp35.000, min. belanja Rp85.000.",
+      "harga": "Diskon 50% (3×)",
+      "jenis": "Minuman",
+      "judul": "Kopi Kenangan — Paket Welcome 3× Diskon 50% (Akun Baru)",
+      "kategori": "Kopi",
+      "label_periode": "Program berjalan (sejak 1 Okt 2026)",
+      "normal": "",
+      "status": "Komunitas",
+      "sumber": "https://www.javacoffeehouse.co.uk/promo-kopi-kenangan/",
+      "toko": "Kopi Kenangan"
+    },
+    {
+      "berakhir": "2026-11-12",
+      "deskripsi": "Kampanye 11.11 Big Sale 25 Okt–12 Nov 2026: Diskon Jumbo s.d. 90% untuk produk pilihan (fashion, kecantikan, kebutuhan rumah tangga), Big Flash Sale Rp11.000, dan Bonus Koin s.d. 100.000 tiap pukul 11.11. Mekanik Beli 2 Gratis 1 dalam kampanye ini tidak masuk saringan.",
+      "harga": "Diskon s.d. 90%",
+      "jenis": "Lainnya",
+      "judul": "Shopee 11.11 Big Sale — Diskon Jumbo s.d. 90%",
+      "kategori": "E-Commerce",
+      "label_periode": "25 Okt–12 Nov 2026",
+      "normal": "",
+      "status": "Resmi",
+      "sumber": "https://shopee.co.id/m/general-11-11-countdown-Shopee-1525",
+      "toko": "Shopee"
+    },
+    {
+      "berakhir": "2026-12-31",
+      "deskripsi": "Buka tabungan baru via BCA mobile/myBCA dengan kode promo 'GROCERIES' (SIM card belum pernah terdaftar di BCA mobile/myBCA), lalu redeem voucher Alfamart atau Indomaret Rp100.000 (maks. 1 voucher/nasabah) di aldmicreward.com. Periode 17 Mar 2025–31 Des 2026. Voucher bisa dipakai di gerai Jepara.",
+      "harga": "GRATIS (voucher Rp100.000)",
+      "jenis": "Voucher & Gratis",
+      "judul": "BCA Buka Tabungan — Voucher Alfamart/Indomaret Rp100.000",
+      "kategori": "Voucher & Gratis",
+      "label_periode": "17 Mar 2025–31 Des 2026",
+      "normal": "",
+      "status": "Resmi",
+      "sumber": "http://www.bca.co.id/id/Individu/layanan/e-banking/mybca/groceries",
+      "toko": "BCA"
+    },
+    {
+      "berakhir": null,
+      "deskripsi": "Promo akhir pekan Allo Bank (Jumat–Minggu, Nov–Des 2026) via Virtual Debit Card: cashback 50% langganan Netflix/Spotify/ChatGPT (maks. Rp20.000), cashback 100% pulsa/data Telkomsel/XL/Indosat (maks. Rp10.000), cashback 100% token PLN (maks. Rp2.500, 6–29 Nov), Beli 1 Gratis 2 tiket m.tix tiap Sabtu (1 Okt–31 Des), plus diskon tambahan 5% di Alfamart/Alfagift via Allo PayLater. Butuh akun Allo Bank.",
+      "harga": "Cashback 50% s.d. Rp20.000",
+      "jenis": "Voucher & Gratis",
+      "judul": "Allo Bank JSM #PASBUATWEEKEND — Cashback 50% Langganan ChatGPT/Netflix/Spotify",
+      "kategori": "Voucher & Gratis",
+      "label_periode": "Jumat–Minggu, Nov–Des 2026",
+      "normal": "",
+      "status": "Resmi",
+      "sumber": "https://www.instagram.com/p/DfXCQ0tk1Pp/",
+      "toko": "Allo Bank"
+    },
+    {
+      "berakhir": "2026-12-31",
+      "deskripsi": "Uji coba pengguna baru TokenHub (gateway OpenAI-compatible untuk DeepSeek, GLM, Kimi, MiniMax, dll.): tiap model yang memenuhi syarat mendapat 1.000.000 token gratis, berlaku 1 tahun sejak diklaim. Pendaftaran kampanye s.d. 31 Des 2026. Catatan: tiap klaim model/postpaid membekukan USD 10 saldo akun (dikembalikan setelah resource dihentikan); tanpa postpaid, layanan berhenti saat kuota habis. Di luar radar FreeToken (ini kredit API gateway, bukan model free-token).",
+      "harga": "Gratis 1 juta token/model",
+      "jenis": "AI Gratis",
+      "judul": "Tencent Cloud TokenHub — 1 Juta Token Gratis per Model",
+      "kategori": "AI Gratis",
+      "label_periode": "Pendaftaran s.d. 31 Des 2026; token berlaku 1 tahun",
+      "normal": "",
+      "status": "Resmi",
+      "sumber": "https://freetokens.custats.info/offers/tencent-cloud-tokenhub-free-trial.html",
+      "toko": "Tencent Cloud"
+    },
+    {
+      "berakhir": null,
+      "deskripsi": "Mahasiswa terverifikasi (usia ≥18, universitas terakreditasi) mendapat Zed Pro gratis 12 bulan + kredit token AI $10/bulan. Model Claude Fable, Claude Opus, dan GPT Pro dikecualikan. Verifikasi status mahasiswa diperlukan. Di luar radar FreeToken (ini paket editor + kredit, bukan model free-token).",
+      "harga": "Gratis 1 tahun",
+      "jenis": "AI Gratis",
+      "judul": "Zed Pro for Students — Gratis 1 Tahun + Kredit AI $10/bulan",
+      "kategori": "AI Gratis",
+      "label_periode": "Program berjalan",
+      "normal": "",
+      "status": "Resmi",
+      "sumber": "https://freetokens.custats.info/llms-full.txt",
+      "toko": "Zed"
     }
   ]
 }
