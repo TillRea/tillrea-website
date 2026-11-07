@@ -1,5 +1,5 @@
 {
-  "diperbarui": "2026-11-06",
+  "diperbarui": "2026-11-07",
   "promo": [
     {
       "berakhir": null,
@@ -211,7 +211,7 @@
     },
     {
       "berakhir": "2026-11-15",
-      "deskripsi": "Edisi November 1–15 Nov: Sikat Gigi Formula Beli 1 Gratis 1 dan Hit Aerosol 600ml Beli 1 Gratis 1. Program nasional, berlaku di Alfamart Jepara (tidak berlaku di NTT). Cek label rak/Alfagift sebelum belanja, karena daftar rinci edisi November ini bersumber dari katalog resmi yang dimuat hargacampur.",
+      "deskripsi": "Serba Gratis Alfamart 1–15 Nov 2026: Beli 1 Gratis 1 untuk Sikat Gigi Formula & Hit, Kopi Kenangan Indonesiano 200ml GRATIS Regen PET 300ml (semua varian), dan Stella Air Freshener GRATIS Stella Electric Lavender/refill. Mekanik Beli 2 Gratis 1 dalam program ini tidak masuk saringan. Berlaku di seluruh Alfamart & Alfagift (promo bisa beda tiap daerah).",
       "harga": "Beli 1 Gratis 1",
       "jenis": "Kebutuhan Rumah",
       "judul": "Alfamart Serba Gratis 1–15 Nov — Sikat Gigi & Hit Beli 1 Gratis 1",
@@ -247,19 +247,6 @@
       "status": "Resmi",
       "sumber": "https://www.mediakompeten.co.id/dana-1111-voucher-promo",
       "toko": "DANA"
-    },
-    {
-      "berakhir": "2026-11-06",
-      "deskripsi": "Promo komunitas Shopee '60% Setiap Hari' 1–6 Nov: tiap hari kategori berganti — 1 Nov detergen & kebersihan, 2 Nov daging ayam & sapi, 3 Nov telur, 4 Nov nugget & dimsum, 5 Nov buah & sayur, HARI INI 6 Nov camilan & susu (HARI TERAKHIR). Pakai pengiriman instan prioritas untuk gratis ongkir (per keterangan unggahan komunitas).",
-      "harga": "Diskon 60%",
-      "jenis": "Makanan",
-      "judul": "Shopee Promo 60% Setiap Hari 1–6 Nov — Hari Terakhir: Camilan & Susu",
-      "kategori": "E-Commerce",
-      "label_periode": "1–6 Nov 2026",
-      "normal": "",
-      "status": "Komunitas",
-      "sumber": "https://www.threads.com/@iff_irr/post/DfOEQz-EtbP",
-      "toko": "Shopee"
     },
     {
       "berakhir": null,
@@ -507,6 +494,71 @@
       "status": "Resmi",
       "sumber": "https://freetokens.custats.info/llms-full.txt",
       "toko": "Zed"
+    },
+    {
+      "judul": "Kopi Kenangan — Payday Cashback s.d. 65%",
+      "toko": "Kopi Kenangan",
+      "kategori": "Kopi",
+      "jenis": "Minuman",
+      "harga": "Cashback s.d. 65%",
+      "normal": "",
+      "deskripsi": "Cashback s.d. 65% (maks. Rp20.000) + diskon 50% dengan metode pembayaran pilihan, s.d. 31 Des 2026. Cek banner promo & metode pembayaran yang berlaku di aplikasi Kopi Kenangan — gerai Kartini Jepara terkonfirmasi ada.",
+      "label_periode": "s.d. 31 Des 2026",
+      "berakhir": "2026-12-31",
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/restoran-dan-cafe/kopi-kenangan/"
+    },
+    {
+      "judul": "Kopi Kenangan — Beli 1 Dapat 2 via QRIS BCA (25–27 tiap bulan)",
+      "toko": "Kopi Kenangan",
+      "kategori": "Kopi",
+      "jenis": "Minuman",
+      "harga": "Beli 1 Gratis 1",
+      "normal": "",
+      "deskripsi": "Beli 1 Dapat 2 setiap tanggal 25–27 tiap bulan dengan pembayaran QRIS myBCA, BCA mobile, atau Sakuku. Periode berikutnya: 25–27 Nov 2026. Cek banner di aplikasi/outlet.",
+      "label_periode": "25–27 tiap bulan",
+      "berakhir": null,
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/restoran-dan-cafe/kopi-kenangan/"
+    },
+    {
+      "judul": "Indomaret Harga Spesial 3–16 Nov — Diskon s.d. 50%",
+      "toko": "Indomaret",
+      "kategori": "Minimarket",
+      "jenis": "Lainnya",
+      "harga": "Diskon s.d. 50%",
+      "normal": "",
+      "deskripsi": "Katalog Harga Spesial HUT ke-38 Indomaret 3–16 Nov 2026: diskon s.d. 50% untuk camilan, mie instan, minuman, perawatan diri, popok, dan kebutuhan rumah tangga. Berlaku di seluruh Indomaret; cek label rak untuk harga per item.",
+      "label_periode": "3–16 Nov 2026",
+      "berakhir": "2026-11-16",
+      "status": "Komunitas",
+      "sumber": "https://www.instagram.com/p/DfYiY6-iUYd/"
+    },
+    {
+      "judul": "DANA CICIL 11.11 — Belanja Rp30.000 Jadi Rp1.111",
+      "toko": "DANA",
+      "kategori": "Voucher & Gratis",
+      "jenis": "Voucher & Gratis",
+      "harga": "Rp1.111",
+      "normal": "Rp30.000",
+      "deskripsi": "Bukti komunitas (Threads 6 Nov): belanja Rp30.000 di Indomaret/Alfamart/Alfamidi cuma bayar Rp1.111 via DANA CICIL dalam kampanye DANA 11.11 (1–11 Nov 2026). DANA CICIL perlu aktivasi; verifikasi syarat & kuota di aplikasi DANA sebelum belanja.",
+      "label_periode": "1–11 Nov 2026",
+      "berakhir": "2026-11-11",
+      "status": "Komunitas",
+      "sumber": "https://www.threads.com/@tiasarii821/post/DfZToZMnXks"
+    },
+    {
+      "judul": "Watsons 11.11 Deal City — Diskon s.d. 50% + Voucher s.d. Rp75.000",
+      "toko": "Watsons",
+      "kategori": "E-Commerce",
+      "jenis": "Lainnya",
+      "harga": "Diskon s.d. 50%",
+      "normal": "",
+      "deskripsi": "Watsons 11.11 Deal City 1–10 Nov 2026: diskon s.d. 50% untuk skincare, makeup & perawatan, plus voucher s.d. Rp75.000. Belanja online via aplikasi/website Watsons ID; bisa diakses dari Jepara.",
+      "label_periode": "1–10 Nov 2026",
+      "berakhir": "2026-11-10",
+      "status": "Komunitas",
+      "sumber": "https://www.instagram.com/p/DfY2iMtk2R_/"
     }
   ]
 }
