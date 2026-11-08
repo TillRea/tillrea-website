@@ -1,5 +1,5 @@
 {
-  "diperbarui": "2026-11-07",
+  "diperbarui": "2026-11-08",
   "promo": [
     {
       "berakhir": null,
@@ -541,11 +541,11 @@
       "jenis": "Voucher & Gratis",
       "harga": "Rp1.111",
       "normal": "Rp30.000",
-      "deskripsi": "Bukti komunitas (Threads 6 Nov): belanja Rp30.000 di Indomaret/Alfamart/Alfamidi cuma bayar Rp1.111 via DANA CICIL dalam kampanye DANA 11.11 (1–11 Nov 2026). DANA CICIL perlu aktivasi; verifikasi syarat & kuota di aplikasi DANA sebelum belanja.",
-      "label_periode": "1–11 Nov 2026",
-      "berakhir": "2026-11-11",
+      "deskripsi": "Bukti komunitas (Threads 6 Nov): belanja Rp30.000 di Indomaret/Alfamart/Alfamidi cuma bayar Rp1.111 via DANA CICIL dalam kampanye DANA 11.11 (1–11 Nov 2026). UPDATE 7 Nov: tangkapan layar komunitas menunjukkan voucher DANA Deals 'Indomaret/Alfamart Rp30.000' — potongan Rp30.000 untuk min. belanja Rp31.000, dibayar via DANA CICIL, voucher berlaku s.d. 30 Nov 2026 (satu tangkapan layar menyebut 1 Des 2026 — cek aplikasi). DANA CICIL perlu aktivasi; verifikasi syarat & kuota di aplikasi DANA sebelum belanja.",
+      "label_periode": "1–11 Nov 2026; voucher s.d. 30 Nov 2026",
+      "berakhir": "2026-11-30",
       "status": "Komunitas",
-      "sumber": "https://www.threads.com/@tiasarii821/post/DfZToZMnXks"
+      "sumber": "https://www.facebook.com/nong.prily/posts/pfbid0pbpmdSZjfATY6HKHjzHJKsmBRpZpbN7tGPGQnSFkUv2AuX4X332PbNUTbdH5jBzfl"
     },
     {
       "judul": "Watsons 11.11 Deal City — Diskon s.d. 50% + Voucher s.d. Rp75.000",
@@ -559,6 +559,45 @@
       "berakhir": "2026-11-10",
       "status": "Komunitas",
       "sumber": "https://www.instagram.com/p/DfY2iMtk2R_/"
+    },
+    {
+      "judul": "Coffee Gold — Gratis Konyaku Jelly Tiap Beli Minuman",
+      "toko": "Indomaret (Coffee Gold)",
+      "kategori": "Kopi",
+      "jenis": "Minuman",
+      "harga": "GRATIS (topping)",
+      "normal": "",
+      "deskripsi": "Setiap pembelian minuman Yummy Choice Coffee Gold dari menu panel (kecuali Kopi Botol) gratis 1 Konyaku Jelly, selama November 2026 di Indomaret yang berpartisipasi (tidak berlaku di toko Grand Opening, rest area, bandara, stasiun, dan toko tertentu). Cek Indomaret Jepara yang ada booth Coffee Gold-nya.",
+      "label_periode": "November 2026",
+      "berakhir": "2026-11-30",
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/promo-indomaret-coffee-gold-gratis-konyaku-jelly/"
+    },
+    {
+      "judul": "AkashML — Kredit AI Gratis $100 Tanpa Kartu Kredit",
+      "toko": "AkashML",
+      "kategori": "AI Gratis",
+      "jenis": "AI Gratis",
+      "harga": "Gratis $100 kredit",
+      "normal": "",
+      "deskripsi": "Kredit token AI $100 untuk semua model di AkashML, tanpa kartu kredit, untuk akun baru. Terverifikasi 5 Nov 2026 di katalog aifree.dev. Di luar radar FreeToken (ini kredit API, bukan model free-token).",
+      "label_periode": "Kredit gratis saat daftar",
+      "berakhir": null,
+      "status": "Resmi",
+      "sumber": "https://aifree.dev/learn/free-ai-credits-for-hackathons"
+    },
+    {
+      "judul": "AnyAPI — 100.000 Token AI Gratis Setiap Hari",
+      "toko": "AnyAPI",
+      "kategori": "AI Gratis",
+      "jenis": "AI Gratis",
+      "harga": "Gratis 100.000 token/hari",
+      "normal": "",
+      "deskripsi": "Kuota harian 100.000 token untuk 400+ model AI lewat satu API, tanpa kartu kredit. Terverifikasi 5 Nov 2026 di katalog aifree.dev. Di luar radar FreeToken (ini kuota API harian, bukan model free-token).",
+      "label_periode": "Gratis setiap hari saat daftar",
+      "berakhir": null,
+      "status": "Resmi",
+      "sumber": "https://aifree.dev/learn/free-ai-credits-for-hackathons"
     }
   ]
 }
