@@ -1,5 +1,5 @@
 {
-  "diperbarui": "2026-11-08",
+  "diperbarui": "2026-11-09",
   "promo": [
     {
       "berakhir": null,
@@ -327,19 +327,6 @@
       "toko": "Indomaret"
     },
     {
-      "berakhir": "2026-11-08",
-      "deskripsi": "Khusus member Poinku di toko Indomaret dan Klik Indomaret (tunjukkan QR member), mulai Jumat 6 Nov: Just Fry French Fries 900g / Golden Farm Potato Nuggets 750g / Mixed Vegetable 500g hemat 50%, dan Belfoods Chicken Nugget Jagung Bakar 450g Beli 1 Gratis 1 (member hemat 50%). Tambahan: Kiwi Hijau Beli 2 Rp15.000 (member hemat 40%). Berlaku Jawa & Bali.",
-      "harga": "Hemat 50% / Beli 1 Gratis 1",
-      "jenis": "Makanan",
-      "judul": "Indomaret Family Weekend Treats 6–8 Nov — Golden Farm Hemat 50% & Belfoods B1G1",
-      "kategori": "Minimarket",
-      "label_periode": "6–8 Nov 2026",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://katalogpromosi.com/promo-indomaret-family-weekend-treats-terbaru/",
-      "toko": "Indomaret"
-    },
-    {
       "berakhir": "2026-11-15",
       "deskripsi": "Belanja min. Rp50.000 (nett, kecuali susu bayi <1 tahun, minyak goreng, rokok, item tebus) bisa tebus produk mulai Rp5.000: Diamond Juice Blueberry/Cranberry 200ml Rp5.000, Khong Guan Malkist Abon Sapi Rp6.000, item tebus Rp10.000/Rp15.000 lainnya, maks. 6 item. Berlaku di seluruh Alfamart kecuali NTT; tidak berlaku di rest area/bandara/stasiun/pelabuhan.",
       "harga": "Tebus mulai Rp5.000",
@@ -595,6 +582,97 @@
       "normal": "",
       "deskripsi": "Kuota harian 100.000 token untuk 400+ model AI lewat satu API, tanpa kartu kredit. Terverifikasi 5 Nov 2026 di katalog aifree.dev. Di luar radar FreeToken (ini kuota API harian, bukan model free-token).",
       "label_periode": "Gratis setiap hari saat daftar",
+      "berakhir": null,
+      "status": "Resmi",
+      "sumber": "https://aifree.dev/learn/free-ai-credits-for-hackathons"
+    },
+    {
+      "judul": "Indomaret Senin Ceria 9 Nov — CEDEA & HOMETOWN Beli 1 Gratis 1",
+      "toko": "Indomaret",
+      "kategori": "Minimarket",
+      "jenis": "Makanan",
+      "harga": "Beli 1 Gratis 1",
+      "normal": "",
+      "deskripsi": "Khusus Senin 9 Nov 2026, member Poinku: CEDEA Chikuwa Nejiri Black Pepper/Crab Stick Jumbo 50/55gr dan HOMETOWN Creamy Yoghurt Honi Pineapple/Mixed Berries 110gr — Beli 1 Gratis 1 (member hemat 50%). Scan QR member Poinku di kasir. Berlaku di gerai Indomaret yang berpartisipasi.",
+      "label_periode": "Senin 9 Nov 2026 (hari ini)",
+      "berakhir": "2026-11-09",
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/promo-indomaret-senin-ceria-khusus-member/"
+    },
+    {
+      "judul": "Point Coffee — GRATIS 1 Kopi All Variant (Ulang Tahun November)",
+      "toko": "Point Coffee",
+      "kategori": "Kopi",
+      "jenis": "Minuman",
+      "harga": "GRATIS",
+      "normal": "",
+      "deskripsi": "i-Kupon di aplikasi Indomaret Poinku: member yang berulang tahun di bulan November mendapat GRATIS 1 Point Coffee semua varian, klaim dengan scan dari aplikasi member di kasir. Hanya berlaku di bulan ulang tahun. Catatan: beberapa pengguna mengaku kuponnya tidak muncul — cek menu lonceng/promo ulang tahun di aplikasi Poinku sebelum ke gerai. Berlaku di Point Coffee di Indomaret — cek gerai Jepara terdekat.",
+      "label_periode": "November 2026 (bulan ulang tahun)",
+      "berakhir": "2026-11-30",
+      "status": "Komunitas",
+      "sumber": "https://www.threads.com/@lyravela/post/DfeKDjGEezD"
+    },
+    {
+      "judul": "Shopee 11.11 — Voucher Indomaret/Alfamart Rp25.000 Seharga Rp1.000",
+      "toko": "Shopee",
+      "kategori": "Voucher & Gratis",
+      "jenis": "Voucher & Gratis",
+      "harga": "Rp1.000",
+      "normal": "Rp25.000",
+      "deskripsi": "Voucher belanja Indomaret Rp25.000 / Alfamart Rp25.000 (juga Rp10.000) dijual Rp1.000 di Shopee selama 11.11 — dikonfirmasi tiga tangkapan layar aplikasi independen 8 Nov. Restock pukul 00.00/12.00/18.00 WIB, pasang pengingat di aplikasi. Catatan: satu unggahan komunitas menyebut harga Rp11.000 untuk slot tertentu — cek harga saat klaim sebelum bayar. Voucher bisa dipakai di gerai Jepara.",
+      "label_periode": "11.11, s.d. 11 Nov 2026",
+      "berakhir": "2026-11-11",
+      "status": "Komunitas",
+      "sumber": "https://www.threads.com/@banyakpromoo/post/DffM0sLHYIF"
+    },
+    {
+      "judul": "ShopeeFood 11.11 — Diskon 100% s.d. Rp20.000 + Ongkir Rp15.000",
+      "toko": "ShopeeFood",
+      "kategori": "Pesan Antar Online",
+      "jenis": "Pesan Antar Online",
+      "harga": "Diskon 100% s.d. Rp20.000",
+      "normal": "",
+      "deskripsi": "Tangkapan layar aplikasi Shopee (grup Facebook, 8 Nov) di hub voucher 11.11 menampilkan voucher ShopeeFood: diskon makanan 100% s.d. Rp20.000 dan diskon ongkir Rp15.000, dengan tombol Klaim. Kampanye 11.11 — cek aplikasi ShopeeFood sebelum pesan; syarat min. belanja tidak tercantum di tangkapan layar.",
+      "label_periode": "11.11, s.d. 11 Nov 2026",
+      "berakhir": "2026-11-11",
+      "status": "Komunitas",
+      "sumber": "https://www.facebook.com/groups/466869967788547/permalink/1878546273287569/"
+    },
+    {
+      "judul": "Alfagift — Kopi Kenangan Indonesiano Rp6.500, Gratis Lay's + Regen",
+      "toko": "Alfagift",
+      "kategori": "Minimarket",
+      "jenis": "Minuman",
+      "harga": "Rp6.500",
+      "normal": "Rp7.400",
+      "deskripsi": "Tangkapan layar keranjang Alfagift (8 Nov): beli 1 Kopi Kenangan Indonesiano Kopi Hitam Original PET 200ml Rp6.500 (dari Rp7.400) gratis Lay's Keripik Kentang Rumput Laut 13g + gratis Regen Minuman Sehat Lemon Jeruk Nipis 300ml. Total bayar Rp6.500. Cek Alfagift sebelum membeli — promo bisa beda tiap daerah.",
+      "label_periode": "Temuan komunitas 8 Nov",
+      "berakhir": null,
+      "status": "Komunitas",
+      "sumber": "https://www.threads.com/@tantrymcbeal/post/Dff_QAaE_9O"
+    },
+    {
+      "judul": "NaraRouter — 7.000.000 Token AI Gratis Setiap Hari",
+      "toko": "NaraRouter",
+      "kategori": "AI Gratis",
+      "jenis": "AI Gratis",
+      "harga": "Gratis 7 juta token/hari",
+      "normal": "",
+      "deskripsi": "Kuota harian 7 juta token gratis untuk 3 model AI lewat satu API OpenAI-compatible, tanpa kartu kredit. Terverifikasi 5 Nov 2026 di katalog aifree.dev. Di luar radar FreeToken (ini kuota API router, bukan model free-token).",
+      "label_periode": "Gratis setiap hari saat daftar",
+      "berakhir": null,
+      "status": "Resmi",
+      "sumber": "https://aifree.dev/learn/free-ai-credits-for-hackathons"
+    },
+    {
+      "judul": "Alibaba Cloud Model Studio — 1 Juta Token Gratis per Model",
+      "toko": "Alibaba Cloud",
+      "kategori": "AI Gratis",
+      "jenis": "AI Gratis",
+      "harga": "Gratis 1 juta token/model",
+      "normal": "",
+      "deskripsi": "Sekitar 1 juta token gratis per model selama 90 hari di Model Studio (Singapura), tanpa kartu kredit. Terverifikasi 5 Nov 2026 di katalog aifree.dev. Di luar radar FreeToken (ini kuota API, bukan model free-token).",
+      "label_periode": "Token gratis 90 hari saat daftar",
       "berakhir": null,
       "status": "Resmi",
       "sumber": "https://aifree.dev/learn/free-ai-credits-for-hackathons"
