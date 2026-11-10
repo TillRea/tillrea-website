@@ -1,5 +1,5 @@
 {
-  "diperbarui": "2026-11-09",
+  "diperbarui": "2026-11-10",
   "promo": [
     {
       "berakhir": null,
@@ -263,7 +263,7 @@
     },
     {
       "berakhir": "2026-11-30",
-      "deskripsi": "COFFEEDAY: semua varian kopi Bean Spot hanya Rp10.000 (normal Rp15.000), setiap Senin, Rabu, dan Jumat selama November 2026. HARI INI Jumat 6 Nov ADALAH hari promo. Berlaku di Alfamart yang memiliki booth Bean Spot dan via Alfagift — cek Alfamart Jepara terdekat.",
+      "deskripsi": "COFFEEDAY: semua varian kopi Bean Spot hanya Rp10.000 (normal Rp15.000), setiap Senin, Rabu, dan Jumat selama November 2026 — hari promo berikutnya Rabu 11 Nov. Berlaku di Alfamart yang memiliki booth Bean Spot dan via Alfagift — cek Alfamart Jepara terdekat.",
       "harga": "Rp10.000",
       "jenis": "Minuman",
       "judul": "Bean Spot COFFEEDAY — Semua Varian Kopi Rp10.000 (Senin/Rabu/Jumat)",
@@ -419,7 +419,7 @@
     },
     {
       "berakhir": "2026-11-12",
-      "deskripsi": "Kampanye 11.11 Big Sale 25 Okt–12 Nov 2026: Diskon Jumbo s.d. 90% untuk produk pilihan (fashion, kecantikan, kebutuhan rumah tangga), Big Flash Sale Rp11.000, dan Bonus Koin s.d. 100.000 tiap pukul 11.11. Mekanik Beli 2 Gratis 1 dalam kampanye ini tidak masuk saringan.",
+      "deskripsi": "Kampanye 11.11 Big Sale 25 Okt–12 Nov 2026: Diskon Jumbo s.d. 90% untuk produk pilihan (fashion, kecantikan, kebutuhan rumah tangga), Big Flash Sale Rp11.000, dan Bonus Koin s.d. 100.000 tiap pukul 11.11. Mekanik Beli 2 Gratis 1 dalam kampanye ini tidak masuk saringan. Tambahan 10 Nov: jadwal 'perang voucher' 11.11 — voucher diskon 100% (maks. Rp25.000–Rp100.000) dirilis 5× sehari, min. belanja berlaku (Threads @feedallea).",
       "harga": "Diskon s.d. 90%",
       "jenis": "Lainnya",
       "judul": "Shopee 11.11 Big Sale — Diskon Jumbo s.d. 90%",
@@ -535,17 +535,17 @@
       "sumber": "https://www.facebook.com/nong.prily/posts/pfbid0pbpmdSZjfATY6HKHjzHJKsmBRpZpbN7tGPGQnSFkUv2AuX4X332PbNUTbdH5jBzfl"
     },
     {
-      "judul": "Watsons 11.11 Deal City — Diskon s.d. 50% + Voucher s.d. Rp75.000",
+      "judul": "Watsons 11.11 Deal City — Diskon s.d. 70% + Voucher s.d. Rp100.000",
       "toko": "Watsons",
       "kategori": "E-Commerce",
       "jenis": "Lainnya",
-      "harga": "Diskon s.d. 50%",
+      "harga": "Diskon s.d. 70%",
       "normal": "",
-      "deskripsi": "Watsons 11.11 Deal City 1–10 Nov 2026: diskon s.d. 50% untuk skincare, makeup & perawatan, plus voucher s.d. Rp75.000. Belanja online via aplikasi/website Watsons ID; bisa diakses dari Jepara.",
-      "label_periode": "1–10 Nov 2026",
-      "berakhir": "2026-11-10",
+      "deskripsi": "UPDATE 10 Nov: video pengumuman Watsons (YouTube Shorts) menyebut diskon s.d. 70% + Special Voucher s.d. Rp100.000 dan Flash Sale, periode s.d. 16 Nov 2026, online exclusive via aplikasi/website Watsons ID. Catatan: katalogpromosi.com masih mencantumkan fase 1–10 Nov (diskon s.d. 50%, voucher s.d. Rp75.000) — cek aplikasi sebelum belanja.",
+      "label_periode": "1–16 Nov 2026",
+      "berakhir": "2026-11-16",
       "status": "Komunitas",
-      "sumber": "https://www.instagram.com/p/DfY2iMtk2R_/"
+      "sumber": "https://www.youtube.com/shorts/oD3_f1tKgaM"
     },
     {
       "judul": "Coffee Gold — Gratis Konyaku Jelly Tiap Beli Minuman",
@@ -587,19 +587,6 @@
       "sumber": "https://aifree.dev/learn/free-ai-credits-for-hackathons"
     },
     {
-      "judul": "Indomaret Senin Ceria 9 Nov — CEDEA & HOMETOWN Beli 1 Gratis 1",
-      "toko": "Indomaret",
-      "kategori": "Minimarket",
-      "jenis": "Makanan",
-      "harga": "Beli 1 Gratis 1",
-      "normal": "",
-      "deskripsi": "Khusus Senin 9 Nov 2026, member Poinku: CEDEA Chikuwa Nejiri Black Pepper/Crab Stick Jumbo 50/55gr dan HOMETOWN Creamy Yoghurt Honi Pineapple/Mixed Berries 110gr — Beli 1 Gratis 1 (member hemat 50%). Scan QR member Poinku di kasir. Berlaku di gerai Indomaret yang berpartisipasi.",
-      "label_periode": "Senin 9 Nov 2026 (hari ini)",
-      "berakhir": "2026-11-09",
-      "status": "Resmi",
-      "sumber": "https://katalogpromosi.com/promo-indomaret-senin-ceria-khusus-member/"
-    },
-    {
       "judul": "Point Coffee — GRATIS 1 Kopi All Variant (Ulang Tahun November)",
       "toko": "Point Coffee",
       "kategori": "Kopi",
@@ -619,7 +606,7 @@
       "jenis": "Voucher & Gratis",
       "harga": "Rp1.000",
       "normal": "Rp25.000",
-      "deskripsi": "Voucher belanja Indomaret Rp25.000 / Alfamart Rp25.000 (juga Rp10.000) dijual Rp1.000 di Shopee selama 11.11 — dikonfirmasi tiga tangkapan layar aplikasi independen 8 Nov. Restock pukul 00.00/12.00/18.00 WIB, pasang pengingat di aplikasi. Catatan: satu unggahan komunitas menyebut harga Rp11.000 untuk slot tertentu — cek harga saat klaim sebelum bayar. Voucher bisa dipakai di gerai Jepara.",
+      "deskripsi": "Voucher belanja Indomaret Rp25.000 / Alfamart Rp25.000 (juga Rp10.000) dijual Rp1.000 di Shopee selama 11.11 — dikonfirmasi tiga tangkapan layar aplikasi independen 8 Nov. Restock pukul 00.00/12.00/18.00 WIB, pasang pengingat di aplikasi. Catatan: satu unggahan komunitas menyebut harga Rp11.000 untuk slot tertentu — cek harga saat klaim sebelum bayar. Voucher bisa dipakai di gerai Jepara. Tambahan bukti 9 Nov: voucher FamilyMart FamiCafé Rp25.000 juga seharga Rp1.000 di Shopee (grup Facebook).",
       "label_periode": "11.11, s.d. 11 Nov 2026",
       "berakhir": "2026-11-11",
       "status": "Komunitas",
@@ -676,6 +663,149 @@
       "berakhir": null,
       "status": "Resmi",
       "sumber": "https://aifree.dev/learn/free-ai-credits-for-hackathons"
+    },
+    {
+      "judul": "Alfamart 11.11 Double Date — Beli 1 Gratis 1",
+      "toko": "Alfamart",
+      "kategori": "Minimarket",
+      "jenis": "Lainnya",
+      "harga": "Beli 1 Gratis 1",
+      "normal": "",
+      "deskripsi": "Satu hari saja, Rabu 11 Nov 2026, 07.00–23.00 WIB, di seluruh Alfamart & Alfagift (gratis ongkir di Alfagift). Beli 1 Gratis 1 untuk 21 produk: SKIPPY Creamy Peanut Butter 170g, OVALTINE Choco 3in1, SUNPRIDE Juice 220ml, KEWPIE Wijen Sangrai, NISSIN RAMEN, JOYDAY, ROMA ARDEN, MUNCHY'S LEXUS, CAT CHOIZE+, VICK'S Inhaler, tisu & pengharum ruangan Alfamart, dll. Maks. 3 paket/struk, maks. 5 transaksi/member. Mekanik Beli 2 Gratis 1 di program yang sama tidak masuk saringan.",
+      "label_periode": "BESOK, 11 Nov 2026 (07.00–23.00 WIB)",
+      "berakhir": "2026-11-11",
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/promo-alfamart-11-11-double-date-sale/"
+    },
+    {
+      "judul": "Klik Indomaret 11.11 Spesial Harbolnas — Diskon s.d. 66% + Beli 1 Gratis 1",
+      "toko": "Klik Indomaret",
+      "kategori": "Minimarket",
+      "jenis": "Lainnya",
+      "harga": "Diskon s.d. 66%",
+      "normal": "",
+      "deskripsi": "Video promo Klik Indomaret (diunggah ulang akun info daerah, 9 Nov): diskon s.d. 66% (Skippy, Segitiga Biru, Sensasoft, Daia) + Beli 1 Gratis 1 (Sari Roti, Greenfields, SmartHeart, Molto, Cussons Baby). Flyer 10 Nov + katalogpromosi menyebut periode 10–12 Nov dengan diskon s.d. 50% — cek aplikasi. Gratis ongkir 1 jam sampai; ada kode member baru Rp10.000 (kode berbeda tiap daerah). Belanja via aplikasi Klik Indomaret.",
+      "label_periode": "10–12 Nov 2026",
+      "berakhir": "2026-11-12",
+      "status": "Komunitas",
+      "sumber": "https://www.instagram.com/reel/DfhY4cChcNE/"
+    },
+    {
+      "judul": "KFC Rp11.000 via ShopeePay (Pengguna Baru SPayLater)",
+      "toko": "KFC (via ShopeePay)",
+      "kategori": "Voucher & Gratis",
+      "jenis": "Makanan",
+      "harga": "Rp11.000",
+      "normal": "Rp39.000",
+      "deskripsi": "Paket Super Besar 1 (ayam + nasi + Coca-Cola) dari Rp39.000 jadi Rp11.000 — khusus pengguna baru SPayLater. Klaim voucher di aplikasi ShopeePay sejak 6 Nov; penukaran 11 Nov pukul 14.00 WIB & 14 Nov pukul 11.00 WIB, kuota 40.000 pengguna (per RCTI+ 7 Nov); unggahan resmi @spaylater_id menyebut masa penukaran 11–17 Nov — cek aplikasi. Gerai KFC Jepara ada di Jl. Pemuda No. 23.",
+      "label_periode": "Klaim sejak 6 Nov; tukar 11–17 Nov 2026",
+      "berakhir": "2026-11-17",
+      "status": "Resmi",
+      "sumber": "https://www.rctiplus.com/news/detail/gaya-hidup/5511260/banyak-promo-menarik-di-aplikasi-shopeepay-11-11--dari-kfc-rp11-ribu-hingga-saldo-kaget-setiap-hari"
+    },
+    {
+      "judul": "ShopeePay QRIS Diskon 60% via SPayLater",
+      "toko": "ShopeePay",
+      "kategori": "Voucher & Gratis",
+      "jenis": "Voucher & Gratis",
+      "harga": "Diskon 60%",
+      "normal": "",
+      "deskripsi": "Bayar QRIS pakai SPayLater sebagai sumber dana dapat diskon 60% di Alfamart, Indomaret, Boost Juice, MR DIY, SPBU Vivo, dan merchant QRIS lain (kampanye ShopeePay 11.11, 6–15 Nov 2026). Catatan jujur: maks. potongan tidak tercantum di artikel — cek aplikasi ShopeePay sebelum bayar. Berlaku di gerai Jepara.",
+      "label_periode": "6–15 Nov 2026",
+      "berakhir": "2026-11-15",
+      "status": "Resmi",
+      "sumber": "https://www.rctiplus.com/news/detail/gaya-hidup/5511260/banyak-promo-menarik-di-aplikasi-shopeepay-11-11--dari-kfc-rp11-ribu-hingga-saldo-kaget-setiap-hari"
+    },
+    {
+      "judul": "Lazada 11.11 — Diskon s.d. 95% + Voucher s.d. Rp1,5 Juta",
+      "toko": "Lazada",
+      "kategori": "E-Commerce",
+      "jenis": "Lainnya",
+      "harga": "Diskon s.d. 95%",
+      "normal": "",
+      "deskripsi": "Lazada 11.11 Diskon Terbesar Tahun Ini: mulai 10 Nov pukul 20.00 WIB s.d. 13 Nov 2026 — diskon s.d. 95% produk pilihan (Crazy Brand Mega Offer), voucher belanja s.d. Rp1,5 juta, gratis ongkir, Exclusive Surprise Deals tiap hari 20.00 WIB di LazMall. Extended Sale 14–15 Nov.",
+      "label_periode": "10 Nov 20.00–13 Nov 2026",
+      "berakhir": "2026-11-13",
+      "status": "Resmi",
+      "sumber": "https://gayatekno.id/aplikasi/lazada-11-11-2026-tawarkan-diskon-95-dan-voucher-rp15-juta-ada-21-momen-belanja-baru/"
+    },
+    {
+      "judul": "Blibli Histeria 11.11 — Voucher Rush Hour Diskon s.d. 50%",
+      "toko": "Blibli",
+      "kategori": "E-Commerce",
+      "jenis": "Lainnya",
+      "harga": "Diskon s.d. 50%",
+      "normal": "",
+      "deskripsi": "Blibli Histeria 11.11: Nyari Pusat Diskon (NPD), 3–13 Nov 2026. Voucher Rush Hour tiap pukul 11.00/13.00/15.00/17.00 WIB — diskon tambahan s.d. 50%. Peak Day 11–13 Nov: diskon tambahan s.d. Rp3 juta.",
+      "label_periode": "3–13 Nov 2026",
+      "berakhir": "2026-11-13",
+      "status": "Resmi",
+      "sumber": "https://indospektrum.com/blibli-hadirkan-merchandise-click-jisoo-dan-promo-histeria-11-11-catat-jadwal-rush-hour-nya/"
+    },
+    {
+      "judul": "Skin1004 11.11 Mega Sale — Kupon 80% + Harga Rp1.111",
+      "toko": "Skin1004 (Shopee/TikTok Shop)",
+      "kategori": "E-Commerce",
+      "jenis": "Lainnya",
+      "harga": "Kupon 80%",
+      "normal": "",
+      "deskripsi": "Skin1004 Indonesia 11.11 Mega Sale: kupon 80% di Shopee (1–12 Nov) dan TikTok Shop (1–11 Nov); tanggal 11 Nov ada penawaran Rp1.111 di kedua platform; kupon 50% & Rp50.000 untuk pembeli baru di TikTok Shop. Diumumkan akun resmi Skin1004 Indonesia (dikutip k-beauty.news).",
+      "label_periode": "1–12 Nov 2026",
+      "berakhir": "2026-11-12",
+      "status": "Resmi",
+      "sumber": "https://www.k-beauty.news/pt/news/2026-11-01-34"
+    },
+    {
+      "judul": "LLM7 — 100.000 Token AI Gratis Setiap Hari",
+      "toko": "LLM7",
+      "kategori": "AI Gratis",
+      "jenis": "AI Gratis",
+      "harga": "Gratis 100.000 token/hari",
+      "normal": "",
+      "deskripsi": "Tier gratis LLM7.io: 100.000 token/hari (input+output) untuk 7 model gratis — DeepSeek-V4-Flash, GLM-5.3-Flash, Codestral, dll. — via API OpenAI-compatible, tanpa kartu kredit. Terverifikasi 6 Nov 2026 di aifree.dev. Akses anonim tanpa kunci: 500.000 token/24 jam. Di luar radar FreeToken (kuota API harian, bukan model free-token).",
+      "label_periode": "Gratis setiap hari saat daftar",
+      "berakhir": null,
+      "status": "Resmi",
+      "sumber": "https://aifree.dev/provider/llm7-io"
+    },
+    {
+      "judul": "Exa — Kredit API Pencarian Gratis $10/bulan + Bonus $10",
+      "toko": "Exa",
+      "kategori": "AI Gratis",
+      "jenis": "AI Gratis",
+      "harga": "Gratis $10/bulan + bonus $10",
+      "normal": "",
+      "deskripsi": "API pencarian web untuk agen AI: $10 kredit gratis setiap bulan (reset tiap tanggal 1) + bonus $10 sekali saat daftar, tanpa kartu kredit — sekitar 2.500 pencarian Lite/bulan. Terverifikasi 8 Nov 2026. Berguna untuk Jurnal Finder (butuh kunci pencarian Exa/Brave). Di luar radar FreeToken (kredit API pencarian, bukan model free-token).",
+      "label_periode": "Kredit gratis bulanan saat daftar",
+      "berakhir": null,
+      "status": "Resmi",
+      "sumber": "https://aifree.dev/learn/free-web-search-api"
+    },
+    {
+      "judul": "Azure for Students — Kredit $100 + Layanan Gratis 12 Bulan",
+      "toko": "Microsoft Azure",
+      "kategori": "AI Gratis",
+      "jenis": "AI Gratis",
+      "harga": "Gratis $100 kredit",
+      "normal": "",
+      "deskripsi": "Mahasiswa terverifikasi (email kampus) mendapat kredit Azure $100 + 12 bulan layanan gratis — bisa dipakai untuk layanan AI Azure. Tanpa kartu kredit. Terverifikasi 2 Nov 2026. Fikri mahasiswa UNISNU — cek kelayakan dengan email kampus.",
+      "label_periode": "Program mahasiswa berjalan",
+      "berakhir": null,
+      "status": "Resmi",
+      "sumber": "https://aifree.dev/learn/free-openai-api-access"
+    },
+    {
+      "judul": "FamilyMart 11.11 Flash Sale — Mulai Rp4.900",
+      "toko": "FamilyMart",
+      "kategori": "Minimarket",
+      "jenis": "Lainnya",
+      "harga": "Mulai Rp4.900",
+      "normal": "",
+      "deskripsi": "Flash Sale 10–12 Nov: Kapal Api Signature/Good Day/Dum Dum Milk Tea/NutriSari Rp4.900; Nissin Cup, Delfi Twister, Paseo Rp6.500; M&M's & Happy Tos Rp9.900; FamiCafé Kopi Susu Keluarga pembelian ke-2 Rp14.000, Ice Bubble Rp16.000, Tteokbokki Rp20.000. Hanya di toko FamilyMart tertentu yang berpartisipasi. Catatan Jepara: belum terkonfirmasi ada gerai FamilyMart di Jepara (daftar kota resmi: Jabodetabek, Bandung, Surabaya, Malang, Sidoarjo, Gresik, Bali) — cek aplikasi FamilyMart untuk gerai terdekat.",
+      "label_periode": "10–12 Nov 2026",
+      "berakhir": "2026-11-12",
+      "status": "Komunitas",
+      "sumber": "https://katalogpromosi.com/promo-familymart-11-11-flash-sale-mulai-4900/"
     }
   ]
 }
