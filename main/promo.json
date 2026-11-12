@@ -1,5 +1,5 @@
 {
-  "diperbarui": "2026-11-11",
+  "diperbarui": "2026-11-12",
   "promo": [
     {
       "berakhir": null,
@@ -106,19 +106,6 @@
       "toko": "VideoGen"
     },
     {
-      "berakhir": "2026-11-11",
-      "deskripsi": "API open-weight model (DeepSeek V4 Pro, GLM-5.3, Kimi K3, MiniMax M3), kompatibel OpenAI (ganti base_url, API key, nama model). Tawaran peluncuran: $10 kredit gratis saat daftar, plus diskon 30% semua model s.d. 11 Nov 2026. Bukan seleksi proyek — kredit diberikan saat pendaftaran; verifikasi halaman harga sebelum memakai.",
-      "harga": "Gratis $10 kredit",
-      "jenis": "AI Gratis",
-      "judul": "Mango Inference — Kredit AI Gratis $10",
-      "kategori": "AI Gratis",
-      "label_periode": "Kredit gratis saat daftar; diskon 30% s.d. 11 Nov 2026",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://dev.to/richard_lin_46b30cea4e4d7/free-credits-mango-inference-59fm",
-      "toko": "Mango Inference (MangoBoost)"
-    },
-    {
       "berakhir": null,
       "deskripsi": "Satu API untuk iMessage, WhatsApp, Telegram, SMS, email, dan voice bagi pembangun agen pesan; kredit gratis $100 selama beta publik. Catatan: syarat kredit belum didokumentasikan di situs — cek halaman billing workspace setelah daftar. Daftar: photon.codes/beta.",
       "harga": "Gratis $100 kredit (beta)",
@@ -130,45 +117,6 @@
       "status": "Resmi",
       "sumber": "https://aifree.dev/news/photon-2-0-100-free-credits-messaging-agents",
       "toko": "Photon"
-    },
-    {
-      "berakhir": "2026-11-11",
-      "deskripsi": "Gebyar HUT ke-38 Indomaret 29 Okt–11 Nov. Yang lolos saringan Beli 1 Gratis 1: Pepsodent Sensitive Expert Original/Whitening 60g dan Close Up White Now Purple 95g. Sisa programnya bermekanik Beli 2 Gratis 1 / Beli 3 Gratis 1 — tidak masuk saringan ini. Berlaku di gerai Indomaret Jepara yang berpartisipasi, selama stok.",
-      "harga": "Beli 1 Gratis 1",
-      "jenis": "Kebutuhan Rumah",
-      "judul": "Indomaret Serba Gratis 29 Okt–11 Nov — Pasta Gigi Beli 1 Gratis 1",
-      "kategori": "Minimarket",
-      "label_periode": "29 Okt–11 Nov 2026",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://katalogpromosi.com/promo-indomaret-serba-gratis-beli-1-gratis-1/",
-      "toko": "Indomaret"
-    },
-    {
-      "berakhir": "2026-11-11",
-      "deskripsi": "Belanja min. Rp50.000 (kecuali rokok & susu bayi) bisa tebus produk mulai Rp5.000: Roma Wafello Rp5.000, Isoplus 2 pcs Rp5.000, Nipis Madu Rp8.000, Blue Band Rp8.000, Kanzler Gochujang Rp11.500, dan item tebus Rp10.000/Rp15.000 lainnya. Berlaku Jawa–Bali–Lombok termasuk Jepara, 29 Okt–11 Nov.",
-      "harga": "Tebus mulai Rp5.000",
-      "jenis": "Lainnya",
-      "judul": "Indomaret PWP Tebus Heboh — Tebus Mulai Rp5.000",
-      "kategori": "Minimarket",
-      "label_periode": "29 Okt–11 Nov 2026",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://www.instagram.com/p/DfD_4dxE4WI/",
-      "toko": "Indomaret"
-    },
-    {
-      "berakhir": "2026-11-11",
-      "deskripsi": "Serba Gratis 29 Okt–11 Nov: Pantene Shampoo Pro-V Anti Dandruff/Hair Fall Control 290ml Beli 1 Gratis 1 pack Pantene Miracles Vitamin Ampoule 5's. Berlaku di gerai Indomaret Jepara yang berpartisipasi, selama stok.",
-      "harga": "Beli 1 Gratis 1",
-      "jenis": "Kebutuhan Rumah",
-      "judul": "Indomaret Serba Gratis — Pantene Beli 1 Gratis 1",
-      "kategori": "Minimarket",
-      "label_periode": "29 Okt–11 Nov 2026",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://katalogpromosi.com/promo-indomaret-serba-gratis-beli-1-gratis-1/",
-      "toko": "Indomaret"
     },
     {
       "berakhir": "2026-11-13",
@@ -236,19 +184,6 @@
       "toko": "AIVideoFree"
     },
     {
-      "berakhir": "2026-11-11",
-      "deskripsi": "Kampanye DANA 11.11 1–11 Nov 2026: voucher Alfamart dan Indomaret senilai Rp10.000 bisa ditebus seharga Rp11 lewat aplikasi DANA. Stok terbatas, restock tiap hari pukul 11.00, 13.00, dan 16.00 WIB — siap-siap di jam restock. Voucher bisa dipakai di gerai Jepara.",
-      "harga": "Rp11",
-      "jenis": "Voucher & Gratis",
-      "judul": "DANA 11.11 Promo Rp11 — Voucher Alfamart & Indomaret Rp10.000",
-      "kategori": "Voucher & Gratis",
-      "label_periode": "1–11 Nov 2026",
-      "normal": "Rp10.000",
-      "status": "Resmi",
-      "sumber": "https://www.mediakompeten.co.id/dana-1111-voucher-promo",
-      "toko": "DANA"
-    },
-    {
       "berakhir": null,
       "deskripsi": "Kredit API $100 untuk akun baru (tanpa kartu kredit, per FAQ resmi yang dikutip perbandingan independen 20 Okt 2026): API pencarian web untuk agen AI (Web Search $5/1.000 panggilan, Contents $1/1.000 halaman). Bukan aplikasi chat — untuk developer. Tidak ada tanggal kedaluwarsa kredit yang dipublikasikan; verifikasi halaman FAQ sebelum memakai. Di luar radar FreeToken (ini kredit API pencarian, bukan model free-token).",
       "harga": "Gratis $100 kredit",
@@ -263,7 +198,7 @@
     },
     {
       "berakhir": "2026-11-30",
-      "deskripsi": "COFFEEDAY: semua varian kopi Bean Spot hanya Rp10.000 (normal Rp15.000), setiap Senin, Rabu, dan Jumat selama November 2026 — hari promo berikutnya Rabu 11 Nov. Berlaku di Alfamart yang memiliki booth Bean Spot dan via Alfagift — cek Alfamart Jepara terdekat.",
+      "deskripsi": "COFFEEDAY: semua varian kopi Bean Spot hanya Rp10.000 (normal Rp15.000), setiap Senin, Rabu, dan Jumat selama November 2026 — hari promo berikutnya Jumat 13 Nov. Berlaku di Alfamart yang memiliki booth Bean Spot dan via Alfagift — cek Alfamart Jepara terdekat.",
       "harga": "Rp10.000",
       "jenis": "Minuman",
       "judul": "Bean Spot COFFEEDAY — Semua Varian Kopi Rp10.000 (Senin/Rabu/Jumat)",
@@ -314,19 +249,6 @@
       "toko": "Point Coffee"
     },
     {
-      "berakhir": "2026-11-11",
-      "deskripsi": "Katalog Paling Murah 5–11 Nov 2026 (Jawa–Bali–Lombok, termasuk Jepara; mulai besok): Aquviva Air Mineral 700ml beli 2 hanya Rp5.800. Item lain: Aquviva 1600ml Rp5.600, Sedaap Mie Goreng 5x90g Rp13.400.",
-      "harga": "Beli 2 Rp5.800",
-      "jenis": "Minuman",
-      "judul": "Indomaret Paling Murah 5–11 Nov — Aquviva 700ml Beli 2 Rp5.800",
-      "kategori": "Minimarket",
-      "label_periode": "5–11 Nov 2026",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "http://katalogpromosi.com/promo-indomaret-paling-murah-terbaru-minggu-ini/",
-      "toko": "Indomaret"
-    },
-    {
       "berakhir": "2026-11-15",
       "deskripsi": "Belanja min. Rp50.000 (nett, kecuali susu bayi <1 tahun, minyak goreng, rokok, item tebus) bisa tebus produk mulai Rp5.000: Diamond Juice Blueberry/Cranberry 200ml Rp5.000, Khong Guan Malkist Abon Sapi Rp6.000, item tebus Rp10.000/Rp15.000 lainnya, maks. 6 item. Berlaku di seluruh Alfamart kecuali NTT; tidak berlaku di rest area/bandara/stasiun/pelabuhan.",
       "harga": "Tebus mulai Rp5.000",
@@ -338,19 +260,6 @@
       "status": "Resmi",
       "sumber": "https://katalogpromosi.com/promo-alfamart-tebus-murah-serba-mulai-rp5-000/",
       "toko": "Alfamart"
-    },
-    {
-      "berakhir": "2026-11-11",
-      "deskripsi": "Bukti komunitas: voucher ShopeeFood 'Diskon Rame Rame' 50% s.d. Rp200.000 (min. belanja Rp100.000) dari @pikodiskon (3 Nov), diperkuat bukti checkout @dinivirginia87 (2 Nov): subtotal Rp214.000, voucher −Rp107.000 (±50%), bayar Rp118.000. Voucher harian 11.11 lain (90% s.d. Rp16.000–Rp20.000, resto tertentu) klaim pukul 11.00/15.00/18.00/19.00 WIB — cek aplikasi sebelum pesan.",
-      "harga": "Diskon 50% s.d. Rp200.000",
-      "jenis": "Pesan Antar Online",
-      "judul": "ShopeeFood Diskon Rame-Rame 50% s.d. Rp200.000",
-      "kategori": "Pesan Antar Online",
-      "label_periode": "Kampanye 11.11",
-      "normal": "",
-      "status": "Komunitas",
-      "sumber": "https://www.threads.com/@pikodiskon/post/DfRfFQYFMlF",
-      "toko": "ShopeeFood"
     },
     {
       "berakhir": null,
@@ -367,7 +276,7 @@
     },
     {
       "berakhir": null,
-      "deskripsi": "Beli satu minuman Large pilihan (mis. Butterscotch Aren Latte, Latte, Creamy Aren Latte, Matcha Latte), gratis satu minuman Regular pilihan (mis. Americano, Kopi Kenangan Mantan). Hanya di outlet yang menampilkan banner promo di aplikasi — gerai Kartini Jepara terkonfirmasi ada. Hari promo berikutnya: Senin 9 Nov & Selasa 10 Nov 2026.",
+      "deskripsi": "Beli satu minuman Large pilihan (mis. Butterscotch Aren Latte, Latte, Creamy Aren Latte, Matcha Latte), gratis satu minuman Regular pilihan (mis. Americano, Kopi Kenangan Mantan). Hanya di outlet yang menampilkan banner promo di aplikasi — gerai Kartini Jepara terkonfirmasi ada. Hari promo berikutnya: Senin 16 Nov & Selasa 17 Nov 2026.",
       "harga": "Beli 1 Gratis 1",
       "jenis": "Minuman",
       "judul": "Kopi Kenangan — Beli 1 Gratis 1 Setiap Senin & Selasa",
@@ -600,32 +509,6 @@
       "toko": "Point Coffee"
     },
     {
-      "berakhir": "2026-11-11",
-      "deskripsi": "Voucher belanja Indomaret Rp25.000 / Alfamart Rp25.000 (juga Rp10.000) dijual Rp1.000 di Shopee selama 11.11 — dikonfirmasi tiga tangkapan layar aplikasi independen 8 Nov. Restock pukul 00.00/12.00/18.00 WIB, pasang pengingat di aplikasi. Catatan: satu unggahan komunitas menyebut harga Rp11.000 untuk slot tertentu — cek harga saat klaim sebelum bayar. Voucher bisa dipakai di gerai Jepara. Tambahan bukti 9 Nov: voucher FamilyMart FamiCafé Rp25.000 juga seharga Rp1.000 di Shopee (grup Facebook).",
-      "harga": "Rp1.000",
-      "jenis": "Voucher & Gratis",
-      "judul": "Shopee 11.11 — Voucher Indomaret/Alfamart Rp25.000 Seharga Rp1.000",
-      "kategori": "Voucher & Gratis",
-      "label_periode": "11.11, s.d. 11 Nov 2026",
-      "normal": "Rp25.000",
-      "status": "Komunitas",
-      "sumber": "https://www.threads.com/@banyakpromoo/post/DffM0sLHYIF",
-      "toko": "Shopee"
-    },
-    {
-      "berakhir": "2026-11-11",
-      "deskripsi": "Tangkapan layar aplikasi Shopee (grup Facebook, 8 Nov) di hub voucher 11.11 menampilkan voucher ShopeeFood: diskon makanan 100% s.d. Rp20.000 dan diskon ongkir Rp15.000, dengan tombol Klaim. Kampanye 11.11 — cek aplikasi ShopeeFood sebelum pesan; syarat min. belanja tidak tercantum di tangkapan layar.",
-      "harga": "Diskon 100% s.d. Rp20.000",
-      "jenis": "Pesan Antar Online",
-      "judul": "ShopeeFood 11.11 — Diskon 100% s.d. Rp20.000 + Ongkir Rp15.000",
-      "kategori": "Pesan Antar Online",
-      "label_periode": "11.11, s.d. 11 Nov 2026",
-      "normal": "",
-      "status": "Komunitas",
-      "sumber": "https://www.facebook.com/groups/466869967788547/permalink/1878546273287569/",
-      "toko": "ShopeeFood"
-    },
-    {
       "berakhir": null,
       "deskripsi": "Tangkapan layar keranjang Alfagift (8 Nov): beli 1 Kopi Kenangan Indonesiano Kopi Hitam Original PET 200ml Rp6.500 (dari Rp7.400) gratis Lay's Keripik Kentang Rumput Laut 13g + gratis Regen Minuman Sehat Lemon Jeruk Nipis 300ml. Total bayar Rp6.500. Cek Alfagift sebelum membeli — promo bisa beda tiap daerah.",
       "harga": "Rp6.500",
@@ -663,19 +546,6 @@
       "status": "Resmi",
       "sumber": "https://aifree.dev/learn/free-ai-credits-for-hackathons",
       "toko": "Alibaba Cloud"
-    },
-    {
-      "berakhir": "2026-11-11",
-      "deskripsi": "Satu hari saja, Rabu 11 Nov 2026, 07.00–23.00 WIB, di seluruh Alfamart & Alfagift (gratis ongkir di Alfagift). Beli 1 Gratis 1 untuk 21 produk: SKIPPY Creamy Peanut Butter 170g, OVALTINE Choco 3in1, SUNPRIDE Juice 220ml, KEWPIE Wijen Sangrai, NISSIN RAMEN, JOYDAY, ROMA ARDEN, MUNCHY'S LEXUS, CAT CHOIZE+, VICK'S Inhaler, tisu & pengharum ruangan Alfamart, dll. Maks. 3 paket/struk, maks. 5 transaksi/member. Mekanik Beli 2 Gratis 1 di program yang sama tidak masuk saringan.",
-      "harga": "Beli 1 Gratis 1",
-      "jenis": "Lainnya",
-      "judul": "Alfamart 11.11 Double Date — Beli 1 Gratis 1",
-      "kategori": "Minimarket",
-      "label_periode": "BESOK, 11 Nov 2026 (07.00–23.00 WIB)",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://katalogpromosi.com/promo-alfamart-11-11-double-date-sale/",
-      "toko": "Alfamart"
     },
     {
       "berakhir": "2026-11-12",
@@ -873,19 +743,6 @@
       "toko": "ShopeeFood"
     },
     {
-      "berakhir": "2026-11-11",
-      "deskripsi": "HONOR X7d 512GB diskon s.d. 40% di HONOR Official Store Shopee, hanya Rabu 11 Nov 2026 via live streaming mulai 08.00 WIB; ada voucher tambahan + gratis ongkir. Cek harga akhir di toko sebelum checkout.",
-      "harga": "Diskon s.d. 40%",
-      "jenis": "Lainnya",
-      "judul": "HONOR X7d 512GB — Diskon s.d. 40% di Shopee 11.11",
-      "kategori": "E-Commerce",
-      "label_periode": "11 Nov 2026",
-      "normal": "",
-      "status": "Resmi",
-      "sumber": "https://gayatekno.id/handphone/honor-x7d-512gb-diskon-40-di-shopee-11-11-jadi-solusi-di-tengah-ancaman-kenaikan-harga-smartphone/",
-      "toko": "HONOR Official Store (Shopee)"
-    },
-    {
       "berakhir": "2026-11-30",
       "deskripsi": "Novembest Deals 1-30 Nov 2026: voucher diskon s.d. 50%, potongan harga s.d. Rp300.000, flash sale mulai Rp110 + gratis ongkir; Flash Sale 11.11 pada 11-13 Nov pukul 09.00-22.00 WIB. Belanja online via DatascripMall.ID (toko offline hanya di Kemayoran, Jakarta).",
       "harga": "Diskon s.d. 50%",
@@ -923,6 +780,84 @@
       "status": "Resmi",
       "sumber": "https://aicredits.tech/blog/free-ai-api-credits-compared",
       "toko": "Inception"
+    },
+    {
+      "berakhir": "2026-11-18",
+      "deskripsi": "PWP Indomaret 12–18 Nov 2026: belanja min. Rp75.000 dalam satu struk, tebus Total Detergent Powder De Parfumee 750g hanya Rp8.900 dari normal Rp17.500 (hemat ~49%). Berlaku kelipatan. Item PWP lain di periode yang sama: Fortune Minyak Goreng 2L Rp36.800 (hemat 7%) dan Bango Kecap 735ml Rp24.500 (hemat 25%) — di bawah 40%, tidak lolos saringan.",
+      "harga": "Rp8.900",
+      "jenis": "Kebutuhan Rumah",
+      "judul": "Indomaret PWP 12–18 Nov — Total Detergent Rp8.900 (Hemat 49%)",
+      "kategori": "Minimarket",
+      "label_periode": "12–18 Nov 2026",
+      "normal": "Rp17.500",
+      "status": "Resmi",
+      "sumber": "https://hargacampur.com/promo-pwp-indomaret/",
+      "toko": "Indomaret"
+    },
+    {
+      "berakhir": "2026-11-25",
+      "deskripsi": "Promo Berhadiah Indomaret 12–25 Nov 2026: beli 1 produk, gratis produk lain — Kacang Mete Original 65g gratis 1 botol Air Mineral 1L; ETAWALIN Susu 200g gratis 3 pck Indomie Goreng Spesial; Facial Tissue Non Perfumed 900g gratis 1 bdd Baby Wipes / LARISST / Aqua Fresh 2x50S. Tidak berlaku kelipatan. Mekanik Beli 2 Gratis 1 dalam program yang sama tidak masuk saringan. Berlaku nasional, gerai Jepara termasuk.",
+      "harga": "GRATIS (bonus)",
+      "jenis": "Lainnya",
+      "judul": "Indomaret Promo Berhadiah 12–25 Nov — Beli 1 Gratis Produk Lain",
+      "kategori": "Minimarket",
+      "label_periode": "12–25 Nov 2026",
+      "normal": "",
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/promo-indomaret-bulan-ini/",
+      "toko": "Indomaret"
+    },
+    {
+      "berakhir": "2026-12-31",
+      "deskripsi": "Diskon dan cashback hingga 50% untuk pembayaran QRIS bank dan e-wallet tertentu (Bank Jago, Permata Bank, Bank Sinarmas, AstraPay, Neobank) di seluruh outlet Kopi Kenangan, s.d. 31 Des 2026. Cek banner promo & metode pembayaran yang berlaku di aplikasi — gerai Kartini Jepara terkonfirmasi ada.",
+      "harga": "Diskon/cashback s.d. 50%",
+      "jenis": "Minuman",
+      "judul": "Kopi Kenangan — Diskon/Cashback s.d. 50% via QRIS Bank & E-Wallet",
+      "kategori": "Kopi",
+      "label_periode": "s.d. 31 Des 2026",
+      "normal": "",
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/restoran-dan-cafe/kopi-kenangan/",
+      "toko": "Kopi Kenangan"
+    },
+    {
+      "berakhir": null,
+      "deskripsi": "Bundle Romantis: 3 makanan pilihan mulai Rp23.000 — mix & match roti, donat, dan choux puff via aplikasi, outlet, atau online delivery. Berlaku di outlet Kopi Kenangan yang berpartisipasi — gerai Kartini Jepara terkonfirmasi ada.",
+      "harga": "Rp23.000 (3 makanan)",
+      "jenis": "Makanan",
+      "judul": "Kopi Kenangan — Bundle Romantis 3 Makanan Rp23.000",
+      "kategori": "Kopi",
+      "label_periode": "Program berjalan",
+      "normal": "",
+      "status": "Resmi",
+      "sumber": "https://katalogpromosi.com/restoran-dan-cafe/kopi-kenangan/",
+      "toko": "Kopi Kenangan"
+    },
+    {
+      "berakhir": null,
+      "deskripsi": "Akun baru mendapat 2.000 kredit API gratis (senilai $20) untuk Tripo AI — API pembuatan model 3D untuk game/dev. Tanpa kartu kredit. Terverifikasi 5 Nov 2026 di katalog aifree.dev. Di luar radar FreeToken (ini kredit API, bukan model free-token).",
+      "harga": "Gratis $20 kredit",
+      "jenis": "AI Gratis",
+      "judul": "Tripo AI — Kredit API Gratis $20 untuk Akun Baru",
+      "kategori": "AI Gratis",
+      "label_periode": "Kredit gratis saat daftar",
+      "normal": "",
+      "status": "Resmi",
+      "sumber": "https://aifree.dev/learn/free-ai-credits-for-hackathons",
+      "toko": "Tripo AI"
+    },
+    {
+      "berakhir": null,
+      "deskripsi": "Kredit $10 gratis untuk tiga bulan di AI21 Labs (API, SDK, playground), tanpa kartu kredit. Terverifikasi 5 Nov 2026 di katalog aifree.dev. Di luar radar FreeToken (ini kredit API, bukan model free-token).",
+      "harga": "Gratis $10 kredit",
+      "jenis": "AI Gratis",
+      "judul": "AI21 Labs — Kredit AI Gratis $10 (3 Bulan)",
+      "kategori": "AI Gratis",
+      "label_periode": "Kredit gratis saat daftar, berlaku 3 bulan",
+      "normal": "",
+      "status": "Resmi",
+      "sumber": "https://aifree.dev/learn/free-ai-credits-for-hackathons",
+      "toko": "AI21 Labs"
     }
   ]
 }
